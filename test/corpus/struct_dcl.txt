@@ -1,0 +1,205 @@
+========================================
+struct_dcl
+========================================
+
+struct HelloWorld;
+struct HelloWorld {};
+
+struct HelloWorld {
+    u8 a;
+    u16 b[10];
+    string c[10][20];
+    sequence<u8> c;
+    string<20> d;
+    wstring<20> d;
+    fixed<1,2> d;
+};
+
+struct HelloWorld: Parent {
+    string a[20];
+    wstring b;
+};
+
+---
+
+(specification
+  (struct_forward_dcl
+    (identifier))
+  (struct_def
+    (identifier))
+  (struct_def
+    (identifier)
+    (member
+      (type_spec
+        (simple_type_spec
+          (scoped_name
+            (identifier))))
+      (declarators
+        (declarator
+          (simple_declarator
+            (identifier)))))
+    (member
+      (type_spec
+        (simple_type_spec
+          (scoped_name
+            (identifier))))
+      (declarators
+        (declarator
+          (array_declarator
+            (identifier)
+            (fixed_array_size
+              (positive_int_const
+                (const_expr
+                  (or_expr
+                    (xor_expr
+                      (and_expr
+                        (shift_expr
+                          (add_expr
+                            (mult_expr
+                              (unary_expr
+                                (literal
+                                  (number_literal))))))))))))))))
+    (member
+      (type_spec
+        (template_type_spec
+          (string_type)))
+      (declarators
+        (declarator
+          (array_declarator
+            (identifier)
+            (fixed_array_size
+              (positive_int_const
+                (const_expr
+                  (or_expr
+                    (xor_expr
+                      (and_expr
+                        (shift_expr
+                          (add_expr
+                            (mult_expr
+                              (unary_expr
+                                (literal
+                                  (number_literal))))))))))))
+            (fixed_array_size
+              (positive_int_const
+                (const_expr
+                  (or_expr
+                    (xor_expr
+                      (and_expr
+                        (shift_expr
+                          (add_expr
+                            (mult_expr
+                              (unary_expr
+                                (literal
+                                  (number_literal))))))))))))))))
+    (member
+      (type_spec
+        (template_type_spec
+          (sequence_type
+            (type_spec
+              (simple_type_spec
+                (scoped_name
+                  (identifier)))))))
+      (declarators
+        (declarator
+          (simple_declarator
+            (identifier)))))
+    (member
+      (type_spec
+        (template_type_spec
+          (string_type
+            (positive_int_const
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (literal
+                                (number_literal))))))))))))))
+      (declarators
+        (declarator
+          (simple_declarator
+            (identifier)))))
+    (member
+      (type_spec
+        (template_type_spec
+          (string_type
+            (positive_int_const
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (literal
+                                (number_literal))))))))))))))
+      (declarators
+        (declarator
+          (simple_declarator
+            (identifier)))))
+    (member
+      (type_spec
+        (template_type_spec
+          (fixed_pt_type
+            (positive_int_const
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (literal
+                                (number_literal)))))))))))
+            (positive_int_const
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (literal
+                                (number_literal))))))))))))))
+      (declarators
+        (declarator
+          (simple_declarator
+            (identifier))))))
+  (struct_def
+    (identifier)
+    (scoped_name
+      (identifier))
+    (member
+      (type_spec
+        (template_type_spec
+          (string_type)))
+      (declarators
+        (declarator
+          (array_declarator
+            (identifier)
+            (fixed_array_size
+              (positive_int_const
+                (const_expr
+                  (or_expr
+                    (xor_expr
+                      (and_expr
+                        (shift_expr
+                          (add_expr
+                            (mult_expr
+                              (unary_expr
+                                (literal
+                                  (number_literal))))))))))))))))
+    (member
+      (type_spec
+        (template_type_spec
+          (string_type)))
+      (declarators
+        (declarator
+          (simple_declarator
+            (identifier)))))))

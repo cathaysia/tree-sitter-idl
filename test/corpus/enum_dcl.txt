@@ -1,0 +1,21 @@
+========================================
+enum_dcl
+========================================
+
+enum A {
+   A,B,C,D
+};
+
+---
+
+(specification
+  (enum_dcl
+    (identifier)
+    (enumerator
+      (identifier))
+    (enumerator
+      (identifier))
+    (enumerator
+      (identifier))
+    (enumerator
+      (identifier))))

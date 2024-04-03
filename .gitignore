@@ -1,0 +1,4 @@
+node_modules
+*.o
+pnpm-lock.yaml
+build

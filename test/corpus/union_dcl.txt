@@ -1,0 +1,92 @@
+========================================
+union_dcl
+========================================
+
+union A;
+
+union A switch(long) {};
+
+union A switch(long) {
+    case 1:
+        u8 a;
+    case 2:
+        u16 b;
+    default:
+        u32 c[10];
+};
+
+---
+
+(specification
+  (union_forward_dcl
+    (identifier))
+  (union_def
+    (identifier)
+    (switch_type_spec
+      (primitive_type)))
+  (union_def
+    (identifier)
+    (switch_type_spec
+      (primitive_type))
+    (case
+      (case_label
+        (const_expr
+          (or_expr
+            (xor_expr
+              (and_expr
+                (shift_expr
+                  (add_expr
+                    (mult_expr
+                      (unary_expr
+                        (literal
+                          (number_literal)))))))))))
+      (element_spec
+        (type_spec
+          (simple_type_spec
+            (scoped_name
+              (identifier))))
+        (declarator
+          (simple_declarator
+            (identifier)))))
+    (case
+      (case_label
+        (const_expr
+          (or_expr
+            (xor_expr
+              (and_expr
+                (shift_expr
+                  (add_expr
+                    (mult_expr
+                      (unary_expr
+                        (literal
+                          (number_literal)))))))))))
+      (element_spec
+        (type_spec
+          (simple_type_spec
+            (scoped_name
+              (identifier))))
+        (declarator
+          (simple_declarator
+            (identifier)))))
+    (case
+      (case_label)
+      (element_spec
+        (type_spec
+          (simple_type_spec
+            (scoped_name
+              (identifier))))
+        (declarator
+          (array_declarator
+            (identifier)
+            (fixed_array_size
+              (positive_int_const
+                (const_expr
+                  (or_expr
+                    (xor_expr
+                      (and_expr
+                        (shift_expr
+                          (add_expr
+                            (mult_expr
+                              (unary_expr
+                                (literal
+                                  (number_literal))))))))))))))))))
