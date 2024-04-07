@@ -1,0 +1,42 @@
+========================================
+interface_dcl
+========================================
+
+interface HelloWorld;
+interface HelloWorld {};
+
+interface HelloWorld: Parent {};
+interface HelloWorld: Parent1, Parent2, Parent3 {};
+
+---
+
+(specification
+  (interface_dcl
+    (interface_forward_dcl
+      (identifier)))
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (identifier))))
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (identifier)
+        (interface_inheritance_spec
+          (interface_name
+            (scoped_name
+              (identifier)))))))
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (identifier)
+        (interface_inheritance_spec
+          (interface_name
+            (scoped_name
+              (identifier)))
+          (interface_name
+            (scoped_name
+              (identifier)))
+          (interface_name
+            (scoped_name
+              (identifier))))))))

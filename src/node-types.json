@@ -524,53 +524,6 @@
     }
   },
   {
-    "type": "inherit",
-    "named": true,
-    "fields": {
-      "parent": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "interface",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "inherit",
-          "named": true
-        },
-        {
-          "type": "interface_anno",
-          "named": true
-        },
-        {
-          "type": "interface_attribute",
-          "named": true
-        },
-        {
-          "type": "interface_function",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "interface_anno",
     "named": true,
     "fields": {},
@@ -613,6 +566,52 @@
     }
   },
   {
+    "type": "interface_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "interface_def",
+          "named": true
+        },
+        {
+          "type": "interface_forward_dcl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "interface_def",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "interface_anno",
+          "named": true
+        },
+        {
+          "type": "interface_attribute",
+          "named": true
+        },
+        {
+          "type": "interface_function",
+          "named": true
+        },
+        {
+          "type": "interface_header",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "interface_except",
     "named": true,
     "fields": {},
@@ -622,6 +621,21 @@
       "types": [
         {
           "type": "scoped_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "interface_forward_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
           "named": true
         }
       ]
@@ -655,9 +669,58 @@
     }
   },
   {
+    "type": "interface_header",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "interface_inheritance_spec",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "interface_inheritance_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "interface_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "interface_modifier",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "interface_name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "scoped_name",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "literal",
@@ -755,7 +818,7 @@
           "named": true
         },
         {
-          "type": "interface",
+          "type": "interface_dcl",
           "named": true
         },
         {
@@ -1006,7 +1069,7 @@
           "named": true
         },
         {
-          "type": "interface",
+          "type": "interface_dcl",
           "named": true
         },
         {

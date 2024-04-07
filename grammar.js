@@ -39,7 +39,7 @@ module.exports = grammar({
       choice(
         $.annotation,
         $.bitmask,
-        $.interface,
+        $.interface_dcl,
         $.native_dcl,
         $.constr_type_dcl,
       ),
@@ -62,12 +62,6 @@ module.exports = grammar({
           repeat($.member),
           '}',
         ),
-      ),
-    inherit: $ =>
-      seq(
-        ':',
-        repeat(field('parent', $.identifier, ',')),
-        field('parent', $.identifier),
       ),
     member: $ =>
       seq(
@@ -176,13 +170,18 @@ module.exports = grammar({
     typedef_dcl: $ => seq('typedef', $.type_declarator),
 
     predefine: $ => seq('#define', /[^\n]*/),
-    interface: $ =>
+    interface_dcl: $ => choice($.interface_def, $.interface_forward_dcl),
+    interface_forward_dcl: $ => seq('interface', $.identifier),
+    interface_header: $ =>
+      seq('interface', $.identifier, optional($.interface_inheritance_spec)),
+    interface_inheritance_spec: $ =>
+      seq(':', repeat(seq($.interface_name, ',')), $.interface_name),
+    interface_name: $ => $.scoped_name,
+    interface_def: $ =>
       seq(
         repeat($.interface_anno),
         optional('local'),
-        'interface',
-        $.identifier,
-        optional($.inherit),
+        $.interface_header,
         '{',
         repeat($.interface_attribute),
         repeat($.interface_function),
