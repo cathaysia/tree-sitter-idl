@@ -441,6 +441,25 @@
     }
   },
   {
+    "type": "except_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "member",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "fixed_array_size",
     "named": true,
     "fields": {},
@@ -728,6 +747,10 @@
           "named": true
         },
         {
+          "type": "except_dcl",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -976,6 +999,10 @@
         },
         {
           "type": "enum_dcl",
+          "named": true
+        },
+        {
+          "type": "except_dcl",
           "named": true
         },
         {
@@ -1562,6 +1589,10 @@
   },
   {
     "type": "enum",
+    "named": false
+  },
+  {
+    "type": "exception",
     "named": false
   },
   {

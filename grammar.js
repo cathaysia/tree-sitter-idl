@@ -31,7 +31,10 @@ module.exports = grammar({
       choice(
         $.predefine,
         seq(choice($.module_dcl, $.type_dcl, $.const_dcl, $.typedef_dcl), ';'),
+        $.except_dcl,
       ),
+    except_dcl: $ =>
+      seq('exception', $.identifier, '{', repeat($.member), '}', ';'),
     type_dcl: $ =>
       choice(
         $.annotation,
@@ -120,7 +123,7 @@ module.exports = grammar({
       ),
     unary_expr: $ =>
       choice(seq($.unary_operator, $.primary_expr), $.primary_expr),
-    unary_operator: _ =>prec.left(PREC.UNARY, choice('-', '+', '~')),
+    unary_operator: _ => prec.left(PREC.UNARY, choice('-', '+', '~')),
     primary_expr: $ =>
       choice($.scoped_name, $.literal, seq('(', $.const_expr, ')')),
     char_literal: $ => seq("'", field('value', /\w+/), "'"),
