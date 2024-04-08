@@ -23,11 +23,13 @@ union A switch(long) {
   (union_def
     (identifier)
     (switch_type_spec
-      (primitive_type)))
+      (primitive_type
+        (integer_type))))
   (union_def
     (identifier)
     (switch_type_spec
-      (primitive_type))
+      (primitive_type
+        (integer_type)))
     (case
       (case_label
         (const_expr

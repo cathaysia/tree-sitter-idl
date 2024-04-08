@@ -224,7 +224,45 @@
     }
   },
   {
-    "type": "bitmask",
+    "type": "bitfield",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bitfield_spec",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "bitfield_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "destination_type",
+          "named": true
+        },
+        {
+          "type": "positive_int_const",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "bitmask_dcl",
     "named": true,
     "fields": {},
     "children": {
@@ -256,6 +294,29 @@
         },
         {
           "type": "position",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "bitset_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bitfield",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
           "named": true
         }
       ]
@@ -446,6 +507,29 @@
     }
   },
   {
+    "type": "destination_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "boolean_type",
+          "named": true
+        },
+        {
+          "type": "integer_type",
+          "named": true
+        },
+        {
+          "type": "octet_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "element_spec",
     "named": true,
     "fields": {},
@@ -630,6 +714,11 @@
     }
   },
   {
+    "type": "integer_type",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "interface_anno",
     "named": true,
     "fields": {},
@@ -797,6 +886,25 @@
     }
   },
   {
+    "type": "map_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "positive_int_const",
+          "named": true
+        },
+        {
+          "type": "type_spec",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "member",
     "named": true,
     "fields": {
@@ -849,7 +957,11 @@
           "named": true
         },
         {
-          "type": "bitmask",
+          "type": "bitmask_dcl",
+          "named": true
+        },
+        {
+          "type": "bitset_dcl",
           "named": true
         },
         {
@@ -1083,7 +1195,25 @@
   {
     "type": "primitive_type",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "boolean_type",
+          "named": true
+        },
+        {
+          "type": "integer_type",
+          "named": true
+        },
+        {
+          "type": "octet_type",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "raises_expr",
@@ -1257,7 +1387,11 @@
           "named": true
         },
         {
-          "type": "bitmask",
+          "type": "bitmask_dcl",
+          "named": true
+        },
+        {
+          "type": "bitset_dcl",
           "named": true
         },
         {
@@ -1451,6 +1585,10 @@
       "types": [
         {
           "type": "fixed_pt_type",
+          "named": true
+        },
+        {
+          "type": "map_type",
           "named": true
         },
         {
@@ -1811,12 +1949,20 @@
     "named": true
   },
   {
+    "type": "bitfield",
+    "named": false
+  },
+  {
     "type": "bitmask",
     "named": false
   },
   {
-    "type": "boolean",
+    "type": "bitset",
     "named": false
+  },
+  {
+    "type": "boolean_type",
+    "named": true
   },
   {
     "type": "byte",
@@ -1865,10 +2011,6 @@
   {
     "type": "external",
     "named": true
-  },
-  {
-    "type": "false",
-    "named": false
   },
   {
     "type": "final",
@@ -1963,6 +2105,10 @@
     "named": false
   },
   {
+    "type": "map",
+    "named": false
+  },
+  {
     "type": "module",
     "named": false
   },
@@ -1987,8 +2133,8 @@
     "named": true
   },
   {
-    "type": "octet",
-    "named": false
+    "type": "octet_type",
+    "named": true
   },
   {
     "type": "optional",
@@ -2028,10 +2174,6 @@
   },
   {
     "type": "switch",
-    "named": false
-  },
-  {
-    "type": "true",
     "named": false
   },
   {

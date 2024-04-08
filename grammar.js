@@ -38,7 +38,8 @@ module.exports = grammar({
     type_dcl: $ =>
       choice(
         $.annotation,
-        $.bitmask,
+        $.bitset_dcl,
+        $.bitmask_dcl,
         $.interface_dcl,
         $.native_dcl,
         $.constr_type_dcl,
@@ -163,7 +164,27 @@ module.exports = grammar({
     element_spec: $ => seq($.type_spec, $.declarator),
     switch_type_spec: $ => choice($.primitive_type, $.scoped_name),
 
-    bitmask: $ =>
+    bitset_dcl: $ =>
+      seq(
+        'bitset',
+        $.identifier,
+        optional(seq(':', $.scoped_name)),
+        '{',
+        repeat($.bitfield),
+        '}',
+      ),
+    bitfield: $ => seq($.bitfield_spec, repeat($.identifier), ';'),
+    bitfield_spec: $ =>
+      seq(
+        'bitfield',
+        '<',
+        $.positive_int_const,
+        optional(seq(',', $.destination_type)),
+        '>',
+      ),
+    destination_type: $ => choice($.boolean_type, $.octet_type, $.integer_type),
+
+    bitmask_dcl: $ =>
       seq(optional($.bit_bound), 'bitmask', '{', repeat($.bitmask_field), '}'),
     bitmask_field: $ => seq(optional($.position), $.identifier, optional(',')),
 
@@ -304,41 +325,44 @@ module.exports = grammar({
         $.key,
       ),
 
-    primitive_type: _ =>
+    boolean_type: _ => 'boolean',
+    octet_type: _ => 'octet',
+    integer_type: _ =>
+      choice(
+        'float',
+        'double',
+        'short',
+        'long',
+        'long double',
+        'unsigned short',
+
+        'long long',
+        'unsigned long',
+        'unsigned long long',
+        'int',
+        'int8',
+        'int16',
+        'int32',
+        'int64',
+        'uint8',
+        'uint16',
+        'uint32',
+        'uint64',
+        'float32',
+        'float64',
+        'float128',
+      ),
+    primitive_type: $ =>
       prec.left(
         1,
         choice(
-          'true',
-          'false',
-          'void',
-
-          'float',
-          'double',
-          'short',
-          'long',
-          'long double',
-          'unsigned short',
+          $.boolean_type,
+          $.octet_type,
+          $.integer_type,
           'char',
           'wchar',
-          'long long',
-          'octet',
-          'unsigned long',
-          'unsigned long long',
 
-          'int',
-          'int8',
-          'int16',
-          'int32',
-          'int64',
-          'uint8',
-          'uint16',
-          'uint32',
-          'uint64',
-          'float32',
-          'float64',
-          'float128',
           'byte',
-          'boolean',
           'char8',
           'char16',
         ),
@@ -375,7 +399,17 @@ module.exports = grammar({
     fixed_pt_type: $ =>
       seq('fixed', '<', $.positive_int_const, ',', $.positive_int_const, '>'),
     template_type_spec: $ =>
-      choice($.sequence_type, $.string_type, $.fixed_pt_type),
+      choice($.sequence_type, $.string_type, $.fixed_pt_type, $.map_type),
+    map_type: $ =>
+      seq(
+        'map',
+        '<',
+        $.type_spec,
+        ',',
+        $.type_spec,
+        optional(seq(',', $.positive_int_const)),
+        '>',
+      ),
     type_declarator: $ =>
       seq(
         choice($.simple_type_spec, $.template_type_spec, $.constr_type_dcl),

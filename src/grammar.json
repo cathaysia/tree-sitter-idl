@@ -92,7 +92,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "bitmask"
+          "name": "bitset_dcl"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bitmask_dcl"
         },
         {
           "type": "SYMBOL",
@@ -1011,7 +1015,135 @@
         }
       ]
     },
-    "bitmask": {
+    "bitset_dcl": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "bitset"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ":"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "scoped_name"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "bitfield"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "bitfield": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "bitfield_spec"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ";"
+        }
+      ]
+    },
+    "bitfield_spec": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "bitfield"
+        },
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "positive_int_const"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "destination_type"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        }
+      ]
+    },
+    "destination_type": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "boolean_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "octet_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "integer_type"
+        }
+      ]
+    },
+    "bitmask_dcl": {
       "type": "SEQ",
       "members": [
         {
@@ -2391,6 +2523,103 @@
         }
       ]
     },
+    "boolean_type": {
+      "type": "STRING",
+      "value": "boolean"
+    },
+    "octet_type": {
+      "type": "STRING",
+      "value": "octet"
+    },
+    "integer_type": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "float"
+        },
+        {
+          "type": "STRING",
+          "value": "double"
+        },
+        {
+          "type": "STRING",
+          "value": "short"
+        },
+        {
+          "type": "STRING",
+          "value": "long"
+        },
+        {
+          "type": "STRING",
+          "value": "long double"
+        },
+        {
+          "type": "STRING",
+          "value": "unsigned short"
+        },
+        {
+          "type": "STRING",
+          "value": "long long"
+        },
+        {
+          "type": "STRING",
+          "value": "unsigned long"
+        },
+        {
+          "type": "STRING",
+          "value": "unsigned long long"
+        },
+        {
+          "type": "STRING",
+          "value": "int"
+        },
+        {
+          "type": "STRING",
+          "value": "int8"
+        },
+        {
+          "type": "STRING",
+          "value": "int16"
+        },
+        {
+          "type": "STRING",
+          "value": "int32"
+        },
+        {
+          "type": "STRING",
+          "value": "int64"
+        },
+        {
+          "type": "STRING",
+          "value": "uint8"
+        },
+        {
+          "type": "STRING",
+          "value": "uint16"
+        },
+        {
+          "type": "STRING",
+          "value": "uint32"
+        },
+        {
+          "type": "STRING",
+          "value": "uint64"
+        },
+        {
+          "type": "STRING",
+          "value": "float32"
+        },
+        {
+          "type": "STRING",
+          "value": "float64"
+        },
+        {
+          "type": "STRING",
+          "value": "float128"
+        }
+      ]
+    },
     "primitive_type": {
       "type": "PREC_LEFT",
       "value": 1,
@@ -2398,40 +2627,16 @@
         "type": "CHOICE",
         "members": [
           {
-            "type": "STRING",
-            "value": "true"
+            "type": "SYMBOL",
+            "name": "boolean_type"
           },
           {
-            "type": "STRING",
-            "value": "false"
+            "type": "SYMBOL",
+            "name": "octet_type"
           },
           {
-            "type": "STRING",
-            "value": "void"
-          },
-          {
-            "type": "STRING",
-            "value": "float"
-          },
-          {
-            "type": "STRING",
-            "value": "double"
-          },
-          {
-            "type": "STRING",
-            "value": "short"
-          },
-          {
-            "type": "STRING",
-            "value": "long"
-          },
-          {
-            "type": "STRING",
-            "value": "long double"
-          },
-          {
-            "type": "STRING",
-            "value": "unsigned short"
+            "type": "SYMBOL",
+            "name": "integer_type"
           },
           {
             "type": "STRING",
@@ -2443,75 +2648,7 @@
           },
           {
             "type": "STRING",
-            "value": "long long"
-          },
-          {
-            "type": "STRING",
-            "value": "octet"
-          },
-          {
-            "type": "STRING",
-            "value": "unsigned long"
-          },
-          {
-            "type": "STRING",
-            "value": "unsigned long long"
-          },
-          {
-            "type": "STRING",
-            "value": "int"
-          },
-          {
-            "type": "STRING",
-            "value": "int8"
-          },
-          {
-            "type": "STRING",
-            "value": "int16"
-          },
-          {
-            "type": "STRING",
-            "value": "int32"
-          },
-          {
-            "type": "STRING",
-            "value": "int64"
-          },
-          {
-            "type": "STRING",
-            "value": "uint8"
-          },
-          {
-            "type": "STRING",
-            "value": "uint16"
-          },
-          {
-            "type": "STRING",
-            "value": "uint32"
-          },
-          {
-            "type": "STRING",
-            "value": "uint64"
-          },
-          {
-            "type": "STRING",
-            "value": "float32"
-          },
-          {
-            "type": "STRING",
-            "value": "float64"
-          },
-          {
-            "type": "STRING",
-            "value": "float128"
-          },
-          {
-            "type": "STRING",
             "value": "byte"
-          },
-          {
-            "type": "STRING",
-            "value": "boolean"
           },
           {
             "type": "STRING",
@@ -2805,6 +2942,60 @@
         {
           "type": "SYMBOL",
           "name": "fixed_pt_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "map_type"
+        }
+      ]
+    },
+    "map_type": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "map"
+        },
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "type_spec"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "type_spec"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "positive_int_const"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ">"
         }
       ]
     },

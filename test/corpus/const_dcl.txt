@@ -23,7 +23,8 @@ const wchar C2 = L'X';
 (specification
   (const_dcl
     (const_type
-      (primitive_type))
+      (primitive_type
+        (integer_type)))
     (identifier)
     (const_expr
       (or_expr
@@ -37,7 +38,8 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (primitive_type))
+      (primitive_type
+        (integer_type)))
     (identifier)
     (const_expr
       (or_expr
@@ -51,7 +53,8 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (primitive_type))
+      (primitive_type
+        (integer_type)))
     (identifier)
     (const_expr
       (or_expr
@@ -65,7 +68,8 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (primitive_type))
+      (primitive_type
+        (integer_type)))
     (identifier)
     (const_expr
       (or_expr
@@ -79,7 +83,8 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (primitive_type))
+      (primitive_type
+        (integer_type)))
     (identifier)
     (const_expr
       (or_expr
@@ -93,7 +98,8 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (primitive_type))
+      (primitive_type
+        (integer_type)))
     (identifier)
     (const_expr
       (or_expr
@@ -107,7 +113,8 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (primitive_type))
+      (primitive_type
+        (integer_type)))
     (identifier)
     (const_expr
       (or_expr
@@ -121,7 +128,8 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (primitive_type))
+      (primitive_type
+        (integer_type)))
     (identifier)
     (const_expr
       (or_expr
@@ -135,7 +143,8 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (primitive_type))
+      (primitive_type
+        (integer_type)))
     (identifier)
     (const_expr
       (or_expr

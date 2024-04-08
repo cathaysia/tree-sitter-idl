@@ -1,0 +1,56 @@
+========================================
+bitset_dcl
+========================================
+
+bitset A {};
+
+bitset A: B {};
+
+bitset A: B {
+    bitfield<1> a;
+    bitfield<1> a b c;
+};
+
+---
+
+(specification
+  (bitset_dcl
+    (identifier))
+  (bitset_dcl
+    (identifier)
+    (scoped_name
+      (identifier)))
+  (bitset_dcl
+    (identifier)
+    (scoped_name
+      (identifier))
+    (bitfield
+      (bitfield_spec
+        (positive_int_const
+          (const_expr
+            (or_expr
+              (xor_expr
+                (and_expr
+                  (shift_expr
+                    (add_expr
+                      (mult_expr
+                        (unary_expr
+                          (literal
+                            (number_literal))))))))))))
+      (identifier))
+    (bitfield
+      (bitfield_spec
+        (positive_int_const
+          (const_expr
+            (or_expr
+              (xor_expr
+                (and_expr
+                  (shift_expr
+                    (add_expr
+                      (mult_expr
+                        (unary_expr
+                          (literal
+                            (number_literal))))))))))))
+      (identifier)
+      (identifier)
+      (identifier))))

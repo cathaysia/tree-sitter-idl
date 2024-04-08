@@ -61,8 +61,5 @@ interface A: B, C, D {
       (interface_body
         (export
           (op_dcl
-            (op_type_spec
-              (type_spec
-                (simple_type_spec
-                  (primitive_type))))
+            (op_type_spec)
             (identifier)))))))
