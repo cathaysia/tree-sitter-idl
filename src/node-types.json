@@ -1340,6 +1340,32 @@
     "fields": {}
   },
   {
+    "type": "preproc_call",
+    "named": true,
+    "fields": {
+      "argument": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "preproc_arg",
+            "named": true
+          }
+        ]
+      },
+      "directive": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "preproc_directive",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "raises_expr",
     "named": true,
     "fields": {},
@@ -1567,6 +1593,10 @@
         },
         {
           "type": "predefine",
+          "named": true
+        },
+        {
+          "type": "preproc_call",
           "named": true
         },
         {
@@ -2273,6 +2303,14 @@
   {
     "type": "out",
     "named": false
+  },
+  {
+    "type": "preproc_arg",
+    "named": true
+  },
+  {
+    "type": "preproc_directive",
+    "named": true
   },
   {
     "type": "raises",

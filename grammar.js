@@ -1,6 +1,7 @@
 const base_types = require('./grammar/base_types.js')
 const expr = require('./grammar/expr.js')
 const literal = require('./grammar/literal.js')
+const directive = require('./grammar/directive.js')
 
 module.exports = grammar({
   name: 'idl',
@@ -16,10 +17,11 @@ module.exports = grammar({
   ],
 
   rules: {
-    specification: $ => repeat($._definition),
+    specification: $ => seq(repeat($.preproc_call), repeat($._definition)),
     ...base_types.rules,
     ...expr.rules,
     ...literal.rules,
+    ...directive.rules,
     _definition: $ =>
       choice(
         $.predefine,
