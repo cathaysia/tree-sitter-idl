@@ -1,11 +1,13 @@
-const { commaSep, commaSep1 } = require('./grammar/common')
-const base_types = require('./grammar/base_types')
-const expr = require('./grammar/expr')
-const literal = require('./grammar/literal')
-const directive = require('./grammar/directive')
-const interface = require('./grammar/interface')
-const bitmask = require('./grammar/bitmask')
-const annotation = require('./grammar/annotation')
+import { commaSep, commaSep1 } from './common'
+import base_types from './base_types'
+import expr from './expr'
+import literal from './literal'
+import directive from './directive'
+import rpc from './rpc'
+import bitmask from './bitmask'
+import annotation from './annotation'
+
+declare var module: any
 
 module.exports = grammar({
   name: 'idl',
@@ -22,13 +24,13 @@ module.exports = grammar({
 
   rules: {
     specification: $ => seq(repeat($.preproc_call), repeat($._definition)),
-    ...base_types.rules,
-    ...expr.rules,
-    ...literal.rules,
-    ...directive.rules,
-    ...interface.rules,
-    ...bitmask.rules,
-    ...annotation.rules,
+    ...base_types,
+    ...expr,
+    ...literal,
+    ...directive,
+    ...rpc,
+    ...bitmask,
+    ...annotation,
     _definition: $ =>
       choice(
         $.predefine,

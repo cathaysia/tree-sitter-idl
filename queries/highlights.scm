@@ -19,6 +19,10 @@
   (preproc_directive)
 ] @keyword
 
+(param_dcl
+  (param_attribute)@keyword
+)
+
 (preproc_call
   directive: (preproc_directive) @keyword.directive
   argument: (_) @constant

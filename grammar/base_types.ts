@@ -1,4 +1,4 @@
-exports.rules = {
+var rules = {
   signed_short_int: _ => 'short',
   signed_long_int: _ => 'long',
   signed_longlong_int: _ => 'long long',
@@ -62,3 +62,5 @@ exports.rules = {
       '>',
     ),
 }
+
+export default rules;

@@ -1,7 +1,34 @@
 {
+  "scripts": {
+    "install": "node-gyp-build",
+    "prebuildify": "prebuildify --napi --strip",
+    "build": "pnpm js_build && pnpm ts_build",
+    "test": "pnpm build && tree-sitter test",
+    "js_build": "esbuild --bundle --platform=node --log-level=warning ./grammar/index.ts --outfile=grammar.js",
+    "ts_build": "tree-sitter generate"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.adoc",
+      "file-types": [
+        "adoc",
+        "asciidoc"
+      ]
+    }
+  ],
+  "types": "bindings/node",
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
   "devDependencies": {
-    "tree-sitter-cli": "^0.22.2",
-    "prebuildify": "^6.0.0"
+    "esbuild": "^0.20.2",
+    "prebuildify": "^6.0.0",
+    "tree-sitter-cli": "^0.22.2"
   },
   "dependencies": {
     "node-addon-api": "^7.1.0",
@@ -14,27 +41,5 @@
     "tree_sitter": {
       "optional": true
     }
-  },
-  "tree-sitter": [
-    {
-      "scope": "source.adoc",
-      "file-types": [
-        "adoc",
-        "asciidoc"
-      ]
-    }
-  ],
-  "scripts": {
-    "install": "node-gyp-build",
-    "prebuildify": "prebuildify --napi --strip"
-  },
-  "types": "bindings/node",
-  "files": [
-    "grammar.js",
-    "binding.gyp",
-    "prebuilds/**",
-    "bindings/node/*",
-    "queries/*",
-    "src/**"
-  ]
+  }
 }
