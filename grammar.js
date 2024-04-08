@@ -1,16 +1,6 @@
-const PREC = {
-  LOGICAL_OR: 1,
-  LOGICAL_AND: 2,
-  INCLUSIVE_OR: 3,
-  EXCLUSIVE_OR: 4,
-  BITWISE_AND: 5,
-  EQUAL: 6,
-  RELATIONAL: 7,
-  SHIFT: 9,
-  ADD: 10,
-  MULTIPLY: 11,
-  UNARY: 14,
-}
+const base_types = require('./grammar/base_types.js')
+const expr = require('./grammar/expr.js')
+const literal = require('./grammar/literal.js')
 
 module.exports = grammar({
   name: 'idl',
@@ -27,6 +17,9 @@ module.exports = grammar({
 
   rules: {
     specification: $ => repeat($._definition),
+    ...base_types.rules,
+    ...expr.rules,
+    ...literal.rules,
     _definition: $ =>
       choice(
         $.predefine,
@@ -72,59 +65,6 @@ module.exports = grammar({
         optional($.default),
         ';',
       ),
-
-    or_expr: $ =>
-      prec.left(
-        PREC.INCLUSIVE_OR,
-        choice($.xor_expr, seq($.or_expr, '|', $.xor_expr)),
-      ),
-    xor_expr: $ =>
-      prec.left(
-        PREC.EXCLUSIVE_OR,
-        choice($.and_expr, seq($.xor_expr, '^', $.and_expr)),
-      ),
-    and_expr: $ =>
-      prec.left(
-        PREC.BITWISE_AND,
-        choice($.shift_expr, seq($.and_expr, '$', $.shift_expr)),
-      ),
-    shift_expr: $ =>
-      prec.left(
-        PREC.SHIFT,
-        choice(
-          $.add_expr,
-          seq($.shift_expr, '>>', $.add_expr),
-          seq($.shift_expr, '<<', $.add_expr),
-        ),
-      ),
-    add_expr: $ =>
-      prec.left(
-        PREC.ADD,
-        choice(
-          $.mult_expr,
-          seq($.add_expr, '+', $.mult_expr),
-          seq($.add_expr, '-', $.mult_expr),
-        ),
-      ),
-    mult_expr: $ =>
-      prec.left(
-        PREC.MULTIPLY,
-        choice(
-          $.unary_expr,
-          seq($.mult_expr, '*', $.unary_expr),
-          seq($.mult_expr, '/', $.unary_expr),
-          seq($.mult_expr, '%', $.unary_expr),
-        ),
-      ),
-    unary_expr: $ =>
-      choice(seq($.unary_operator, $.primary_expr), $.primary_expr),
-    unary_operator: _ => prec.left(PREC.UNARY, choice('-', '+', '~')),
-    primary_expr: $ =>
-      choice($.scoped_name, $.literal, seq('(', $.const_expr, ')')),
-    literal: $ => choice($.number_literal, $.char_literal, $.string_literal),
-    string_literal: $ => seq(optional('L'), '"', /\w+/, '"'),
-    char_literal: $ => seq(optional('L'), "'", field('value', /\w/), "'"),
-    boolean_literal: _ => choice('TRUE', 'FALSE'),
 
     default: $ => seq('default', $.const_expr),
 
@@ -292,38 +232,6 @@ module.exports = grammar({
           $.sequence_type,
         ),
       ),
-    fixed_pt_const_type: $ => 'fixed',
-    const_expr: $ => $.or_expr,
-    number_literal: _ => {
-      const separator = "'"
-      const hex = /[0-9a-fA-F]/
-      const decimal = /[0-9]/
-      const hexDigits = seq(repeat1(hex), repeat(seq(separator, repeat1(hex))))
-      const decimalDigits = seq(
-        repeat1(decimal),
-        repeat(seq(separator, repeat1(decimal))),
-      )
-      return token(
-        seq(
-          optional(/[-\+]/),
-          optional(choice(/0[xX]/, /0[bB]/)),
-          choice(
-            seq(
-              choice(
-                decimalDigits,
-                seq(/0[bB]/, decimalDigits),
-                seq(/0[xX]/, hexDigits),
-              ),
-              optional(seq('.', optional(hexDigits))),
-            ),
-            seq('.', decimalDigits),
-          ),
-          optional(seq(/[eEpP]/, optional(seq(optional(/[-\+]/), hexDigits)))),
-          /[uUlLwWfFbBdD]*/,
-        ),
-      )
-    },
-
     // table 21
     optional: _ => '@optional',
     key: _ => '@key',
@@ -363,44 +271,6 @@ module.exports = grammar({
         $.key,
       ),
 
-    boolean_type: _ => 'boolean',
-    octet_type: _ => 'octet',
-    integer_type: $ => choice($.signed_int, $.unsigned_int),
-    signed_int: $ =>
-      choice($.signed_short_int, $.signed_long_int, $.signed_longlong_int),
-    signed_short_int: _ => 'short',
-    signed_long_int: _ => 'long',
-    signed_longlong_int: _ => 'long long',
-    unsigned_int: $ =>
-      choice(
-        $.unsigned_short_int,
-        $.unsigned_long_int,
-        $.unsigned_longlong_int,
-      ),
-
-    unsigned_short_int: _ => 'unsigned short',
-    unsigned_long_int: _ => 'unsigned long',
-    unsigned_longlong_int: _ => 'unsigned long long',
-
-    floating_pt_type: _ => choice('float', 'double', 'long double'),
-    char_type: _ => choice('char', 'wchar'),
-    scoped_name: $ =>
-      choice(
-        $.identifier,
-        seq('::', $.identifier),
-        seq($.scoped_name, $.identifier),
-      ),
-    simple_type_spec: $ =>
-      prec.left(1, choice($.base_type_spec, $.scoped_name)),
-    base_type_spec: $ =>
-      choice(
-        $.integer_type,
-        $.floating_pt_type,
-        $.char_type,
-        $.boolean_type,
-        $.octet_type,
-      ),
-    type_spec: $ => choice($.simple_type_spec, $.template_type_spec),
     identifier: _ => /\w[\w\d_]*/, // 7.2.3
     simple_declarator: $ => $.identifier,
     declarator: $ => choice($.simple_declarator, $.array_declarator),
@@ -408,32 +278,6 @@ module.exports = grammar({
     array_declarator: $ => seq($.identifier, repeat1($.fixed_array_size)),
     positive_int_const: $ => $.const_expr,
     fixed_array_size: $ => seq('[', $.positive_int_const, ']'),
-    sequence_type: $ =>
-      seq(
-        'sequence',
-        '<',
-        choice($.type_spec, optional(seq(',', $.positive_int_const))),
-        '>',
-      ),
-    string_type: $ =>
-      seq(
-        choice('string', 'wstring'),
-        optional(seq('<', $.positive_int_const, '>')),
-      ),
-    fixed_pt_type: $ =>
-      seq('fixed', '<', $.positive_int_const, ',', $.positive_int_const, '>'),
-    template_type_spec: $ =>
-      choice($.sequence_type, $.string_type, $.fixed_pt_type, $.map_type),
-    map_type: $ =>
-      seq(
-        'map',
-        '<',
-        $.type_spec,
-        ',',
-        $.type_spec,
-        optional(seq(',', $.positive_int_const)),
-        '>',
-      ),
     type_declarator: $ =>
       seq(
         choice($.simple_type_spec, $.template_type_spec, $.constr_type_dcl),

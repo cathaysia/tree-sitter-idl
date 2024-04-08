@@ -423,6 +423,11 @@
     }
   },
   {
+    "type": "boolean_literal",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "case",
     "named": true,
     "fields": {},
@@ -1023,6 +1028,10 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "boolean_literal",
+          "named": true
+        },
         {
           "type": "char_literal",
           "named": true
