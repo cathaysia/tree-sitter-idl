@@ -168,6 +168,11 @@
     }
   },
   {
+    "type": "any_const_type",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "any_declarator",
     "named": true,
     "fields": {},
@@ -200,6 +205,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "any_type",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "array_declarator",
@@ -304,6 +314,10 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "any_type",
+          "named": true
+        },
         {
           "type": "boolean_type",
           "named": true
@@ -2153,8 +2167,8 @@
     "named": false
   },
   {
-    "type": "any_const_type",
-    "named": true
+    "type": "any",
+    "named": false
   },
   {
     "type": "attribute",

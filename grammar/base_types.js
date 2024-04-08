@@ -37,7 +37,9 @@ exports.rules = {
       $.char_type,
       $.boolean_type,
       $.octet_type,
+      $.any_type, // IDL 7.4.2
     ),
+  any_type: _ => 'any',
   fixed_pt_type: $ =>
     seq('fixed', '<', $.positive_int_const, ',', $.positive_int_const, '>'),
   template_type_spec: $ =>

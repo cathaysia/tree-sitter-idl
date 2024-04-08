@@ -13,6 +13,7 @@ struct HelloWorld {
     string<20> d;
     wstring<20> d;
     fixed<1,2> d;
+    any d;
 };
 
 struct HelloWorld: Parent {
@@ -167,6 +168,15 @@ struct HelloWorld: Parent {
                             (unary_expr
                               (literal
                                 (number_literal))))))))))))))
+      (declarators
+        (declarator
+          (simple_declarator
+            (identifier)))))
+    (member
+      (type_spec
+        (simple_type_spec
+          (base_type_spec
+            (any_type))))
       (declarators
         (declarator
           (simple_declarator

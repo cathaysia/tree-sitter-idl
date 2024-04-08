@@ -263,8 +263,16 @@
         {
           "type": "SYMBOL",
           "name": "octet_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "any_type"
         }
       ]
+    },
+    "any_type": {
+      "type": "STRING",
+      "value": "any"
     },
     "fixed_pt_type": {
       "type": "SEQ",
