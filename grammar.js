@@ -185,8 +185,8 @@ module.exports = grammar({
     destination_type: $ => choice($.boolean_type, $.octet_type, $.integer_type),
 
     bitmask_dcl: $ =>
-      seq(optional($.bit_bound), 'bitmask', '{', repeat($.bitmask_field), '}'),
-    bitmask_field: $ => seq(optional($.position), $.identifier, optional(',')),
+      seq('bitmask', $.identifier, '{', commaSep($.bit_value), '}'),
+    bit_value: $ => $.identifier,
 
     typedef_dcl: $ => seq('typedef', $.type_declarator),
 
@@ -294,7 +294,6 @@ module.exports = grammar({
     hashid: $ => seq('@hashid', '("', alias($.identifier, $.hashid_value), '"'),
     try_construct: $ =>
       seq('@try_construct', alias($.identifier, $.try_construct_value)),
-    bit_bound: $ => seq('@bit_bound', '(', alias(/\d+/, $.bistmask_bound), ')'),
     extensibility: _ => '@extensibility',
     mutable: _ => '@mutable',
     appendable: _ => '@appendable',
@@ -302,7 +301,6 @@ module.exports = grammar({
     nested: _ => '@nested',
     default_literal: _ => '@default_literal',
     value: _ => '@value',
-    position: $ => seq('@position', '(', alias(/\d+/, $.position), ')'),
     autoid: _ => '@autoid',
     verbatim: _ => '@verbatim',
     data_representation: $ =>

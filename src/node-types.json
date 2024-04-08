@@ -209,7 +209,7 @@
     }
   },
   {
-    "type": "bit_bound",
+    "type": "bit_value",
     "named": true,
     "fields": {},
     "children": {
@@ -217,7 +217,7 @@
       "required": true,
       "types": [
         {
-          "type": "bistmask_bound",
+          "type": "identifier",
           "named": true
         }
       ]
@@ -267,33 +267,14 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "bit_bound",
-          "named": true
-        },
-        {
-          "type": "bitmask_field",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "bitmask_field",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "identifier",
+          "type": "bit_value",
           "named": true
         },
         {
-          "type": "position",
+          "type": "identifier",
           "named": true
         }
       ]
@@ -1158,21 +1139,6 @@
     }
   },
   {
-    "type": "position",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "position",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "positive_int_const",
     "named": true,
     "fields": {},
@@ -1889,10 +1855,6 @@
     "named": false
   },
   {
-    "type": "@bit_bound",
-    "named": false
-  },
-  {
     "type": "@data_representation",
     "named": false
   },
@@ -1906,10 +1868,6 @@
   },
   {
     "type": "@ignore_literal_names",
-    "named": false
-  },
-  {
-    "type": "@position",
     "named": false
   },
   {
@@ -1943,10 +1901,6 @@
   {
     "type": "attribute",
     "named": false
-  },
-  {
-    "type": "bistmask_bound",
-    "named": true
   },
   {
     "type": "bitfield",

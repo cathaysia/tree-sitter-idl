@@ -1,0 +1,23 @@
+========================================
+bitmask_dcl
+========================================
+
+bitmask A {};
+
+bitmask A {
+    A, B ,C
+};
+
+---
+
+(specification
+  (bitmask_dcl
+    (identifier))
+  (bitmask_dcl
+    (identifier)
+    (bit_value
+      (identifier))
+    (bit_value
+      (identifier))
+    (bit_value
+      (identifier))))
