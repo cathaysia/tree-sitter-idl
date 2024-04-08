@@ -8,6 +8,10 @@ interface HelloWorld {};
 interface HelloWorld: Parent {};
 interface HelloWorld: Parent1, Parent2, Parent3 {};
 
+interface A: B, C, D {
+    void func1();
+};
+
 ---
 
 (specification
@@ -39,4 +43,26 @@ interface HelloWorld: Parent1, Parent2, Parent3 {};
               (identifier)))
           (interface_name
             (scoped_name
-              (identifier))))))))
+              (identifier)))))))
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (identifier)
+        (interface_inheritance_spec
+          (interface_name
+            (scoped_name
+              (identifier)))
+          (interface_name
+            (scoped_name
+              (identifier)))
+          (interface_name
+            (scoped_name
+              (identifier)))))
+      (interface_body
+        (export
+          (op_dcl
+            (op_type_spec
+              (type_spec
+                (simple_type_spec
+                  (primitive_type))))
+            (identifier)))))))

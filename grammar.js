@@ -132,7 +132,7 @@ module.exports = grammar({
         'enum',
         $.identifier,
         '{',
-        seq(repeat(seq($.enumerator, ',')), $.enumerator),
+        commaSep($.enumerator),
         '}',
       ),
     enumerator: $ => seq(repeat($.enum_modifier), $.identifier),
@@ -172,21 +172,55 @@ module.exports = grammar({
     predefine: $ => seq('#define', /[^\n]*/),
     interface_dcl: $ => choice($.interface_def, $.interface_forward_dcl),
     interface_forward_dcl: $ => seq('interface', $.identifier),
-    interface_header: $ =>
-      seq('interface', $.identifier, optional($.interface_inheritance_spec)),
-    interface_inheritance_spec: $ =>
-      seq(':', repeat(seq($.interface_name, ',')), $.interface_name),
-    interface_name: $ => $.scoped_name,
     interface_def: $ =>
       seq(
         repeat($.interface_anno),
         optional('local'),
         $.interface_header,
         '{',
-        repeat($.interface_attribute),
-        repeat($.interface_function),
+        optional($.interface_body),
         '}',
       ),
+    interface_header: $ =>
+      seq('interface', $.identifier, optional($.interface_inheritance_spec)),
+    interface_inheritance_spec: $ => seq(':', commaSep1($.interface_name)),
+    interface_name: $ => $.scoped_name,
+    interface_body: $ => commaSep1($.export),
+    export: $ => seq(choice($.op_dcl, $.attr_dcl), ';'),
+    op_dcl: $ =>
+      seq(
+        $.op_type_spec,
+        $.identifier,
+        '(',
+        optional($.parameter_dcls),
+        ')',
+        optional($.raises_expr),
+      ),
+    op_type_spec: $ => choice($.type_spec, 'void'),
+    parameter_dcls: $ => commaSep1($.param_dcl),
+    param_dcl: $ => seq($.param_attribute, $.type_spec, $.simple_declarator),
+    param_attribute: $ => choice('in', 'out', 'inout'),
+    raises_expr: $ => seq('raises', '(', commaSep($.scoped_name), ')'),
+    attr_dcl: $ => choice($.readonly_attr_spec, $.attr_spec),
+    readonly_attr_spec: $ =>
+      seq('readonly', 'attribute', $.type_spec, $.readonly_attr_declarator),
+    readonly_attr_declarator: $ =>
+      choice(
+        seq($.simple_declarator, $.raises_expr),
+        commaSep1($.simple_declarator),
+      ),
+    attr_spec: $ => seq('attribute', $.type_spec, $.attr_declarator),
+    attr_declarator: $ =>
+      choice(
+        seq($.simple_declarator, $.attr_raises_expr),
+        commaSep1($.simple_declarator),
+      ),
+    attr_raises_expr: $ =>
+      choice(seq($.get_excep_expr, repeat($.set_excep_expr)), $.set_excep_expr),
+    get_excep_expr: $ => seq('getraises', $.exception_list),
+    set_excep_expr: $ => seq('setraises', $.exception_list),
+    exception_list: $ => seq('(', commaSep($.scoped_name), ')'),
+
     dds_service: _ => '@DDSService',
     dds_request_topic: $ =>
       seq('@DDSRequestTopic', '(', 'name', '=', /\w+/, ')'),
@@ -194,21 +228,6 @@ module.exports = grammar({
 
     interface_anno: $ =>
       choice($.dds_service, $.dds_request_topic, $.dds_reply_topic),
-    interface_attribute: $ => seq('attribute', $.type_spec, $.identifier),
-    interface_function: $ =>
-      seq(
-        $.scoped_name,
-        $.identifier,
-        '(',
-        repeat($.function_arg),
-        ')',
-        optional($.interface_except),
-        ';',
-      ),
-    interface_except: $ => seq('raises', '(', $.scoped_name, ')'),
-    interface_modifier: _ => choice('in', 'out', 'inout'),
-    function_arg: $ =>
-      seq(optional($.interface_modifier), $.scoped_name, /\w+/, optional(',')),
 
     const_dcl: $ => seq('const', $.const_type, $.identifier, '=', $.const_expr),
     const_type: $ =>
@@ -337,7 +356,7 @@ module.exports = grammar({
     identifier: _ => /\w[\w\d_]*/, // 7.2.3
     simple_declarator: $ => $.identifier,
     declarator: $ => choice($.simple_declarator, $.array_declarator),
-    declarators: $ => seq($.declarator, repeat(seq(',', $.declarator))),
+    declarators: $ => commaSep1($.declarator),
     array_declarator: $ => seq($.identifier, repeat1($.fixed_array_size)),
     positive_int_const: $ => $.const_expr,
     fixed_array_size: $ => seq('[', $.positive_int_const, ']'),
@@ -362,9 +381,32 @@ module.exports = grammar({
         choice($.simple_type_spec, $.template_type_spec, $.constr_type_dcl),
         $.any_declarators,
       ),
-    any_declarators: $ =>
-      seq($.any_declarator, repeat(seq(',', $.any_declarator))),
+    any_declarators: $ => commaSep1($.any_declarator),
     any_declarator: $ => choice($.simple_declarator, $.array_declarator),
     comment: _ => seq('//', /(\\+(.|\r?\n)|[^\\\n])*/),
   },
 })
+
+/**
+ * Creates a rule to optionally match one or more of the rules separated by a comma
+ *
+ * @param {Rule} rule
+ *
+ * @return {ChoiceRule}
+ *
+ */
+function commaSep(rule) {
+  return optional(commaSep1(rule))
+}
+
+/**
+ * Creates a rule to match one or more of the rules separated by a comma
+ *
+ * @param {Rule} rule
+ *
+ * @return {SeqRule}
+ *
+ */
+function commaSep1(rule) {
+  return seq(rule, repeat(seq(',', rule)))
+}
