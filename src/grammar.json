@@ -88,7 +88,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "annotation"
+          "name": "annotation_dcl"
         },
         {
           "type": "SYMBOL",
@@ -814,7 +814,7 @@
         }
       ]
     },
-    "annotation": {
+    "annotation_dcl": {
       "type": "SEQ",
       "members": [
         {
@@ -830,11 +830,16 @@
           "value": "{"
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "annotation_field"
-          }
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "annotation_body"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "STRING",
@@ -842,23 +847,70 @@
         }
       ]
     },
-    "annotation_field": {
+    "annotation_body": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "annotation_member"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "enum_dcl"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "const_dcl"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "typedef_dcl"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ";"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "annotation_member": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "scoped_name"
+          "name": "annotation_member_type"
         },
         {
           "type": "SYMBOL",
-          "name": "identifier"
+          "name": "simple_declarator"
         },
         {
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "default"
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "default"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "const_expr"
+                }
+              ]
             },
             {
               "type": "BLANK"
@@ -868,6 +920,116 @@
         {
           "type": "STRING",
           "value": ";"
+        }
+      ]
+    },
+    "annotation_member_type": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "const_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "any_const_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "scoped_name"
+        }
+      ]
+    },
+    "any_const_type": {
+      "type": "STRING",
+      "value": "any"
+    },
+    "annotation_appl": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "scoped_name"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "["
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "annotation_appl_params"
+                },
+                {
+                  "type": "STRING",
+                  "value": "]"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "annotation_appl_params": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "const_expr"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "annotation_appl_param"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "annotation_appl_param"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "annotation_appl_param": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "const_expr"
         }
       ]
     },

@@ -1,0 +1,31 @@
+========================================
+annotation_dcl
+========================================
+
+@annotation A {};
+
+@annotation A {
+    any a;
+    long b;
+};
+
+---
+
+(specification
+  (annotation_dcl
+    (identifier))
+  (annotation_dcl
+    (identifier)
+    (annotation_body
+      (annotation_member
+        (annotation_member_type
+          (any_const_type))
+        (simple_declarator
+          (identifier)))
+      (annotation_member
+        (annotation_member_type
+          (const_type
+            (primitive_type
+              (integer_type))))
+        (simple_declarator
+          (identifier))))))
