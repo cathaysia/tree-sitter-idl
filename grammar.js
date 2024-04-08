@@ -1,7 +1,11 @@
-const base_types = require('./grammar/base_types.js')
-const expr = require('./grammar/expr.js')
-const literal = require('./grammar/literal.js')
-const directive = require('./grammar/directive.js')
+const { commaSep, commaSep1 } = require('./grammar/common')
+const base_types = require('./grammar/base_types')
+const expr = require('./grammar/expr')
+const literal = require('./grammar/literal')
+const directive = require('./grammar/directive')
+const interface = require('./grammar/interface')
+const bitmask = require('./grammar/bitmask')
+const annotation = require('./grammar/annotation')
 
 module.exports = grammar({
   name: 'idl',
@@ -22,14 +26,15 @@ module.exports = grammar({
     ...expr.rules,
     ...literal.rules,
     ...directive.rules,
+    ...interface.rules,
+    ...bitmask.rules,
+    ...annotation.rules,
     _definition: $ =>
       choice(
         $.predefine,
         seq(choice($.module_dcl, $.type_dcl, $.const_dcl, $.typedef_dcl), ';'),
         $.except_dcl,
       ),
-    except_dcl: $ =>
-      seq('exception', $.identifier, '{', repeat($.member), '}', ';'),
     type_dcl: $ =>
       choice(
         $.annotation_dcl,
@@ -83,35 +88,6 @@ module.exports = grammar({
     enum_modifier: $ => choice('@default_literal'),
     enum_anno: $ => choice('@ignore_literal_names'),
 
-    annotation_dcl: $ =>
-      seq('@annotation', $.identifier, '{', optional($.annotation_body), '}'),
-    annotation_body: $ =>
-      repeat1(
-        choice(
-          $.annotation_member,
-          choice(seq($.enum_dcl, $.const_dcl, $.typedef_dcl, ';')),
-        ),
-      ),
-    annotation_member: $ =>
-      seq(
-        $.annotation_member_type,
-        $.simple_declarator,
-        optional(seq('default', $.const_expr)),
-        ';',
-      ),
-    annotation_member_type: $ =>
-      choice($.const_type, $.any_const_type, $.scoped_name),
-    any_const_type: _ => 'any',
-    annotation_appl: $ =>
-      seq(
-        '@',
-        $.scoped_name,
-        optional(seq('[', $.annotation_appl_params, ']')),
-      ),
-    annotation_appl_params: $ =>
-      choice($.const_expr, commaSep1($.annotation_appl_param)),
-    annotation_appl_param: $ => seq($.identifier, '=', $.const_expr),
-
     union_dcl: $ => choice($.union_def, $.union_forward_dcl),
     union_forward_dcl: $ => seq('union', $.identifier),
     union_def: $ =>
@@ -132,91 +108,12 @@ module.exports = grammar({
     switch_type_spec: $ =>
       choice($.integer_type, $.char_type, $.boolean_type, $.scoped_name),
 
-    bitset_dcl: $ =>
-      seq(
-        'bitset',
-        $.identifier,
-        optional(seq(':', $.scoped_name)),
-        '{',
-        repeat($.bitfield),
-        '}',
-      ),
-    bitfield: $ => seq($.bitfield_spec, repeat($.identifier), ';'),
-    bitfield_spec: $ =>
-      seq(
-        'bitfield',
-        '<',
-        $.positive_int_const,
-        optional(seq(',', $.destination_type)),
-        '>',
-      ),
-    destination_type: $ => choice($.boolean_type, $.octet_type, $.integer_type),
-
-    bitmask_dcl: $ =>
-      seq('bitmask', $.identifier, '{', commaSep($.bit_value), '}'),
-    bit_value: $ => $.identifier,
-
     typedef_dcl: $ => seq('typedef', $.type_declarator),
-
     predefine: $ => seq('#define', /[^\n]*/),
-    interface_dcl: $ => choice($.interface_def, $.interface_forward_dcl),
-    interface_forward_dcl: $ => seq('interface', $.identifier),
-    interface_def: $ =>
-      seq(
-        repeat($.interface_anno),
-        optional('local'),
-        $.interface_header,
-        '{',
-        optional($.interface_body),
-        '}',
-      ),
-    interface_header: $ =>
-      seq('interface', $.identifier, optional($.interface_inheritance_spec)),
-    interface_inheritance_spec: $ => seq(':', commaSep1($.interface_name)),
-    interface_name: $ => $.scoped_name,
-    interface_body: $ => commaSep1($.export),
-    export: $ => seq(choice($.op_dcl, $.attr_dcl), ';'),
-    op_dcl: $ =>
-      seq(
-        $.op_type_spec,
-        $.identifier,
-        '(',
-        optional($.parameter_dcls),
-        ')',
-        optional($.raises_expr),
-      ),
-    op_type_spec: $ => choice($.type_spec, 'void'),
-    parameter_dcls: $ => commaSep1($.param_dcl),
-    param_dcl: $ => seq($.param_attribute, $.type_spec, $.simple_declarator),
-    param_attribute: $ => choice('in', 'out', 'inout'),
-    raises_expr: $ => seq('raises', '(', commaSep($.scoped_name), ')'),
-    attr_dcl: $ => choice($.readonly_attr_spec, $.attr_spec),
-    readonly_attr_spec: $ =>
-      seq('readonly', 'attribute', $.type_spec, $.readonly_attr_declarator),
-    readonly_attr_declarator: $ =>
-      choice(
-        seq($.simple_declarator, $.raises_expr),
-        commaSep1($.simple_declarator),
-      ),
-    attr_spec: $ => seq('attribute', $.type_spec, $.attr_declarator),
-    attr_declarator: $ =>
-      choice(
-        seq($.simple_declarator, $.attr_raises_expr),
-        commaSep1($.simple_declarator),
-      ),
-    attr_raises_expr: $ =>
-      choice(seq($.get_excep_expr, repeat($.set_excep_expr)), $.set_excep_expr),
-    get_excep_expr: $ => seq('getraises', $.exception_list),
-    set_excep_expr: $ => seq('setraises', $.exception_list),
-    exception_list: $ => seq('(', commaSep($.scoped_name), ')'),
-
     dds_service: _ => '@DDSService',
     dds_request_topic: $ =>
       seq('@DDSRequestTopic', '(', 'name', '=', /\w+/, ')'),
     dds_reply_topic: $ => seq('@DDSReplyTopic', '(', 'name', '=', /\w+/, ')'),
-
-    interface_anno: $ =>
-      choice($.dds_service, $.dds_request_topic, $.dds_reply_topic),
 
     const_dcl: $ => seq('const', $.const_type, $.identifier, '=', $.const_expr),
     const_type: $ =>
@@ -290,27 +187,3 @@ module.exports = grammar({
     comment: _ => seq('//', /(\\+(.|\r?\n)|[^\\\n])*/),
   },
 })
-
-/**
- * Creates a rule to optionally match one or more of the rules separated by a comma
- *
- * @param {Rule} rule
- *
- * @return {ChoiceRule}
- *
- */
-function commaSep(rule) {
-  return optional(commaSep1(rule))
-}
-
-/**
- * Creates a rule to match one or more of the rules separated by a comma
- *
- * @param {Rule} rule
- *
- * @return {SeqRule}
- *
- */
-function commaSep1(rule) {
-  return seq(rule, repeat(seq(',', rule)))
-}
