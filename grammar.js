@@ -121,9 +121,10 @@ module.exports = grammar({
     unary_operator: _ => prec.left(PREC.UNARY, choice('-', '+', '~')),
     primary_expr: $ =>
       choice($.scoped_name, $.literal, seq('(', $.const_expr, ')')),
-    char_literal: $ => seq("'", field('value', /\w+/), "'"),
-    wchar_literal: $ => seq('L', "'", field('value', /\w+/), "'"),
-    literal: $ => choice($.number_literal, $.char_literal, $.wchar_literal),
+    literal: $ => choice($.number_literal, $.char_literal, $.string_literal),
+    string_literal: $ => seq(optional('L'), '"', /\w+/, '"'),
+    char_literal: $ => seq(optional('L'), "'", field('value', /\w/), "'"),
+    boolean_literal: _ => choice('TRUE', 'FALSE'),
 
     default: $ => seq('default', $.const_expr),
 
@@ -186,7 +187,8 @@ module.exports = grammar({
     case: $ => seq($.case_label, $.element_spec, ';'),
     case_label: $ => seq(choice(seq('case', $.const_expr), 'default'), ':'),
     element_spec: $ => seq($.type_spec, $.declarator),
-    switch_type_spec: $ => choice($.primitive_type, $.scoped_name),
+    switch_type_spec: $ =>
+      choice($.integer_type, $.char_type, $.boolean_type, $.scoped_name),
 
     bitset_dcl: $ =>
       seq(
@@ -276,7 +278,21 @@ module.exports = grammar({
 
     const_dcl: $ => seq('const', $.const_type, $.identifier, '=', $.const_expr),
     const_type: $ =>
-      prec.left(1, choice($.primitive_type, $.sequence_type, $.scoped_name)),
+      prec.left(
+        1,
+        choice(
+          $.integer_type,
+          $.floating_pt_type,
+          $.fixed_pt_const_type,
+          $.char_type,
+          $.boolean_type,
+          $.octet_type,
+          $.string_type,
+          $.scoped_name,
+          $.sequence_type,
+        ),
+      ),
+    fixed_pt_const_type: $ => 'fixed',
     const_expr: $ => $.or_expr,
     number_literal: _ => {
       const separator = "'"
@@ -349,47 +365,25 @@ module.exports = grammar({
 
     boolean_type: _ => 'boolean',
     octet_type: _ => 'octet',
-    integer_type: _ =>
+    integer_type: $ => choice($.signed_int, $.unsigned_int),
+    signed_int: $ =>
+      choice($.signed_short_int, $.signed_long_int, $.signed_longlong_int),
+    signed_short_int: _ => 'short',
+    signed_long_int: _ => 'long',
+    signed_longlong_int: _ => 'long long',
+    unsigned_int: $ =>
       choice(
-        'float',
-        'double',
-        'short',
-        'long',
-        'long double',
-        'unsigned short',
-
-        'long long',
-        'unsigned long',
-        'unsigned long long',
-        'int',
-        'int8',
-        'int16',
-        'int32',
-        'int64',
-        'uint8',
-        'uint16',
-        'uint32',
-        'uint64',
-        'float32',
-        'float64',
-        'float128',
-      ),
-    primitive_type: $ =>
-      prec.left(
-        1,
-        choice(
-          $.boolean_type,
-          $.octet_type,
-          $.integer_type,
-          'char',
-          'wchar',
-
-          'byte',
-          'char8',
-          'char16',
-        ),
+        $.unsigned_short_int,
+        $.unsigned_long_int,
+        $.unsigned_longlong_int,
       ),
 
+    unsigned_short_int: _ => 'unsigned short',
+    unsigned_long_int: _ => 'unsigned long',
+    unsigned_longlong_int: _ => 'unsigned long long',
+
+    floating_pt_type: _ => choice('float', 'double', 'long double'),
+    char_type: _ => choice('char', 'wchar'),
     scoped_name: $ =>
       choice(
         $.identifier,
@@ -397,7 +391,15 @@ module.exports = grammar({
         seq($.scoped_name, $.identifier),
       ),
     simple_type_spec: $ =>
-      prec.left(1, choice($.primitive_type, $.scoped_name)),
+      prec.left(1, choice($.base_type_spec, $.scoped_name)),
+    base_type_spec: $ =>
+      choice(
+        $.integer_type,
+        $.floating_pt_type,
+        $.char_type,
+        $.boolean_type,
+        $.octet_type,
+      ),
     type_spec: $ => choice($.simple_type_spec, $.template_type_spec),
     identifier: _ => /\w[\w\d_]*/, // 7.2.3
     simple_declarator: $ => $.identifier,

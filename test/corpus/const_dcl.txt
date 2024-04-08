@@ -23,8 +23,8 @@ const wchar C2 = L'X';
 (specification
   (const_dcl
     (const_type
-      (primitive_type
-        (integer_type)))
+      (scoped_name
+        (identifier)))
     (identifier)
     (const_expr
       (or_expr
@@ -38,8 +38,8 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (primitive_type
-        (integer_type)))
+      (scoped_name
+        (identifier)))
     (identifier)
     (const_expr
       (or_expr
@@ -53,8 +53,8 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (primitive_type
-        (integer_type)))
+      (scoped_name
+        (identifier)))
     (identifier)
     (const_expr
       (or_expr
@@ -68,8 +68,8 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (primitive_type
-        (integer_type)))
+      (scoped_name
+        (identifier)))
     (identifier)
     (const_expr
       (or_expr
@@ -83,8 +83,8 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (primitive_type
-        (integer_type)))
+      (scoped_name
+        (identifier)))
     (identifier)
     (const_expr
       (or_expr
@@ -98,8 +98,8 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (primitive_type
-        (integer_type)))
+      (scoped_name
+        (identifier)))
     (identifier)
     (const_expr
       (or_expr
@@ -113,8 +113,8 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (primitive_type
-        (integer_type)))
+      (scoped_name
+        (identifier)))
     (identifier)
     (const_expr
       (or_expr
@@ -128,8 +128,8 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (primitive_type
-        (integer_type)))
+      (scoped_name
+        (identifier)))
     (identifier)
     (const_expr
       (or_expr
@@ -143,8 +143,8 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (primitive_type
-        (integer_type)))
+      (scoped_name
+        (identifier)))
     (identifier)
     (const_expr
       (or_expr
@@ -158,7 +158,8 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (primitive_type))
+      (scoped_name
+        (identifier)))
     (identifier)
     (const_expr
       (or_expr
@@ -172,7 +173,8 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (primitive_type))
+      (scoped_name
+        (identifier)))
     (identifier)
     (const_expr
       (or_expr
@@ -186,7 +188,7 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (primitive_type))
+      (char_type))
     (identifier)
     (const_expr
       (or_expr
@@ -200,7 +202,7 @@ const wchar C2 = L'X';
                       (char_literal)))))))))))
   (const_dcl
     (const_type
-      (primitive_type))
+      (char_type))
     (identifier)
     (const_expr
       (or_expr
@@ -211,4 +213,4 @@ const wchar C2 = L'X';
                 (mult_expr
                   (unary_expr
                     (literal
-                      (wchar_literal))))))))))))
+                      (char_literal))))))))))))

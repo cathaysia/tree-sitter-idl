@@ -15,7 +15,6 @@
   "void"
   "raises"
   (struct_modifier)
-  (primitive_type)
 ] @keyword
 
 [ "(" ")" "[" "[" "<" ">" "{" "}" ] @punctuation.bracket

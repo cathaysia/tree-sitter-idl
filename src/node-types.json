@@ -297,6 +297,37 @@
     }
   },
   {
+    "type": "base_type_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "boolean_type",
+          "named": true
+        },
+        {
+          "type": "char_type",
+          "named": true
+        },
+        {
+          "type": "floating_pt_type",
+          "named": true
+        },
+        {
+          "type": "integer_type",
+          "named": true
+        },
+        {
+          "type": "octet_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "bit_value",
     "named": true,
     "fields": {},
@@ -431,6 +462,11 @@
     "fields": {}
   },
   {
+    "type": "char_type",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "comment",
     "named": true,
     "fields": {}
@@ -482,7 +518,27 @@
       "required": true,
       "types": [
         {
-          "type": "primitive_type",
+          "type": "boolean_type",
+          "named": true
+        },
+        {
+          "type": "char_type",
+          "named": true
+        },
+        {
+          "type": "fixed_pt_const_type",
+          "named": true
+        },
+        {
+          "type": "floating_pt_type",
+          "named": true
+        },
+        {
+          "type": "integer_type",
+          "named": true
+        },
+        {
+          "type": "octet_type",
           "named": true
         },
         {
@@ -491,6 +547,10 @@
         },
         {
           "type": "sequence_type",
+          "named": true
+        },
+        {
+          "type": "string_type",
           "named": true
         }
       ]
@@ -738,6 +798,11 @@
     }
   },
   {
+    "type": "fixed_pt_const_type",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "fixed_pt_type",
     "named": true,
     "fields": {},
@@ -751,6 +816,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "floating_pt_type",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "get_excep_expr",
@@ -785,7 +855,21 @@
   {
     "type": "integer_type",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "signed_int",
+          "named": true
+        },
+        {
+          "type": "unsigned_int",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "interface_anno",
@@ -948,7 +1032,7 @@
           "named": true
         },
         {
-          "type": "wchar_literal",
+          "type": "string_literal",
           "named": true
         }
       ]
@@ -1247,29 +1331,6 @@
     "fields": {}
   },
   {
-    "type": "primitive_type",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": false,
-      "types": [
-        {
-          "type": "boolean_type",
-          "named": true
-        },
-        {
-          "type": "integer_type",
-          "named": true
-        },
-        {
-          "type": "octet_type",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "raises_expr",
     "named": true,
     "fields": {},
@@ -1395,6 +1456,29 @@
     }
   },
   {
+    "type": "signed_int",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "signed_long_int",
+          "named": true
+        },
+        {
+          "type": "signed_longlong_int",
+          "named": true
+        },
+        {
+          "type": "signed_short_int",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "simple_declarator",
     "named": true,
     "fields": {},
@@ -1418,7 +1502,7 @@
       "required": true,
       "types": [
         {
-          "type": "primitive_type",
+          "type": "base_type_spec",
           "named": true
         },
         {
@@ -1498,6 +1582,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "string_literal",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "string_type",
@@ -1619,7 +1708,15 @@
       "required": true,
       "types": [
         {
-          "type": "primitive_type",
+          "type": "boolean_type",
+          "named": true
+        },
+        {
+          "type": "char_type",
+          "named": true
+        },
+        {
+          "type": "integer_type",
           "named": true
         },
         {
@@ -1819,9 +1916,27 @@
     }
   },
   {
-    "type": "wchar_literal",
+    "type": "unsigned_int",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "unsigned_long_int",
+          "named": true
+        },
+        {
+          "type": "unsigned_longlong_int",
+          "named": true
+        },
+        {
+          "type": "unsigned_short_int",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "xor_expr",
@@ -1967,7 +2082,15 @@
     "named": false
   },
   {
+    "type": "FALSE",
+    "named": false
+  },
+  {
     "type": "L",
+    "named": false
+  },
+  {
+    "type": "TRUE",
     "named": false
   },
   {
@@ -2015,23 +2138,11 @@
     "named": true
   },
   {
-    "type": "byte",
-    "named": false
-  },
-  {
     "type": "case",
     "named": false
   },
   {
     "type": "char",
-    "named": false
-  },
-  {
-    "type": "char16",
-    "named": false
-  },
-  {
-    "type": "char8",
     "named": false
   },
   {
@@ -2075,18 +2186,6 @@
     "named": false
   },
   {
-    "type": "float128",
-    "named": false
-  },
-  {
-    "type": "float32",
-    "named": false
-  },
-  {
-    "type": "float64",
-    "named": false
-  },
-  {
     "type": "getraises",
     "named": false
   },
@@ -2111,26 +2210,6 @@
     "named": false
   },
   {
-    "type": "int",
-    "named": false
-  },
-  {
-    "type": "int16",
-    "named": false
-  },
-  {
-    "type": "int32",
-    "named": false
-  },
-  {
-    "type": "int64",
-    "named": false
-  },
-  {
-    "type": "int8",
-    "named": false
-  },
-  {
     "type": "interface",
     "named": false
   },
@@ -2143,15 +2222,7 @@
     "named": false
   },
   {
-    "type": "long",
-    "named": false
-  },
-  {
     "type": "long double",
-    "named": false
-  },
-  {
-    "type": "long long",
     "named": false
   },
   {
@@ -2211,8 +2282,16 @@
     "named": false
   },
   {
-    "type": "short",
-    "named": false
+    "type": "signed_long_int",
+    "named": true
+  },
+  {
+    "type": "signed_longlong_int",
+    "named": true
+  },
+  {
+    "type": "signed_short_int",
+    "named": true
   },
   {
     "type": "string",
@@ -2235,36 +2314,20 @@
     "named": false
   },
   {
-    "type": "uint16",
-    "named": false
-  },
-  {
-    "type": "uint32",
-    "named": false
-  },
-  {
-    "type": "uint64",
-    "named": false
-  },
-  {
-    "type": "uint8",
-    "named": false
-  },
-  {
     "type": "union",
     "named": false
   },
   {
-    "type": "unsigned long",
-    "named": false
+    "type": "unsigned_long_int",
+    "named": true
   },
   {
-    "type": "unsigned long long",
-    "named": false
+    "type": "unsigned_longlong_int",
+    "named": true
   },
   {
-    "type": "unsigned short",
-    "named": false
+    "type": "unsigned_short_int",
+    "named": true
   },
   {
     "type": "void",
