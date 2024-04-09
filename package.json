@@ -11,11 +11,11 @@
   },
   "tree-sitter": [
     {
-      "scope": "source.adoc",
+      "scope": "source.idl",
       "file-types": [
-        "adoc",
-        "asciidoc"
-      ]
+        "idl"
+      ],
+      "highlights": "queries/highlights.scm"
     }
   ],
   "types": "bindings/node",
