@@ -64,7 +64,11 @@ var rules = {
       choice('string', 'wstring'),
       optional(seq('<', $.positive_int_const, '>')),
     ),
-  type_spec: $ => choice($.simple_type_spec, $.template_type_spec),
+  type_spec: $ =>
+    choice(
+      $.simple_type_spec,
+      $.template_type_spec, // 7.4.14
+    ),
   simple_type_spec: $ => prec.left(1, choice($.base_type_spec, $.scoped_name)),
   base_type_spec: $ =>
     choice(

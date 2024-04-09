@@ -21,7 +21,8 @@ annotation_dcl
         (annotation_member_type
           (any_const_type))
         (simple_declarator
-          (identifier)))
+          (identifier))))
+    (annotation_body
       (annotation_member
         (annotation_member_type
           (const_type

@@ -42,6 +42,7 @@ module.exports = grammar({
             $.typedef_dcl,
             $.except_dcl,
             $.interface_dcl,
+            $.annotation_dcl, // 7.4.15
           ),
           ';',
         ),
@@ -54,7 +55,6 @@ module.exports = grammar({
         $.enum_dcl,
         $.bitset_dcl, // idl 7.4.13
         $.bitmask_dcl, // idl 7.4.13
-        $.annotation_dcl,
       ),
     native_dcl: $ => seq('native', $.simple_declarator),
     module_dcl: $ =>
@@ -183,7 +183,11 @@ module.exports = grammar({
 
     identifier: _ => /\w[\w\d_]*/, // 7.2.3
     simple_declarator: $ => $.identifier,
-    declarator: $ => choice($.simple_declarator, $.array_declarator),
+    declarator: $ =>
+      choice(
+        $.simple_declarator,
+        $.array_declarator, // 7.4.14
+      ),
     declarators: $ => commaSep1($.declarator),
     array_declarator: $ => seq($.identifier, repeat1($.fixed_array_size)),
     positive_int_const: $ => $.const_expr,

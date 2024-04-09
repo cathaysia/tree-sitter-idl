@@ -80,7 +80,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -790,10 +790,6 @@
       "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "annotation_dcl",
-          "named": true
-        },
         {
           "type": "attr_dcl",
           "named": true
@@ -1896,10 +1892,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "annotation_dcl",
-          "named": true
-        },
         {
           "type": "any_declarators",
           "named": true

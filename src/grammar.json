@@ -2118,16 +2118,11 @@
           "value": "{"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "annotation_body"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "annotation_body"
+          }
         },
         {
           "type": "STRING",
@@ -2136,42 +2131,39 @@
       ]
     },
     "annotation_body": {
-      "type": "REPEAT1",
-      "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "annotation_member"
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "SYMBOL",
-                    "name": "enum_dcl"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "const_dcl"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "typedef_dcl"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": ";"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "annotation_member"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "enum_dcl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "const_dcl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "typedef_dcl"
+                }
+              ]
+            },
+            {
+              "type": "STRING",
+              "value": ";"
+            }
+          ]
+        }
+      ]
     },
     "annotation_member": {
       "type": "SEQ",
@@ -2251,7 +2243,7 @@
               "members": [
                 {
                   "type": "STRING",
-                  "value": "["
+                  "value": "("
                 },
                 {
                   "type": "SYMBOL",
@@ -2259,7 +2251,7 @@
                 },
                 {
                   "type": "STRING",
-                  "value": "]"
+                  "value": ")"
                 }
               ]
             },
@@ -2357,6 +2349,10 @@
                 {
                   "type": "SYMBOL",
                   "name": "interface_dcl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "annotation_dcl"
                 }
               ]
             },
@@ -2407,10 +2403,6 @@
         {
           "type": "SYMBOL",
           "name": "bitmask_dcl"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "annotation_dcl"
         }
       ]
     },
