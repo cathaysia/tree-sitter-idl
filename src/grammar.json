@@ -21,16 +21,43 @@
       ]
     },
     "signed_short_int": {
-      "type": "STRING",
-      "value": "short"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "short"
+        },
+        {
+          "type": "STRING",
+          "value": "int16"
+        }
+      ]
     },
     "signed_long_int": {
-      "type": "STRING",
-      "value": "long"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "long"
+        },
+        {
+          "type": "STRING",
+          "value": "int32"
+        }
+      ]
     },
     "signed_longlong_int": {
-      "type": "STRING",
-      "value": "long long"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "long long"
+        },
+        {
+          "type": "STRING",
+          "value": "int64"
+        }
+      ]
     },
     "unsigned_int": {
       "type": "CHOICE",
@@ -46,8 +73,16 @@
         {
           "type": "SYMBOL",
           "name": "unsigned_longlong_int"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unsigned_tiny_int"
         }
       ]
+    },
+    "unsigned_tiny_int": {
+      "type": "STRING",
+      "value": "uint8"
     },
     "boolean_type": {
       "type": "STRING",
@@ -88,20 +123,55 @@
         {
           "type": "SYMBOL",
           "name": "signed_longlong_int"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "signed_tiny_int"
         }
       ]
     },
-    "unsigned_short_int": {
+    "signed_tiny_int": {
       "type": "STRING",
-      "value": "unsigned short"
+      "value": "int8"
+    },
+    "unsigned_short_int": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "unsigned short"
+        },
+        {
+          "type": "STRING",
+          "value": "uint16"
+        }
+      ]
     },
     "unsigned_long_int": {
-      "type": "STRING",
-      "value": "unsigned long"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "unsigned long"
+        },
+        {
+          "type": "STRING",
+          "value": "uint32"
+        }
+      ]
     },
     "unsigned_longlong_int": {
-      "type": "STRING",
-      "value": "unsigned long long"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "unsigned long long"
+        },
+        {
+          "type": "STRING",
+          "value": "uint64"
+        }
+      ]
     },
     "floating_pt_type": {
       "type": "CHOICE",

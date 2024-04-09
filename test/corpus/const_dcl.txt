@@ -38,8 +38,9 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (scoped_name
-        (identifier)))
+      (integer_type
+        (unsigned_int
+          (unsigned_tiny_int))))
     (identifier)
     (const_expr
       (or_expr
@@ -53,8 +54,9 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (scoped_name
-        (identifier)))
+      (integer_type
+        (unsigned_int
+          (unsigned_short_int))))
     (identifier)
     (const_expr
       (or_expr
@@ -68,8 +70,9 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (scoped_name
-        (identifier)))
+      (integer_type
+        (unsigned_int
+          (unsigned_long_int))))
     (identifier)
     (const_expr
       (or_expr
@@ -83,8 +86,9 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (scoped_name
-        (identifier)))
+      (integer_type
+        (unsigned_int
+          (unsigned_longlong_int))))
     (identifier)
     (const_expr
       (or_expr
@@ -98,8 +102,9 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (scoped_name
-        (identifier)))
+      (integer_type
+        (signed_int
+          (signed_tiny_int))))
     (identifier)
     (const_expr
       (or_expr
@@ -113,8 +118,9 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (scoped_name
-        (identifier)))
+      (integer_type
+        (signed_int
+          (signed_short_int))))
     (identifier)
     (const_expr
       (or_expr
@@ -128,8 +134,9 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (scoped_name
-        (identifier)))
+      (integer_type
+        (signed_int
+          (signed_long_int))))
     (identifier)
     (const_expr
       (or_expr
@@ -143,8 +150,9 @@ const wchar C2 = L'X';
                       (number_literal)))))))))))
   (const_dcl
     (const_type
-      (scoped_name
-        (identifier)))
+      (integer_type
+        (signed_int
+          (signed_longlong_int))))
     (identifier)
     (const_expr
       (or_expr

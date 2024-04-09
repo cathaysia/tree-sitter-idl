@@ -324,6 +324,7 @@ interface A {
         (export
           (except_dcl
             (identifier)
+            (comment)
             (member
               (type_spec
                 (simple_type_spec

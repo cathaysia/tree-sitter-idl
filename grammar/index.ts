@@ -52,8 +52,8 @@ module.exports = grammar({
         $.struct_dcl,
         $.union_dcl,
         $.enum_dcl,
-        $.bitset_dcl,
-        $.bitmask_dcl,
+        $.bitset_dcl, // idl 7.4.13
+        $.bitmask_dcl, // idl 7.4.13
         $.annotation_dcl,
       ),
     native_dcl: $ => seq('native', $.simple_declarator),

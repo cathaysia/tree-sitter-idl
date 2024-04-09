@@ -1571,9 +1571,28 @@
         {
           "type": "signed_short_int",
           "named": true
+        },
+        {
+          "type": "signed_tiny_int",
+          "named": true
         }
       ]
     }
+  },
+  {
+    "type": "signed_long_int",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "signed_longlong_int",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "signed_short_int",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "simple_declarator",
@@ -2047,9 +2066,28 @@
         {
           "type": "unsigned_short_int",
           "named": true
+        },
+        {
+          "type": "unsigned_tiny_int",
+          "named": true
         }
       ]
     }
+  },
+  {
+    "type": "unsigned_long_int",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "unsigned_longlong_int",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "unsigned_short_int",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "xor_expr",
@@ -2323,6 +2361,18 @@
     "named": false
   },
   {
+    "type": "int16",
+    "named": false
+  },
+  {
+    "type": "int32",
+    "named": false
+  },
+  {
+    "type": "int64",
+    "named": false
+  },
+  {
     "type": "interface",
     "named": false
   },
@@ -2335,7 +2385,15 @@
     "named": false
   },
   {
+    "type": "long",
+    "named": false
+  },
+  {
     "type": "long double",
+    "named": false
+  },
+  {
+    "type": "long long",
     "named": false
   },
   {
@@ -2403,15 +2461,11 @@
     "named": false
   },
   {
-    "type": "signed_long_int",
-    "named": true
+    "type": "short",
+    "named": false
   },
   {
-    "type": "signed_longlong_int",
-    "named": true
-  },
-  {
-    "type": "signed_short_int",
+    "type": "signed_tiny_int",
     "named": true
   },
   {
@@ -2435,19 +2489,35 @@
     "named": false
   },
   {
+    "type": "uint16",
+    "named": false
+  },
+  {
+    "type": "uint32",
+    "named": false
+  },
+  {
+    "type": "uint64",
+    "named": false
+  },
+  {
     "type": "union",
     "named": false
   },
   {
-    "type": "unsigned_long_int",
-    "named": true
+    "type": "unsigned long",
+    "named": false
   },
   {
-    "type": "unsigned_longlong_int",
-    "named": true
+    "type": "unsigned long long",
+    "named": false
   },
   {
-    "type": "unsigned_short_int",
+    "type": "unsigned short",
+    "named": false
+  },
+  {
+    "type": "unsigned_tiny_int",
     "named": true
   },
   {
