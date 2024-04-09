@@ -791,11 +791,59 @@
       "required": true,
       "types": [
         {
+          "type": "annotation_dcl",
+          "named": true
+        },
+        {
           "type": "attr_dcl",
           "named": true
         },
         {
+          "type": "bitmask_dcl",
+          "named": true
+        },
+        {
+          "type": "bitset_dcl",
+          "named": true
+        },
+        {
+          "type": "const_dcl",
+          "named": true
+        },
+        {
+          "type": "enum_dcl",
+          "named": true
+        },
+        {
+          "type": "except_dcl",
+          "named": true
+        },
+        {
+          "type": "native_dcl",
+          "named": true
+        },
+        {
           "type": "op_dcl",
+          "named": true
+        },
+        {
+          "type": "struct_def",
+          "named": true
+        },
+        {
+          "type": "struct_forward_dcl",
+          "named": true
+        },
+        {
+          "type": "typedef_dcl",
+          "named": true
+        },
+        {
+          "type": "union_def",
+          "named": true
+        },
+        {
+          "type": "union_forward_dcl",
           "named": true
         }
       ]
@@ -1830,7 +1878,19 @@
       "required": true,
       "types": [
         {
+          "type": "annotation_dcl",
+          "named": true
+        },
+        {
           "type": "any_declarators",
+          "named": true
+        },
+        {
+          "type": "bitmask_dcl",
+          "named": true
+        },
+        {
+          "type": "bitset_dcl",
           "named": true
         },
         {

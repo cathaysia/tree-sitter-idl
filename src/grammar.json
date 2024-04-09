@@ -1418,6 +1418,18 @@
             {
               "type": "SYMBOL",
               "name": "attr_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "type_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "const_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "except_dcl"
             }
           ]
         },
@@ -2291,15 +2303,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "annotation_dcl"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "bitset_dcl"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "bitmask_dcl"
+          "name": "constr_type_dcl"
         },
         {
           "type": "SYMBOL",
@@ -2307,7 +2311,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "constr_type_dcl"
+          "name": "typedef_dcl"
         }
       ]
     },
@@ -2325,6 +2329,18 @@
         {
           "type": "SYMBOL",
           "name": "enum_dcl"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bitset_dcl"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bitmask_dcl"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "annotation_dcl"
         }
       ]
     },

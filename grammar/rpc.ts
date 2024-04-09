@@ -18,7 +18,17 @@ var rules: Rules = {
   interface_inheritance_spec: $ => seq(':', commaSep1($.interface_name)),
   interface_name: $ => $.scoped_name,
   interface_body: $ => repeat1($.export),
-  export: $ => seq(choice($.op_dcl, $.attr_dcl), ';'),
+  export: $ =>
+    seq(
+      choice(
+        $.op_dcl,
+        $.attr_dcl,
+        $.type_dcl, // idl 7.4.4
+        $.const_dcl, // idl 7.4.4
+        $.except_dcl, // idl 7.4.4
+      ),
+      ';',
+    ),
   op_dcl: $ =>
     seq(
       $.op_type_spec,

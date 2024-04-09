@@ -46,15 +46,16 @@ module.exports = grammar({
           ';',
         ),
       ),
-    type_dcl: $ =>
+    type_dcl: $ => choice($.constr_type_dcl, $.native_dcl, $.typedef_dcl),
+    constr_type_dcl: $ =>
       choice(
-        $.annotation_dcl,
+        $.struct_dcl,
+        $.union_dcl,
+        $.enum_dcl,
         $.bitset_dcl,
         $.bitmask_dcl,
-        $.native_dcl,
-        $.constr_type_dcl,
+        $.annotation_dcl,
       ),
-    constr_type_dcl: $ => choice($.struct_dcl, $.union_dcl, $.enum_dcl),
     native_dcl: $ => seq('native', $.simple_declarator),
     module_dcl: $ =>
       seq('module', $.identifier, '{', repeat($._definition), '}'),

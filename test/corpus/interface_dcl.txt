@@ -24,6 +24,15 @@ interface A: B, C, D {
     attribute u8 attr1 setraises(A);
 };
 
+interface A {
+    typedef long L1; // idl 7.4.4
+    const int a = 10; // idl 7.4.4
+    exception A { // idl 7.4.4
+        int a;
+    };
+    short opA(in L1 l_1);
+};
+
 ---
 
 (specification
@@ -276,4 +285,70 @@ interface A: B, C, D {
                   (set_excep_expr
                     (exception_list
                       (scoped_name
-                        (identifier)))))))))))))
+                        (identifier))))))))))))
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (identifier))
+      (interface_body
+        (export
+          (typedef_dcl
+            (type_declarator
+              (simple_type_spec
+                (base_type_spec
+                  (integer_type
+                    (signed_int
+                      (signed_long_int)))))
+              (any_declarators
+                (any_declarator
+                  (simple_declarator
+                    (identifier)))))))
+        (comment)
+        (export
+          (const_dcl
+            (const_type
+              (scoped_name
+                (identifier)))
+            (identifier)
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (literal
+                              (number_literal))))))))))))
+        (comment)
+        (export
+          (except_dcl
+            (identifier)
+            (member
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (declarators
+                (declarator
+                  (simple_declarator
+                    (identifier)))))))
+        (export
+          (op_dcl
+            (op_type_spec
+              (type_spec
+                (simple_type_spec
+                  (base_type_spec
+                    (integer_type
+                      (signed_int
+                        (signed_short_int)))))))
+            (identifier)
+            (parameter_dcls
+              (param_dcl
+                (param_attribute)
+                (type_spec
+                  (simple_type_spec
+                    (scoped_name
+                      (identifier))))
+                (simple_declarator
+                  (identifier))))))))))
