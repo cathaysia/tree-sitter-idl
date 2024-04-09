@@ -10,6 +10,7 @@ union A switch(long) {
     case 1:
         u8 a;
     case 2:
+    case 3:
         u16 b;
     default:
         u32 c[10];
@@ -52,6 +53,18 @@ union A switch(long) {
         (declarator
           (simple_declarator
             (identifier)))))
+    (case
+      (case_label
+        (const_expr
+          (or_expr
+            (xor_expr
+              (and_expr
+                (shift_expr
+                  (add_expr
+                    (mult_expr
+                      (unary_expr
+                        (literal
+                          (number_literal))))))))))))
     (case
       (case_label
         (const_expr

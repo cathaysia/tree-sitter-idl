@@ -112,7 +112,7 @@ module.exports = grammar({
         repeat($.case),
         '}',
       ),
-    case: $ => seq($.case_label, $.element_spec, ';'),
+    case: $ => seq($.case_label, optional(seq($.element_spec, ';'))),
     case_label: $ => seq(choice(seq('case', $.const_expr), 'default'), ':'),
     element_spec: $ => seq($.type_spec, $.declarator),
     switch_type_spec: $ =>

@@ -1,6 +1,7 @@
 (comment) @comment
 
 [
+  "module"
   "enum"
   "struct"
   "union"
@@ -22,6 +23,9 @@
 (readonly_attr_declarator (simple_declarator)@property)
 (attr_declarator)@property
 
+(member
+  identifier: (declarators)@property
+)
 (attr_spec ["attribute"]@keyword)
 (raises_expr
   "raises"@keyword
@@ -55,6 +59,10 @@
   "case"
   "switch"
 ] @keyword.conditional
+
+(module_dcl
+  (identifier) @type
+)
 
 (annotation_dcl
   (identifier) @type
