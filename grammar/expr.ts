@@ -65,4 +65,4 @@ var rules = {
   unary_operator: _ => prec.left(PREC.UNARY, choice('-', '+', '~')),
 }
 
-export default rules;
+export default rules

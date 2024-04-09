@@ -2,10 +2,12 @@
   "scripts": {
     "install": "node-gyp-build",
     "prebuildify": "prebuildify --napi --strip",
-    "build": "pnpm js_build && pnpm ts_build",
+    "build": "pnpm js_build && pnpm ts_build && pnpm precommit",
     "test": "pnpm build && tree-sitter test",
     "js_build": "esbuild --bundle --platform=node --log-level=warning ./grammar/index.ts --outfile=grammar.js",
-    "ts_build": "tree-sitter generate"
+    "ts_build": "tree-sitter generate",
+    "precommit": "pre-commit run -a 2>&1 >> /dev/null || true",
+    "compile": "gcc -shared src/parser.c src/scanner.c -o build/idl.so"
   },
   "tree-sitter": [
     {
