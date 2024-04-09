@@ -1258,10 +1258,6 @@
         {
           "type": "STRING",
           "value": "}"
-        },
-        {
-          "type": "STRING",
-          "value": ";"
         }
       ]
     },
@@ -1403,29 +1399,11 @@
       "name": "scoped_name"
     },
     "interface_body": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "export"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "SYMBOL",
-                "name": "export"
-              }
-            ]
-          }
-        }
-      ]
+      "type": "REPEAT1",
+      "content": {
+        "type": "SYMBOL",
+        "name": "export"
+      }
     },
     "export": {
       "type": "SEQ",
@@ -1578,35 +1556,27 @@
           "value": "("
         },
         {
-          "type": "CHOICE",
+          "type": "SEQ",
           "members": [
             {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "scoped_name"
-                },
-                {
-                  "type": "REPEAT",
-                  "content": {
-                    "type": "SEQ",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": ","
-                      },
-                      {
-                        "type": "SYMBOL",
-                        "name": "scoped_name"
-                      }
-                    ]
-                  }
-                }
-              ]
+              "type": "SYMBOL",
+              "name": "scoped_name"
             },
             {
-              "type": "BLANK"
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "scoped_name"
+                  }
+                ]
+              }
             }
           ]
         },
@@ -1764,11 +1734,16 @@
               "name": "get_excep_expr"
             },
             {
-              "type": "REPEAT",
-              "content": {
-                "type": "SYMBOL",
-                "name": "set_excep_expr"
-              }
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "set_excep_expr"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
             }
           ]
         },
@@ -1812,35 +1787,27 @@
           "value": "("
         },
         {
-          "type": "CHOICE",
+          "type": "SEQ",
           "members": [
             {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "scoped_name"
-                },
-                {
-                  "type": "REPEAT",
-                  "content": {
-                    "type": "SEQ",
-                    "members": [
-                      {
-                        "type": "STRING",
-                        "value": ","
-                      },
-                      {
-                        "type": "SYMBOL",
-                        "name": "scoped_name"
-                      }
-                    ]
-                  }
-                }
-              ]
+              "type": "SYMBOL",
+              "name": "scoped_name"
             },
             {
-              "type": "BLANK"
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "scoped_name"
+                  }
+                ]
+              }
             }
           ]
         },
@@ -2300,6 +2267,14 @@
                 {
                   "type": "SYMBOL",
                   "name": "typedef_dcl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "except_dcl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "interface_dcl"
                 }
               ]
             },
@@ -2308,10 +2283,6 @@
               "value": ";"
             }
           ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "except_dcl"
         }
       ]
     },
@@ -2329,10 +2300,6 @@
         {
           "type": "SYMBOL",
           "name": "bitmask_dcl"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "interface_dcl"
         },
         {
           "type": "SYMBOL",

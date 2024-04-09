@@ -13,11 +13,20 @@
   "interface"
   "@annotation"
   "void"
-  "raises"
   "typedef"
   (struct_modifier)
   (preproc_directive)
 ] @keyword
+
+(readonly_attr_spec ["readonly" "attribute"]@keyword )
+(readonly_attr_declarator (simple_declarator)@property)
+(attr_declarator)@property
+
+(attr_spec ["attribute"]@keyword)
+(raises_expr
+  "raises"@keyword
+  (scoped_name)@type
+)
 
 (param_dcl
   (param_attribute)@keyword
@@ -68,6 +77,14 @@
 )
 
 (union_forward_dcl
+  (identifier) @type
+)
+
+(interface_forward_dcl
+  (identifier) @type
+)
+
+(interface_header
   (identifier) @type
 )
 

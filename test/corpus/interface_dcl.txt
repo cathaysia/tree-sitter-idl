@@ -10,6 +10,18 @@ interface HelloWorld: Parent1, Parent2, Parent3 {};
 
 interface A: B, C, D {
     void func1();
+    void func1() raises(A);
+    void func1() raises(A,B,C);
+    void func1(in u8 attr, out u16 attr);
+    void func1(in u8 attr, out u16 attr) raises(A);
+    void func1(in u8 attr, out u16 attr) raises(A,B,C);
+    readonly attribute u8 attr1, attr2, attr3;
+    readonly attribute u8 attr1 raises(A);
+    readonly attribute u8 attr1 raises(A, B, C);
+    attribute u8 attr1, attr2, attr3;
+    attribute u8 attr1 getraises(A);
+    attribute u8 attr1 getraises(A, B, C) setraises(A);
+    attribute u8 attr1 setraises(A);
 };
 
 ---
@@ -62,4 +74,206 @@ interface A: B, C, D {
         (export
           (op_dcl
             (op_type_spec)
-            (identifier)))))))
+            (identifier)))
+        (export
+          (op_dcl
+            (op_type_spec)
+            (identifier)
+            (raises_expr
+              (scoped_name
+                (identifier)))))
+        (export
+          (op_dcl
+            (op_type_spec)
+            (identifier)
+            (raises_expr
+              (scoped_name
+                (identifier))
+              (scoped_name
+                (identifier))
+              (scoped_name
+                (identifier)))))
+        (export
+          (op_dcl
+            (op_type_spec)
+            (identifier)
+            (parameter_dcls
+              (param_dcl
+                (param_attribute)
+                (type_spec
+                  (simple_type_spec
+                    (scoped_name
+                      (identifier))))
+                (simple_declarator
+                  (identifier)))
+              (param_dcl
+                (param_attribute)
+                (type_spec
+                  (simple_type_spec
+                    (scoped_name
+                      (identifier))))
+                (simple_declarator
+                  (identifier))))))
+        (export
+          (op_dcl
+            (op_type_spec)
+            (identifier)
+            (parameter_dcls
+              (param_dcl
+                (param_attribute)
+                (type_spec
+                  (simple_type_spec
+                    (scoped_name
+                      (identifier))))
+                (simple_declarator
+                  (identifier)))
+              (param_dcl
+                (param_attribute)
+                (type_spec
+                  (simple_type_spec
+                    (scoped_name
+                      (identifier))))
+                (simple_declarator
+                  (identifier))))
+            (raises_expr
+              (scoped_name
+                (identifier)))))
+        (export
+          (op_dcl
+            (op_type_spec)
+            (identifier)
+            (parameter_dcls
+              (param_dcl
+                (param_attribute)
+                (type_spec
+                  (simple_type_spec
+                    (scoped_name
+                      (identifier))))
+                (simple_declarator
+                  (identifier)))
+              (param_dcl
+                (param_attribute)
+                (type_spec
+                  (simple_type_spec
+                    (scoped_name
+                      (identifier))))
+                (simple_declarator
+                  (identifier))))
+            (raises_expr
+              (scoped_name
+                (identifier))
+              (scoped_name
+                (identifier))
+              (scoped_name
+                (identifier)))))
+        (export
+          (attr_dcl
+            (readonly_attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (readonly_attr_declarator
+                (simple_declarator
+                  (identifier))
+                (simple_declarator
+                  (identifier))
+                (simple_declarator
+                  (identifier))))))
+        (export
+          (attr_dcl
+            (readonly_attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (readonly_attr_declarator
+                (simple_declarator
+                  (identifier))
+                (raises_expr
+                  (scoped_name
+                    (identifier)))))))
+        (export
+          (attr_dcl
+            (readonly_attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (readonly_attr_declarator
+                (simple_declarator
+                  (identifier))
+                (raises_expr
+                  (scoped_name
+                    (identifier))
+                  (scoped_name
+                    (identifier))
+                  (scoped_name
+                    (identifier)))))))
+        (export
+          (attr_dcl
+            (attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (attr_declarator
+                (simple_declarator
+                  (identifier))
+                (simple_declarator
+                  (identifier))
+                (simple_declarator
+                  (identifier))))))
+        (export
+          (attr_dcl
+            (attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (attr_declarator
+                (simple_declarator
+                  (identifier))
+                (attr_raises_expr
+                  (get_excep_expr
+                    (exception_list
+                      (scoped_name
+                        (identifier)))))))))
+        (export
+          (attr_dcl
+            (attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (attr_declarator
+                (simple_declarator
+                  (identifier))
+                (attr_raises_expr
+                  (get_excep_expr
+                    (exception_list
+                      (scoped_name
+                        (identifier))
+                      (scoped_name
+                        (identifier))
+                      (scoped_name
+                        (identifier))))
+                  (set_excep_expr
+                    (exception_list
+                      (scoped_name
+                        (identifier)))))))))
+        (export
+          (attr_dcl
+            (attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (attr_declarator
+                (simple_declarator
+                  (identifier))
+                (attr_raises_expr
+                  (set_excep_expr
+                    (exception_list
+                      (scoped_name
+                        (identifier)))))))))))))

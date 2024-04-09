@@ -34,15 +34,23 @@ module.exports = grammar({
     _definition: $ =>
       choice(
         $.predefine,
-        seq(choice($.module_dcl, $.type_dcl, $.const_dcl, $.typedef_dcl), ';'),
-        $.except_dcl,
+        seq(
+          choice(
+            $.module_dcl,
+            $.type_dcl,
+            $.const_dcl,
+            $.typedef_dcl,
+            $.except_dcl,
+            $.interface_dcl,
+          ),
+          ';',
+        ),
       ),
     type_dcl: $ =>
       choice(
         $.annotation_dcl,
         $.bitset_dcl,
         $.bitmask_dcl,
-        $.interface_dcl,
         $.native_dcl,
         $.constr_type_dcl,
       ),
