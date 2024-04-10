@@ -2604,6 +2604,275 @@
         }
       ]
     },
+    "value_dcl": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "value_def"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "value_forward_dcl"
+        }
+      ]
+    },
+    "value_def": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "value_header"
+        },
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "value_element"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "value_header": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "valuetype"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "value_inheritance_spec"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "value_inheritance_spec": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "value_inheritance"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "value_supports"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "value_inheritance"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "value_supports"
+            }
+          ]
+        }
+      ]
+    },
+    "value_inheritance": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "value_name"
+        }
+      ]
+    },
+    "value_supports": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "supports"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "interface_name"
+        }
+      ]
+    },
+    "value_name": {
+      "type": "SYMBOL",
+      "name": "scoped_name"
+    },
+    "value_element": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "export"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "state_member"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "init_dcl"
+        }
+      ]
+    },
+    "state_member": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "public"
+            },
+            {
+              "type": "STRING",
+              "value": "private"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "type_spec"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "declarators"
+        },
+        {
+          "type": "STRING",
+          "value": ";"
+        }
+      ]
+    },
+    "init_dcl": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "factory"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "init_param_dcls"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "raises_expr"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ";"
+        }
+      ]
+    },
+    "init_param_dcls": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "init_param_dcl"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "init_param_dcl"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "init_param_dcl": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "in"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "type_spec"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "simple_declarator"
+        }
+      ]
+    },
+    "value_forward_dcl": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "valuetype"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
+    },
     "_definition": {
       "type": "CHOICE",
       "members": [
@@ -2652,6 +2921,10 @@
                 {
                   "type": "SYMBOL",
                   "name": "template_module_inst"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "value_dcl"
                 }
               ]
             },
@@ -3701,7 +3974,9 @@
     "constr_type_dcl",
     "struct_dcl",
     "union_dcl",
-    "primary_expr"
+    "primary_expr",
+    "value_inheritance",
+    "value_supports"
   ],
   "supertypes": []
 }

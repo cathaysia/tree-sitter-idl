@@ -7,6 +7,7 @@ import rpc from './rpc'
 import bitmask from './bitmask'
 import annotation from './annotation'
 import template from './template'
+import value_type from './value_type'
 
 declare var module: any
 
@@ -21,6 +22,8 @@ module.exports = grammar({
     $.struct_dcl,
     $.union_dcl,
     $.primary_expr,
+    $.value_inheritance,
+    $.value_supports,
   ],
 
   rules: {
@@ -33,6 +36,7 @@ module.exports = grammar({
     ...bitmask,
     ...annotation,
     ...template,
+    ...value_type,
     _definition: $ =>
       choice(
         $.predefine,
@@ -47,6 +51,7 @@ module.exports = grammar({
             $.annotation_dcl, // 7.4.15
             $.template_module_dcl, // idl 7.4.12
             $.template_module_inst, // idl 7.4.12
+            $.value_dcl, // idl 7.4.5
           ),
           ';',
         ),
