@@ -26,6 +26,17 @@
 (member
   identifier: (declarators)@property
 )
+(op_dcl
+  (identifier)@function
+)
+
+(type_declarator
+  (simple_type_spec)@type
+  (any_declarators)@type
+)
+(param_dcl
+  (simple_declarator)@variable.parameter
+)
 (attr_spec ["attribute"]@keyword)
 (raises_expr
   "raises"@keyword
@@ -70,6 +81,11 @@
 
 (struct_def
   (identifier) @type
+  parent: (scoped_name)?@type
+)
+
+(struct_forward_dcl
+  (identifier) @type
 )
 
 (bitmask_dcl
@@ -94,6 +110,10 @@
 
 (interface_header
   (identifier) @type
+)
+
+(interface_inheritance_spec
+  (interface_name) @type
 )
 
 (union_def
