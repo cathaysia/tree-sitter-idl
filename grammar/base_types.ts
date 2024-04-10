@@ -57,7 +57,7 @@ var rules = {
     choice(
       $.identifier,
       seq('::', $.identifier),
-      seq($.scoped_name, $.identifier),
+      seq($.scoped_name, '::', $.identifier),
     ),
   string_type: $ =>
     seq(

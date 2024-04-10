@@ -52,3 +52,11 @@ export function commaSep1(rule: Rule) {
 export function commaSep(rule: Rule) {
   return optional(commaSep1(rule))
 }
+
+export function anySep1(rule: Rule, sep: String) {
+  return seq(rule, repeat(seq(sep, rule)))
+}
+
+export function anySep(rule: Rule, sep: String) {
+  return optional(anySep1(rule, sep))
+}

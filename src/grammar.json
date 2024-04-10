@@ -231,6 +231,10 @@
               "name": "scoped_name"
             },
             {
+              "type": "STRING",
+              "value": "::"
+            },
+            {
               "type": "SYMBOL",
               "name": "identifier"
             }
@@ -3137,8 +3141,17 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "type_spec"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "type_spec"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "constr_type_dcl"
+            }
+          ]
         },
         {
           "type": "SYMBOL",

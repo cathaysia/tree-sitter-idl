@@ -720,11 +720,39 @@
       "required": true,
       "types": [
         {
+          "type": "bitmask_dcl",
+          "named": true
+        },
+        {
+          "type": "bitset_dcl",
+          "named": true
+        },
+        {
           "type": "declarator",
           "named": true
         },
         {
+          "type": "enum_dcl",
+          "named": true
+        },
+        {
+          "type": "struct_def",
+          "named": true
+        },
+        {
+          "type": "struct_forward_dcl",
+          "named": true
+        },
+        {
           "type": "type_spec",
+          "named": true
+        },
+        {
+          "type": "union_def",
+          "named": true
+        },
+        {
+          "type": "union_forward_dcl",
           "named": true
         }
       ]

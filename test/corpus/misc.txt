@@ -1,0 +1,738 @@
+========================================
+misc
+========================================
+
+enum Color { red, green, blue };
+const Color FAVORITE_COLOR = red;
+
+module M {
+    enum Size { small, medium, large };
+};
+
+const M::Size MYSIZE = M::medium;
+const Color col = red;
+const Color another = M::medium;
+
+// 7.4.1.4.4.4.4
+struct Foo; // Forward declaration
+typedef sequence<Foo> FooSeq;
+
+struct Foo {
+    long value;
+    FooSeq chain; // Recursive
+};
+
+union Bar; // Forward declaration
+typedef sequence<Bar> BarSeq;
+
+union Bar switch (long) { // Define incomplete union
+    case 0:
+        long l_mem;
+    case 1:
+        struct Foo {
+            double d_mem;
+            BarSeq nested; // OK, recurse on enclosing incomplete type
+        } s_mem;
+};
+
+// 7.4.3.4.3.2.1
+interface A { };
+interface B: A { };
+interface C: A { };
+interface D: B, C { }; // OK
+interface E: A, B { }; // OK
+
+interface A {
+    void make_it_so();
+};
+interface B: A {
+    short make_it_so(in long times); // Error: redefinition of make_it_so
+};
+
+module Example {
+    interface base; // Forward declaration
+    // ...
+    interface derived : base {}; // Error
+    interface base {}; // Define base
+    interface derived : base {}; // OK
+};
+
+// 7.4.4.4
+
+interface A {
+    typedef long L1;
+    short opA (in L1 l_1);
+};
+interface B {
+    typedef short L1;
+    L1 opB (in long l);
+};
+interface C: B, A {
+    typedef L1 L2; // Error: L1 ambiguous
+    typedef A::L1 L3; // A::L1 is OK
+    B::L1 opC (in L3 l_3); // All OK no ambiguities
+};
+
+const long L = 3;
+interface A {
+    typedef float coord[1];
+    void f (in coord s); // s has three floats
+};
+interface B {
+    const long L = 4;
+};
+interface C: B, A { }; // What is C::f()’s signature?
+
+interface A {
+    typedef string<128> string_t;
+};
+interface B {
+    typedef string<256> string_t;
+};
+interface C: A, B {
+    attribute string_t Title; // Error: string_t ambiguous
+    attribute A::string_t Name; // OK
+    attribute B::string_t City; // OK
+};
+
+---
+
+(specification
+  (enum_dcl
+    (identifier)
+    (enumerator
+      (identifier))
+    (enumerator
+      (identifier))
+    (enumerator
+      (identifier)))
+  (const_dcl
+    (const_type
+      (scoped_name
+        (identifier)))
+    (identifier)
+    (const_expr
+      (or_expr
+        (xor_expr
+          (and_expr
+            (shift_expr
+              (add_expr
+                (mult_expr
+                  (unary_expr
+                    (scoped_name
+                      (identifier)))))))))))
+  (module_dcl
+    (identifier)
+    (enum_dcl
+      (identifier)
+      (enumerator
+        (identifier))
+      (enumerator
+        (identifier))
+      (enumerator
+        (identifier))))
+  (const_dcl
+    (const_type
+      (scoped_name
+        (scoped_name
+          (identifier))
+        (identifier)))
+    (identifier)
+    (const_expr
+      (or_expr
+        (xor_expr
+          (and_expr
+            (shift_expr
+              (add_expr
+                (mult_expr
+                  (unary_expr
+                    (scoped_name
+                      (scoped_name
+                        (identifier))
+                      (identifier)))))))))))
+  (const_dcl
+    (const_type
+      (scoped_name
+        (identifier)))
+    (identifier)
+    (const_expr
+      (or_expr
+        (xor_expr
+          (and_expr
+            (shift_expr
+              (add_expr
+                (mult_expr
+                  (unary_expr
+                    (scoped_name
+                      (identifier)))))))))))
+  (const_dcl
+    (const_type
+      (scoped_name
+        (identifier)))
+    (identifier)
+    (const_expr
+      (or_expr
+        (xor_expr
+          (and_expr
+            (shift_expr
+              (add_expr
+                (mult_expr
+                  (unary_expr
+                    (scoped_name
+                      (scoped_name
+                        (identifier))
+                      (identifier)))))))))))
+  (comment)
+  (struct_forward_dcl
+    (identifier))
+  (comment)
+  (typedef_dcl
+    (type_declarator
+      (template_type_spec
+        (sequence_type
+          (type_spec
+            (simple_type_spec
+              (scoped_name
+                (identifier))))))
+      (any_declarators
+        (any_declarator
+          (simple_declarator
+            (identifier))))))
+  (struct_def
+    (identifier)
+    (member
+      (type_spec
+        (simple_type_spec
+          (base_type_spec
+            (integer_type
+              (signed_int
+                (signed_long_int))))))
+      (declarators
+        (declarator
+          (simple_declarator
+            (identifier)))))
+    (member
+      (type_spec
+        (simple_type_spec
+          (scoped_name
+            (identifier))))
+      (declarators
+        (declarator
+          (simple_declarator
+            (identifier)))))
+    (comment))
+  (union_forward_dcl
+    (identifier))
+  (comment)
+  (typedef_dcl
+    (type_declarator
+      (template_type_spec
+        (sequence_type
+          (type_spec
+            (simple_type_spec
+              (scoped_name
+                (identifier))))))
+      (any_declarators
+        (any_declarator
+          (simple_declarator
+            (identifier))))))
+  (union_def
+    (identifier)
+    (switch_type_spec
+      (integer_type
+        (signed_int
+          (signed_long_int))))
+    (comment)
+    (case
+      (case_label
+        (const_expr
+          (or_expr
+            (xor_expr
+              (and_expr
+                (shift_expr
+                  (add_expr
+                    (mult_expr
+                      (unary_expr
+                        (literal
+                          (number_literal)))))))))))
+      (element_spec
+        (type_spec
+          (simple_type_spec
+            (base_type_spec
+              (integer_type
+                (signed_int
+                  (signed_long_int))))))
+        (declarator
+          (simple_declarator
+            (identifier)))))
+    (case
+      (case_label
+        (const_expr
+          (or_expr
+            (xor_expr
+              (and_expr
+                (shift_expr
+                  (add_expr
+                    (mult_expr
+                      (unary_expr
+                        (literal
+                          (number_literal)))))))))))
+      (element_spec
+        (struct_def
+          (identifier)
+          (member
+            (type_spec
+              (simple_type_spec
+                (base_type_spec
+                  (floating_pt_type))))
+            (declarators
+              (declarator
+                (simple_declarator
+                  (identifier)))))
+          (member
+            (type_spec
+              (simple_type_spec
+                (scoped_name
+                  (identifier))))
+            (declarators
+              (declarator
+                (simple_declarator
+                  (identifier)))))
+          (comment))
+        (declarator
+          (simple_declarator
+            (identifier))))))
+  (comment)
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (identifier))))
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (identifier)
+        (interface_inheritance_spec
+          (interface_name
+            (scoped_name
+              (identifier)))))))
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (identifier)
+        (interface_inheritance_spec
+          (interface_name
+            (scoped_name
+              (identifier)))))))
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (identifier)
+        (interface_inheritance_spec
+          (interface_name
+            (scoped_name
+              (identifier)))
+          (interface_name
+            (scoped_name
+              (identifier)))))))
+  (comment)
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (identifier)
+        (interface_inheritance_spec
+          (interface_name
+            (scoped_name
+              (identifier)))
+          (interface_name
+            (scoped_name
+              (identifier)))))))
+  (comment)
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (identifier))
+      (interface_body
+        (export
+          (op_dcl
+            (op_type_spec)
+            (identifier))))))
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (identifier)
+        (interface_inheritance_spec
+          (interface_name
+            (scoped_name
+              (identifier)))))
+      (interface_body
+        (export
+          (op_dcl
+            (op_type_spec
+              (type_spec
+                (simple_type_spec
+                  (base_type_spec
+                    (integer_type
+                      (signed_int
+                        (signed_short_int)))))))
+            (identifier)
+            (parameter_dcls
+              (param_dcl
+                (param_attribute)
+                (type_spec
+                  (simple_type_spec
+                    (base_type_spec
+                      (integer_type
+                        (signed_int
+                          (signed_long_int))))))
+                (simple_declarator
+                  (identifier)))))))
+      (comment)))
+  (module_dcl
+    (identifier)
+    (interface_dcl
+      (interface_forward_dcl
+        (identifier)))
+    (comment)
+    (comment)
+    (interface_dcl
+      (interface_def
+        (interface_header
+          (identifier)
+          (interface_inheritance_spec
+            (interface_name
+              (scoped_name
+                (identifier)))))))
+    (comment)
+    (interface_dcl
+      (interface_def
+        (interface_header
+          (identifier))))
+    (comment)
+    (interface_dcl
+      (interface_def
+        (interface_header
+          (identifier)
+          (interface_inheritance_spec
+            (interface_name
+              (scoped_name
+                (identifier)))))))
+    (comment))
+  (comment)
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (identifier))
+      (interface_body
+        (export
+          (typedef_dcl
+            (type_declarator
+              (simple_type_spec
+                (base_type_spec
+                  (integer_type
+                    (signed_int
+                      (signed_long_int)))))
+              (any_declarators
+                (any_declarator
+                  (simple_declarator
+                    (identifier)))))))
+        (export
+          (op_dcl
+            (op_type_spec
+              (type_spec
+                (simple_type_spec
+                  (base_type_spec
+                    (integer_type
+                      (signed_int
+                        (signed_short_int)))))))
+            (identifier)
+            (parameter_dcls
+              (param_dcl
+                (param_attribute)
+                (type_spec
+                  (simple_type_spec
+                    (scoped_name
+                      (identifier))))
+                (simple_declarator
+                  (identifier)))))))))
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (identifier))
+      (interface_body
+        (export
+          (typedef_dcl
+            (type_declarator
+              (simple_type_spec
+                (base_type_spec
+                  (integer_type
+                    (signed_int
+                      (signed_short_int)))))
+              (any_declarators
+                (any_declarator
+                  (simple_declarator
+                    (identifier)))))))
+        (export
+          (op_dcl
+            (op_type_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier)))))
+            (identifier)
+            (parameter_dcls
+              (param_dcl
+                (param_attribute)
+                (type_spec
+                  (simple_type_spec
+                    (base_type_spec
+                      (integer_type
+                        (signed_int
+                          (signed_long_int))))))
+                (simple_declarator
+                  (identifier)))))))))
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (identifier)
+        (interface_inheritance_spec
+          (interface_name
+            (scoped_name
+              (identifier)))
+          (interface_name
+            (scoped_name
+              (identifier)))))
+      (interface_body
+        (export
+          (typedef_dcl
+            (type_declarator
+              (simple_type_spec
+                (scoped_name
+                  (identifier)))
+              (any_declarators
+                (any_declarator
+                  (simple_declarator
+                    (identifier)))))))
+        (comment)
+        (export
+          (typedef_dcl
+            (type_declarator
+              (simple_type_spec
+                (scoped_name
+                  (scoped_name
+                    (identifier))
+                  (identifier)))
+              (any_declarators
+                (any_declarator
+                  (simple_declarator
+                    (identifier)))))))
+        (comment)
+        (export
+          (op_dcl
+            (op_type_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (scoped_name
+                      (identifier))
+                    (identifier)))))
+            (identifier)
+            (parameter_dcls
+              (param_dcl
+                (param_attribute)
+                (type_spec
+                  (simple_type_spec
+                    (scoped_name
+                      (identifier))))
+                (simple_declarator
+                  (identifier)))))))
+      (comment)))
+  (const_dcl
+    (const_type
+      (integer_type
+        (signed_int
+          (signed_long_int))))
+    (identifier)
+    (const_expr
+      (or_expr
+        (xor_expr
+          (and_expr
+            (shift_expr
+              (add_expr
+                (mult_expr
+                  (unary_expr
+                    (literal
+                      (number_literal)))))))))))
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (identifier))
+      (interface_body
+        (export
+          (typedef_dcl
+            (type_declarator
+              (simple_type_spec
+                (base_type_spec
+                  (floating_pt_type)))
+              (any_declarators
+                (any_declarator
+                  (array_declarator
+                    (identifier)
+                    (fixed_array_size
+                      (positive_int_const
+                        (const_expr
+                          (or_expr
+                            (xor_expr
+                              (and_expr
+                                (shift_expr
+                                  (add_expr
+                                    (mult_expr
+                                      (unary_expr
+                                        (literal
+                                          (number_literal))))))))))))))))))
+        (export
+          (op_dcl
+            (op_type_spec)
+            (identifier)
+            (parameter_dcls
+              (param_dcl
+                (param_attribute)
+                (type_spec
+                  (simple_type_spec
+                    (scoped_name
+                      (identifier))))
+                (simple_declarator
+                  (identifier)))))))
+      (comment)))
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (identifier))
+      (interface_body
+        (export
+          (const_dcl
+            (const_type
+              (integer_type
+                (signed_int
+                  (signed_long_int))))
+            (identifier)
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (literal
+                              (number_literal)))))))))))))))
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (identifier)
+        (interface_inheritance_spec
+          (interface_name
+            (scoped_name
+              (identifier)))
+          (interface_name
+            (scoped_name
+              (identifier)))))))
+  (comment)
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (identifier))
+      (interface_body
+        (export
+          (typedef_dcl
+            (type_declarator
+              (template_type_spec
+                (string_type
+                  (positive_int_const
+                    (const_expr
+                      (or_expr
+                        (xor_expr
+                          (and_expr
+                            (shift_expr
+                              (add_expr
+                                (mult_expr
+                                  (unary_expr
+                                    (literal
+                                      (number_literal)))))))))))))
+              (any_declarators
+                (any_declarator
+                  (simple_declarator
+                    (identifier))))))))))
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (identifier))
+      (interface_body
+        (export
+          (typedef_dcl
+            (type_declarator
+              (template_type_spec
+                (string_type
+                  (positive_int_const
+                    (const_expr
+                      (or_expr
+                        (xor_expr
+                          (and_expr
+                            (shift_expr
+                              (add_expr
+                                (mult_expr
+                                  (unary_expr
+                                    (literal
+                                      (number_literal)))))))))))))
+              (any_declarators
+                (any_declarator
+                  (simple_declarator
+                    (identifier))))))))))
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (identifier)
+        (interface_inheritance_spec
+          (interface_name
+            (scoped_name
+              (identifier)))
+          (interface_name
+            (scoped_name
+              (identifier)))))
+      (interface_body
+        (export
+          (attr_dcl
+            (attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (attr_declarator
+                (simple_declarator
+                  (identifier))))))
+        (comment)
+        (export
+          (attr_dcl
+            (attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (scoped_name
+                      (identifier))
+                    (identifier))))
+              (attr_declarator
+                (simple_declarator
+                  (identifier))))))
+        (comment)
+        (export
+          (attr_dcl
+            (attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (scoped_name
+                      (identifier))
+                    (identifier))))
+              (attr_declarator
+                (simple_declarator
+                  (identifier)))))))
+      (comment))))

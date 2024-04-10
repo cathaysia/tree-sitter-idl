@@ -18,6 +18,14 @@ const char16 a = 0;
 
 const char C1 = 'X';
 const wchar C2 = L'X';
+
+const ::A a = 0;
+const A::B a = 0;
+const A::B::C a = 0;
+const A::B::C::D::E::F a = 0;
+
+const M::Size MYSIZE = M::medium;
+
 ---
 
 (specification
@@ -221,4 +229,99 @@ const wchar C2 = L'X';
                 (mult_expr
                   (unary_expr
                     (literal
-                      (char_literal))))))))))))
+                      (char_literal)))))))))))
+  (const_dcl
+    (const_type
+      (scoped_name
+        (identifier)))
+    (identifier)
+    (const_expr
+      (or_expr
+        (xor_expr
+          (and_expr
+            (shift_expr
+              (add_expr
+                (mult_expr
+                  (unary_expr
+                    (literal
+                      (number_literal)))))))))))
+  (const_dcl
+    (const_type
+      (scoped_name
+        (scoped_name
+          (identifier))
+        (identifier)))
+    (identifier)
+    (const_expr
+      (or_expr
+        (xor_expr
+          (and_expr
+            (shift_expr
+              (add_expr
+                (mult_expr
+                  (unary_expr
+                    (literal
+                      (number_literal)))))))))))
+  (const_dcl
+    (const_type
+      (scoped_name
+        (scoped_name
+          (scoped_name
+            (identifier))
+          (identifier))
+        (identifier)))
+    (identifier)
+    (const_expr
+      (or_expr
+        (xor_expr
+          (and_expr
+            (shift_expr
+              (add_expr
+                (mult_expr
+                  (unary_expr
+                    (literal
+                      (number_literal)))))))))))
+  (const_dcl
+    (const_type
+      (scoped_name
+        (scoped_name
+          (scoped_name
+            (scoped_name
+              (scoped_name
+                (scoped_name
+                  (identifier))
+                (identifier))
+              (identifier))
+            (identifier))
+          (identifier))
+        (identifier)))
+    (identifier)
+    (const_expr
+      (or_expr
+        (xor_expr
+          (and_expr
+            (shift_expr
+              (add_expr
+                (mult_expr
+                  (unary_expr
+                    (literal
+                      (number_literal)))))))))))
+  (const_dcl
+    (const_type
+      (scoped_name
+        (scoped_name
+          (identifier))
+        (identifier)))
+    (identifier)
+    (const_expr
+      (or_expr
+        (xor_expr
+          (and_expr
+            (shift_expr
+              (add_expr
+                (mult_expr
+                  (unary_expr
+                    (scoped_name
+                      (scoped_name
+                        (identifier))
+                      (identifier))))))))))))
