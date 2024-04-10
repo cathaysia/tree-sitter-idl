@@ -33,4 +33,6 @@ const rules: Rules = {
   value_forward_dcl: $ => seq('valuetype', $.identifier),
 }
 
-export default rules
+export default {
+  rules: rules,
+}

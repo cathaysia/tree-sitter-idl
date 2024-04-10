@@ -1,6 +1,6 @@
 import { commaSep, commaSep1 } from './common'
 
-var rules: Rules = {
+const rules: Rules = {
   template_module_dcl: $ =>
     prec.left(
       2,
@@ -49,4 +49,6 @@ var rules: Rules = {
   formal_parameter_names: $ => commaSep1($.identifier),
 }
 
-export default rules
+export default {
+  rules: rules,
+}

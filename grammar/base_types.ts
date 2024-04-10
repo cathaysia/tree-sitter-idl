@@ -1,4 +1,4 @@
-var rules = {
+const rules = {
   signed_short_int: _ =>
     choice(
       'short',
@@ -110,4 +110,6 @@ var rules = {
     ),
 }
 
-export default rules
+export default {
+  rules: rules,
+}

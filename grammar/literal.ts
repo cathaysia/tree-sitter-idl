@@ -1,4 +1,4 @@
-var rules = {
+const rules = {
   literal: $ =>
     choice(
       $.number_literal,
@@ -40,4 +40,6 @@ var rules = {
   },
 }
 
-export default rules
+export default {
+  rules: rules,
+}

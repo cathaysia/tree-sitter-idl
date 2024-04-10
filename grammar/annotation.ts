@@ -1,6 +1,6 @@
 import { commaSep, commaSep1 } from './common'
 
-var rules = {
+const rules = {
   annotation_dcl: $ =>
     seq('@annotation', $.identifier, '{', repeat($.annotation_body), '}'),
   annotation_body: $ =>
@@ -25,4 +25,6 @@ var rules = {
   annotation_appl_param: $ => seq($.identifier, '=', $.const_expr),
 }
 
-export default rules
+export default {
+  rules: rules,
+}

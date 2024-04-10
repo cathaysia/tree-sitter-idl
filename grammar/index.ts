@@ -8,6 +8,8 @@ import bitmask from './bitmask'
 import annotation from './annotation'
 import template from './template'
 import value_type from './value_type'
+import typedef_dcl from './typedef_dcl'
+import union_dcl from './union_dcl'
 
 declare var module: any
 
@@ -28,15 +30,17 @@ module.exports = grammar({
 
   rules: {
     specification: $ => seq(repeat($.preproc_call), repeat($._definition)),
-    ...base_types,
-    ...expr,
-    ...literal,
-    ...directive,
-    ...rpc,
-    ...bitmask,
-    ...annotation,
-    ...template,
-    ...value_type,
+    ...base_types.rules,
+    ...expr.rules,
+    ...literal.rules,
+    ...directive.rules,
+    ...rpc.rules,
+    ...bitmask.rules,
+    ...annotation.rules,
+    ...template.rules,
+    ...value_type.rules,
+    ...typedef_dcl.rules,
+    ...union_dcl.rules,
     _definition: $ =>
       choice(
         $.predefine,
@@ -92,51 +96,9 @@ module.exports = grammar({
         optional($.default),
         ';',
       ),
-
     default: $ => seq('default', $.const_expr),
-
-    enum_dcl: $ =>
-      seq(
-        optional($.enum_anno),
-        'enum',
-        $.identifier,
-        '{',
-        commaSep($.enumerator),
-        '}',
-      ),
-    enumerator: $ => seq(repeat($.enum_modifier), $.identifier),
-    enum_modifier: $ => choice('@default_literal'),
-    enum_anno: $ => choice('@ignore_literal_names'),
-
-    union_dcl: $ => choice($.union_def, $.union_forward_dcl),
-    union_forward_dcl: $ => seq('union', $.identifier),
-    union_def: $ =>
-      seq(
-        'union',
-        $.identifier,
-        'switch',
-        '(',
-        $.switch_type_spec,
-        ')',
-        '{',
-        repeat($.case),
-        '}',
-      ),
-    case: $ => seq($.case_label, optional(seq($.element_spec, ';'))),
-    case_label: $ => seq(choice(seq('case', $.const_expr), 'default'), ':'),
-    element_spec: $ =>
-      seq(
-        choice(
-          $.type_spec,
-          $.constr_type_dcl, // additional
-        ),
-        $.declarator,
-      ),
-    switch_type_spec: $ =>
-      choice($.integer_type, $.char_type, $.boolean_type, $.scoped_name),
-
-    typedef_dcl: $ => seq('typedef', $.type_declarator),
     predefine: $ => seq('#define', /[^\n]*/),
+
     dds_service: _ => '@DDSService',
     dds_request_topic: $ =>
       seq('@DDSRequestTopic', '(', 'name', '=', /\w+/, ')'),
@@ -198,23 +160,6 @@ module.exports = grammar({
       ),
 
     identifier: _ => /\w[\w\d_]*/, // 7.2.3
-    simple_declarator: $ => $.identifier,
-    declarator: $ =>
-      choice(
-        $.simple_declarator,
-        $.array_declarator, // 7.4.14
-      ),
-    declarators: $ => commaSep1($.declarator),
-    array_declarator: $ => seq($.identifier, repeat1($.fixed_array_size)),
-    positive_int_const: $ => $.const_expr,
-    fixed_array_size: $ => seq('[', $.positive_int_const, ']'),
-    type_declarator: $ =>
-      seq(
-        choice($.simple_type_spec, $.template_type_spec, $.constr_type_dcl),
-        $.any_declarators,
-      ),
-    any_declarators: $ => commaSep1($.any_declarator),
-    any_declarator: $ => choice($.simple_declarator, $.array_declarator),
     comment: _ => seq('//', /(\\+(.|\r?\n)|[^\\\n])*/),
   },
 })
