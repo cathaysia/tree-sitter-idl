@@ -9,6 +9,22 @@ annotation_dcl
     long b;
 };
 
+@DDSService
+interface A {};
+
+@data_representation(XCDR | XCDR2)
+struct HelloWorld: Parent {
+    @key @optional string a[20];
+    wstring b;
+};
+
+@bit_bound(32)
+bitmask DataRepresentationMask {
+    @position(0) XCDR1,
+    @position(1) XML,
+    @posiiton(2) XCDR2
+};
+
 ---
 
 (specification
@@ -30,4 +46,136 @@ annotation_dcl
               (signed_int
                 (signed_long_int)))))
         (simple_declarator
-          (identifier))))))
+          (identifier)))))
+  (interface_dcl
+    (interface_def
+      (annotation_appl
+        (scoped_name
+          (identifier)))
+      (interface_header
+        (identifier))))
+  (struct_def
+    (annotation_appl
+      (scoped_name
+        (identifier))
+      (annotation_appl_params
+        (const_expr
+          (or_expr
+            (or_expr
+              (xor_expr
+                (and_expr
+                  (shift_expr
+                    (add_expr
+                      (mult_expr
+                        (unary_expr
+                          (scoped_name
+                            (identifier)))))))))
+            (xor_expr
+              (and_expr
+                (shift_expr
+                  (add_expr
+                    (mult_expr
+                      (unary_expr
+                        (scoped_name
+                          (identifier))))))))))))
+    (identifier)
+    (scoped_name
+      (identifier))
+    (member
+      (annotation_appl
+        (scoped_name
+          (identifier)))
+      (annotation_appl
+        (scoped_name
+          (identifier)))
+      (type_spec
+        (template_type_spec
+          (string_type)))
+      (declarators
+        (declarator
+          (array_declarator
+            (identifier)
+            (fixed_array_size
+              (positive_int_const
+                (const_expr
+                  (or_expr
+                    (xor_expr
+                      (and_expr
+                        (shift_expr
+                          (add_expr
+                            (mult_expr
+                              (unary_expr
+                                (literal
+                                  (number_literal))))))))))))))))
+    (member
+      (type_spec
+        (template_type_spec
+          (string_type)))
+      (declarators
+        (declarator
+          (simple_declarator
+            (identifier))))))
+  (bitmask_dcl
+    (annotation_appl
+      (scoped_name
+        (identifier))
+      (annotation_appl_params
+        (const_expr
+          (or_expr
+            (xor_expr
+              (and_expr
+                (shift_expr
+                  (add_expr
+                    (mult_expr
+                      (unary_expr
+                        (literal
+                          (number_literal))))))))))))
+    (identifier)
+    (annotation_appl
+      (scoped_name
+        (identifier))
+      (annotation_appl_params
+        (const_expr
+          (or_expr
+            (xor_expr
+              (and_expr
+                (shift_expr
+                  (add_expr
+                    (mult_expr
+                      (unary_expr
+                        (literal
+                          (number_literal))))))))))))
+    (bit_value
+      (identifier))
+    (annotation_appl
+      (scoped_name
+        (identifier))
+      (annotation_appl_params
+        (const_expr
+          (or_expr
+            (xor_expr
+              (and_expr
+                (shift_expr
+                  (add_expr
+                    (mult_expr
+                      (unary_expr
+                        (literal
+                          (number_literal))))))))))))
+    (bit_value
+      (identifier))
+    (annotation_appl
+      (scoped_name
+        (identifier))
+      (annotation_appl_params
+        (const_expr
+          (or_expr
+            (xor_expr
+              (and_expr
+                (shift_expr
+                  (add_expr
+                    (mult_expr
+                      (unary_expr
+                        (literal
+                          (number_literal))))))))))))
+    (bit_value
+      (identifier))))

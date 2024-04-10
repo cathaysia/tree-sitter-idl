@@ -72,6 +72,25 @@
     }
   },
   {
+    "type": "annotation_appl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotation_appl_params",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "annotation_appl_param",
     "named": true,
     "fields": {},
@@ -437,6 +456,10 @@
       "required": true,
       "types": [
         {
+          "type": "annotation_appl",
+          "named": true
+        },
+        {
           "type": "bit_value",
           "named": true
         },
@@ -608,36 +631,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "data_rep",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "data_representation",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "data_rep",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "dds_reply_topic",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "dds_request_topic",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "declarator",
@@ -1035,21 +1028,6 @@
     }
   },
   {
-    "type": "hashid",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "hashid_value",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "init_dcl",
     "named": true,
     "fields": {},
@@ -1126,29 +1104,6 @@
     }
   },
   {
-    "type": "interface_anno",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "dds_reply_topic",
-          "named": true
-        },
-        {
-          "type": "dds_request_topic",
-          "named": true
-        },
-        {
-          "type": "dds_service",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "interface_body",
     "named": true,
     "fields": {},
@@ -1191,7 +1146,7 @@
       "required": true,
       "types": [
         {
-          "type": "interface_anno",
+          "type": "annotation_appl",
           "named": true
         },
         {
@@ -1345,11 +1300,11 @@
       "required": false,
       "types": [
         {
-          "type": "default",
+          "type": "annotation_appl",
           "named": true
         },
         {
-          "type": "struct_modifier",
+          "type": "default",
           "named": true
         }
       ]
@@ -1973,11 +1928,7 @@
       "required": true,
       "types": [
         {
-          "type": "data_representation",
-          "named": true
-        },
-        {
-          "type": "final",
+          "type": "annotation_appl",
           "named": true
         },
         {
@@ -2001,49 +1952,6 @@
       "types": [
         {
           "type": "identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "struct_modifier",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "external",
-          "named": true
-        },
-        {
-          "type": "hashid",
-          "named": true
-        },
-        {
-          "type": "id",
-          "named": true
-        },
-        {
-          "type": "key",
-          "named": true
-        },
-        {
-          "type": "must_understand",
-          "named": true
-        },
-        {
-          "type": "non_serialized",
-          "named": true
-        },
-        {
-          "type": "optional",
-          "named": true
-        },
-        {
-          "type": "try_construct",
           "named": true
         }
       ]
@@ -2254,21 +2162,6 @@
         },
         {
           "type": "value_dcl",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "try_construct",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "try_construct_value",
           "named": true
         }
       ]
@@ -2644,10 +2537,6 @@
     "named": false
   },
   {
-    "type": "(\"",
-    "named": false
-  },
-  {
     "type": ")",
     "named": false
   },
@@ -2712,19 +2601,7 @@
     "named": false
   },
   {
-    "type": "@DDSReplyTopic",
-    "named": false
-  },
-  {
-    "type": "@DDSRequestTopic",
-    "named": false
-  },
-  {
     "type": "@annotation",
-    "named": false
-  },
-  {
-    "type": "@data_representation",
     "named": false
   },
   {
@@ -2732,15 +2609,7 @@
     "named": false
   },
   {
-    "type": "@hashid",
-    "named": false
-  },
-  {
     "type": "@ignore_literal_names",
-    "named": false
-  },
-  {
-    "type": "@try_construct",
     "named": false
   },
   {
@@ -2753,14 +2622,6 @@
   },
   {
     "type": "TRUE",
-    "named": false
-  },
-  {
-    "type": "XCDR",
-    "named": false
-  },
-  {
-    "type": "XCDR2",
     "named": false
   },
   {
@@ -2816,10 +2677,6 @@
     "named": false
   },
   {
-    "type": "dds_service",
-    "named": true
-  },
-  {
     "type": "default",
     "named": false
   },
@@ -2840,16 +2697,8 @@
     "named": false
   },
   {
-    "type": "external",
-    "named": true
-  },
-  {
     "type": "factory",
     "named": false
-  },
-  {
-    "type": "final",
-    "named": true
   },
   {
     "type": "fixed",
@@ -2862,14 +2711,6 @@
   {
     "type": "getraises",
     "named": false
-  },
-  {
-    "type": "hashid_value",
-    "named": true
-  },
-  {
-    "type": "id",
-    "named": true
   },
   {
     "type": "identifier",
@@ -2900,10 +2741,6 @@
     "named": false
   },
   {
-    "type": "key",
-    "named": true
-  },
-  {
     "type": "local",
     "named": false
   },
@@ -2928,20 +2765,8 @@
     "named": false
   },
   {
-    "type": "must_understand",
-    "named": true
-  },
-  {
-    "type": "name",
-    "named": false
-  },
-  {
     "type": "native",
     "named": false
-  },
-  {
-    "type": "non_serialized",
-    "named": true
   },
   {
     "type": "number_literal",
@@ -2949,10 +2774,6 @@
   },
   {
     "type": "octet_type",
-    "named": true
-  },
-  {
-    "type": "optional",
     "named": true
   },
   {
@@ -3014,10 +2835,6 @@
   {
     "type": "switch",
     "named": false
-  },
-  {
-    "type": "try_construct_value",
-    "named": true
   },
   {
     "type": "typedef",

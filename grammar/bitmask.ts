@@ -22,7 +22,14 @@ const rules: Rules = {
   destination_type: $ => choice($.boolean_type, $.octet_type, $.integer_type),
 
   bitmask_dcl: $ =>
-    seq('bitmask', $.identifier, '{', commaSep($.bit_value), '}'),
+    seq(
+      repeat($.annotation_appl),
+      'bitmask',
+      $.identifier,
+      '{',
+      commaSep(seq(repeat($.annotation_appl), $.bit_value)),
+      '}',
+    ),
   bit_value: $ => $.identifier,
 }
 

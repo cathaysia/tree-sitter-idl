@@ -6,7 +6,7 @@ const rules: Rules = {
   interface_forward_dcl: $ => seq('interface', $.identifier),
   interface_def: $ =>
     seq(
-      repeat($.interface_anno),
+      repeat($.annotation_appl),
       optional('local'),
       $.interface_header,
       '{',
@@ -62,8 +62,6 @@ const rules: Rules = {
   get_excep_expr: $ => seq('getraises', $.exception_list),
   set_excep_expr: $ => seq('setraises', $.exception_list),
   exception_list: $ => seq('(', commaSep1($.scoped_name), ')'),
-  interface_anno: $ =>
-    choice($.dds_service, $.dds_request_topic, $.dds_reply_topic),
 }
 
 export default {

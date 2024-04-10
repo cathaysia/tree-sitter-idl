@@ -79,7 +79,7 @@ module.exports = grammar({
       prec.left(
         2,
         seq(
-          repeat(choice($.data_representation, $.final)),
+          repeat($.annotation_appl),
           'struct',
           $.identifier,
           optional(seq(':', field('parent', $.scoped_name))),
@@ -90,7 +90,7 @@ module.exports = grammar({
       ),
     member: $ =>
       seq(
-        repeat($.struct_modifier),
+        repeat($.annotation_appl),
         field('type', $.type_spec),
         field('identifier', $.declarators),
         optional($.default),
@@ -98,11 +98,6 @@ module.exports = grammar({
       ),
     default: $ => seq('default', $.const_expr),
     predefine: $ => seq('#define', /[^\n]*/),
-
-    dds_service: _ => '@DDSService',
-    dds_request_topic: $ =>
-      seq('@DDSRequestTopic', '(', 'name', '=', /\w+/, ')'),
-    dds_reply_topic: $ => seq('@DDSReplyTopic', '(', 'name', '=', /\w+/, ')'),
 
     const_dcl: $ => seq('const', $.const_type, $.identifier, '=', $.const_expr),
     const_type: $ =>
@@ -121,43 +116,6 @@ module.exports = grammar({
         ),
       ),
     // table 21
-    optional: _ => '@optional',
-    key: _ => '@key',
-    must_understand: _ => '@must_understand',
-    non_serialized: _ => '@non_serialized',
-    id: _ => '@id',
-    external: _ => '@external',
-    hashid: $ => seq('@hashid', '("', alias($.identifier, $.hashid_value), '"'),
-    try_construct: $ =>
-      seq('@try_construct', alias($.identifier, $.try_construct_value)),
-    extensibility: _ => '@extensibility',
-    mutable: _ => '@mutable',
-    appendable: _ => '@appendable',
-    final: _ => '@final',
-    nested: _ => '@nested',
-    default_literal: _ => '@default_literal',
-    value: _ => '@value',
-    autoid: _ => '@autoid',
-    verbatim: _ => '@verbatim',
-    data_representation: $ =>
-      seq(
-        '@data_representation',
-        '(',
-        alias(repeat1(choice('XCDR', 'XCDR2')), $.data_rep),
-        ')',
-      ),
-
-    struct_modifier: $ =>
-      choice(
-        $.optional,
-        $.must_understand,
-        $.non_serialized,
-        $.id,
-        $.hashid,
-        $.external,
-        $.try_construct,
-        $.key,
-      ),
 
     identifier: _ => /\w[\w\d_]*/, // 7.2.3
     comment: _ => seq('//', /(\\+(.|\r?\n)|[^\\\n])*/),

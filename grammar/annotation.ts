@@ -19,7 +19,14 @@ const rules = {
     choice($.const_type, $.any_const_type, $.scoped_name),
   any_const_type: _ => 'any',
   annotation_appl: $ =>
-    seq('@', $.scoped_name, optional(seq('(', $.annotation_appl_params, ')'))),
+    prec.left(
+      1,
+      seq(
+        '@',
+        $.scoped_name,
+        optional(seq('(', $.annotation_appl_params, ')')),
+      ),
+    ),
   annotation_appl_params: $ =>
     choice($.const_expr, commaSep1($.annotation_appl_param)),
   annotation_appl_param: $ => seq($.identifier, '=', $.const_expr),

@@ -1372,7 +1372,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "interface_anno"
+            "name": "annotation_appl"
           }
         },
         {
@@ -1907,23 +1907,6 @@
         }
       ]
     },
-    "interface_anno": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "dds_service"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dds_request_topic"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "dds_reply_topic"
-        }
-      ]
-    },
     "bitset_dcl": {
       "type": "SEQ",
       "members": [
@@ -2056,6 +2039,13 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "annotation_appl"
+          }
+        },
+        {
           "type": "STRING",
           "value": "bitmask"
         },
@@ -2074,8 +2064,20 @@
               "type": "SEQ",
               "members": [
                 {
-                  "type": "SYMBOL",
-                  "name": "bit_value"
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "REPEAT",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "annotation_appl"
+                      }
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "bit_value"
+                    }
+                  ]
                 },
                 {
                   "type": "REPEAT",
@@ -2087,8 +2089,20 @@
                         "value": ","
                       },
                       {
-                        "type": "SYMBOL",
-                        "name": "bit_value"
+                        "type": "SEQ",
+                        "members": [
+                          {
+                            "type": "REPEAT",
+                            "content": {
+                              "type": "SYMBOL",
+                              "name": "annotation_appl"
+                            }
+                          },
+                          {
+                            "type": "SYMBOL",
+                            "name": "bit_value"
+                          }
+                        ]
                       }
                     ]
                   }
@@ -2233,42 +2247,46 @@
       "value": "any"
     },
     "annotation_appl": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "@"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "scoped_name"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "("
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "annotation_appl_params"
-                },
-                {
-                  "type": "STRING",
-                  "value": ")"
-                }
-              ]
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        }
-      ]
+      "type": "PREC_LEFT",
+      "value": 1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "@"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "scoped_name"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "("
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "annotation_appl_params"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": ")"
+                  }
+                ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
     },
     "annotation_appl_params": {
       "type": "CHOICE",
@@ -3488,17 +3506,8 @@
           {
             "type": "REPEAT",
             "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "data_representation"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "final"
-                }
-              ]
+              "type": "SYMBOL",
+              "name": "annotation_appl"
             }
           },
           {
@@ -3559,7 +3568,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "struct_modifier"
+            "name": "annotation_appl"
           }
         },
         {
@@ -3619,68 +3628,6 @@
         {
           "type": "PATTERN",
           "value": "[^\\n]*"
-        }
-      ]
-    },
-    "dds_service": {
-      "type": "STRING",
-      "value": "@DDSService"
-    },
-    "dds_request_topic": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "@DDSRequestTopic"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "STRING",
-          "value": "name"
-        },
-        {
-          "type": "STRING",
-          "value": "="
-        },
-        {
-          "type": "PATTERN",
-          "value": "\\w+"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "dds_reply_topic": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "@DDSReplyTopic"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "STRING",
-          "value": "name"
-        },
-        {
-          "type": "STRING",
-          "value": "="
-        },
-        {
-          "type": "PATTERN",
-          "value": "\\w+"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
         }
       ]
     },
@@ -3753,185 +3700,6 @@
           }
         ]
       }
-    },
-    "optional": {
-      "type": "STRING",
-      "value": "@optional"
-    },
-    "key": {
-      "type": "STRING",
-      "value": "@key"
-    },
-    "must_understand": {
-      "type": "STRING",
-      "value": "@must_understand"
-    },
-    "non_serialized": {
-      "type": "STRING",
-      "value": "@non_serialized"
-    },
-    "id": {
-      "type": "STRING",
-      "value": "@id"
-    },
-    "external": {
-      "type": "STRING",
-      "value": "@external"
-    },
-    "hashid": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "@hashid"
-        },
-        {
-          "type": "STRING",
-          "value": "(\""
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "identifier"
-          },
-          "named": true,
-          "value": "hashid_value"
-        },
-        {
-          "type": "STRING",
-          "value": "\""
-        }
-      ]
-    },
-    "try_construct": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "@try_construct"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "identifier"
-          },
-          "named": true,
-          "value": "try_construct_value"
-        }
-      ]
-    },
-    "extensibility": {
-      "type": "STRING",
-      "value": "@extensibility"
-    },
-    "mutable": {
-      "type": "STRING",
-      "value": "@mutable"
-    },
-    "appendable": {
-      "type": "STRING",
-      "value": "@appendable"
-    },
-    "final": {
-      "type": "STRING",
-      "value": "@final"
-    },
-    "nested": {
-      "type": "STRING",
-      "value": "@nested"
-    },
-    "default_literal": {
-      "type": "STRING",
-      "value": "@default_literal"
-    },
-    "value": {
-      "type": "STRING",
-      "value": "@value"
-    },
-    "autoid": {
-      "type": "STRING",
-      "value": "@autoid"
-    },
-    "verbatim": {
-      "type": "STRING",
-      "value": "@verbatim"
-    },
-    "data_representation": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "@data_representation"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "REPEAT1",
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "XCDR"
-                },
-                {
-                  "type": "STRING",
-                  "value": "XCDR2"
-                }
-              ]
-            }
-          },
-          "named": true,
-          "value": "data_rep"
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        }
-      ]
-    },
-    "struct_modifier": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "optional"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "must_understand"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "non_serialized"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "id"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "hashid"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "external"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "try_construct"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "key"
-        }
-      ]
     },
     "identifier": {
       "type": "PATTERN",

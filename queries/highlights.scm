@@ -15,13 +15,17 @@
   "@annotation"
   "void"
   "typedef"
-  (struct_modifier)
   (preproc_directive)
 ] @keyword
 
 (readonly_attr_spec ["readonly" "attribute"]@keyword )
 (readonly_attr_declarator (simple_declarator)@property)
 (attr_declarator)@property
+
+(annotation_appl
+  "@" @keyword
+  (scoped_name)@keyword
+)
 
 (member
   identifier: (declarators)@property
