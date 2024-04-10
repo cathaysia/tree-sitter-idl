@@ -1,0 +1,53 @@
+========================================
+template_module_dcl
+========================================
+
+module MyTemplModule <typename T, struct S> {
+};
+
+
+module MyTemplModule <typename T, struct S> {
+    alias MyTemplModule<T2, S2, m> MyTemplModule;
+    interface Bar : Foo {};
+};
+
+
+---
+
+(specification
+  (template_module_dcl
+    (identifier)
+    (formal_parameters
+      (formal_parameter
+        (formal_parameter_type)
+        (identifier))
+      (formal_parameter
+        (formal_parameter_type)
+        (identifier))))
+  (template_module_dcl
+    (identifier)
+    (formal_parameters
+      (formal_parameter
+        (formal_parameter_type)
+        (identifier))
+      (formal_parameter
+        (formal_parameter_type)
+        (identifier)))
+    (tpl_definition
+      (template_module_ref
+        (scoped_name
+          (identifier))
+        (formal_parameter_names
+          (identifier)
+          (identifier)
+          (identifier))
+        (identifier)))
+    (tpl_definition
+      (interface_dcl
+        (interface_def
+          (interface_header
+            (identifier)
+            (interface_inheritance_spec
+              (interface_name
+                (scoped_name
+                  (identifier))))))))))

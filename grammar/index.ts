@@ -6,6 +6,7 @@ import directive from './directive'
 import rpc from './rpc'
 import bitmask from './bitmask'
 import annotation from './annotation'
+import template from './template'
 
 declare var module: any
 
@@ -31,6 +32,7 @@ module.exports = grammar({
     ...rpc,
     ...bitmask,
     ...annotation,
+    ...template,
     _definition: $ =>
       choice(
         $.predefine,
@@ -43,6 +45,8 @@ module.exports = grammar({
             $.except_dcl,
             $.interface_dcl,
             $.annotation_dcl, // 7.4.15
+            $.template_module_dcl, // idl 7.4.12
+            $.template_module_inst, // idl 7.4.12
           ),
           ';',
         ),
