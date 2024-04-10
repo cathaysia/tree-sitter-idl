@@ -2450,6 +2450,10 @@
         {
           "type": "SYMBOL",
           "name": "sequence_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "simple_type_spec"
         }
       ]
     },

@@ -6,7 +6,7 @@ module MyTemplModule <typename T, struct S> {
 };
 
 
-module MyTemplModule <typename T, struct S> {
+module MyTemplModule <typename T, struct S, long m> {
     alias MyTemplModule<T2, S2, m> MyTemplModule;
     interface Bar : Foo {};
 };
@@ -32,6 +32,14 @@ module MyTemplModule <typename T, struct S> {
         (identifier))
       (formal_parameter
         (formal_parameter_type)
+        (identifier))
+      (formal_parameter
+        (formal_parameter_type
+          (simple_type_spec
+            (base_type_spec
+              (integer_type
+                (signed_int
+                  (signed_long_int))))))
         (identifier)))
     (tpl_definition
       (template_module_ref

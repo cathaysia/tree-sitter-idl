@@ -30,6 +30,7 @@ var rules: Rules = {
       'sequence',
       seq('const', $.const_type),
       $.sequence_type,
+      $.simple_type_spec,
     ),
   tpl_definition: $ => choice($._definition, seq($.template_module_ref, ';')),
   template_module_inst: $ =>

@@ -968,6 +968,10 @@
         {
           "type": "sequence_type",
           "named": true
+        },
+        {
+          "type": "simple_type_spec",
+          "named": true
         }
       ]
     }
