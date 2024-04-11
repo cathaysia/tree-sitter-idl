@@ -1,25 +1,73 @@
+; https://neovim.io/doc/user/treesitter.html#treesitter-highlight-groups
 (comment) @comment
 
 [
+ "enum"
+ "struct"
+ "union"
+ "bitmask"
+ "bitset"
+ "@annotation"
+ "interface"
+ "sequence"
+ "exception"
+] @keyword.type
+
+[
   "module"
-  "enum"
-  "struct"
-  "union"
-  "bitmask"
-  "bitset"
-  "exception"
   "switch"
+  "case"
   "default"
   "const"
-  "interface"
-  "@annotation"
   "void"
   "typedef"
-  "sequence"
+  "readonly"
+  "attribute"
   (preproc_directive)
 ] @keyword
 
-(readonly_attr_spec ["readonly" "attribute"]@keyword )
+[
+  "short"
+  "int16"
+  "long"
+  "int32"
+  "long long"
+  "int64"
+
+  ; "uint8"
+  ; "boolean"
+  "fixed"
+  ; "octet"
+  ; "int8"
+  "unsigned short"
+  "uint16"
+  "unsigned long"
+  "uint32"
+  "unsigned long long"
+  "uint64"
+  "float"
+  "double"
+  "long double"
+  "char"
+  "wchar"
+  "string"
+  "wstring"
+  "any"
+  "fixed"
+  "sequence"
+  "map"
+] @type.builtin
+
+(boolean_literal) @boolean
+(number_literal) @number
+[ (char_literal) (string_literal) ] @character
+
+[ "(" ")" "[" "[" "<" ">" "{" "}" ] @punctuation.bracket
+
+[ "-" "*" "+" "<" ">" "="] @operator
+
+[ "::" ";" ":" ","] @punctuation.delimiter
+
 (readonly_attr_declarator (simple_declarator)@property)
 (attr_declarator)@property
 
@@ -44,12 +92,14 @@
 )
 (attr_spec ["attribute"]@keyword)
 (raises_expr
-  "raises"@keyword
-  (scoped_name)@type
+  "raises" @keyword.exception
+  (scoped_name
+    (identifier)@type
+  )
 )
 
 (param_dcl
-  (param_attribute)@keyword
+  (param_attribute)@keyword.modifier
 )
 
 (preproc_call
@@ -57,36 +107,21 @@
   argument: (_) @constant
 )
 
-
-[ "(" ")" "[" "[" "<" ">" "{" "}" ] @punctuation.bracket
-
-[ "-" "*" "+" "<" ">" "="] @operator
-
-[ "::" ";" ":"] @delimiter
-
-(enum_dcl
-  (enumerator (identifier)@constant)
-)
-(case_label
-  (const_expr)@constant
-)
-
-[
-  "case"
-  "switch"
-] @keyword.conditional
-
 (module_dcl
-  (identifier) @type
-)
-
-(annotation_dcl
-  (identifier) @type
+  (identifier) @module
 )
 
 (struct_def
   (identifier) @type
   parent: (scoped_name)?@type
+)
+
+(enum_dcl
+  (enumerator (identifier)@constant)
+)
+
+(annotation_dcl
+  (identifier) @type
 )
 
 (struct_forward_dcl
@@ -142,8 +177,8 @@
 
 (bitfield
   (bitfield_spec
-    "bitfield" @keyword
-    (positive_int_const)@number.c
+    "bitfield" @keyword.modifier
+    (positive_int_const)@number
     (destination_type)*@type
   )
   (identifier)@variable.parameter
@@ -158,5 +193,9 @@
 (const_dcl
   (const_type)@type
   (identifier)@variable
+  (const_expr)@constant
+)
+
+(case_label
   (const_expr)@constant
 )
