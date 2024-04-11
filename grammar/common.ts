@@ -1,3 +1,10 @@
+declare function ts_immediate(value: Rule): RuleFun
+
+interface TsToken {
+  (rule: Rule): RuleFun
+  immediate: typeof ts_immediate
+}
+
 declare global {
   type Rule = String | RegExp | RuleFun
   interface Rules {
@@ -6,15 +13,18 @@ declare global {
   type RuleFun = ($: Rules) => Rule
   type Gramma = {
     name: String
-    extras: ($: Rules) => Rule[]
-    externals: ($: Rules) => Rule[]
-    inline: ($: Rules) => Rule[]
+    extras?: ($: Rules) => Rule[]
+    inline?: ($: Rules) => Rule[]
+    conflicts?: ($: Rules) => Rule[]
+    externals?: ($: Rules) => Rule[]
+    precedences?: ($: Rules) => Rule[]
+    word?: ($: Rules) => Rule[]
+    supertypes?: ($: Rules) => Rule[]
     rules: Rules
   }
   function grammar(opts: Gramma): Object
   function optional(rule: Rule): RuleFun
   function sym(rule: Rule): RuleFun
-  function token(rule: Rule): RuleFun
   function repeat(rule: Rule): RuleFun
   function repeat1(rule: Rule): RuleFun
   function seq(...rule: Rule[]): RuleFun
@@ -22,11 +32,14 @@ declare global {
   function alias(rule: Rule, name: String | Object): RuleFun
   function field(name: String, rule: Rule): RuleFun
   var prec: Prec
+  var token: TsToken
 }
 
 interface Prec {
+  (number: Number, rule: Rule): RuleFun
   left(number: Number, rule: Rule): RuleFun
   right(number: Number, rule: Rule): RuleFun
+  dynamic(number: Number, rule: Rule): RuleFun
 }
 
 /**

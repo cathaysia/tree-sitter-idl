@@ -118,6 +118,12 @@ module.exports = grammar({
     // table 21
 
     identifier: _ => /\w[\w\d_]*/, // 7.2.3
-    comment: _ => seq('//', /(\\+(.|\r?\n)|[^\\\n])*/),
+    comment: _ =>
+      token(
+        choice(
+          seq('//', /(\\+(.|\r?\n)|[^\\\n])*/),
+          seq('/*', /[^*]*\*+([^/*][^*]*\*+)*/, '/'),
+        ),
+      ),
   },
 })

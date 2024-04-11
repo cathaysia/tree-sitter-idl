@@ -15,6 +15,7 @@
   "@annotation"
   "void"
   "typedef"
+  "sequence"
   (preproc_directive)
 ] @keyword
 
@@ -59,9 +60,9 @@
 
 [ "(" ")" "[" "[" "<" ">" "{" "}" ] @punctuation.bracket
 
-[ "-" "*" "+" "<" ">" ] @operator
+[ "-" "*" "+" "<" ">" "="] @operator
 
-[ "::" ";" ] @delimiter
+[ "::" ";" ":"] @delimiter
 
 (enum_dcl
   (enumerator (identifier)@constant)
@@ -98,6 +99,7 @@
 
 (bitset_dcl
   (identifier) @type
+  (scoped_name)* @type
 )
 
 (enum_dcl
@@ -133,3 +135,28 @@
  (type_spec)
  (annotation_member_type)
 ] @type
+
+(element_spec
+  (declarator)@attribute
+)
+
+(bitfield
+  (bitfield_spec
+    "bitfield" @keyword
+    (positive_int_const)@number.c
+    (destination_type)*@type
+  )
+  (identifier)@variable.parameter
+)
+
+(bit_value)@constant
+(annotation_member
+  (annotation_member_type)@type
+  (simple_declarator)@property
+)
+
+(const_dcl
+  (const_type)@type
+  (identifier)@variable
+  (const_expr)@constant
+)
