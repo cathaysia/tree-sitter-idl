@@ -5,5 +5,5 @@
     "esModuleInterop": true,
     "skipLibCheck": true
   },
-  "include": ["./grammar/**.ts"]
+  "include": ["../common/**.ts"]
 }
