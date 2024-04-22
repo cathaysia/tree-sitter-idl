@@ -2,24 +2,20 @@
 (comment) @comment
 
 [
- "enum"
- "struct"
- "union"
- "bitmask"
- "bitset"
- "@annotation"
- "interface"
- "sequence"
- "exception"
+  "enum"
+  "struct"
+  "union"
+  "bitmask"
+  "bitset"
+  "@annotation"
+  "interface"
+  "sequence"
+  "exception"
 ] @keyword.type
 
 [
   "module"
-  "switch"
-  "case"
-  "default"
   "const"
-  "void"
   "typedef"
   "readonly"
   "attribute"
@@ -27,13 +23,19 @@
 ] @keyword
 
 [
+  "switch"
+  "case"
+  "default"
+] @keyword.conditional
+
+[
+  "void"
   "short"
   "int16"
   "long"
   "int32"
   "long long"
   "int64"
-
   ; "uint8"
   ; "boolean"
   "fixed"
@@ -59,143 +61,153 @@
 ] @type.builtin
 
 (boolean_literal) @boolean
+
 (number_literal) @number
-[ (char_literal) (string_literal) ] @character
 
-[ "(" ")" "[" "[" "<" ">" "{" "}" ] @punctuation.bracket
+(char_literal) @character
 
-[ "-" "*" "+" "<" ">" "="] @operator
+(string_literal) @string
 
-[ "::" ";" ":" ","] @punctuation.delimiter
+[
+  "("
+  ")"
+  "["
+  "["
+  "<"
+  ">"
+  "{"
+  "}"
+] @punctuation.bracket
 
-(readonly_attr_declarator (simple_declarator)@property)
-(attr_declarator)@property
+[
+  "-"
+  "*"
+  "+"
+  "="
+  "<<"
+  ">>"
+  "%"
+  "~"
+  "|"
+  "^"
+  "$"
+] @operator
+
+[
+  "::"
+  ";"
+  ":"
+  ","
+] @punctuation.delimiter
+
+(readonly_attr_declarator
+  (simple_declarator) @property)
+
+(attr_declarator) @property
 
 (annotation_appl
   "@" @property
-  (scoped_name)@property
-)
+  (scoped_name) @property)
 
-(member
-  identifier: (declarators)@property
-)
 (op_dcl
-  (identifier)@function
-)
+  (identifier) @function)
 
 (type_declarator
-  (simple_type_spec)@type
-  (any_declarators)@type
-)
+  (simple_type_spec) @type
+  (any_declarators) @type)
+
 (param_dcl
-  (simple_declarator)@variable.parameter
-)
-(attr_spec ["attribute"]@keyword)
+  (simple_declarator) @variable.parameter)
+
+(attr_spec
+  "attribute" @keyword)
+
 (raises_expr
   "raises" @keyword.exception
   (scoped_name
-    (identifier)@type
-  )
-)
+    (identifier) @type))
 
 (param_dcl
-  (param_attribute)@keyword.modifier
-)
+  (param_attribute) @keyword.modifier)
 
 (preproc_call
   directive: (preproc_directive) @keyword.directive
-  argument: (_) @constant
-)
+  argument: (_) @constant)
 
 (module_dcl
-  (identifier) @module
-)
+  (identifier) @module)
 
 (struct_def
   (identifier) @type
-  parent: (scoped_name)?@type
-)
+  parent: (scoped_name)? @type)
 
 (enum_dcl
-  (enumerator (identifier)@constant)
-)
+  (enumerator
+    (identifier) @constant))
 
 (annotation_dcl
-  (identifier) @type
-)
+  (identifier) @type)
 
 (struct_forward_dcl
-  (identifier) @type
-)
+  (identifier) @type)
 
 (bitmask_dcl
-  (identifier) @type
-)
+  (identifier) @type)
 
 (bitset_dcl
   (identifier) @type
-  (scoped_name)* @type
-)
+  (scoped_name)* @type)
 
 (enum_dcl
-  (identifier) @type
-)
+  (identifier) @type)
 
 (union_forward_dcl
-  (identifier) @type
-)
+  (identifier) @type)
 
 (interface_forward_dcl
-  (identifier) @type
-)
+  (identifier) @type)
 
 (interface_header
-  (identifier) @type
-)
+  (identifier) @type)
 
 (interface_inheritance_spec
-  (interface_name) @type
-)
+  (interface_name) @type)
 
 (union_def
   (identifier) @type
-  (switch_type_spec) @type
-)
+  (switch_type_spec) @type)
 
 (except_dcl
-  (identifier) @type
-)
+  (identifier) @type)
 
-[
- (type_spec)
- (annotation_member_type)
-] @type
-
-(element_spec
-  (declarator)@attribute
-)
+(annotation_member_type) @type
 
 (bitfield
   (bitfield_spec
     "bitfield" @keyword.modifier
-    (positive_int_const)@number
-    (destination_type)*@type
-  )
-  (identifier)@variable.parameter
-)
+    (positive_int_const) @number
+    (destination_type)* @type)
+  (identifier) @variable.parameter)
 
-(bit_value)@constant
+(bit_value) @constant
+
 (annotation_member
-  (annotation_member_type)@type
-  (simple_declarator)@property
-)
+  (annotation_member_type) @type
+  (simple_declarator) @property)
 
 (const_dcl
-  (const_type)@type
-  (identifier)@variable
-  (const_expr)@constant
-)
+  (const_type) @type
+  (identifier) @constant)
 
 (case_label
-  (const_expr)@constant
-)
+  (const_expr) @constant)
+
+(simple_type_spec
+  (scoped_name
+    (identifier) @type))
+
+(simple_declarator
+  (identifier) @attribute)
+
+(array_declarator
+  (identifier) @attribute)
