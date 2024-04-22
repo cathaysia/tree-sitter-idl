@@ -1,0 +1,47 @@
+{
+  "scripts": {
+    "install": "node-gyp-build",
+    "prebuildify": "prebuildify --napi --strip",
+    "build": "pnpm js_build && pnpm ts_build && pnpm precommit",
+    "test": "pnpm build && tree-sitter test",
+    "js_build": "esbuild --bundle --platform=node --log-level=warning ./index.ts --outfile=grammar.js",
+    "ts_build": "tree-sitter generate",
+    "precommit": "pre-commit run -a 2>&1 >> /dev/null || true",
+    "compile": "gcc -shared -fPIC src/parser.c -o build/idl_annotation.so"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.idl",
+      "file-types": [
+        "idl"
+      ],
+      "highlights": "queries/highlights.scm"
+    }
+  ],
+  "types": "bindings/node",
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
+  "devDependencies": {
+    "esbuild": "^0.20.2",
+    "prebuildify": "^6.0.0",
+    "tree-sitter-cli": "^0.22.2"
+  },
+  "dependencies": {
+    "node-addon-api": "^7.1.0",
+    "node-gyp-build": "^4.8.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "tree_sitter": {
+      "optional": true
+    }
+  }
+}

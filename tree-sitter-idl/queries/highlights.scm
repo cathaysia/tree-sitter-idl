@@ -72,8 +72,8 @@
 (attr_declarator)@property
 
 (annotation_appl
-  "@" @keyword
-  (scoped_name)@keyword
+  "@" @property
+  (scoped_name)@property
 )
 
 (member
