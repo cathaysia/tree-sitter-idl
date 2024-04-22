@@ -1,15 +1,42 @@
 ; https://neovim.io/doc/user/treesitter.html#treesitter-highlight-groups
-
-(annotation_comment)@comment
+(annotation_comment) @comment.documentation
 
 (annotation_appl
   "@" @property
-  (scoped_name)@property
-)
+  (scoped_name) @property)
 
-[ "(" ")" ] @punctuation.bracket
-[ "=" ] @operator
+[
+  "-"
+  "*"
+  "+"
+  "="
+  "<<"
+  ">>"
+  "%"
+  "~"
+  "|"
+  "^"
+  "$"
+] @operator
 
-[ (char_literal) (string_literal) ] @character
+[
+  "::"
+  ";"
+  ":"
+  ","
+] @punctuation.delimiter
 
-(identifier)@property
+[
+  "("
+  ")"
+] @punctuation.bracket
+
+(char_literal) @character
+
+(string_literal) @string
+
+(number_literal) @number
+
+(boolean_literal) @boolean
+
+(identifier) @property
