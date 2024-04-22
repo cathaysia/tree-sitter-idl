@@ -3756,12 +3756,7 @@
   ],
   "conflicts": [],
   "precedences": [],
-  "externals": [
-    {
-      "type": "SYMBOL",
-      "name": "_eof"
-    }
-  ],
+  "externals": [],
   "inline": [
     "type_dcl",
     "constr_type_dcl",

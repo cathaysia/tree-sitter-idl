@@ -17,7 +17,6 @@ module.exports = grammar({
   name: 'idl',
 
   extras: $ => [/\s|\\\r?\n/, $.comment],
-  externals: $ => [$._eof],
   inline: $ => [
     $.type_dcl,
     $.constr_type_dcl,

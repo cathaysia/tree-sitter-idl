@@ -7,7 +7,7 @@
     "js_build": "esbuild --bundle --platform=node --log-level=warning ./index.ts --outfile=grammar.js",
     "ts_build": "tree-sitter generate",
     "precommit": "pre-commit run -a 2>&1 >> /dev/null || true",
-    "compile": "gcc -shared -fPIC src/parser.c src/scanner.c -o build/idl.so"
+    "compile": "gcc -shared -fPIC src/parser.c -o build/idl.so"
   },
   "tree-sitter": [
     {
