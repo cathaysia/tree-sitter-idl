@@ -1,4 +1,4 @@
-module github.com/tree-sitter/tree-sitter-idl
+module github.com/tree-sitter/tree-sitter-idl_annotation
 
 go 1.22
 

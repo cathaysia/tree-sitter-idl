@@ -2,14 +2,13 @@
 import PackageDescription
 
 let package = Package(
-    name: "TreeSitterIdl",
-    platforms: [.macOS(.v10_13), .iOS(.v11)],
+    name: "TreeSitterIdlAnnotation",
     products: [
-        .library(name: "TreeSitterIdl", targets: ["TreeSitterIdl"]),
+        .library(name: "TreeSitterIdlAnnotation", targets: ["TreeSitterIdlAnnotation"]),
     ],
     dependencies: [],
     targets: [
-        .target(name: "TreeSitterIdl",
+        .target(name: "TreeSitterIdlAnnotation",
                 path: ".",
                 exclude: [
                     "Cargo.toml",
