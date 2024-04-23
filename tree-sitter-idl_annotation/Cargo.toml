@@ -1,5 +1,5 @@
 [package]
-name = "tree-sitter-idl"
+name = "tree-sitter-idl_annotation"
 description = "Idl grammar for tree-sitter"
 version = "0.0.1"
 license = "MIT"
