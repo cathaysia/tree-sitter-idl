@@ -1,6 +1,6 @@
 import { commaSep, commaSep1 } from './common'
 
-const rules: Rules = {
+const rules = {
   bitset_dcl: $ =>
     seq(
       'bitset',

@@ -1,6 +1,6 @@
 import { commaSep, commaSep1 } from './common'
 
-const rules: Rules = {
+const rules = {
   except_dcl: $ => seq('exception', $.identifier, '{', repeat($.member), '}'),
   interface_dcl: $ => choice($.interface_def, $.interface_forward_dcl),
   interface_forward_dcl: $ => seq('interface', $.identifier),

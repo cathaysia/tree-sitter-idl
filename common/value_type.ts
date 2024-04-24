@@ -1,6 +1,6 @@
 import { commaSep, commaSep1 } from './common'
 
-const rules: Rules = {
+const rules = {
   value_dcl: $ => choice($.value_def, $.value_forward_dcl),
   value_def: $ => seq($.value_header, '{', repeat($.value_element), '}'),
   value_header: $ =>

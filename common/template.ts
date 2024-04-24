@@ -1,6 +1,6 @@
 import { commaSep, commaSep1 } from './common'
 
-const rules: Rules = {
+const rules = {
   template_module_dcl: $ =>
     prec.left(
       2,
