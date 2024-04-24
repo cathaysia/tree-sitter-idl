@@ -1,0 +1,11 @@
+[package]
+name = "idl_parser"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tree-sitter-idl = { path = "../tree-sitter-idl/" }
+tree-sitter-idl_annotation = { path = "../tree-sitter-idl_annotation/" }
+tree-sitter = "0.22.5"
