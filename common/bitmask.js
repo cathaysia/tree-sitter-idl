@@ -1,6 +1,6 @@
-import { commaSep, commaSep1 } from './common'
+const { commaSep, commaSep1 } = require('./common')
 
-const rules: Rules = {
+exports.rules = {
   bitset_dcl: $ =>
     seq(
       'bitset',
@@ -31,8 +31,4 @@ const rules: Rules = {
       '}',
     ),
   bit_value: $ => $.identifier,
-}
-
-export default {
-  rules: rules,
 }

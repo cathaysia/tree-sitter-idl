@@ -1,0 +1,14 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "module": "CommonJS",
+    "checkJs": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "**/*.js",
+    "./tree-sitter-idl/node_modules/tree-sitter-cli/dsl.d.ts"
+  ]
+}

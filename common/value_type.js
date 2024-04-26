@@ -1,6 +1,6 @@
-import { commaSep, commaSep1 } from './common'
+const { commaSep, commaSep1 } = require('./common')
 
-const rules: Rules = {
+exports.rules = {
   value_dcl: $ => choice($.value_def, $.value_forward_dcl),
   value_def: $ => seq($.value_header, '{', repeat($.value_element), '}'),
   value_header: $ =>
@@ -31,8 +31,4 @@ const rules: Rules = {
   init_param_dcls: $ => commaSep1($.init_param_dcl),
   init_param_dcl: $ => seq('in', $.type_spec, $.simple_declarator),
   value_forward_dcl: $ => seq('valuetype', $.identifier),
-}
-
-export default {
-  rules: rules,
 }

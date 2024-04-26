@@ -1,6 +1,6 @@
-import { commaSep1 } from './common'
+const { commaSep1 } = require('./common')
 
-const rules = {
+exports.rules = {
   typedef_dcl: $ => seq('typedef', $.type_declarator),
   type_declarator: $ =>
     seq(
@@ -19,8 +19,4 @@ const rules = {
   declarators: $ => commaSep1($.declarator),
   array_declarator: $ => seq($.identifier, repeat1($.fixed_array_size)),
   fixed_array_size: $ => seq('[', $.positive_int_const, ']'),
-}
-
-export default {
-  rules: rules,
 }

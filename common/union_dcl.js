@@ -1,6 +1,6 @@
-import { commaSep } from './common'
+const { commaSep } = require('./common')
 
-const rules = {
+exports.rules = {
   enum_dcl: $ =>
     seq(
       optional($.enum_anno),
@@ -40,8 +40,4 @@ const rules = {
     ),
   switch_type_spec: $ =>
     choice($.integer_type, $.char_type, $.boolean_type, $.scoped_name),
-}
-
-export default {
-  rules: rules,
 }

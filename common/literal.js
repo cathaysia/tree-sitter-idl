@@ -1,4 +1,4 @@
-const rules = {
+exports.rules = {
   literal: $ =>
     choice(
       $.number_literal,
@@ -38,8 +38,4 @@ const rules = {
       ),
     )
   },
-}
-
-export default {
-  rules: rules,
 }

@@ -1,4 +1,4 @@
-const rules = {
+exports.rules = {
   preproc_call: $ =>
     seq(
       field('directive', $.preproc_directive),
@@ -7,8 +7,4 @@ const rules = {
     ),
   preproc_directive: _ => /#[ \t]*[a-zA-Z0-9]\w*/,
   preproc_arg: _ => token(prec(-1, /\S([^/\n]|\/[^*]|\\\r?\n)*/)),
-}
-
-export default {
-  rules: rules,
 }

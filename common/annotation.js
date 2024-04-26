@@ -1,6 +1,6 @@
-import { commaSep, commaSep1 } from './common'
+const { commaSep, commaSep1 } = require('./common')
 
-const rules = {
+exports.rules = {
   annotation_dcl: $ =>
     seq('@annotation', $.identifier, '{', repeat($.annotation_body), '}'),
   annotation_body: $ =>
@@ -30,8 +30,4 @@ const rules = {
   annotation_appl_params: $ =>
     choice($.const_expr, commaSep1($.annotation_appl_param)),
   annotation_appl_param: $ => seq($.identifier, '=', $.const_expr),
-}
-
-export default {
-  rules: rules,
 }

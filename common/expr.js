@@ -12,7 +12,7 @@ const PREC = {
   UNARY: 14,
 }
 
-const rules = {
+exports.rules = {
   positive_int_const: $ => $.const_expr,
   const_expr: $ => $.or_expr,
   or_expr: $ =>
@@ -64,8 +64,4 @@ const rules = {
     choice($.scoped_name, $.literal, seq('(', $.const_expr, ')')),
 
   unary_operator: _ => prec.left(PREC.UNARY, choice('-', '+', '~')),
-}
-
-export default {
-  rules: rules,
 }

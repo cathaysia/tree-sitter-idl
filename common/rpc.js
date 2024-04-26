@@ -1,6 +1,6 @@
-import { commaSep, commaSep1 } from './common'
+const { commaSep1 } = require('./common')
 
-const rules: Rules = {
+exports.rules = {
   except_dcl: $ => seq('exception', $.identifier, '{', repeat($.member), '}'),
   interface_dcl: $ => choice($.interface_def, $.interface_forward_dcl),
   interface_forward_dcl: $ => seq('interface', $.identifier),
@@ -62,8 +62,4 @@ const rules: Rules = {
   get_excep_expr: $ => seq('getraises', $.exception_list),
   set_excep_expr: $ => seq('setraises', $.exception_list),
   exception_list: $ => seq('(', commaSep1($.scoped_name), ')'),
-}
-
-export default {
-  rules: rules,
 }

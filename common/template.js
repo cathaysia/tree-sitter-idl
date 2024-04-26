@@ -1,6 +1,6 @@
-import { commaSep, commaSep1 } from './common'
+const { commaSep, commaSep1 } = require('./common')
 
-const rules: Rules = {
+exports.rules = {
   template_module_dcl: $ =>
     prec.left(
       2,
@@ -47,8 +47,4 @@ const rules: Rules = {
       $.identifier,
     ),
   formal_parameter_names: $ => commaSep1($.identifier),
-}
-
-export default {
-  rules: rules,
 }

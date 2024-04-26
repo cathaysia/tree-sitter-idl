@@ -1,4 +1,4 @@
-const rules = {
+exports.rules = {
   signed_short_int: _ =>
     choice(
       'short',
@@ -108,8 +108,4 @@ const rules = {
       optional(seq(',', $.positive_int_const)),
       '>',
     ),
-}
-
-export default {
-  rules: rules,
 }
