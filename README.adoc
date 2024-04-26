@@ -30,3 +30,26 @@ IDL 4.2:
 DDS-XTypes:
 
 * [x] 7.3.1.2.3 Alternative Annotation Syntax (by idl_annotation)
+
+=== extends
+
+==== allow merge case
+
+[, idl]
+----
+union A switch(long) {
+    case 1:
+    case 2: //< allow
+    case 3:
+        u8 a;
+};
+----
+
+==== allow using simple_type_spec in template parameter
+
+[, idl]
+----
+module MyTemplate <typename T, struct S, long m> {
+                                      //  ^ allow
+};
+----
