@@ -299,21 +299,17 @@
       ]
     },
     "simple_type_spec": {
-      "type": "PREC_LEFT",
-      "value": 1,
-      "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "base_type_spec"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "scoped_name"
-          }
-        ]
-      }
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "base_type_spec"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "scoped_name"
+        }
+      ]
     },
     "base_type_spec": {
       "type": "CHOICE",
@@ -2128,8 +2124,15 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "@annotation"
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 2,
+            "content": {
+              "type": "STRING",
+              "value": "@annotation"
+            }
+          }
         },
         {
           "type": "SYMBOL",
@@ -2247,46 +2250,49 @@
       "value": "any"
     },
     "annotation_appl": {
-      "type": "PREC_LEFT",
-      "value": 1,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "@"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "scoped_name"
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "("
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "annotation_appl_params"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": ")"
-                  }
-                ]
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "TOKEN",
+          "content": {
+            "type": "PREC",
+            "value": 1,
+            "content": {
+              "type": "STRING",
+              "value": "@"
+            }
           }
-        ]
-      }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "scoped_name"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "("
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "annotation_appl_params"
+                },
+                {
+                  "type": "STRING",
+                  "value": ")"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
     },
     "annotation_appl_params": {
       "type": "CHOICE",
@@ -2341,7 +2347,7 @@
     },
     "template_module_dcl": {
       "type": "PREC_LEFT",
-      "value": 2,
+      "value": 1,
       "content": {
         "type": "SEQ",
         "members": [
@@ -3481,85 +3487,77 @@
       ]
     },
     "struct_forward_dcl": {
-      "type": "PREC_LEFT",
-      "value": 1,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "struct"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "identifier"
-          }
-        ]
-      }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "struct"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
     },
     "struct_def": {
-      "type": "PREC_LEFT",
-      "value": 2,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "REPEAT",
-            "content": {
-              "type": "SYMBOL",
-              "name": "annotation_appl"
-            }
-          },
-          {
-            "type": "STRING",
-            "value": "struct"
-          },
-          {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT",
+          "content": {
             "type": "SYMBOL",
-            "name": "identifier"
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": ":"
-                  },
-                  {
-                    "type": "FIELD",
-                    "name": "parent",
-                    "content": {
-                      "type": "SYMBOL",
-                      "name": "scoped_name"
-                    }
-                  }
-                ]
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          },
-          {
-            "type": "STRING",
-            "value": "{"
-          },
-          {
-            "type": "REPEAT",
-            "content": {
-              "type": "SYMBOL",
-              "name": "member"
-            }
-          },
-          {
-            "type": "STRING",
-            "value": "}"
+            "name": "annotation_appl"
           }
-        ]
-      }
+        },
+        {
+          "type": "STRING",
+          "value": "struct"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ":"
+                },
+                {
+                  "type": "FIELD",
+                  "name": "parent",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "scoped_name"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "member"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
     },
     "member": {
       "type": "SEQ",
@@ -3657,91 +3655,104 @@
       ]
     },
     "const_type": {
-      "type": "PREC_LEFT",
-      "value": 1,
-      "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "integer_type"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "floating_pt_type"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "fixed_pt_const_type"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "char_type"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "boolean_type"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "octet_type"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "string_type"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "scoped_name"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "sequence_type"
-          }
-        ]
-      }
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "integer_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "floating_pt_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "fixed_pt_const_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "char_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "boolean_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "octet_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "scoped_name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sequence_type"
+        }
+      ]
     },
     "identifier": {
       "type": "PATTERN",
       "value": "\\w[\\w\\d_]*"
     },
     "comment": {
-      "type": "TOKEN",
-      "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "//"
-              },
-              {
-                "type": "PATTERN",
-                "value": "(\\\\+(.|\\r?\\n)|[^\\\\\\n])*"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "//"
+            },
+            {
+              "type": "REPEAT1",
+              "content": {
+                "type": "SYMBOL",
+                "name": "annotation_appl"
               }
-            ]
-          },
-          {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "/*"
-              },
-              {
-                "type": "PATTERN",
-                "value": "[^*]*\\*+([^/*][^*]*\\*+)*"
-              },
-              {
-                "type": "STRING",
-                "value": "/"
-              }
-            ]
-          }
-        ]
-      }
+            },
+            {
+              "type": "PATTERN",
+              "value": "\\r?\\n"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "//"
+            },
+            {
+              "type": "PATTERN",
+              "value": "(\\\\+(.|\\r?\\n)|[^\\\\\\n])*"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "/*"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[^*]*\\*+([^/*][^*]*\\*+)*"
+            },
+            {
+              "type": "STRING",
+              "value": "/"
+            }
+          ]
+        }
+      ]
     }
   },
   "extras": [
@@ -3755,7 +3766,38 @@
     }
   ],
   "conflicts": [],
-  "precedences": [],
+  "precedences": [
+    [
+      {
+        "type": "SYMBOL",
+        "name": "annotation_appl"
+      },
+      {
+        "type": "SYMBOL",
+        "name": "scoped_name"
+      }
+    ],
+    [
+      {
+        "type": "SYMBOL",
+        "name": "simple_type_spec"
+      },
+      {
+        "type": "SYMBOL",
+        "name": "unary_expr"
+      }
+    ],
+    [
+      {
+        "type": "SYMBOL",
+        "name": "annotation_member_type"
+      },
+      {
+        "type": "SYMBOL",
+        "name": "const_type"
+      }
+    ]
+  ],
   "externals": [],
   "inline": [
     "type_dcl",

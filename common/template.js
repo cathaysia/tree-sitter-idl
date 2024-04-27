@@ -3,7 +3,7 @@ const { commaSep, commaSep1 } = require('./common')
 exports.rules = {
   template_module_dcl: $ =>
     prec.left(
-      2,
+      1,
       seq(
         'module',
         $.identifier,

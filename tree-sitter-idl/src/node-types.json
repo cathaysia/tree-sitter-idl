@@ -543,6 +543,21 @@
     "fields": {}
   },
   {
+    "type": "comment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "annotation_appl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "const_dcl",
     "named": true,
     "fields": {},
@@ -2556,6 +2571,14 @@
     "named": false
   },
   {
+    "type": "/*",
+    "named": false
+  },
+  {
+    "type": "//",
+    "named": false
+  },
+  {
     "type": ":",
     "named": false
   },
@@ -2662,10 +2685,6 @@
   {
     "type": "char",
     "named": false
-  },
-  {
-    "type": "comment",
-    "named": true
   },
   {
     "type": "const",

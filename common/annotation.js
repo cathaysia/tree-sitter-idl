@@ -2,7 +2,13 @@ const { commaSep, commaSep1 } = require('./common')
 
 exports.rules = {
   annotation_dcl: $ =>
-    seq('@annotation', $.identifier, '{', repeat($.annotation_body), '}'),
+    seq(
+      token(prec(2, '@annotation')),
+      $.identifier,
+      '{',
+      repeat($.annotation_body),
+      '}',
+    ),
   annotation_body: $ =>
     choice(
       $.annotation_member,
@@ -19,13 +25,10 @@ exports.rules = {
     choice($.const_type, $.any_const_type, $.scoped_name),
   any_const_type: _ => 'any',
   annotation_appl: $ =>
-    prec.left(
-      1,
-      seq(
-        '@',
-        $.scoped_name,
-        optional(seq('(', $.annotation_appl_params, ')')),
-      ),
+    seq(
+      token(prec(1, '@')),
+      $.scoped_name,
+      optional(seq('(', $.annotation_appl_params, ')')),
     ),
   annotation_appl_params: $ =>
     choice($.const_expr, commaSep1($.annotation_appl_param)),

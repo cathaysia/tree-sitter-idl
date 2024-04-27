@@ -69,7 +69,7 @@ exports.rules = {
       $.simple_type_spec,
       $.template_type_spec, // 7.4.14
     ),
-  simple_type_spec: $ => prec.left(1, choice($.base_type_spec, $.scoped_name)),
+  simple_type_spec: $ => choice($.base_type_spec, $.scoped_name),
   base_type_spec: $ =>
     choice(
       $.integer_type,

@@ -71,19 +71,16 @@ module.exports = grammar({
       seq('module', $.identifier, '{', repeat($._definition), '}'),
 
     struct_dcl: $ => choice($.struct_forward_dcl, $.struct_def),
-    struct_forward_dcl: $ => prec.left(1, seq('struct', $.identifier)),
+    struct_forward_dcl: $ => seq('struct', $.identifier),
     struct_def: $ =>
-      prec.left(
-        2,
-        seq(
-          repeat($.annotation_appl),
-          'struct',
-          $.identifier,
-          optional(seq(':', field('parent', $.scoped_name))),
-          '{',
-          repeat($.member),
-          '}',
-        ),
+      seq(
+        repeat($.annotation_appl),
+        'struct',
+        $.identifier,
+        optional(seq(':', field('parent', $.scoped_name))),
+        '{',
+        repeat($.member),
+        '}',
       ),
     member: $ =>
       seq(
@@ -98,19 +95,16 @@ module.exports = grammar({
 
     const_dcl: $ => seq('const', $.const_type, $.identifier, '=', $.const_expr),
     const_type: $ =>
-      prec.left(
-        1,
-        choice(
-          $.integer_type,
-          $.floating_pt_type,
-          $.fixed_pt_const_type,
-          $.char_type,
-          $.boolean_type,
-          $.octet_type,
-          $.string_type,
-          $.scoped_name,
-          $.sequence_type,
-        ),
+      choice(
+        $.integer_type,
+        $.floating_pt_type,
+        $.fixed_pt_const_type,
+        $.char_type,
+        $.boolean_type,
+        $.octet_type,
+        $.string_type,
+        $.scoped_name,
+        $.sequence_type,
       ),
     // table 21
 
