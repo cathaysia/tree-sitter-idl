@@ -14,31 +14,8 @@ repos:
 
   - repo: local
     hooks:
-      - id: rustfmt
-        name: rustfmt
-        language: system
-        types_or: [rust]
-        entry: rustfmt
-
-  - repo: local
-    hooks:
-      - id: toml
-        name: toml
-        language: system
-        types_or: [toml]
-        entry: taplo format
-
-  - repo: local
-    hooks:
       - id: clang-format
         name: clang-format
         language: system
         types_or: [c, c++, cuda]
         entry: clang-format -i --style=file
-  - repo: local
-    hooks:
-      - id: black
-        name: black
-        language: system
-        types_or: [python]
-        entry: black

@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Test parsers
+    runs-on: ${{matrix.os}}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+      - name: Set up repository
+        uses: tree-sitter/parser-setup-action@v1.2
+      - name: Run tests
+        uses: tree-sitter/parser-test-action@v1.2
+        with:
+          lint: false
+          generate: true
+          test-grammar: true
+          test-library: true
+      - name: Verify grammar consistency
+        run: git diff --exit-code -- */src/grammar.json
