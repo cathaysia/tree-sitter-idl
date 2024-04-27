@@ -8,7 +8,8 @@
     "skipLibCheck": true
   },
   "include": [
-    "**/*.js",
-    "./tree-sitter-idl/node_modules/tree-sitter-cli/dsl.d.ts"
+    "common/*.js",
+    "grammar.js",
+    "./node_modules/tree-sitter-cli/dsl.d.ts"
   ]
 }
