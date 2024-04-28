@@ -9,7 +9,6 @@ OMG IDL 4.2(with XTypes extension) grammar for https://github.com/tree-sitter/tr
 
 IDL 4.2:
 
-[%interactive]
 * [x] 7.3 Preprocessing(partial)
 * [x] 7.4.1 Building Block Core Data Types
 * [x] 7.4.2 Building Block Any
