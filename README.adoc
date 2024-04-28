@@ -9,12 +9,13 @@ OMG IDL 4.2(with XTypes extension) grammar for https://github.com/tree-sitter/tr
 
 IDL 4.2:
 
+[%interactive]
 * [x] 7.3 Preprocessing(partial)
 * [x] 7.4.1 Building Block Core Data Types
 * [x] 7.4.2 Building Block Any
 * [x] 7.4.3 Building Block Interfaces – Basic
 * [x] 7.4.4 Building Block Interfaces – Full
-* [ ] 7.4.5 Building Block Value Types
+* [x] 7.4.5 Building Block Value Types
 * [ ] 7.4.6 Building Block CORBA-Specific – Interfaces
 * [ ] 7.4.7 Building Block CORBA-Specific – Value Types
 * [ ] 7.4.8 Building Block Components – Basic
