@@ -28,7 +28,7 @@
   ],
   "devDependencies": {
     "prebuildify": "6.0.1",
-    "tree-sitter-cli": "0.22.5"
+    "tree-sitter-cli": "0.22.6"
   },
   "dependencies": {
     "node-addon-api": "8.0.0",
