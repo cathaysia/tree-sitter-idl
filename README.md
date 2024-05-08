@@ -1,6 +1,6 @@
 # tree-sitter-idl
 
-OMG IDL 4.2(with XTypes extension) grammar for https://github.com/tree-sitter/tree-sitter[tree-sitter].
+OMG IDL 4.2(with XTypes extension) grammar for [tree-sitter](https://github.com/tree-sitter/tree-sitter).
 
 - https://www.omg.org/spec/IDL/4.2/PDF
 - https://www.omg.org/spec/DDS-XTypes/1.3/PDF
