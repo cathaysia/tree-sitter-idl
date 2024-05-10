@@ -53,6 +53,7 @@ bitmask DataRepresentationMask {
         (scoped_name
           (identifier)))
       (interface_header
+        (interface_kind)
         (identifier))))
   (struct_def
     (annotation_appl

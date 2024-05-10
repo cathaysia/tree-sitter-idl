@@ -78,6 +78,7 @@ exports.rules = {
       $.boolean_type,
       $.octet_type,
       $.any_type, // IDL 7.4.2
+      $.object_type, // IDL 7.4.6
     ),
   any_type: _ => 'any',
   fixed_pt_type: $ =>

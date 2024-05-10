@@ -1,0 +1,93 @@
+========================================
+corba interface
+========================================
+
+typeid A::A "bbb";
+typeprefix A "ccc";
+import "aaaa";
+import A::A;
+
+local interface A {
+    attribute Object attr1;
+    oneway void aaa (in u8 a);
+    oneway void aaa (in u8 a) context();
+    oneway void aaa (in u8 a) context("aaa", "bbb");
+};
+
+---
+
+(specification
+  (type_id_dcl
+    (scoped_name
+      (scoped_name
+        (identifier))
+      (identifier))
+    (string_literal))
+  (type_prefix_dcl
+    (scoped_name
+      (identifier))
+    (string_literal))
+  (import_dcl
+    (imported_scope
+      (string_literal)))
+  (import_dcl
+    (imported_scope
+      (scoped_name
+        (scoped_name
+          (identifier))
+        (identifier))))
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (interface_kind)
+        (identifier))
+      (interface_body
+        (export
+          (attr_dcl
+            (attr_spec
+              (type_spec
+                (simple_type_spec
+                  (base_type_spec
+                    (object_type))))
+              (attr_declarator
+                (simple_declarator
+                  (identifier))))))
+        (export
+          (op_oneway_dcl
+            (identifier)
+            (in_parameter_dcls
+              (in_param_dcl
+                (type_spec
+                  (simple_type_spec
+                    (scoped_name
+                      (identifier))))
+                (simple_declarator
+                  (identifier))))))
+        (export
+          (op_with_context
+            (op_oneway_dcl
+              (identifier)
+              (in_parameter_dcls
+                (in_param_dcl
+                  (type_spec
+                    (simple_type_spec
+                      (scoped_name
+                        (identifier))))
+                  (simple_declarator
+                    (identifier)))))
+            (context_expr)))
+        (export
+          (op_with_context
+            (op_oneway_dcl
+              (identifier)
+              (in_parameter_dcls
+                (in_param_dcl
+                  (type_spec
+                    (simple_type_spec
+                      (scoped_name
+                        (identifier))))
+                  (simple_declarator
+                    (identifier)))))
+            (context_expr
+              (string_literal)
+              (string_literal))))))))
