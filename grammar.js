@@ -13,6 +13,7 @@ const union_dcl = require('./common/union_dcl')
 const corba_interface = require('./common/corba_interface')
 const corba_value = require('./common/corba_value')
 const component_basic = require('./common/component_basic')
+const component_homes = require('./common/component_homes')
 
 module.exports = grammar({
   name: 'idl',
@@ -50,6 +51,7 @@ module.exports = grammar({
     ...corba_interface.rules,
     ...corba_value.rules,
     ...component_basic.rules,
+    ...component_homes.rules,
     _definition: $ =>
       choice(
         $.predefine,
@@ -69,6 +71,7 @@ module.exports = grammar({
             $.type_prefix_dcl, // idl 7.4.6
             $.import_dcl, // idl 7.4.6
             $.component_dcl, // idl 7.4.8
+            $.home_dcl, // idl 7.4.9
           ),
           ';',
         ),
