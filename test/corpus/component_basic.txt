@@ -1,0 +1,155 @@
+========================================
+component_basic
+========================================
+
+component A;
+
+component A: B {
+    provides A a;
+    uses A b;
+    readonly attribute u8 attr1, attr2, attr3;
+    readonly attribute u8 attr1 raises(A);
+    readonly attribute u8 attr1 raises(A, B, C);
+    attribute u8 attr1, attr2, attr3;
+    attribute u8 attr1 getraises(A);
+    attribute u8 attr1 getraises(A, B, C) setraises(A);
+    attribute u8 attr1 setraises(A);
+};
+
+---
+
+(specification
+  (component_dcl
+    (component_forward_dcl
+      (identifier)))
+  (component_dcl
+    (component_def
+      (component_header
+        (identifier)
+        (component_inheritance_spec
+          (scoped_name
+            (identifier))))
+      (component_body
+        (component_export
+          (provides_dcl
+            (interface_type
+              (scoped_name
+                (identifier)))
+            (identifier)))
+        (component_export
+          (uses_dcl
+            (interface_type
+              (scoped_name
+                (identifier)))
+            (identifier)))
+        (component_export
+          (attr_dcl
+            (readonly_attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (readonly_attr_declarator
+                (simple_declarator
+                  (identifier))
+                (simple_declarator
+                  (identifier))
+                (simple_declarator
+                  (identifier))))))
+        (component_export
+          (attr_dcl
+            (readonly_attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (readonly_attr_declarator
+                (simple_declarator
+                  (identifier))
+                (raises_expr
+                  (scoped_name
+                    (identifier)))))))
+        (component_export
+          (attr_dcl
+            (readonly_attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (readonly_attr_declarator
+                (simple_declarator
+                  (identifier))
+                (raises_expr
+                  (scoped_name
+                    (identifier))
+                  (scoped_name
+                    (identifier))
+                  (scoped_name
+                    (identifier)))))))
+        (component_export
+          (attr_dcl
+            (attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (attr_declarator
+                (simple_declarator
+                  (identifier))
+                (simple_declarator
+                  (identifier))
+                (simple_declarator
+                  (identifier))))))
+        (component_export
+          (attr_dcl
+            (attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (attr_declarator
+                (simple_declarator
+                  (identifier))
+                (attr_raises_expr
+                  (get_excep_expr
+                    (exception_list
+                      (scoped_name
+                        (identifier)))))))))
+        (component_export
+          (attr_dcl
+            (attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (attr_declarator
+                (simple_declarator
+                  (identifier))
+                (attr_raises_expr
+                  (get_excep_expr
+                    (exception_list
+                      (scoped_name
+                        (identifier))
+                      (scoped_name
+                        (identifier))
+                      (scoped_name
+                        (identifier))))
+                  (set_excep_expr
+                    (exception_list
+                      (scoped_name
+                        (identifier)))))))))
+        (component_export
+          (attr_dcl
+            (attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (attr_declarator
+                (simple_declarator
+                  (identifier))
+                (attr_raises_expr
+                  (set_excep_expr
+                    (exception_list
+                      (scoped_name
+                        (identifier)))))))))))))

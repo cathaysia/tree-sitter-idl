@@ -566,6 +566,131 @@
     }
   },
   {
+    "type": "component_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "component_export",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "component_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "component_def",
+          "named": true
+        },
+        {
+          "type": "component_forward_dcl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "component_def",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "component_body",
+          "named": true
+        },
+        {
+          "type": "component_header",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "component_export",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attr_dcl",
+          "named": true
+        },
+        {
+          "type": "provides_dcl",
+          "named": true
+        },
+        {
+          "type": "uses_dcl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "component_forward_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "component_header",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "component_inheritance_spec",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "component_inheritance_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "scoped_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "const_dcl",
     "named": true,
     "fields": {},
@@ -1359,6 +1484,21 @@
     }
   },
   {
+    "type": "interface_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "scoped_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "literal",
     "named": true,
     "fields": {},
@@ -1462,6 +1602,10 @@
         },
         {
           "type": "bitset_dcl",
+          "named": true
+        },
+        {
+          "type": "component_dcl",
           "named": true
         },
         {
@@ -1770,6 +1914,25 @@
     }
   },
   {
+    "type": "provides_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "interface_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "raises_expr",
     "named": true,
     "fields": {},
@@ -1988,6 +2151,10 @@
         },
         {
           "type": "bitset_dcl",
+          "named": true
+        },
+        {
+          "type": "component_dcl",
           "named": true
         },
         {
@@ -2298,6 +2465,10 @@
         },
         {
           "type": "bitset_dcl",
+          "named": true
+        },
+        {
+          "type": "component_dcl",
           "named": true
         },
         {
@@ -2613,6 +2784,25 @@
     "type": "unsigned_short_int",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "uses_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "interface_type",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "value_abs_def",
@@ -2971,6 +3161,10 @@
     "named": false
   },
   {
+    "type": "component",
+    "named": false
+  },
+  {
     "type": "const",
     "named": false
   },
@@ -3111,6 +3305,10 @@
     "named": false
   },
   {
+    "type": "provides",
+    "named": false
+  },
+  {
     "type": "public",
     "named": false
   },
@@ -3205,6 +3403,10 @@
   {
     "type": "unsigned_tiny_int",
     "named": true
+  },
+  {
+    "type": "uses",
+    "named": false
   },
   {
     "type": "value_base_type",
