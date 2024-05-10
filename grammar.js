@@ -11,6 +11,7 @@ const value_type = require('./common/value_type')
 const typedef_dcl = require('./common/typedef_dcl')
 const union_dcl = require('./common/union_dcl')
 const corba_interface = require('./common/corba_interface')
+const corba_value = require('./common/corba_value')
 
 module.exports = grammar({
   name: 'idl',
@@ -29,6 +30,7 @@ module.exports = grammar({
     [$.annotation_appl, $.scoped_name],
     [$.simple_type_spec, $.unary_expr],
     [$.annotation_member_type, $.const_type],
+    // [$.value_kind, $.value_box_def],
   ],
 
   rules: {
@@ -45,6 +47,7 @@ module.exports = grammar({
     ...typedef_dcl.rules,
     ...union_dcl.rules,
     ...corba_interface.rules,
+    ...corba_value.rules,
     _definition: $ =>
       choice(
         $.predefine,

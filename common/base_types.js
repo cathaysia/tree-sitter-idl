@@ -79,6 +79,7 @@ exports.rules = {
       $.octet_type,
       $.any_type, // IDL 7.4.2
       $.object_type, // IDL 7.4.6
+      $.value_base_type, // IDL 7.4.7
     ),
   any_type: _ => 'any',
   fixed_pt_type: $ =>

@@ -5,7 +5,12 @@ exports.rules = {
   interface_dcl: $ => choice($.interface_def, $.interface_forward_dcl),
   interface_kind: _ =>
     seq(
-      optional('local'), // IDL 7.4.6
+      optional(
+        choice(
+          'local', // IDL 7.4.6
+          'abstract', // IDL 7.4.7
+        ),
+      ),
       'interface',
     ),
   interface_forward_dcl: $ => seq($.interface_kind, $.identifier),
