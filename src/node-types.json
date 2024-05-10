@@ -394,6 +394,10 @@
         {
           "type": "octet_type",
           "named": true
+        },
+        {
+          "type": "value_base_type",
+          "named": true
         }
       ]
     }
@@ -2611,6 +2615,29 @@
     "fields": {}
   },
   {
+    "type": "value_abs_def",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "export",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "value_inheritance_spec",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "value_dcl",
     "named": true,
     "fields": {},
@@ -2618,6 +2645,10 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "value_abs_def",
+          "named": true
+        },
         {
           "type": "value_def",
           "named": true
@@ -2676,11 +2707,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "value_kind",
           "named": true
         }
       ]
@@ -2700,6 +2735,10 @@
         },
         {
           "type": "value_inheritance_spec",
+          "named": true
+        },
+        {
+          "type": "value_kind",
           "named": true
         }
       ]
@@ -2723,6 +2762,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "value_kind",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "value_name",
@@ -2887,6 +2931,10 @@
     "named": false
   },
   {
+    "type": "abstract",
+    "named": false
+  },
+  {
     "type": "alias",
     "named": false
   },
@@ -2928,6 +2976,10 @@
   },
   {
     "type": "context",
+    "named": false
+  },
+  {
+    "type": "custom",
     "named": false
   },
   {
@@ -3103,6 +3155,10 @@
     "named": false
   },
   {
+    "type": "truncatable",
+    "named": false
+  },
+  {
     "type": "typedef",
     "named": false
   },
@@ -3148,6 +3204,10 @@
   },
   {
     "type": "unsigned_tiny_int",
+    "named": true
+  },
+  {
+    "type": "value_base_type",
     "named": true
   },
   {

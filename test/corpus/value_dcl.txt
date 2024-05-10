@@ -36,14 +36,17 @@ valuetype A: B supports C {};
 (specification
   (value_dcl
     (value_forward_dcl
+      (value_kind)
       (identifier)))
   (value_dcl
     (value_def
       (value_header
+        (value_kind)
         (identifier))))
   (value_dcl
     (value_def
       (value_header
+        (value_kind)
         (identifier))
       (value_element
         (export
@@ -313,6 +316,7 @@ valuetype A: B supports C {};
   (value_dcl
     (value_def
       (value_header
+        (value_kind)
         (identifier)
         (value_inheritance_spec
           (value_name
@@ -321,6 +325,7 @@ valuetype A: B supports C {};
   (value_dcl
     (value_def
       (value_header
+        (value_kind)
         (identifier)
         (value_inheritance_spec
           (interface_name
@@ -329,6 +334,7 @@ valuetype A: B supports C {};
   (value_dcl
     (value_def
       (value_header
+        (value_kind)
         (identifier)
         (value_inheritance_spec
           (value_name
