@@ -7,12 +7,24 @@ exports.rules = {
       'home',
       $.identifier,
       optional($.home_inheritance_spec),
+      optional($.supported_interface_spec), // idl 7.4.10
       'manages',
       $.scoped_name,
+      optional($.primary_key_spec), // idl 7.4.10
     ),
   home_inheritance_spec: $ => seq(':', $.scoped_name),
   home_body: $ => repeat1($.home_export),
-  home_export: $ => choice($.export, seq($.factory_dcl, ';')),
+  home_export: $ =>
+    choice(
+      $.export,
+      seq(
+        choice(
+          $.factory_dcl,
+          // $.finder_dcl, // idl 7.4.10
+        ),
+        ';',
+      ),
+    ),
   factory_dcl: $ =>
     seq(
       'factory',

@@ -631,7 +631,19 @@
           "named": true
         },
         {
+          "type": "consumes_dcl",
+          "named": true
+        },
+        {
+          "type": "emits_dcl",
+          "named": true
+        },
+        {
           "type": "provides_dcl",
+          "named": true
+        },
+        {
+          "type": "publishes_dcl",
           "named": true
         },
         {
@@ -670,6 +682,10 @@
         },
         {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "supported_interface_spec",
           "named": true
         }
       ]
@@ -770,6 +786,25 @@
         },
         {
           "type": "string_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "consumes_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
           "named": true
         }
       ]
@@ -910,6 +945,25 @@
     }
   },
   {
+    "type": "emits_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "enum_anno",
     "named": true,
     "fields": {}
@@ -956,6 +1010,82 @@
         },
         {
           "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "event_abs_def",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "export",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "value_inheritance_spec",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "event_def",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "event_header",
+          "named": true
+        },
+        {
+          "type": "value_element",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "event_forward_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "event_header",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "value_inheritance_spec",
           "named": true
         }
       ]
@@ -1332,7 +1462,15 @@
           "named": true
         },
         {
+          "type": "primary_key_spec",
+          "named": true
+        },
+        {
           "type": "scoped_name",
+          "named": true
+        },
+        {
+          "type": "supported_interface_spec",
           "named": true
         }
       ]
@@ -1637,7 +1775,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "scoped_name",
@@ -1874,6 +2012,11 @@
     }
   },
   {
+    "type": "object_type",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "op_dcl",
     "named": true,
     "fields": {},
@@ -2066,6 +2209,21 @@
     }
   },
   {
+    "type": "primary_key_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "scoped_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "provides_dcl",
     "named": true,
     "fields": {},
@@ -2079,6 +2237,25 @@
         },
         {
           "type": "interface_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "publishes_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
           "named": true
         }
       ]
@@ -2475,6 +2652,21 @@
       "types": [
         {
           "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "supported_interface_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "scoped_name",
           "named": true
         }
       ]
@@ -3265,6 +3457,10 @@
     "named": false
   },
   {
+    "type": "Object",
+    "named": false
+  },
+  {
     "type": "TRUE",
     "named": false
   },
@@ -3329,6 +3525,10 @@
     "named": false
   },
   {
+    "type": "consumes",
+    "named": false
+  },
+  {
     "type": "context",
     "named": false
   },
@@ -3345,6 +3545,10 @@
     "named": false
   },
   {
+    "type": "emits",
+    "named": false
+  },
+  {
     "type": "enum",
     "named": false
   },
@@ -3358,6 +3562,10 @@
   },
   {
     "type": "factory",
+    "named": false
+  },
+  {
+    "type": "finder",
     "named": false
   },
   {
@@ -3437,15 +3645,15 @@
     "named": false
   },
   {
+    "type": "multiple",
+    "named": false
+  },
+  {
     "type": "native",
     "named": false
   },
   {
     "type": "number_literal",
-    "named": true
-  },
-  {
-    "type": "object_type",
     "named": true
   },
   {
@@ -3469,6 +3677,10 @@
     "named": true
   },
   {
+    "type": "primarykey",
+    "named": false
+  },
+  {
     "type": "private",
     "named": false
   },
@@ -3478,6 +3690,10 @@
   },
   {
     "type": "public",
+    "named": false
+  },
+  {
+    "type": "publishes",
     "named": false
   },
   {

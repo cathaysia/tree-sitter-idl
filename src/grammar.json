@@ -3843,6 +3843,18 @@
               "type": "BLANK"
             }
           ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "supported_interface_spec"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -3883,6 +3895,18 @@
             {
               "type": "SYMBOL",
               "name": "attr_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "emits_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "publishes_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "consumes_dcl"
             }
           ]
         },
@@ -3910,8 +3934,17 @@
       ]
     },
     "interface_type": {
-      "type": "SYMBOL",
-      "name": "scoped_name"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "scoped_name"
+        },
+        {
+          "type": "STRING",
+          "value": "Object"
+        }
+      ]
     },
     "uses_dcl": {
       "type": "SEQ",
@@ -3919,6 +3952,18 @@
         {
           "type": "STRING",
           "value": "uses"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "multiple"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
@@ -3983,12 +4028,36 @@
           ]
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "supported_interface_spec"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "STRING",
           "value": "manages"
         },
         {
           "type": "SYMBOL",
           "name": "scoped_name"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "primary_key_spec"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -4023,8 +4092,13 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "factory_dcl"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "factory_dcl"
+                }
+              ]
             },
             {
               "type": "STRING",
@@ -4118,6 +4192,296 @@
         {
           "type": "SYMBOL",
           "name": "simple_declarator"
+        }
+      ]
+    },
+    "supported_interface_spec": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "supports"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "scoped_name"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "scoped_name"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "emits_dcl": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "emits"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "scoped_name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
+    },
+    "publishes_dcl": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "publishes"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "scoped_name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
+    },
+    "consumes_dcl": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "consumes"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "scoped_name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
+    },
+    "primary_key_spec": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "primarykey"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "scoped_name"
+        }
+      ]
+    },
+    "finder_dcl": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "finder"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "init_param_dcls"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "raises_expr"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "event_dcl": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "event_def"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "event_abs_def"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "event_forward_dcl"
+        }
+      ]
+    },
+    "event_forward_dcl": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "abstract"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "eventtype"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
+    },
+    "event_abs_def": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "abstract"
+        },
+        {
+          "type": "STRING",
+          "value": "eventtype"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "value_inheritance_spec"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "export"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "event_def": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "event_header"
+        },
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "value_element"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "event_header": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "custom"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "eventtype"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "value_inheritance_spec"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
