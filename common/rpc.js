@@ -3,18 +3,22 @@ const { commaSep1 } = require('./common')
 exports.rules = {
   except_dcl: $ => seq('exception', $.identifier, '{', repeat($.member), '}'),
   interface_dcl: $ => choice($.interface_def, $.interface_forward_dcl),
-  interface_forward_dcl: $ => seq('interface', $.identifier),
+  interface_kind: _ =>
+    seq(
+      optional('local'), // IDL 7.4.6
+      'interface',
+    ),
+  interface_forward_dcl: $ => seq($.interface_kind, $.identifier),
   interface_def: $ =>
     seq(
       repeat($.annotation_appl),
-      optional('local'),
       $.interface_header,
       '{',
       optional($.interface_body),
       '}',
     ),
   interface_header: $ =>
-    seq('interface', $.identifier, optional($.interface_inheritance_spec)),
+    seq($.interface_kind, $.identifier, optional($.interface_inheritance_spec)),
   interface_inheritance_spec: $ => seq(':', commaSep1($.interface_name)),
   interface_name: $ => $.scoped_name,
   interface_body: $ => repeat1($.export),
@@ -26,6 +30,11 @@ exports.rules = {
         $.type_dcl, // idl 7.4.4
         $.const_dcl, // idl 7.4.4
         $.except_dcl, // idl 7.4.4
+        $.value_dcl, // idl 7.4.5
+        $.type_id_dcl, // idl 7.4.6
+        $.import_dcl, // idl_7.4.6
+        $.op_oneway_dcl, // idl 7.4.6
+        $.op_with_context, // idl 7.4.6
       ),
       ';',
     ),

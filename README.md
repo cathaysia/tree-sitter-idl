@@ -15,7 +15,7 @@ IDL 4.2:
 - [x] 7.4.3 Building Block Interfaces – Basic
 - [x] 7.4.4 Building Block Interfaces – Full
 - [x] 7.4.5 Building Block Value Types
-- [ ] 7.4.6 Building Block CORBA-Specific – Interfaces
+- [x] 7.4.6 Building Block CORBA-Specific – Interfaces
 - [ ] 7.4.7 Building Block CORBA-Specific – Value Types
 - [ ] 7.4.8 Building Block Components – Basic
 - [ ] 7.4.9 Building Block Components – Homes

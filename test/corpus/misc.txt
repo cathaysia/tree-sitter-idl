@@ -306,10 +306,12 @@ interface C: A, B {
   (interface_dcl
     (interface_def
       (interface_header
+        (interface_kind)
         (identifier))))
   (interface_dcl
     (interface_def
       (interface_header
+        (interface_kind)
         (identifier)
         (interface_inheritance_spec
           (interface_name
@@ -318,6 +320,7 @@ interface C: A, B {
   (interface_dcl
     (interface_def
       (interface_header
+        (interface_kind)
         (identifier)
         (interface_inheritance_spec
           (interface_name
@@ -326,18 +329,7 @@ interface C: A, B {
   (interface_dcl
     (interface_def
       (interface_header
-        (identifier)
-        (interface_inheritance_spec
-          (interface_name
-            (scoped_name
-              (identifier)))
-          (interface_name
-            (scoped_name
-              (identifier)))))))
-  (comment)
-  (interface_dcl
-    (interface_def
-      (interface_header
+        (interface_kind)
         (identifier)
         (interface_inheritance_spec
           (interface_name
@@ -350,6 +342,20 @@ interface C: A, B {
   (interface_dcl
     (interface_def
       (interface_header
+        (interface_kind)
+        (identifier)
+        (interface_inheritance_spec
+          (interface_name
+            (scoped_name
+              (identifier)))
+          (interface_name
+            (scoped_name
+              (identifier)))))))
+  (comment)
+  (interface_dcl
+    (interface_def
+      (interface_header
+        (interface_kind)
         (identifier))
       (interface_body
         (export
@@ -359,6 +365,7 @@ interface C: A, B {
   (interface_dcl
     (interface_def
       (interface_header
+        (interface_kind)
         (identifier)
         (interface_inheritance_spec
           (interface_name
@@ -391,12 +398,14 @@ interface C: A, B {
     (identifier)
     (interface_dcl
       (interface_forward_dcl
+        (interface_kind)
         (identifier)))
     (comment)
     (comment)
     (interface_dcl
       (interface_def
         (interface_header
+          (interface_kind)
           (identifier)
           (interface_inheritance_spec
             (interface_name
@@ -406,11 +415,13 @@ interface C: A, B {
     (interface_dcl
       (interface_def
         (interface_header
+          (interface_kind)
           (identifier))))
     (comment)
     (interface_dcl
       (interface_def
         (interface_header
+          (interface_kind)
           (identifier)
           (interface_inheritance_spec
             (interface_name
@@ -421,6 +432,7 @@ interface C: A, B {
   (interface_dcl
     (interface_def
       (interface_header
+        (interface_kind)
         (identifier))
       (interface_body
         (export
@@ -457,6 +469,7 @@ interface C: A, B {
   (interface_dcl
     (interface_def
       (interface_header
+        (interface_kind)
         (identifier))
       (interface_body
         (export
@@ -493,6 +506,7 @@ interface C: A, B {
   (interface_dcl
     (interface_def
       (interface_header
+        (interface_kind)
         (identifier)
         (interface_inheritance_spec
           (interface_name
@@ -565,6 +579,7 @@ interface C: A, B {
   (interface_dcl
     (interface_def
       (interface_header
+        (interface_kind)
         (identifier))
       (interface_body
         (export
@@ -606,6 +621,7 @@ interface C: A, B {
   (interface_dcl
     (interface_def
       (interface_header
+        (interface_kind)
         (identifier))
       (interface_body
         (export
@@ -628,6 +644,7 @@ interface C: A, B {
   (interface_dcl
     (interface_def
       (interface_header
+        (interface_kind)
         (identifier)
         (interface_inheritance_spec
           (interface_name
@@ -640,6 +657,7 @@ interface C: A, B {
   (interface_dcl
     (interface_def
       (interface_header
+        (interface_kind)
         (identifier))
       (interface_body
         (export
@@ -665,6 +683,7 @@ interface C: A, B {
   (interface_dcl
     (interface_def
       (interface_header
+        (interface_kind)
         (identifier))
       (interface_body
         (export
@@ -690,6 +709,7 @@ interface C: A, B {
   (interface_dcl
     (interface_def
       (interface_header
+        (interface_kind)
         (identifier)
         (interface_inheritance_spec
           (interface_name

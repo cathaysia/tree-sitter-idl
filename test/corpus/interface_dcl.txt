@@ -38,14 +38,17 @@ interface A {
 (specification
   (interface_dcl
     (interface_forward_dcl
+      (interface_kind)
       (identifier)))
   (interface_dcl
     (interface_def
       (interface_header
+        (interface_kind)
         (identifier))))
   (interface_dcl
     (interface_def
       (interface_header
+        (interface_kind)
         (identifier)
         (interface_inheritance_spec
           (interface_name
@@ -54,6 +57,7 @@ interface A {
   (interface_dcl
     (interface_def
       (interface_header
+        (interface_kind)
         (identifier)
         (interface_inheritance_spec
           (interface_name
@@ -68,6 +72,7 @@ interface A {
   (interface_dcl
     (interface_def
       (interface_header
+        (interface_kind)
         (identifier)
         (interface_inheritance_spec
           (interface_name
@@ -289,6 +294,7 @@ interface A {
   (interface_dcl
     (interface_def
       (interface_header
+        (interface_kind)
         (identifier))
       (interface_body
         (export

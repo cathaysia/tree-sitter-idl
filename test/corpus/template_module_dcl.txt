@@ -83,6 +83,7 @@ module MyTemplModule <typename T, struct S, long m> {
       (interface_dcl
         (interface_def
           (interface_header
+            (interface_kind)
             (identifier)
             (interface_inheritance_spec
               (interface_name
