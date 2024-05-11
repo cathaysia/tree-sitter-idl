@@ -4105,6 +4105,10 @@
                 {
                   "type": "SYMBOL",
                   "name": "factory_dcl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "finder_dcl"
                 }
               ]
             },
