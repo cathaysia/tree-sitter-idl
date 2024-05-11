@@ -20,7 +20,7 @@ IDL 4.2:
 - [x] 7.4.8 Building Block Components – Basic
 - [x] 7.4.9 Building Block Components – Homes
 - [x] 7.4.10 Building Block CCM-Specific
-- [ ] 7.4.11 Building Block Components – Ports and Connectors
+- [x] 7.4.11 Building Block Components – Ports and Connectors
 - [x] 7.4.12 Building Block Template Modules
 - [x] 7.4.13 Building Block Extended Data-Types
 - [x] 7.4.14 Building Block Anonymous Types

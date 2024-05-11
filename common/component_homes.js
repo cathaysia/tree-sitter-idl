@@ -20,7 +20,7 @@ exports.rules = {
       seq(
         choice(
           $.factory_dcl,
-          // $.finder_dcl, // idl 7.4.10
+          $.finder_dcl, // idl 7.4.10
         ),
         ';',
       ),

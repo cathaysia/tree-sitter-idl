@@ -639,6 +639,10 @@
           "named": true
         },
         {
+          "type": "port_dcl",
+          "named": true
+        },
+        {
           "type": "provides_dcl",
           "named": true
         },
@@ -693,6 +697,78 @@
   },
   {
     "type": "component_inheritance_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "scoped_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "connector_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "connector_export",
+          "named": true
+        },
+        {
+          "type": "connector_header",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "connector_export",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attr_dcl",
+          "named": true
+        },
+        {
+          "type": "port_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "connector_header",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "connector_inherit_spec",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "connector_inherit_spec",
     "named": true,
     "fields": {},
     "children": {
@@ -1033,6 +1109,29 @@
         },
         {
           "type": "value_inheritance_spec",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "event_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "event_abs_def",
+          "named": true
+        },
+        {
+          "type": "event_def",
+          "named": true
+        },
+        {
+          "type": "event_forward_dcl",
           "named": true
         }
       ]
@@ -1895,11 +1994,19 @@
           "named": true
         },
         {
+          "type": "connector_dcl",
+          "named": true
+        },
+        {
           "type": "const_dcl",
           "named": true
         },
         {
           "type": "enum_dcl",
+          "named": true
+        },
+        {
+          "type": "event_dcl",
           "named": true
         },
         {
@@ -1928,6 +2035,10 @@
         },
         {
           "type": "native_dcl",
+          "named": true
+        },
+        {
+          "type": "porttype_dcl",
           "named": true
         },
         {
@@ -2157,6 +2268,139 @@
       "types": [
         {
           "type": "param_dcl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "port_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "port_export",
+          "named": true
+        },
+        {
+          "type": "port_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "port_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "port_export",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attr_dcl",
+          "named": true
+        },
+        {
+          "type": "port_ref",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "port_ref",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "port_dcl",
+          "named": true
+        },
+        {
+          "type": "provides_dcl",
+          "named": true
+        },
+        {
+          "type": "uses_dcl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "porttype_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "porttype_def",
+          "named": true
+        },
+        {
+          "type": "porttype_forward_dcl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "porttype_def",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "port_body",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "porttype_forward_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
           "named": true
         }
       ]
@@ -2487,11 +2731,19 @@
           "named": true
         },
         {
+          "type": "connector_dcl",
+          "named": true
+        },
+        {
           "type": "const_dcl",
           "named": true
         },
         {
           "type": "enum_dcl",
+          "named": true
+        },
+        {
+          "type": "event_dcl",
           "named": true
         },
         {
@@ -2516,6 +2768,10 @@
         },
         {
           "type": "native_dcl",
+          "named": true
+        },
+        {
+          "type": "porttype_dcl",
           "named": true
         },
         {
@@ -2820,11 +3076,19 @@
           "named": true
         },
         {
+          "type": "connector_dcl",
+          "named": true
+        },
+        {
           "type": "const_dcl",
           "named": true
         },
         {
           "type": "enum_dcl",
+          "named": true
+        },
+        {
+          "type": "event_dcl",
           "named": true
         },
         {
@@ -2849,6 +3113,10 @@
         },
         {
           "type": "native_dcl",
+          "named": true
+        },
+        {
+          "type": "porttype_dcl",
           "named": true
         },
         {
@@ -3521,6 +3789,10 @@
     "named": false
   },
   {
+    "type": "connector",
+    "named": false
+  },
+  {
     "type": "const",
     "named": false
   },
@@ -3641,6 +3913,10 @@
     "named": false
   },
   {
+    "type": "mirrorport",
+    "named": false
+  },
+  {
     "type": "module",
     "named": false
   },
@@ -3666,6 +3942,14 @@
   },
   {
     "type": "out",
+    "named": false
+  },
+  {
+    "type": "port",
+    "named": false
+  },
+  {
+    "type": "porttype",
     "named": false
   },
   {

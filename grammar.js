@@ -14,7 +14,8 @@ const corba_interface = require('./common/corba_interface')
 const corba_value = require('./common/corba_value')
 const component_basic = require('./common/component_basic') // idl 7.4.8
 const component_homes = require('./common/component_homes') // idl 7.4.9
-const corba_ccm = require('./common/corba_ccm') // idl 7.4.10
+const event_dcl = require('./common/event_dcl') // idl 7.4.10
+const component_port = require('./common/component_port') // idl 7.4.11
 
 module.exports = grammar({
   name: 'idl',
@@ -54,6 +55,7 @@ module.exports = grammar({
     ...component_basic.rules,
     ...component_homes.rules,
     ...event_dcl.rules,
+    ...component_port.rules, // idl 7.4.11
     _definition: $ =>
       choice(
         $.predefine,
@@ -74,7 +76,9 @@ module.exports = grammar({
             $.import_dcl, // idl 7.4.6
             $.component_dcl, // idl 7.4.8
             $.home_dcl, // idl 7.4.9
-            // $.event_dcl, // idl 7.4.10
+            $.event_dcl, // idl 7.4.10
+            $.porttype_dcl, // idl 7.4.11
+            $.connector_dcl, // idl 7.4.11
           ),
           ';',
         ),

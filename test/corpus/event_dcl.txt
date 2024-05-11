@@ -13,6 +13,36 @@ component A: B supports A, B, C{
     attribute u8 attr1 getraises(A);
     attribute u8 attr1 getraises(A, B, C) setraises(A);
     attribute u8 attr1 setraises(A);
+    emits A b;
+    publishes A b;
+    consumes A b;
+};
+
+home A: B manages B primarykey B {
+    finder aa(in u8 a) raises(A,B,C);
+
+};
+
+abstract eventtype A;
+
+custom eventtype A: B {
+    readonly attribute u8 attr1, attr2, attr3;
+    readonly attribute u8 attr1 raises(A);
+    readonly attribute u8 attr1 raises(A, B, C);
+    attribute u8 attr1, attr2, attr3;
+    attribute u8 attr1 getraises(A);
+    attribute u8 attr1 getraises(A, B, C) setraises(A);
+    attribute u8 attr1 setraises(A);
+};
+
+abstract eventtype A: B {
+    readonly attribute u8 attr1, attr2, attr3;
+    readonly attribute u8 attr1 raises(A);
+    readonly attribute u8 attr1 raises(A, B, C);
+    attribute u8 attr1, attr2, attr3;
+    attribute u8 attr1 getraises(A);
+    attribute u8 attr1 getraises(A, B, C) setraises(A);
+    attribute u8 attr1 setraises(A);
 };
 
 ---
@@ -159,4 +189,303 @@ component A: B supports A, B, C{
                   (set_excep_expr
                     (exception_list
                       (scoped_name
-                        (identifier)))))))))))))
+                        (identifier)))))))))
+        (component_export
+          (emits_dcl
+            (scoped_name
+              (identifier))
+            (identifier)))
+        (component_export
+          (publishes_dcl
+            (scoped_name
+              (identifier))
+            (identifier)))
+        (component_export
+          (consumes_dcl
+            (scoped_name
+              (identifier))
+            (identifier))))))
+  (home_dcl
+    (home_header
+      (identifier)
+      (home_inheritance_spec
+        (scoped_name
+          (identifier)))
+      (scoped_name
+        (identifier))
+      (primary_key_spec
+        (scoped_name
+          (identifier))))
+    (home_body
+      (home_export
+        (export
+          (op_dcl
+            (op_type_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier)))))
+            (identifier)
+            (parameter_dcls
+              (param_dcl
+                (param_attribute)
+                (type_spec
+                  (simple_type_spec
+                    (scoped_name
+                      (identifier))))
+                (simple_declarator
+                  (identifier))))
+            (raises_expr
+              (scoped_name
+                (identifier))
+              (scoped_name
+                (identifier))
+              (scoped_name
+                (identifier))))))))
+  (event_dcl
+    (event_forward_dcl
+      (identifier)))
+  (event_dcl
+    (event_def
+      (event_header
+        (identifier)
+        (value_inheritance_spec
+          (value_name
+            (scoped_name
+              (identifier)))))
+      (value_element
+        (export
+          (attr_dcl
+            (readonly_attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (readonly_attr_declarator
+                (simple_declarator
+                  (identifier))
+                (simple_declarator
+                  (identifier))
+                (simple_declarator
+                  (identifier)))))))
+      (value_element
+        (export
+          (attr_dcl
+            (readonly_attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (readonly_attr_declarator
+                (simple_declarator
+                  (identifier))
+                (raises_expr
+                  (scoped_name
+                    (identifier))))))))
+      (value_element
+        (export
+          (attr_dcl
+            (readonly_attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (readonly_attr_declarator
+                (simple_declarator
+                  (identifier))
+                (raises_expr
+                  (scoped_name
+                    (identifier))
+                  (scoped_name
+                    (identifier))
+                  (scoped_name
+                    (identifier))))))))
+      (value_element
+        (export
+          (attr_dcl
+            (attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (attr_declarator
+                (simple_declarator
+                  (identifier))
+                (simple_declarator
+                  (identifier))
+                (simple_declarator
+                  (identifier)))))))
+      (value_element
+        (export
+          (attr_dcl
+            (attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (attr_declarator
+                (simple_declarator
+                  (identifier))
+                (attr_raises_expr
+                  (get_excep_expr
+                    (exception_list
+                      (scoped_name
+                        (identifier))))))))))
+      (value_element
+        (export
+          (attr_dcl
+            (attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (attr_declarator
+                (simple_declarator
+                  (identifier))
+                (attr_raises_expr
+                  (get_excep_expr
+                    (exception_list
+                      (scoped_name
+                        (identifier))
+                      (scoped_name
+                        (identifier))
+                      (scoped_name
+                        (identifier))))
+                  (set_excep_expr
+                    (exception_list
+                      (scoped_name
+                        (identifier))))))))))
+      (value_element
+        (export
+          (attr_dcl
+            (attr_spec
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
+              (attr_declarator
+                (simple_declarator
+                  (identifier))
+                (attr_raises_expr
+                  (set_excep_expr
+                    (exception_list
+                      (scoped_name
+                        (identifier))))))))))))
+  (event_dcl
+    (event_abs_def
+      (identifier)
+      (value_inheritance_spec
+        (value_name
+          (scoped_name
+            (identifier))))
+      (export
+        (attr_dcl
+          (readonly_attr_spec
+            (type_spec
+              (simple_type_spec
+                (scoped_name
+                  (identifier))))
+            (readonly_attr_declarator
+              (simple_declarator
+                (identifier))
+              (simple_declarator
+                (identifier))
+              (simple_declarator
+                (identifier))))))
+      (export
+        (attr_dcl
+          (readonly_attr_spec
+            (type_spec
+              (simple_type_spec
+                (scoped_name
+                  (identifier))))
+            (readonly_attr_declarator
+              (simple_declarator
+                (identifier))
+              (raises_expr
+                (scoped_name
+                  (identifier)))))))
+      (export
+        (attr_dcl
+          (readonly_attr_spec
+            (type_spec
+              (simple_type_spec
+                (scoped_name
+                  (identifier))))
+            (readonly_attr_declarator
+              (simple_declarator
+                (identifier))
+              (raises_expr
+                (scoped_name
+                  (identifier))
+                (scoped_name
+                  (identifier))
+                (scoped_name
+                  (identifier)))))))
+      (export
+        (attr_dcl
+          (attr_spec
+            (type_spec
+              (simple_type_spec
+                (scoped_name
+                  (identifier))))
+            (attr_declarator
+              (simple_declarator
+                (identifier))
+              (simple_declarator
+                (identifier))
+              (simple_declarator
+                (identifier))))))
+      (export
+        (attr_dcl
+          (attr_spec
+            (type_spec
+              (simple_type_spec
+                (scoped_name
+                  (identifier))))
+            (attr_declarator
+              (simple_declarator
+                (identifier))
+              (attr_raises_expr
+                (get_excep_expr
+                  (exception_list
+                    (scoped_name
+                      (identifier)))))))))
+      (export
+        (attr_dcl
+          (attr_spec
+            (type_spec
+              (simple_type_spec
+                (scoped_name
+                  (identifier))))
+            (attr_declarator
+              (simple_declarator
+                (identifier))
+              (attr_raises_expr
+                (get_excep_expr
+                  (exception_list
+                    (scoped_name
+                      (identifier))
+                    (scoped_name
+                      (identifier))
+                    (scoped_name
+                      (identifier))))
+                (set_excep_expr
+                  (exception_list
+                    (scoped_name
+                      (identifier)))))))))
+      (export
+        (attr_dcl
+          (attr_spec
+            (type_spec
+              (simple_type_spec
+                (scoped_name
+                  (identifier))))
+            (attr_declarator
+              (simple_declarator
+                (identifier))
+              (attr_raises_expr
+                (set_excep_expr
+                  (exception_list
+                    (scoped_name
+                      (identifier))))))))))))
