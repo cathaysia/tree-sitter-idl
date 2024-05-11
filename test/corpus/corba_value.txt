@@ -18,6 +18,12 @@ custom valuetype A supports B {};
 
 custom valuetype A: B supports C {};
 
+valuetype HelloWorld; // forward declare
+valuetype A a; // value_box_def
+valuetype A sequence<string>; // value_box_def
+custom valuetype A a; // value_box_def
+// ^ extend grammar
+
 ---
 
 (specification
@@ -91,4 +97,39 @@ custom valuetype A: B supports C {};
               (identifier)))
           (interface_name
             (scoped_name
-              (identifier))))))))
+              (identifier)))))))
+  (value_dcl
+    (value_forward_dcl
+      (value_kind)
+      (identifier)))
+  (comment)
+  (value_dcl
+    (value_box_def
+      (value_kind)
+      (identifier)
+      (type_spec
+        (simple_type_spec
+          (scoped_name
+            (identifier))))))
+  (comment)
+  (value_dcl
+    (value_box_def
+      (value_kind)
+      (identifier)
+      (type_spec
+        (template_type_spec
+          (sequence_type
+            (type_spec
+              (template_type_spec
+                (string_type))))))))
+  (comment)
+  (value_dcl
+    (value_box_def
+      (value_kind)
+      (identifier)
+      (type_spec
+        (simple_type_spec
+          (scoped_name
+            (identifier))))))
+  (comment)
+  (comment))

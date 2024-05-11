@@ -5,7 +5,7 @@ exports.rules = {
     choice(
       $.value_def,
       $.value_forward_dcl,
-      // $.value_box_def, // IDL7.4.7
+      $.value_box_def, // IDL7.4.7
       $.value_abs_def, // IDL 7.4.7
     ),
   value_def: $ => seq($.value_header, '{', repeat($.value_element), '}'),
