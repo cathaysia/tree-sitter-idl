@@ -331,3 +331,10 @@
 
 (primary_key_spec
   "primarykey" @keyword.modifier)
+
+(template_module_dcl
+  (identifier) @type)
+
+(formal_parameter
+  (formal_parameter_type) @type
+  (identifier) @variable.member)
