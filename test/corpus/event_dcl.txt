@@ -218,30 +218,23 @@ abstract eventtype A: B {
           (identifier))))
     (home_body
       (home_export
-        (export
-          (op_dcl
-            (op_type_spec
+        (finder_dcl
+          (identifier)
+          (init_param_dcls
+            (init_param_dcl
               (type_spec
                 (simple_type_spec
                   (scoped_name
-                    (identifier)))))
-            (identifier)
-            (parameter_dcls
-              (param_dcl
-                (param_attribute)
-                (type_spec
-                  (simple_type_spec
-                    (scoped_name
-                      (identifier))))
-                (simple_declarator
-                  (identifier))))
-            (raises_expr
-              (scoped_name
-                (identifier))
-              (scoped_name
-                (identifier))
-              (scoped_name
-                (identifier))))))))
+                    (identifier))))
+              (simple_declarator
+                (identifier))))
+          (raises_expr
+            (scoped_name
+              (identifier))
+            (scoped_name
+              (identifier))
+            (scoped_name
+              (identifier)))))))
   (event_dcl
     (event_forward_dcl
       (identifier)))

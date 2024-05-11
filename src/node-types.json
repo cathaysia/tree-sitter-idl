@@ -1365,6 +1365,29 @@
     }
   },
   {
+    "type": "finder_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "init_param_dcls",
+          "named": true
+        },
+        {
+          "type": "raises_expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "fixed_array_size",
     "named": true,
     "fields": {},
@@ -1539,6 +1562,10 @@
         },
         {
           "type": "factory_dcl",
+          "named": true
+        },
+        {
+          "type": "finder_dcl",
           "named": true
         }
       ]
