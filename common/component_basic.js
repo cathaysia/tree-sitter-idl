@@ -23,6 +23,7 @@ exports.rules = {
         $.emits_dcl, // idl 7.4.10
         $.publishes_dcl, // idl 7.4.10
         $.consumes_dcl, // idl 7.4.10
+        $.port_dcl, // idl 7.4.11
       ),
       ';',
     ),
