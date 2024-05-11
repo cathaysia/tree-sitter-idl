@@ -34,7 +34,6 @@ module.exports = grammar({
     [$.annotation_appl, $.scoped_name],
     [$.simple_type_spec, $.unary_expr],
     [$.annotation_member_type, $.const_type],
-    // [$.value_kind, $.value_box_def],
   ],
 
   rules: {

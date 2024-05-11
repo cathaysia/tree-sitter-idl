@@ -3448,6 +3448,29 @@
     }
   },
   {
+    "type": "value_box_def",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "type_spec",
+          "named": true
+        },
+        {
+          "type": "value_kind",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "value_dcl",
     "named": true,
     "fields": {},
@@ -3457,6 +3480,10 @@
       "types": [
         {
           "type": "value_abs_def",
+          "named": true
+        },
+        {
+          "type": "value_box_def",
           "named": true
         },
         {

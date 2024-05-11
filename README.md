@@ -51,3 +51,10 @@ module MyTemplate <typename T, struct S, long m> {
                                       //  ^ allow
 };
 ```
+
+#### allow `custom` prop appears in value_box_def
+
+```idl
+custom valuetype A a; // value_box_def
+// ^ extend grammar
+```

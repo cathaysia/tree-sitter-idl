@@ -49,22 +49,6 @@ connector Cnx {
           (scoped_name
             (identifier))
           (identifier)))))
-  (connector_dcl
-    (connector_header
-      (identifier))
-    (connector_export
-      (port_ref
-        (port_dcl
-          (scoped_name
-            (identifier))
-          (identifier))))
-    (connector_export
-      (port_ref
-        (provides_dcl
-          (interface_type
-            (scoped_name
-              (identifier)))
-          (identifier)))))
   (porttype_dcl
     (porttype_def
       (identifier)
@@ -81,4 +65,20 @@ connector Cnx {
               (interface_type
                 (scoped_name
                   (identifier)))
-              (identifier))))))))
+              (identifier)))))))
+  (connector_dcl
+    (connector_header
+      (identifier))
+    (connector_export
+      (port_ref
+        (port_dcl
+          (scoped_name
+            (identifier))
+          (identifier))))
+    (connector_export
+      (port_ref
+        (provides_dcl
+          (interface_type
+            (scoped_name
+              (identifier)))
+          (identifier))))))
