@@ -1,5 +1,5 @@
 ; https://neovim.io/doc/user/treesitter.html#treesitter-highlight-groups
-(comment) @comment
+(comment) @comment @spell
 
 [
   "enum"
@@ -8,18 +8,35 @@
   "bitmask"
   "bitset"
   "@annotation"
-  "interface"
   "exception"
+  "typedef"
+  "home"
+  "typeid"
+  "typeprefix"
+  (interface_kind)
+  (value_kind)
+  "component"
+  "porttype"
+  "connector"
+  "eventtype"
 ] @keyword.type
+
+(import_dcl
+  "import" @keyword.directive)
 
 [
   "module"
-  "const"
-  "typedef"
-  "readonly"
   "attribute"
-  (preproc_directive)
+  "factory"
+  "manages"
 ] @keyword
+
+[
+  "const"
+  "readonly"
+  "abstract"
+  "custom"
+] @keyword.modifier
 
 [
   "switch"
@@ -48,6 +65,8 @@
   (fixed_pt_type)
   (sequence_type)
   (map_type)
+  (object_type)
+  (value_base_type)
 ] @type.builtin
 
 (boolean_literal) @boolean
@@ -91,16 +110,17 @@
 ] @punctuation.delimiter
 
 (readonly_attr_declarator
-  (simple_declarator) @property)
+  (simple_declarator) @variable.member)
 
-(attr_declarator) @property
+(attr_declarator
+ (simple_declarator) @variable.member)
 
 (annotation_appl
-  "@" @property
-  (scoped_name) @property)
+  "@" @attribute
+  (scoped_name) @attribute)
 
 (op_dcl
-  (identifier) @function)
+  (identifier) @function.method)
 
 (type_declarator
   (simple_type_spec) @type
@@ -108,9 +128,6 @@
 
 (param_dcl
   (simple_declarator) @variable.parameter)
-
-(attr_spec
-  "attribute" @keyword)
 
 (raises_expr
   "raises" @keyword.exception
@@ -204,3 +221,113 @@
 
 (annotation_appl_param
   (identifier) @attribute)
+
+(home_header
+  (identifier) @type)
+
+(factory_dcl
+  (identifier) @type)
+
+(factory_param_dcl
+  "in" @keyword.modifier)
+
+(op_oneway_dcl
+  "oneway" @keyword.modifier
+  (identifier) @function.method)
+
+(in_param_dcl
+  "in" @keyword.modifier)
+
+(context_expr
+  "context" @keyword.modifier)
+
+(get_excep_expr
+  "getraises" @keyword.exception)
+(set_excep_expr
+  "setraises" @keyword.exception)
+
+(value_header
+    (identifier) @keyword.type)
+
+(value_abs_def
+  "valuetype" @keyword.type
+  (identifier)@keyword.type)
+
+(value_inheritance_spec
+  "supports" @keyword.modifier)
+
+(supported_interface_spec
+  "supports" @keyword.modifier)
+
+(value_forward_dcl
+  (identifier) @type)
+
+(value_box_def
+  (identifier) @type)
+
+(provides_dcl
+  "provides" @keyword
+  (interface_type) @type
+  (identifier) @type)
+
+(uses_dcl
+  "uses" @keyword
+  (interface_type
+    (scoped_name
+      (identifier)))
+  (identifier) @type)
+
+(component_forward_dcl
+  (identifier)@type)
+
+(component_header
+  (identifier)@type)
+
+(porttype_forward_dcl
+  (identifier) @type)
+
+(porttype_def
+  (identifier) @type)
+
+(port_dcl
+  "port" @keyword.modifier
+  (scoped_name
+    (identifier))
+  (identifier) @type)
+
+(port_dcl
+  "mirrorport" @keyword.modifier
+  (scoped_name
+    (identifier))
+  (identifier) @type)
+
+(connector_header
+  (identifier) @type)
+
+(emits_dcl
+  "emits" @keyword.modifier
+  (scoped_name
+    (identifier))
+  (identifier) @type)
+(publishes_dcl
+  "publishes" @keyword.modifier
+  (scoped_name
+    (identifier))
+  (identifier) @type)
+(consumes_dcl
+  "consumes" @keyword.modifier
+  (scoped_name
+    (identifier))
+  (identifier) @type)
+
+(event_forward_dcl
+  (identifier) @type)
+
+(event_header
+  (identifier) @type)
+
+(event_abs_def
+  (identifier) @type)
+
+(primary_key_spec
+  "primarykey" @keyword.modifier)
