@@ -19,6 +19,7 @@
   "porttype"
   "connector"
   "eventtype"
+  "valuetype"
 ] @keyword.type
 
 (import_dcl
@@ -36,6 +37,15 @@
   "readonly"
   "abstract"
   "custom"
+  "supports"
+  "provides"
+  "uses"
+  "port"
+  "mirrorport"
+  "emits"
+  "publishes"
+  "consumes"
+  "primarykey"
 ] @keyword.modifier
 
 [
@@ -194,7 +204,7 @@
     "bitfield" @keyword.modifier
     (positive_int_const) @number
     (destination_type)* @type)
-  (identifier) @variable.parameter)
+  (identifier) @variable.member)
 
 (bit_value) @constant
 
@@ -247,17 +257,10 @@
   "setraises" @keyword.exception)
 
 (value_header
-    (identifier) @keyword.type)
+    (identifier) @type)
 
 (value_abs_def
-  "valuetype" @keyword.type
-  (identifier)@keyword.type)
-
-(value_inheritance_spec
-  "supports" @keyword.modifier)
-
-(supported_interface_spec
-  "supports" @keyword.modifier)
+  (identifier)@type)
 
 (value_forward_dcl
   (identifier) @type)
@@ -266,16 +269,14 @@
   (identifier) @type)
 
 (provides_dcl
-  "provides" @keyword
   (interface_type) @type
-  (identifier) @type)
+  (identifier) @variable.member)
 
 (uses_dcl
-  "uses" @keyword
   (interface_type
     (scoped_name
       (identifier)))
-  (identifier) @type)
+  (identifier) @variable.member)
 
 (component_forward_dcl
   (identifier)@type)
@@ -290,35 +291,30 @@
   (identifier) @type)
 
 (port_dcl
-  "port" @keyword.modifier
   (scoped_name
     (identifier))
-  (identifier) @type)
+  (identifier) @variable.member)
 
 (port_dcl
-  "mirrorport" @keyword.modifier
   (scoped_name
     (identifier))
-  (identifier) @type)
+  (identifier) @variable.member)
 
 (connector_header
   (identifier) @type)
 
 (emits_dcl
-  "emits" @keyword.modifier
   (scoped_name
     (identifier))
-  (identifier) @type)
+  (identifier) @variable.member)
 (publishes_dcl
-  "publishes" @keyword.modifier
   (scoped_name
     (identifier))
-  (identifier) @type)
+  (identifier) @variable.member)
 (consumes_dcl
-  "consumes" @keyword.modifier
   (scoped_name
     (identifier))
-  (identifier) @type)
+  (identifier) @variable.member)
 
 (event_forward_dcl
   (identifier) @type)
@@ -328,9 +324,6 @@
 
 (event_abs_def
   (identifier) @type)
-
-(primary_key_spec
-  "primarykey" @keyword.modifier)
 
 (template_module_dcl
   (identifier) @type)
