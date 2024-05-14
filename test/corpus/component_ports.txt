@@ -25,60 +25,65 @@ connector Cnx {
 ---
 
 (specification
-  (porttype_dcl
-    (porttype_forward_dcl
-      (identifier)))
-  (porttype_dcl
-    (porttype_def
-      (identifier)
-      (port_body
+  (definition
+    (porttype_dcl
+      (porttype_forward_dcl
+        (identifier))))
+  (definition
+    (porttype_dcl
+      (porttype_def
+        (identifier)
+        (port_body
+          (port_ref
+            (port_dcl
+              (scoped_name
+                (identifier))
+              (identifier)))))))
+  (definition
+    (connector_dcl
+      (connector_header
+        (identifier)
+        (connector_inherit_spec
+          (scoped_name
+            (identifier))))
+      (connector_export
         (port_ref
           (port_dcl
             (scoped_name
               (identifier))
             (identifier))))))
-  (connector_dcl
-    (connector_header
-      (identifier)
-      (connector_inherit_spec
-        (scoped_name
-          (identifier))))
-    (connector_export
-      (port_ref
-        (port_dcl
-          (scoped_name
-            (identifier))
-          (identifier)))))
-  (porttype_dcl
-    (porttype_def
-      (identifier)
-      (port_body
+  (definition
+    (porttype_dcl
+      (porttype_def
+        (identifier)
+        (port_body
+          (port_ref
+            (provides_dcl
+              (interface_type
+                (scoped_name
+                  (identifier)))
+              (identifier)))
+          (port_export
+            (port_ref
+              (uses_dcl
+                (interface_type
+                  (scoped_name
+                    (identifier)))
+                (identifier))))))))
+  (definition
+    (connector_dcl
+      (connector_header
+        (identifier))
+      (connector_export
+        (port_ref
+          (port_dcl
+            (scoped_name
+              (identifier))
+            (identifier))))
+      (connector_export
         (port_ref
           (provides_dcl
             (interface_type
               (scoped_name
                 (identifier)))
-            (identifier)))
-        (port_export
-          (port_ref
-            (uses_dcl
-              (interface_type
-                (scoped_name
-                  (identifier)))
-              (identifier)))))))
-  (connector_dcl
-    (connector_header
-      (identifier))
-    (connector_export
-      (port_ref
-        (port_dcl
-          (scoped_name
-            (identifier))
-          (identifier))))
-    (connector_export
-      (port_ref
-        (provides_dcl
-          (interface_type
-            (scoped_name
-              (identifier)))
-          (identifier))))))
+            (identifier)))))))

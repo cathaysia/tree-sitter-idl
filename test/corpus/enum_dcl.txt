@@ -9,13 +9,14 @@ enum A {
 ---
 
 (specification
-  (enum_dcl
-    (identifier)
-    (enumerator
-      (identifier))
-    (enumerator
-      (identifier))
-    (enumerator
-      (identifier))
-    (enumerator
-      (identifier))))
+  (definition
+    (enum_dcl
+      (identifier)
+      (enumerator
+        (identifier))
+      (enumerator
+        (identifier))
+      (enumerator
+        (identifier))
+      (enumerator
+        (identifier)))))

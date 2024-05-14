@@ -44,47 +44,115 @@ struct HelloWorld {
                       (unary_expr
                         (scoped_name
                           (identifier)))))))))))))
-  (struct_def
-    (identifier)
-    (member
-      (type_spec
-        (simple_type_spec
+  (definition
+    (struct_def
+      (identifier)
+      (member
+        (type_spec
+          (simple_type_spec
+            (scoped_name
+              (identifier))))
+        (declarators
+          (declarator
+            (simple_declarator
+              (identifier)))))
+      (comment
+        (annotation_appl
+          (scoped_name
+            (identifier)))
+        (annotation_appl
+          (scoped_name
+            (identifier))
+          (annotation_appl_params
+            (annotation_appl_param
+              (identifier)
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (literal
+                                (string_literal))))))))))))))
+      (member
+        (type_spec
+          (simple_type_spec
+            (scoped_name
+              (identifier))))
+        (declarators
+          (declarator
+            (array_declarator
+              (identifier)
+              (fixed_array_size
+                (positive_int_const
+                  (const_expr
+                    (or_expr
+                      (xor_expr
+                        (and_expr
+                          (shift_expr
+                            (add_expr
+                              (mult_expr
+                                (unary_expr
+                                  (literal
+                                    (number_literal))))))))))))))))
+      (comment
+        (annotation_appl
           (scoped_name
             (identifier))))
-      (declarators
-        (declarator
-          (simple_declarator
-            (identifier)))))
-    (comment
-      (annotation_appl
-        (scoped_name
-          (identifier)))
-      (annotation_appl
-        (scoped_name
-          (identifier))
-        (annotation_appl_params
-          (annotation_appl_param
-            (identifier)
-            (const_expr
-              (or_expr
-                (xor_expr
-                  (and_expr
-                    (shift_expr
-                      (add_expr
-                        (mult_expr
-                          (unary_expr
-                            (literal
-                              (string_literal))))))))))))))
-    (member
-      (type_spec
-        (simple_type_spec
+      (member
+        (type_spec
+          (template_type_spec
+            (string_type)))
+        (declarators
+          (declarator
+            (array_declarator
+              (identifier)
+              (fixed_array_size
+                (positive_int_const
+                  (const_expr
+                    (or_expr
+                      (xor_expr
+                        (and_expr
+                          (shift_expr
+                            (add_expr
+                              (mult_expr
+                                (unary_expr
+                                  (literal
+                                    (number_literal))))))))))))
+              (fixed_array_size
+                (positive_int_const
+                  (const_expr
+                    (or_expr
+                      (xor_expr
+                        (and_expr
+                          (shift_expr
+                            (add_expr
+                              (mult_expr
+                                (unary_expr
+                                  (literal
+                                    (number_literal))))))))))))))))
+      (comment
+        (annotation_appl
           (scoped_name
             (identifier))))
-      (declarators
-        (declarator
-          (array_declarator
-            (identifier)
-            (fixed_array_size
+      (member
+        (type_spec
+          (template_type_spec
+            (sequence_type
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier)))))))
+        (declarators
+          (declarator
+            (simple_declarator
+              (identifier)))))
+      (member
+        (type_spec
+          (template_type_spec
+            (string_type
               (positive_int_const
                 (const_expr
                   (or_expr
@@ -95,20 +163,15 @@ struct HelloWorld {
                             (mult_expr
                               (unary_expr
                                 (literal
-                                  (number_literal))))))))))))))))
-    (comment
-      (annotation_appl
-        (scoped_name
-          (identifier))))
-    (member
-      (type_spec
-        (template_type_spec
-          (string_type)))
-      (declarators
-        (declarator
-          (array_declarator
-            (identifier)
-            (fixed_array_size
+                                  (number_literal))))))))))))))
+        (declarators
+          (declarator
+            (simple_declarator
+              (identifier)))))
+      (member
+        (type_spec
+          (template_type_spec
+            (string_type
               (positive_int_const
                 (const_expr
                   (or_expr
@@ -119,8 +182,15 @@ struct HelloWorld {
                             (mult_expr
                               (unary_expr
                                 (literal
-                                  (number_literal))))))))))))
-            (fixed_array_size
+                                  (number_literal))))))))))))))
+        (declarators
+          (declarator
+            (simple_declarator
+              (identifier)))))
+      (member
+        (type_spec
+          (template_type_spec
+            (fixed_pt_type
               (positive_int_const
                 (const_expr
                   (or_expr
@@ -131,100 +201,31 @@ struct HelloWorld {
                             (mult_expr
                               (unary_expr
                                 (literal
-                                  (number_literal))))))))))))))))
-    (comment
-      (annotation_appl
-        (scoped_name
-          (identifier))))
-    (member
-      (type_spec
-        (template_type_spec
-          (sequence_type
-            (type_spec
-              (simple_type_spec
-                (scoped_name
-                  (identifier)))))))
-      (declarators
-        (declarator
-          (simple_declarator
-            (identifier)))))
-    (member
-      (type_spec
-        (template_type_spec
-          (string_type
-            (positive_int_const
-              (const_expr
-                (or_expr
-                  (xor_expr
-                    (and_expr
-                      (shift_expr
-                        (add_expr
-                          (mult_expr
-                            (unary_expr
-                              (literal
-                                (number_literal))))))))))))))
-      (declarators
-        (declarator
-          (simple_declarator
-            (identifier)))))
-    (member
-      (type_spec
-        (template_type_spec
-          (string_type
-            (positive_int_const
-              (const_expr
-                (or_expr
-                  (xor_expr
-                    (and_expr
-                      (shift_expr
-                        (add_expr
-                          (mult_expr
-                            (unary_expr
-                              (literal
-                                (number_literal))))))))))))))
-      (declarators
-        (declarator
-          (simple_declarator
-            (identifier)))))
-    (member
-      (type_spec
-        (template_type_spec
-          (fixed_pt_type
-            (positive_int_const
-              (const_expr
-                (or_expr
-                  (xor_expr
-                    (and_expr
-                      (shift_expr
-                        (add_expr
-                          (mult_expr
-                            (unary_expr
-                              (literal
-                                (number_literal)))))))))))
-            (positive_int_const
-              (const_expr
-                (or_expr
-                  (xor_expr
-                    (and_expr
-                      (shift_expr
-                        (add_expr
-                          (mult_expr
-                            (unary_expr
-                              (literal
-                                (number_literal))))))))))))))
-      (declarators
-        (declarator
-          (simple_declarator
-            (identifier)))))
-    (member
-      (type_spec
-        (simple_type_spec
-          (base_type_spec
-            (any_type))))
-      (declarators
-        (declarator
-          (simple_declarator
-            (identifier))))))
+                                  (number_literal)))))))))))
+              (positive_int_const
+                (const_expr
+                  (or_expr
+                    (xor_expr
+                      (and_expr
+                        (shift_expr
+                          (add_expr
+                            (mult_expr
+                              (unary_expr
+                                (literal
+                                  (number_literal))))))))))))))
+        (declarators
+          (declarator
+            (simple_declarator
+              (identifier)))))
+      (member
+        (type_spec
+          (simple_type_spec
+            (base_type_spec
+              (any_type))))
+        (declarators
+          (declarator
+            (simple_declarator
+              (identifier)))))))
   (comment
     (annotation_appl
       (scoped_name
