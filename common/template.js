@@ -32,7 +32,7 @@ exports.rules = {
       $.sequence_type,
       $.simple_type_spec,
     ),
-  tpl_definition: $ => choice($._definition, seq($.template_module_ref, ';')),
+  tpl_definition: $ => choice($.definition, seq($.template_module_ref, ';')),
   template_module_inst: $ =>
     seq('module', $.scoped_name, '<', $.actual_parameters, '>', $.identifier),
   actual_parameters: $ => commaSep1($.actual_parameter),

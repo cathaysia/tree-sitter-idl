@@ -15,7 +15,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "_definition"
+            "name": "definition"
           }
         }
       ]
@@ -2540,7 +2540,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_definition"
+          "name": "definition"
         },
         {
           "type": "SEQ",
@@ -4730,7 +4730,7 @@
         }
       ]
     },
-    "_definition": {
+    "definition": {
       "type": "CHOICE",
       "members": [
         {
@@ -4899,7 +4899,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "_definition"
+            "name": "definition"
           }
         },
         {

@@ -37,7 +37,7 @@ module.exports = grammar({
   ],
 
   rules: {
-    specification: $ => seq(repeat($.preproc_call), repeat($._definition)),
+    specification: $ => seq(repeat($.preproc_call), repeat($.definition)),
     ...base_types.rules,
     ...expr.rules,
     ...literal.rules,
@@ -55,7 +55,7 @@ module.exports = grammar({
     ...component_homes.rules,
     ...event_dcl.rules,
     ...component_port.rules, // idl 7.4.11
-    _definition: $ =>
+    definition: $ =>
       choice(
         $.predefine,
         seq(
@@ -93,7 +93,7 @@ module.exports = grammar({
       ),
     native_dcl: $ => seq('native', $.simple_declarator),
     module_dcl: $ =>
-      seq('module', $.identifier, '{', repeat($._definition), '}'),
+      seq('module', $.identifier, '{', repeat($.definition), '}'),
 
     struct_dcl: $ => choice($.struct_forward_dcl, $.struct_def),
     struct_forward_dcl: $ => seq('struct', $.identifier),

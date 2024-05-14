@@ -951,6 +951,121 @@
     }
   },
   {
+    "type": "definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "annotation_dcl",
+          "named": true
+        },
+        {
+          "type": "bitmask_dcl",
+          "named": true
+        },
+        {
+          "type": "bitset_dcl",
+          "named": true
+        },
+        {
+          "type": "component_dcl",
+          "named": true
+        },
+        {
+          "type": "connector_dcl",
+          "named": true
+        },
+        {
+          "type": "const_dcl",
+          "named": true
+        },
+        {
+          "type": "enum_dcl",
+          "named": true
+        },
+        {
+          "type": "event_dcl",
+          "named": true
+        },
+        {
+          "type": "except_dcl",
+          "named": true
+        },
+        {
+          "type": "home_dcl",
+          "named": true
+        },
+        {
+          "type": "import_dcl",
+          "named": true
+        },
+        {
+          "type": "interface_dcl",
+          "named": true
+        },
+        {
+          "type": "module_dcl",
+          "named": true
+        },
+        {
+          "type": "native_dcl",
+          "named": true
+        },
+        {
+          "type": "porttype_dcl",
+          "named": true
+        },
+        {
+          "type": "predefine",
+          "named": true
+        },
+        {
+          "type": "struct_def",
+          "named": true
+        },
+        {
+          "type": "struct_forward_dcl",
+          "named": true
+        },
+        {
+          "type": "template_module_dcl",
+          "named": true
+        },
+        {
+          "type": "template_module_inst",
+          "named": true
+        },
+        {
+          "type": "type_id_dcl",
+          "named": true
+        },
+        {
+          "type": "type_prefix_dcl",
+          "named": true
+        },
+        {
+          "type": "typedef_dcl",
+          "named": true
+        },
+        {
+          "type": "union_def",
+          "named": true
+        },
+        {
+          "type": "union_forward_dcl",
+          "named": true
+        },
+        {
+          "type": "value_dcl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "destination_type",
     "named": true,
     "fields": {},
@@ -2005,111 +2120,11 @@
       "required": true,
       "types": [
         {
-          "type": "annotation_dcl",
-          "named": true
-        },
-        {
-          "type": "bitmask_dcl",
-          "named": true
-        },
-        {
-          "type": "bitset_dcl",
-          "named": true
-        },
-        {
-          "type": "component_dcl",
-          "named": true
-        },
-        {
-          "type": "connector_dcl",
-          "named": true
-        },
-        {
-          "type": "const_dcl",
-          "named": true
-        },
-        {
-          "type": "enum_dcl",
-          "named": true
-        },
-        {
-          "type": "event_dcl",
-          "named": true
-        },
-        {
-          "type": "except_dcl",
-          "named": true
-        },
-        {
-          "type": "home_dcl",
+          "type": "definition",
           "named": true
         },
         {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "import_dcl",
-          "named": true
-        },
-        {
-          "type": "interface_dcl",
-          "named": true
-        },
-        {
-          "type": "module_dcl",
-          "named": true
-        },
-        {
-          "type": "native_dcl",
-          "named": true
-        },
-        {
-          "type": "porttype_dcl",
-          "named": true
-        },
-        {
-          "type": "predefine",
-          "named": true
-        },
-        {
-          "type": "struct_def",
-          "named": true
-        },
-        {
-          "type": "struct_forward_dcl",
-          "named": true
-        },
-        {
-          "type": "template_module_dcl",
-          "named": true
-        },
-        {
-          "type": "template_module_inst",
-          "named": true
-        },
-        {
-          "type": "type_id_dcl",
-          "named": true
-        },
-        {
-          "type": "type_prefix_dcl",
-          "named": true
-        },
-        {
-          "type": "typedef_dcl",
-          "named": true
-        },
-        {
-          "type": "union_def",
-          "named": true
-        },
-        {
-          "type": "union_forward_dcl",
-          "named": true
-        },
-        {
-          "type": "value_dcl",
           "named": true
         }
       ]
@@ -2742,111 +2757,11 @@
       "required": false,
       "types": [
         {
-          "type": "annotation_dcl",
-          "named": true
-        },
-        {
-          "type": "bitmask_dcl",
-          "named": true
-        },
-        {
-          "type": "bitset_dcl",
-          "named": true
-        },
-        {
-          "type": "component_dcl",
-          "named": true
-        },
-        {
-          "type": "connector_dcl",
-          "named": true
-        },
-        {
-          "type": "const_dcl",
-          "named": true
-        },
-        {
-          "type": "enum_dcl",
-          "named": true
-        },
-        {
-          "type": "event_dcl",
-          "named": true
-        },
-        {
-          "type": "except_dcl",
-          "named": true
-        },
-        {
-          "type": "home_dcl",
-          "named": true
-        },
-        {
-          "type": "import_dcl",
-          "named": true
-        },
-        {
-          "type": "interface_dcl",
-          "named": true
-        },
-        {
-          "type": "module_dcl",
-          "named": true
-        },
-        {
-          "type": "native_dcl",
-          "named": true
-        },
-        {
-          "type": "porttype_dcl",
-          "named": true
-        },
-        {
-          "type": "predefine",
+          "type": "definition",
           "named": true
         },
         {
           "type": "preproc_call",
-          "named": true
-        },
-        {
-          "type": "struct_def",
-          "named": true
-        },
-        {
-          "type": "struct_forward_dcl",
-          "named": true
-        },
-        {
-          "type": "template_module_dcl",
-          "named": true
-        },
-        {
-          "type": "template_module_inst",
-          "named": true
-        },
-        {
-          "type": "type_id_dcl",
-          "named": true
-        },
-        {
-          "type": "type_prefix_dcl",
-          "named": true
-        },
-        {
-          "type": "typedef_dcl",
-          "named": true
-        },
-        {
-          "type": "union_def",
-          "named": true
-        },
-        {
-          "type": "union_forward_dcl",
-          "named": true
-        },
-        {
-          "type": "value_dcl",
           "named": true
         }
       ]
@@ -3087,111 +3002,11 @@
       "required": true,
       "types": [
         {
-          "type": "annotation_dcl",
-          "named": true
-        },
-        {
-          "type": "bitmask_dcl",
-          "named": true
-        },
-        {
-          "type": "bitset_dcl",
-          "named": true
-        },
-        {
-          "type": "component_dcl",
-          "named": true
-        },
-        {
-          "type": "connector_dcl",
-          "named": true
-        },
-        {
-          "type": "const_dcl",
-          "named": true
-        },
-        {
-          "type": "enum_dcl",
-          "named": true
-        },
-        {
-          "type": "event_dcl",
-          "named": true
-        },
-        {
-          "type": "except_dcl",
-          "named": true
-        },
-        {
-          "type": "home_dcl",
-          "named": true
-        },
-        {
-          "type": "import_dcl",
-          "named": true
-        },
-        {
-          "type": "interface_dcl",
-          "named": true
-        },
-        {
-          "type": "module_dcl",
-          "named": true
-        },
-        {
-          "type": "native_dcl",
-          "named": true
-        },
-        {
-          "type": "porttype_dcl",
-          "named": true
-        },
-        {
-          "type": "predefine",
-          "named": true
-        },
-        {
-          "type": "struct_def",
-          "named": true
-        },
-        {
-          "type": "struct_forward_dcl",
-          "named": true
-        },
-        {
-          "type": "template_module_dcl",
-          "named": true
-        },
-        {
-          "type": "template_module_inst",
+          "type": "definition",
           "named": true
         },
         {
           "type": "template_module_ref",
-          "named": true
-        },
-        {
-          "type": "type_id_dcl",
-          "named": true
-        },
-        {
-          "type": "type_prefix_dcl",
-          "named": true
-        },
-        {
-          "type": "typedef_dcl",
-          "named": true
-        },
-        {
-          "type": "union_def",
-          "named": true
-        },
-        {
-          "type": "union_forward_dcl",
-          "named": true
-        },
-        {
-          "type": "value_dcl",
           "named": true
         }
       ]
