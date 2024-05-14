@@ -1,4 +1,18 @@
 {
+  "name": "tree-sitter-idl",
+  "version": "0.0.3",
+  "description": "OMG IDL grammar for tree-sitter",
+  "repository": "github:cathaysia/tree-sitter-idl",
+  "license": "Apache-2.0",
+  "author": "DragonBillow Zhang <DragonBillow@outlook.com>",
+  "main": "bindings/node",
+  "types": "bindings/node",
+  "keywords": [
+    "incremental",
+    "parsing",
+    "tree-sitter",
+    "c++"
+  ],
   "scripts": {
     "install": "node-gyp-build",
     "prebuildify": "prebuildify --napi --strip",
@@ -8,16 +22,6 @@
     "precommit": "pre-commit run -a 2>&1 >> /dev/null || true",
     "compile": "gcc -shared -fPIC src/parser.c -o build/idl.so"
   },
-  "tree-sitter": [
-    {
-      "scope": "source.idl",
-      "file-types": [
-        "idl"
-      ],
-      "highlights": "queries/highlights.scm"
-    }
-  ],
-  "types": "bindings/node",
   "files": [
     "grammar.js",
     "binding.gyp",
@@ -41,5 +45,14 @@
     "tree_sitter": {
       "optional": true
     }
-  }
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.idl",
+      "file-types": [
+        "idl"
+      ],
+      "highlights": "queries/highlights.scm"
+    }
+  ]
 }
