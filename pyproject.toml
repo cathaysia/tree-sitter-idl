@@ -15,11 +15,11 @@ classifiers = [
   "Typing :: Typed",
 ]
 requires-python = ">=3.8"
-license.text = "MIT"
+license.text = "Apache-2.0"
 readme = "README.md"
 
 [project.urls]
-Homepage = "https://github.com/tree-sitter/tree-sitter-idl"
+Homepage = "https://github.com/cathaysia/tree-sitter-idl"
 
 [project.optional-dependencies]
 core = ["tree-sitter~=0.21"]
