@@ -37,7 +37,7 @@ module.exports = grammar({
   ],
 
   rules: {
-    specification: $ => seq(repeat($.preproc_call), repeat($.definition)),
+    specification: $ => repeat(choice($.preproc_call, $.definition)),
     ...base_types.rules,
     ...expr.rules,
     ...literal.rules,

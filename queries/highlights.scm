@@ -46,6 +46,7 @@
   "publishes"
   "consumes"
   "primarykey"
+  "finder"
 ] @keyword.modifier
 
 [
@@ -69,7 +70,6 @@
   (unsigned_longlong_int)
   (floating_pt_type)
   (char_type)
-  (scoped_name)
   (string_type)
   (any_type)
   (fixed_pt_type)
@@ -78,6 +78,8 @@
   (object_type)
   (value_base_type)
 ] @type.builtin
+
+(scoped_name) @type
 
 (boolean_literal) @boolean
 
@@ -123,7 +125,7 @@
   (simple_declarator) @variable.member)
 
 (attr_declarator
- (simple_declarator) @variable.member)
+  (simple_declarator) @variable.member)
 
 (annotation_appl
   "@" @attribute
@@ -223,12 +225,6 @@
   (scoped_name
     (identifier) @type))
 
-(simple_declarator
-  (identifier) @attribute)
-
-(array_declarator
-  (identifier) @attribute)
-
 (annotation_appl_param
   (identifier) @attribute)
 
@@ -253,14 +249,15 @@
 
 (get_excep_expr
   "getraises" @keyword.exception)
+
 (set_excep_expr
   "setraises" @keyword.exception)
 
 (value_header
-    (identifier) @type)
+  (identifier) @type)
 
 (value_abs_def
-  (identifier)@type)
+  (identifier) @type)
 
 (value_forward_dcl
   (identifier) @type)
@@ -273,16 +270,13 @@
   (identifier) @variable.member)
 
 (uses_dcl
-  (interface_type
-    (scoped_name
-      (identifier)))
   (identifier) @variable.member)
 
 (component_forward_dcl
-  (identifier)@type)
+  (identifier) @type)
 
 (component_header
-  (identifier)@type)
+  (identifier) @type)
 
 (porttype_forward_dcl
   (identifier) @type)
@@ -291,29 +285,18 @@
   (identifier) @type)
 
 (port_dcl
-  (scoped_name
-    (identifier))
-  (identifier) @variable.member)
-
-(port_dcl
-  (scoped_name
-    (identifier))
   (identifier) @variable.member)
 
 (connector_header
   (identifier) @type)
 
 (emits_dcl
-  (scoped_name
-    (identifier))
   (identifier) @variable.member)
+
 (publishes_dcl
-  (scoped_name
-    (identifier))
   (identifier) @variable.member)
+
 (consumes_dcl
-  (scoped_name
-    (identifier))
   (identifier) @variable.member)
 
 (event_forward_dcl
@@ -331,3 +314,18 @@
 (formal_parameter
   (formal_parameter_type) @type
   (identifier) @variable.member)
+
+(init_param_dcl
+  "in" @keyword.modifier
+  (simple_declarator) @variable.parameter)
+
+(finder_dcl
+  (identifier) @function.method)
+
+(member
+  type: (type_spec)
+  identifier: (declarators) @variable.member)
+
+(factory_param_dcl
+  (type_spec)
+  (simple_declarator) @variable.parameter)

@@ -2,23 +2,20 @@
   "name": "idl",
   "rules": {
     "specification": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "REPEAT",
-          "content": {
+      "type": "REPEAT",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
             "type": "SYMBOL",
             "name": "preproc_call"
-          }
-        },
-        {
-          "type": "REPEAT",
-          "content": {
+          },
+          {
             "type": "SYMBOL",
             "name": "definition"
           }
-        }
-      ]
+        ]
+      }
     },
     "signed_short_int": {
       "type": "CHOICE",
