@@ -323,9 +323,7 @@
   (identifier) @function.method)
 
 (member
-  type: (type_spec)
   identifier: (declarators) @variable.member)
 
 (factory_param_dcl
-  (type_spec)
   (simple_declarator) @variable.parameter)
