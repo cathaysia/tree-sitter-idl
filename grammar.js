@@ -3,7 +3,7 @@ const base_types = require('./common/base_types')
 const expr = require('./common/expr')
 const literal = require('./common/literal')
 const directive = require('./common/directive')
-const rpc = require('./common/rpc')
+const interface_ = require('./common/interface')
 const bitmask = require('./common/bitmask')
 const annotation = require('./common/annotation')
 const template = require('./common/template')
@@ -42,7 +42,7 @@ module.exports = grammar({
     ...expr.rules,
     ...literal.rules,
     ...directive.rules,
-    ...rpc.rules,
+    ...interface_.rules,
     ...bitmask.rules,
     ...annotation.rules,
     ...template.rules,
