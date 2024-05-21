@@ -543,7 +543,21 @@
   {
     "type": "char_literal",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "character",
+          "named": true
+        },
+        {
+          "type": "escape_sequence",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "char_type",
@@ -2789,7 +2803,21 @@
   {
     "type": "string_literal",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "escape_sequence",
+          "named": true
+        },
+        {
+          "type": "string_content",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "string_type",
@@ -3654,6 +3682,10 @@
     "named": false
   },
   {
+    "type": "character",
+    "named": true
+  },
+  {
     "type": "component",
     "named": false
   },
@@ -3692,6 +3724,10 @@
   {
     "type": "enum",
     "named": false
+  },
+  {
+    "type": "escape_sequence",
+    "named": true
   },
   {
     "type": "eventtype",
@@ -3876,6 +3912,10 @@
   {
     "type": "string",
     "named": false
+  },
+  {
+    "type": "string_content",
+    "named": true
   },
   {
     "type": "struct",

@@ -6,8 +6,47 @@ exports.rules = {
       $.string_literal,
       $.boolean_literal,
     ),
-  string_literal: $ => seq(optional('L'), '"', /\w+/, '"'),
-  char_literal: $ => seq(optional('L'), "'", field('value', /\w/), "'"),
+  escape_sequence: _ =>
+    token(
+      prec(
+        1,
+        seq(
+          '\\',
+          choice(
+            /[^xuU]/,
+            /\d{2,3}/,
+            /x[0-9a-fA-F]{2,}/,
+            /u[0-9a-fA-F]{4}/,
+            /U[0-9a-fA-F]{8}/,
+          ),
+        ),
+      ),
+    ),
+
+  string_literal: $ =>
+    seq(
+      optional('L'),
+      '"',
+      repeat(
+        choice(
+          alias(token.immediate(prec(1, /[^\\"\n]+/)), $.string_content),
+          $.escape_sequence,
+        ),
+      ),
+      '"',
+    ),
+  char_literal: $ =>
+    seq(
+      optional('L'),
+      "'",
+      repeat1(
+        choice(
+          $.escape_sequence,
+          alias(token.immediate(/[^\n']/), $.character),
+        ),
+      ),
+      "'",
+    ),
   boolean_literal: _ => choice('TRUE', 'FALSE'),
   number_literal: _ => {
     const separator = "'"

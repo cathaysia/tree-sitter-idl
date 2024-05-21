@@ -23,16 +23,19 @@ local interface A {
         (scoped_name
           (identifier))
         (identifier))
-      (string_literal)))
+      (string_literal
+        (string_content))))
   (definition
     (type_prefix_dcl
       (scoped_name
         (identifier))
-      (string_literal)))
+      (string_literal
+        (string_content))))
   (definition
     (import_dcl
       (imported_scope
-        (string_literal))))
+        (string_literal
+          (string_content)))))
   (definition
     (import_dcl
       (imported_scope
@@ -94,5 +97,7 @@ local interface A {
                     (simple_declarator
                       (identifier)))))
               (context_expr
-                (string_literal)
-                (string_literal)))))))))
+                (string_literal
+                  (string_content))
+                (string_literal
+                  (string_content))))))))))

@@ -75,7 +75,8 @@ struct HelloWorld {
                           (mult_expr
                             (unary_expr
                               (literal
-                                (string_literal))))))))))))))
+                                (string_literal
+                                  (string_content)))))))))))))))
       (member
         (type_spec
           (simple_type_spec

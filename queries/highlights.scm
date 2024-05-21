@@ -79,6 +79,8 @@
   (value_base_type)
 ] @type.builtin
 
+(escape_sequence) @string.escape
+
 (scoped_name) @type
 
 (boolean_literal) @boolean

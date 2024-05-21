@@ -227,7 +227,8 @@ const M::Size MYSIZE = M::medium;
                   (mult_expr
                     (unary_expr
                       (literal
-                        (char_literal))))))))))))
+                        (char_literal
+                          (character)))))))))))))
   (definition
     (const_dcl
       (const_type
@@ -242,7 +243,8 @@ const M::Size MYSIZE = M::medium;
                   (mult_expr
                     (unary_expr
                       (literal
-                        (char_literal))))))))))))
+                        (char_literal
+                          (character)))))))))))))
   (definition
     (const_dcl
       (const_type
