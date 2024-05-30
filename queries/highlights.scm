@@ -329,3 +329,7 @@
 
 (factory_param_dcl
   (simple_declarator) @variable.parameter)
+
+(annotation_appl
+  "@" @attribute.builtin
+  (annotation_built_name) @attribute.builtin)

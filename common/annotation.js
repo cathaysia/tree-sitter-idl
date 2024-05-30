@@ -27,10 +27,37 @@ exports.rules = {
   annotation_appl: $ =>
     seq(
       token(prec(1, '@')),
-      $.scoped_name,
+      choice($.scoped_name, $.annotation_built_name),
       optional(seq('(', $.annotation_appl_params, ')')),
     ),
   annotation_appl_params: $ =>
     choice($.const_expr, commaSep1($.annotation_appl_param)),
   annotation_appl_param: $ => seq($.identifier, '=', $.const_expr),
+  annotation_built_name: $ =>
+    choice(
+      'id',
+      'autoid',
+      'optional',
+      'position',
+      'value',
+      'extensibility',
+      'final',
+      'appendable',
+      'mutable',
+      'key',
+      'must_understand',
+      'default_literal',
+      'default',
+      'range',
+      'min',
+      'max',
+      'unit',
+      'bit_bound',
+      'external',
+      'nested',
+      'verbatim',
+      'service',
+      'oneway',
+      'ami',
+    ),
 }

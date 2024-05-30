@@ -2388,8 +2388,17 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "scoped_name"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "scoped_name"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "annotation_built_name"
+            }
+          ]
         },
         {
           "type": "CHOICE",
@@ -2466,6 +2475,107 @@
         {
           "type": "SYMBOL",
           "name": "const_expr"
+        }
+      ]
+    },
+    "annotation_built_name": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "id"
+        },
+        {
+          "type": "STRING",
+          "value": "autoid"
+        },
+        {
+          "type": "STRING",
+          "value": "optional"
+        },
+        {
+          "type": "STRING",
+          "value": "position"
+        },
+        {
+          "type": "STRING",
+          "value": "value"
+        },
+        {
+          "type": "STRING",
+          "value": "extensibility"
+        },
+        {
+          "type": "STRING",
+          "value": "final"
+        },
+        {
+          "type": "STRING",
+          "value": "appendable"
+        },
+        {
+          "type": "STRING",
+          "value": "mutable"
+        },
+        {
+          "type": "STRING",
+          "value": "key"
+        },
+        {
+          "type": "STRING",
+          "value": "must_understand"
+        },
+        {
+          "type": "STRING",
+          "value": "default_literal"
+        },
+        {
+          "type": "STRING",
+          "value": "default"
+        },
+        {
+          "type": "STRING",
+          "value": "range"
+        },
+        {
+          "type": "STRING",
+          "value": "min"
+        },
+        {
+          "type": "STRING",
+          "value": "max"
+        },
+        {
+          "type": "STRING",
+          "value": "unit"
+        },
+        {
+          "type": "STRING",
+          "value": "bit_bound"
+        },
+        {
+          "type": "STRING",
+          "value": "external"
+        },
+        {
+          "type": "STRING",
+          "value": "nested"
+        },
+        {
+          "type": "STRING",
+          "value": "verbatim"
+        },
+        {
+          "type": "STRING",
+          "value": "service"
+        },
+        {
+          "type": "STRING",
+          "value": "oneway"
+        },
+        {
+          "type": "STRING",
+          "value": "ami"
         }
       ]
     },

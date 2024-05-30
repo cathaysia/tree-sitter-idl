@@ -84,6 +84,10 @@
           "named": true
         },
         {
+          "type": "annotation_built_name",
+          "named": true
+        },
+        {
           "type": "scoped_name",
           "named": true
         }
@@ -154,6 +158,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "annotation_built_name",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "annotation_dcl",
@@ -3650,11 +3659,27 @@
     "named": false
   },
   {
+    "type": "ami",
+    "named": false
+  },
+  {
     "type": "any",
     "named": false
   },
   {
+    "type": "appendable",
+    "named": false
+  },
+  {
     "type": "attribute",
+    "named": false
+  },
+  {
+    "type": "autoid",
+    "named": false
+  },
+  {
+    "type": "bit_bound",
     "named": false
   },
   {
@@ -3714,6 +3739,10 @@
     "named": false
   },
   {
+    "type": "default_literal",
+    "named": false
+  },
+  {
     "type": "double",
     "named": false
   },
@@ -3738,7 +3767,19 @@
     "named": false
   },
   {
+    "type": "extensibility",
+    "named": false
+  },
+  {
+    "type": "external",
+    "named": false
+  },
+  {
     "type": "factory",
+    "named": false
+  },
+  {
+    "type": "final",
     "named": false
   },
   {
@@ -3759,6 +3800,10 @@
   },
   {
     "type": "home",
+    "named": false
+  },
+  {
+    "type": "id",
     "named": false
   },
   {
@@ -3794,6 +3839,10 @@
     "named": false
   },
   {
+    "type": "key",
+    "named": false
+  },
+  {
     "type": "local",
     "named": false
   },
@@ -3818,6 +3867,14 @@
     "named": false
   },
   {
+    "type": "max",
+    "named": false
+  },
+  {
+    "type": "min",
+    "named": false
+  },
+  {
     "type": "mirrorport",
     "named": false
   },
@@ -3830,7 +3887,19 @@
     "named": false
   },
   {
+    "type": "must_understand",
+    "named": false
+  },
+  {
+    "type": "mutable",
+    "named": false
+  },
+  {
     "type": "native",
+    "named": false
+  },
+  {
+    "type": "nested",
     "named": false
   },
   {
@@ -3846,6 +3915,10 @@
     "named": false
   },
   {
+    "type": "optional",
+    "named": false
+  },
+  {
     "type": "out",
     "named": false
   },
@@ -3855,6 +3928,10 @@
   },
   {
     "type": "porttype",
+    "named": false
+  },
+  {
+    "type": "position",
     "named": false
   },
   {
@@ -3890,11 +3967,19 @@
     "named": false
   },
   {
+    "type": "range",
+    "named": false
+  },
+  {
     "type": "readonly",
     "named": false
   },
   {
     "type": "sequence",
+    "named": false
+  },
+  {
+    "type": "service",
     "named": false
   },
   {
@@ -3966,6 +4051,10 @@
     "named": false
   },
   {
+    "type": "unit",
+    "named": false
+  },
+  {
     "type": "unsigned long",
     "named": false
   },
@@ -3986,11 +4075,19 @@
     "named": false
   },
   {
+    "type": "value",
+    "named": false
+  },
+  {
     "type": "value_base_type",
     "named": true
   },
   {
     "type": "valuetype",
+    "named": false
+  },
+  {
+    "type": "verbatim",
     "named": false
   },
   {
