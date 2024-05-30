@@ -58,8 +58,7 @@ struct HelloWorld {
               (identifier)))))
       (comment
         (annotation_appl
-          (scoped_name
-            (identifier)))
+          (annotation_built_name))
         (annotation_appl
           (scoped_name
             (identifier))
@@ -100,8 +99,7 @@ struct HelloWorld {
                                     (number_literal))))))))))))))))
       (comment
         (annotation_appl
-          (scoped_name
-            (identifier))))
+          (annotation_built_name)))
       (member
         (type_spec
           (template_type_spec
@@ -136,8 +134,7 @@ struct HelloWorld {
                                     (number_literal))))))))))))))))
       (comment
         (annotation_appl
-          (scoped_name
-            (identifier))))
+          (annotation_built_name)))
       (member
         (type_spec
           (template_type_spec

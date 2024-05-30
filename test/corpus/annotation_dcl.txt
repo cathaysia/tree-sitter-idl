@@ -88,11 +88,9 @@ bitmask DataRepresentationMask {
         (identifier))
       (member
         (annotation_appl
-          (scoped_name
-            (identifier)))
+          (annotation_built_name))
         (annotation_appl
-          (scoped_name
-            (identifier)))
+          (annotation_built_name))
         (type_spec
           (template_type_spec
             (string_type)))
@@ -123,8 +121,7 @@ bitmask DataRepresentationMask {
   (definition
     (bitmask_dcl
       (annotation_appl
-        (scoped_name
-          (identifier))
+        (annotation_built_name)
         (annotation_appl_params
           (const_expr
             (or_expr
@@ -138,8 +135,7 @@ bitmask DataRepresentationMask {
                             (number_literal))))))))))))
       (identifier)
       (annotation_appl
-        (scoped_name
-          (identifier))
+        (annotation_built_name)
         (annotation_appl_params
           (const_expr
             (or_expr
@@ -154,8 +150,7 @@ bitmask DataRepresentationMask {
       (bit_value
         (identifier))
       (annotation_appl
-        (scoped_name
-          (identifier))
+        (annotation_built_name)
         (annotation_appl_params
           (const_expr
             (or_expr
