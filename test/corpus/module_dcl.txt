@@ -32,8 +32,12 @@ struct B;
                     (add_expr
                       (mult_expr
                         (unary_expr
-                          (literal
-                            (number_literal))))))))))))
+                          (primary_expr
+                            (literal
+                              (number_literal)))))))))))))
       (definition
-        (struct_forward_dcl
-          (identifier))))))
+        (type_dcl
+          (constr_type_dcl
+            (struct_dcl
+              (struct_forward_dcl
+                (identifier)))))))))

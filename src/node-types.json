@@ -891,6 +891,37 @@
     }
   },
   {
+    "type": "constr_type_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "bitmask_dcl",
+          "named": true
+        },
+        {
+          "type": "bitset_dcl",
+          "named": true
+        },
+        {
+          "type": "enum_dcl",
+          "named": true
+        },
+        {
+          "type": "struct_dcl",
+          "named": true
+        },
+        {
+          "type": "union_dcl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "consumes_dcl",
     "named": true,
     "fields": {},
@@ -986,14 +1017,6 @@
           "named": true
         },
         {
-          "type": "bitmask_dcl",
-          "named": true
-        },
-        {
-          "type": "bitset_dcl",
-          "named": true
-        },
-        {
           "type": "component_dcl",
           "named": true
         },
@@ -1003,10 +1026,6 @@
         },
         {
           "type": "const_dcl",
-          "named": true
-        },
-        {
-          "type": "enum_dcl",
           "named": true
         },
         {
@@ -1034,10 +1053,6 @@
           "named": true
         },
         {
-          "type": "native_dcl",
-          "named": true
-        },
-        {
           "type": "porttype_dcl",
           "named": true
         },
@@ -1046,19 +1061,15 @@
           "named": true
         },
         {
-          "type": "struct_def",
-          "named": true
-        },
-        {
-          "type": "struct_forward_dcl",
-          "named": true
-        },
-        {
           "type": "template_module_dcl",
           "named": true
         },
         {
           "type": "template_module_inst",
+          "named": true
+        },
+        {
+          "type": "type_dcl",
           "named": true
         },
         {
@@ -1071,14 +1082,6 @@
         },
         {
           "type": "typedef_dcl",
-          "named": true
-        },
-        {
-          "type": "union_def",
-          "named": true
-        },
-        {
-          "type": "union_forward_dcl",
           "named": true
         },
         {
@@ -1120,11 +1123,7 @@
       "required": true,
       "types": [
         {
-          "type": "bitmask_dcl",
-          "named": true
-        },
-        {
-          "type": "bitset_dcl",
+          "type": "constr_type_dcl",
           "named": true
         },
         {
@@ -1132,27 +1131,7 @@
           "named": true
         },
         {
-          "type": "enum_dcl",
-          "named": true
-        },
-        {
-          "type": "struct_def",
-          "named": true
-        },
-        {
-          "type": "struct_forward_dcl",
-          "named": true
-        },
-        {
           "type": "type_spec",
-          "named": true
-        },
-        {
-          "type": "union_def",
-          "named": true
-        },
-        {
-          "type": "union_forward_dcl",
           "named": true
         }
       ]
@@ -1375,19 +1354,7 @@
           "named": true
         },
         {
-          "type": "bitmask_dcl",
-          "named": true
-        },
-        {
-          "type": "bitset_dcl",
-          "named": true
-        },
-        {
           "type": "const_dcl",
-          "named": true
-        },
-        {
-          "type": "enum_dcl",
           "named": true
         },
         {
@@ -1396,10 +1363,6 @@
         },
         {
           "type": "import_dcl",
-          "named": true
-        },
-        {
-          "type": "native_dcl",
           "named": true
         },
         {
@@ -1415,27 +1378,11 @@
           "named": true
         },
         {
-          "type": "struct_def",
-          "named": true
-        },
-        {
-          "type": "struct_forward_dcl",
+          "type": "type_dcl",
           "named": true
         },
         {
           "type": "type_id_dcl",
-          "named": true
-        },
-        {
-          "type": "typedef_dcl",
-          "named": true
-        },
-        {
-          "type": "union_def",
-          "named": true
-        },
-        {
-          "type": "union_forward_dcl",
           "named": true
         },
         {
@@ -2518,6 +2465,29 @@
     }
   },
   {
+    "type": "primary_expr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "const_expr",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "scoped_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "primary_key_spec",
     "named": true,
     "fields": {},
@@ -2844,6 +2814,25 @@
     }
   },
   {
+    "type": "struct_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "struct_def",
+          "named": true
+        },
+        {
+          "type": "struct_forward_dcl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "struct_def",
     "named": true,
     "fields": {
@@ -3050,6 +3039,29 @@
     }
   },
   {
+    "type": "type_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "constr_type_dcl",
+          "named": true
+        },
+        {
+          "type": "native_dcl",
+          "named": true
+        },
+        {
+          "type": "typedef_dcl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "type_declarator",
     "named": true,
     "fields": {},
@@ -3062,15 +3074,7 @@
           "named": true
         },
         {
-          "type": "bitmask_dcl",
-          "named": true
-        },
-        {
-          "type": "bitset_dcl",
-          "named": true
-        },
-        {
-          "type": "enum_dcl",
+          "type": "constr_type_dcl",
           "named": true
         },
         {
@@ -3078,23 +3082,7 @@
           "named": true
         },
         {
-          "type": "struct_def",
-          "named": true
-        },
-        {
-          "type": "struct_forward_dcl",
-          "named": true
-        },
-        {
           "type": "template_type_spec",
-          "named": true
-        },
-        {
-          "type": "union_def",
-          "named": true
-        },
-        {
-          "type": "union_forward_dcl",
           "named": true
         }
       ]
@@ -3181,15 +3169,7 @@
       "required": true,
       "types": [
         {
-          "type": "const_expr",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "scoped_name",
+          "type": "primary_expr",
           "named": true
         },
         {
@@ -3203,6 +3183,25 @@
     "type": "unary_operator",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "union_dcl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "union_def",
+          "named": true
+        },
+        {
+          "type": "union_forward_dcl",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "union_def",
@@ -3461,6 +3460,21 @@
     }
   },
   {
+    "type": "value_inheritance",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "value_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "value_inheritance_spec",
     "named": true,
     "fields": {},
@@ -3473,7 +3487,15 @@
           "named": true
         },
         {
+          "type": "value_inheritance",
+          "named": true
+        },
+        {
           "type": "value_name",
+          "named": true
+        },
+        {
+          "type": "value_supports",
           "named": true
         }
       ]
@@ -3494,6 +3516,21 @@
       "types": [
         {
           "type": "scoped_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "value_supports",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "interface_name",
           "named": true
         }
       ]

@@ -101,14 +101,16 @@ interface C: A, B {
 
 (specification
   (definition
-    (enum_dcl
-      (identifier)
-      (enumerator
-        (identifier))
-      (enumerator
-        (identifier))
-      (enumerator
-        (identifier))))
+    (type_dcl
+      (constr_type_dcl
+        (enum_dcl
+          (identifier)
+          (enumerator
+            (identifier))
+          (enumerator
+            (identifier))
+          (enumerator
+            (identifier))))))
   (definition
     (const_dcl
       (const_type
@@ -123,20 +125,23 @@ interface C: A, B {
                 (add_expr
                   (mult_expr
                     (unary_expr
-                      (scoped_name
-                        (identifier))))))))))))
+                      (primary_expr
+                        (scoped_name
+                          (identifier)))))))))))))
   (definition
     (module_dcl
       (identifier)
       (definition
-        (enum_dcl
-          (identifier)
-          (enumerator
-            (identifier))
-          (enumerator
-            (identifier))
-          (enumerator
-            (identifier))))))
+        (type_dcl
+          (constr_type_dcl
+            (enum_dcl
+              (identifier)
+              (enumerator
+                (identifier))
+              (enumerator
+                (identifier))
+              (enumerator
+                (identifier))))))))
   (definition
     (const_dcl
       (const_type
@@ -153,10 +158,11 @@ interface C: A, B {
                 (add_expr
                   (mult_expr
                     (unary_expr
-                      (scoped_name
+                      (primary_expr
                         (scoped_name
-                          (identifier))
-                        (identifier))))))))))))
+                          (scoped_name
+                            (identifier))
+                          (identifier)))))))))))))
   (definition
     (const_dcl
       (const_type
@@ -171,8 +177,9 @@ interface C: A, B {
                 (add_expr
                   (mult_expr
                     (unary_expr
-                      (scoped_name
-                        (identifier))))))))))))
+                      (primary_expr
+                        (scoped_name
+                          (identifier)))))))))))))
   (definition
     (const_dcl
       (const_type
@@ -187,14 +194,18 @@ interface C: A, B {
                 (add_expr
                   (mult_expr
                     (unary_expr
-                      (scoped_name
+                      (primary_expr
                         (scoped_name
-                          (identifier))
-                        (identifier))))))))))))
+                          (scoped_name
+                            (identifier))
+                          (identifier)))))))))))))
   (comment)
   (definition
-    (struct_forward_dcl
-      (identifier)))
+    (type_dcl
+      (constr_type_dcl
+        (struct_dcl
+          (struct_forward_dcl
+            (identifier))))))
   (comment)
   (definition
     (typedef_dcl
@@ -227,8 +238,9 @@ interface C: A, B {
                         (add_expr
                           (mult_expr
                             (unary_expr
-                              (literal
-                                (number_literal)))))))))))))
+                              (primary_expr
+                                (literal
+                                  (number_literal))))))))))))))
         (any_declarators
           (any_declarator
             (simple_declarator
@@ -251,103 +263,26 @@ interface C: A, B {
                         (add_expr
                           (mult_expr
                             (unary_expr
-                              (scoped_name
-                                (identifier)))))))))))))
+                              (primary_expr
+                                (scoped_name
+                                  (identifier))))))))))))))
         (any_declarators
           (any_declarator
             (simple_declarator
               (identifier)))))))
   (definition
-    (struct_def
-      (identifier)
-      (member
-        (type_spec
-          (simple_type_spec
-            (base_type_spec
-              (integer_type
-                (signed_int
-                  (signed_long_int))))))
-        (declarators
-          (declarator
-            (simple_declarator
-              (identifier)))))
-      (member
-        (type_spec
-          (simple_type_spec
-            (scoped_name
-              (identifier))))
-        (declarators
-          (declarator
-            (simple_declarator
-              (identifier)))))
-      (comment)))
-  (definition
-    (union_forward_dcl
-      (identifier)))
-  (comment)
-  (definition
-    (typedef_dcl
-      (type_declarator
-        (template_type_spec
-          (sequence_type
-            (type_spec
-              (simple_type_spec
-                (scoped_name
-                  (identifier))))))
-        (any_declarators
-          (any_declarator
-            (simple_declarator
-              (identifier)))))))
-  (definition
-    (union_def
-      (identifier)
-      (switch_type_spec
-        (integer_type
-          (signed_int
-            (signed_long_int))))
-      (comment)
-      (case
-        (case_label
-          (const_expr
-            (or_expr
-              (xor_expr
-                (and_expr
-                  (shift_expr
-                    (add_expr
-                      (mult_expr
-                        (unary_expr
-                          (literal
-                            (number_literal)))))))))))
-        (element_spec
-          (type_spec
-            (simple_type_spec
-              (base_type_spec
-                (integer_type
-                  (signed_int
-                    (signed_long_int))))))
-          (declarator
-            (simple_declarator
-              (identifier)))))
-      (case
-        (case_label
-          (const_expr
-            (or_expr
-              (xor_expr
-                (and_expr
-                  (shift_expr
-                    (add_expr
-                      (mult_expr
-                        (unary_expr
-                          (literal
-                            (number_literal)))))))))))
-        (element_spec
+    (type_dcl
+      (constr_type_dcl
+        (struct_dcl
           (struct_def
             (identifier)
             (member
               (type_spec
                 (simple_type_spec
                   (base_type_spec
-                    (floating_pt_type))))
+                    (integer_type
+                      (signed_int
+                        (signed_long_int))))))
               (declarators
                 (declarator
                   (simple_declarator
@@ -361,10 +296,101 @@ interface C: A, B {
                 (declarator
                   (simple_declarator
                     (identifier)))))
-            (comment))
-          (declarator
+            (comment))))))
+  (definition
+    (type_dcl
+      (constr_type_dcl
+        (union_dcl
+          (union_forward_dcl
+            (identifier))))))
+  (comment)
+  (definition
+    (typedef_dcl
+      (type_declarator
+        (template_type_spec
+          (sequence_type
+            (type_spec
+              (simple_type_spec
+                (scoped_name
+                  (identifier))))))
+        (any_declarators
+          (any_declarator
             (simple_declarator
               (identifier)))))))
+  (definition
+    (type_dcl
+      (constr_type_dcl
+        (union_dcl
+          (union_def
+            (identifier)
+            (switch_type_spec
+              (integer_type
+                (signed_int
+                  (signed_long_int))))
+            (comment)
+            (case
+              (case_label
+                (const_expr
+                  (or_expr
+                    (xor_expr
+                      (and_expr
+                        (shift_expr
+                          (add_expr
+                            (mult_expr
+                              (unary_expr
+                                (primary_expr
+                                  (literal
+                                    (number_literal))))))))))))
+              (element_spec
+                (type_spec
+                  (simple_type_spec
+                    (base_type_spec
+                      (integer_type
+                        (signed_int
+                          (signed_long_int))))))
+                (declarator
+                  (simple_declarator
+                    (identifier)))))
+            (case
+              (case_label
+                (const_expr
+                  (or_expr
+                    (xor_expr
+                      (and_expr
+                        (shift_expr
+                          (add_expr
+                            (mult_expr
+                              (unary_expr
+                                (primary_expr
+                                  (literal
+                                    (number_literal))))))))))))
+              (element_spec
+                (constr_type_dcl
+                  (struct_dcl
+                    (struct_def
+                      (identifier)
+                      (member
+                        (type_spec
+                          (simple_type_spec
+                            (base_type_spec
+                              (floating_pt_type))))
+                        (declarators
+                          (declarator
+                            (simple_declarator
+                              (identifier)))))
+                      (member
+                        (type_spec
+                          (simple_type_spec
+                            (scoped_name
+                              (identifier))))
+                        (declarators
+                          (declarator
+                            (simple_declarator
+                              (identifier)))))
+                      (comment))))
+                (declarator
+                  (simple_declarator
+                    (identifier))))))))))
   (comment)
   (definition
     (interface_dcl
@@ -512,17 +538,18 @@ interface C: A, B {
           (identifier))
         (interface_body
           (export
-            (typedef_dcl
-              (type_declarator
-                (simple_type_spec
-                  (base_type_spec
-                    (integer_type
-                      (signed_int
-                        (signed_long_int)))))
-                (any_declarators
-                  (any_declarator
-                    (simple_declarator
-                      (identifier)))))))
+            (type_dcl
+              (typedef_dcl
+                (type_declarator
+                  (simple_type_spec
+                    (base_type_spec
+                      (integer_type
+                        (signed_int
+                          (signed_long_int)))))
+                  (any_declarators
+                    (any_declarator
+                      (simple_declarator
+                        (identifier))))))))
           (export
             (op_dcl
               (op_type_spec
@@ -550,17 +577,18 @@ interface C: A, B {
           (identifier))
         (interface_body
           (export
-            (typedef_dcl
-              (type_declarator
-                (simple_type_spec
-                  (base_type_spec
-                    (integer_type
-                      (signed_int
-                        (signed_short_int)))))
-                (any_declarators
-                  (any_declarator
-                    (simple_declarator
-                      (identifier)))))))
+            (type_dcl
+              (typedef_dcl
+                (type_declarator
+                  (simple_type_spec
+                    (base_type_spec
+                      (integer_type
+                        (signed_int
+                          (signed_short_int)))))
+                  (any_declarators
+                    (any_declarator
+                      (simple_declarator
+                        (identifier))))))))
           (export
             (op_dcl
               (op_type_spec
@@ -595,28 +623,30 @@ interface C: A, B {
                 (identifier)))))
         (interface_body
           (export
-            (typedef_dcl
-              (type_declarator
-                (simple_type_spec
-                  (scoped_name
-                    (identifier)))
-                (any_declarators
-                  (any_declarator
-                    (simple_declarator
-                      (identifier)))))))
+            (type_dcl
+              (typedef_dcl
+                (type_declarator
+                  (simple_type_spec
+                    (scoped_name
+                      (identifier)))
+                  (any_declarators
+                    (any_declarator
+                      (simple_declarator
+                        (identifier))))))))
           (comment)
           (export
-            (typedef_dcl
-              (type_declarator
-                (simple_type_spec
-                  (scoped_name
+            (type_dcl
+              (typedef_dcl
+                (type_declarator
+                  (simple_type_spec
                     (scoped_name
-                      (identifier))
-                    (identifier)))
-                (any_declarators
-                  (any_declarator
-                    (simple_declarator
-                      (identifier)))))))
+                      (scoped_name
+                        (identifier))
+                      (identifier)))
+                  (any_declarators
+                    (any_declarator
+                      (simple_declarator
+                        (identifier))))))))
           (comment)
           (export
             (op_dcl
@@ -653,8 +683,9 @@ interface C: A, B {
                 (add_expr
                   (mult_expr
                     (unary_expr
-                      (literal
-                        (number_literal))))))))))))
+                      (primary_expr
+                        (literal
+                          (number_literal)))))))))))))
   (definition
     (interface_dcl
       (interface_def
@@ -663,27 +694,29 @@ interface C: A, B {
           (identifier))
         (interface_body
           (export
-            (typedef_dcl
-              (type_declarator
-                (simple_type_spec
-                  (base_type_spec
-                    (floating_pt_type)))
-                (any_declarators
-                  (any_declarator
-                    (array_declarator
-                      (identifier)
-                      (fixed_array_size
-                        (positive_int_const
-                          (const_expr
-                            (or_expr
-                              (xor_expr
-                                (and_expr
-                                  (shift_expr
-                                    (add_expr
-                                      (mult_expr
-                                        (unary_expr
-                                          (literal
-                                            (number_literal))))))))))))))))))
+            (type_dcl
+              (typedef_dcl
+                (type_declarator
+                  (simple_type_spec
+                    (base_type_spec
+                      (floating_pt_type)))
+                  (any_declarators
+                    (any_declarator
+                      (array_declarator
+                        (identifier)
+                        (fixed_array_size
+                          (positive_int_const
+                            (const_expr
+                              (or_expr
+                                (xor_expr
+                                  (and_expr
+                                    (shift_expr
+                                      (add_expr
+                                        (mult_expr
+                                          (unary_expr
+                                            (primary_expr
+                                              (literal
+                                                (number_literal))))))))))))))))))))
           (export
             (op_dcl
               (op_type_spec)
@@ -720,8 +753,9 @@ interface C: A, B {
                         (add_expr
                           (mult_expr
                             (unary_expr
-                              (literal
-                                (number_literal))))))))))))))))
+                              (primary_expr
+                                (literal
+                                  (number_literal)))))))))))))))))
   (definition
     (interface_dcl
       (interface_def
@@ -744,25 +778,27 @@ interface C: A, B {
           (identifier))
         (interface_body
           (export
-            (typedef_dcl
-              (type_declarator
-                (template_type_spec
-                  (string_type
-                    (positive_int_const
-                      (const_expr
-                        (or_expr
-                          (xor_expr
-                            (and_expr
-                              (shift_expr
-                                (add_expr
-                                  (mult_expr
-                                    (unary_expr
-                                      (literal
-                                        (number_literal)))))))))))))
-                (any_declarators
-                  (any_declarator
-                    (simple_declarator
-                      (identifier)))))))))))
+            (type_dcl
+              (typedef_dcl
+                (type_declarator
+                  (template_type_spec
+                    (string_type
+                      (positive_int_const
+                        (const_expr
+                          (or_expr
+                            (xor_expr
+                              (and_expr
+                                (shift_expr
+                                  (add_expr
+                                    (mult_expr
+                                      (unary_expr
+                                        (primary_expr
+                                          (literal
+                                            (number_literal))))))))))))))
+                  (any_declarators
+                    (any_declarator
+                      (simple_declarator
+                        (identifier))))))))))))
   (definition
     (interface_dcl
       (interface_def
@@ -771,25 +807,27 @@ interface C: A, B {
           (identifier))
         (interface_body
           (export
-            (typedef_dcl
-              (type_declarator
-                (template_type_spec
-                  (string_type
-                    (positive_int_const
-                      (const_expr
-                        (or_expr
-                          (xor_expr
-                            (and_expr
-                              (shift_expr
-                                (add_expr
-                                  (mult_expr
-                                    (unary_expr
-                                      (literal
-                                        (number_literal)))))))))))))
-                (any_declarators
-                  (any_declarator
-                    (simple_declarator
-                      (identifier)))))))))))
+            (type_dcl
+              (typedef_dcl
+                (type_declarator
+                  (template_type_spec
+                    (string_type
+                      (positive_int_const
+                        (const_expr
+                          (or_expr
+                            (xor_expr
+                              (and_expr
+                                (shift_expr
+                                  (add_expr
+                                    (mult_expr
+                                      (unary_expr
+                                        (primary_expr
+                                          (literal
+                                            (number_literal))))))))))))))
+                  (any_declarators
+                    (any_declarator
+                      (simple_declarator
+                        (identifier))))))))))))
   (definition
     (interface_dcl
       (interface_def

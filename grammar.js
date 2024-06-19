@@ -21,19 +21,15 @@ module.exports = grammar({
   name: 'idl',
 
   extras: $ => [/\s|\\\r?\n/, $.comment],
-  inline: $ => [
-    $.type_dcl,
-    $.constr_type_dcl,
-    $.struct_dcl,
-    $.union_dcl,
-    $.primary_expr,
-    $.value_inheritance,
-    $.value_supports,
-  ],
+  inline: $ => [],
   precedences: $ => [
     [$.annotation_appl, $.scoped_name],
     [$.simple_type_spec, $.unary_expr],
     [$.annotation_member_type, $.const_type],
+    [$.simple_type_spec, $.primary_expr],
+    [$.definition, $.type_dcl],
+    [$.value_inheritance_spec, $.value_supports],
+    [$.value_inheritance_spec, $.value_inheritance],
   ],
 
   rules: {

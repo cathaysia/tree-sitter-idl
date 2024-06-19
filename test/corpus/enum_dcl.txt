@@ -10,13 +10,15 @@ enum A {
 
 (specification
   (definition
-    (enum_dcl
-      (identifier)
-      (enumerator
-        (identifier))
-      (enumerator
-        (identifier))
-      (enumerator
-        (identifier))
-      (enumerator
-        (identifier)))))
+    (type_dcl
+      (constr_type_dcl
+        (enum_dcl
+          (identifier)
+          (enumerator
+            (identifier))
+          (enumerator
+            (identifier))
+          (enumerator
+            (identifier))
+          (enumerator
+            (identifier)))))))

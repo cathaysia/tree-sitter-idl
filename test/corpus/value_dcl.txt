@@ -300,8 +300,9 @@ valuetype A: B supports C {};
                                 (add_expr
                                   (mult_expr
                                     (unary_expr
-                                      (literal
-                                        (number_literal)))))))))))))))))
+                                      (primary_expr
+                                        (literal
+                                          (number_literal))))))))))))))))))
         (value_element
           (init_dcl
             (identifier)
@@ -333,9 +334,10 @@ valuetype A: B supports C {};
           (value_kind)
           (identifier)
           (value_inheritance_spec
-            (interface_name
-              (scoped_name
-                (identifier))))))))
+            (value_supports
+              (interface_name
+                (scoped_name
+                  (identifier)))))))))
   (definition
     (value_dcl
       (value_def

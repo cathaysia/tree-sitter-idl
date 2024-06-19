@@ -46,8 +46,9 @@ exception HelloWorld {
                             (add_expr
                               (mult_expr
                                 (unary_expr
-                                  (literal
-                                    (number_literal))))))))))))))))
+                                  (primary_expr
+                                    (literal
+                                      (number_literal)))))))))))))))))
       (member
         (type_spec
           (template_type_spec
@@ -66,8 +67,9 @@ exception HelloWorld {
                             (add_expr
                               (mult_expr
                                 (unary_expr
-                                  (literal
-                                    (number_literal))))))))))))
+                                  (primary_expr
+                                    (literal
+                                      (number_literal)))))))))))))
               (fixed_array_size
                 (positive_int_const
                   (const_expr
@@ -78,8 +80,9 @@ exception HelloWorld {
                             (add_expr
                               (mult_expr
                                 (unary_expr
-                                  (literal
-                                    (number_literal))))))))))))))))
+                                  (primary_expr
+                                    (literal
+                                      (number_literal)))))))))))))))))
       (member
         (type_spec
           (template_type_spec
@@ -105,8 +108,9 @@ exception HelloWorld {
                           (add_expr
                             (mult_expr
                               (unary_expr
-                                (literal
-                                  (number_literal))))))))))))))
+                                (primary_expr
+                                  (literal
+                                    (number_literal)))))))))))))))
         (declarators
           (declarator
             (simple_declarator
@@ -124,8 +128,9 @@ exception HelloWorld {
                           (add_expr
                             (mult_expr
                               (unary_expr
-                                (literal
-                                  (number_literal))))))))))))))
+                                (primary_expr
+                                  (literal
+                                    (number_literal)))))))))))))))
         (declarators
           (declarator
             (simple_declarator
@@ -143,8 +148,9 @@ exception HelloWorld {
                           (add_expr
                             (mult_expr
                               (unary_expr
-                                (literal
-                                  (number_literal)))))))))))
+                                (primary_expr
+                                  (literal
+                                    (number_literal))))))))))))
               (positive_int_const
                 (const_expr
                   (or_expr
@@ -154,8 +160,9 @@ exception HelloWorld {
                           (add_expr
                             (mult_expr
                               (unary_expr
-                                (literal
-                                  (number_literal))))))))))))))
+                                (primary_expr
+                                  (literal
+                                    (number_literal)))))))))))))))
         (declarators
           (declarator
             (simple_declarator

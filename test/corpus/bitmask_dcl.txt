@@ -12,14 +12,18 @@ bitmask A {
 
 (specification
   (definition
-    (bitmask_dcl
-      (identifier)))
+    (type_dcl
+      (constr_type_dcl
+        (bitmask_dcl
+          (identifier)))))
   (definition
-    (bitmask_dcl
-      (identifier)
-      (bit_value
-        (identifier))
-      (bit_value
-        (identifier))
-      (bit_value
-        (identifier)))))
+    (type_dcl
+      (constr_type_dcl
+        (bitmask_dcl
+          (identifier)
+          (bit_value
+            (identifier))
+          (bit_value
+            (identifier))
+          (bit_value
+            (identifier)))))))

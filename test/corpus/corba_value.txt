@@ -89,9 +89,10 @@ custom valuetype A a; // value_box_def
           (value_kind)
           (identifier)
           (value_inheritance_spec
-            (interface_name
-              (scoped_name
-                (identifier))))))))
+            (value_supports
+              (interface_name
+                (scoped_name
+                  (identifier)))))))))
   (definition
     (value_dcl
       (value_def

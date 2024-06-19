@@ -304,17 +304,18 @@ interface A {
           (identifier))
         (interface_body
           (export
-            (typedef_dcl
-              (type_declarator
-                (simple_type_spec
-                  (base_type_spec
-                    (integer_type
-                      (signed_int
-                        (signed_long_int)))))
-                (any_declarators
-                  (any_declarator
-                    (simple_declarator
-                      (identifier)))))))
+            (type_dcl
+              (typedef_dcl
+                (type_declarator
+                  (simple_type_spec
+                    (base_type_spec
+                      (integer_type
+                        (signed_int
+                          (signed_long_int)))))
+                  (any_declarators
+                    (any_declarator
+                      (simple_declarator
+                        (identifier))))))))
           (comment)
           (export
             (const_dcl
@@ -330,8 +331,9 @@ interface A {
                         (add_expr
                           (mult_expr
                             (unary_expr
-                              (literal
-                                (number_literal))))))))))))
+                              (primary_expr
+                                (literal
+                                  (number_literal)))))))))))))
           (comment)
           (export
             (except_dcl
