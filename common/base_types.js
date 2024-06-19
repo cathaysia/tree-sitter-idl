@@ -95,7 +95,7 @@ exports.rules = {
     seq(
       'sequence',
       '<',
-      choice($.type_spec, optional(seq(',', $.positive_int_const))),
+      seq($.type_spec, optional(seq(',', $.positive_int_const))),
       '>',
     ),
   map_type: (

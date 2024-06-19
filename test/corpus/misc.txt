@@ -16,6 +16,8 @@ const Color another = M::medium;
 // 7.4.1.4.4.4.4
 struct Foo; // Forward declaration
 typedef sequence<Foo> FooSeq;
+typedef sequence<Foo, 12> FooSeq;
+typedef sequence<Foo, red> FooSeq;
 
 struct Foo {
     long value;
@@ -203,6 +205,54 @@ interface C: A, B {
               (simple_type_spec
                 (scoped_name
                   (identifier))))))
+        (any_declarators
+          (any_declarator
+            (simple_declarator
+              (identifier)))))))
+  (definition
+    (typedef_dcl
+      (type_declarator
+        (template_type_spec
+          (sequence_type
+            (type_spec
+              (simple_type_spec
+                (scoped_name
+                  (identifier))))
+            (positive_int_const
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (literal
+                                (number_literal)))))))))))))
+        (any_declarators
+          (any_declarator
+            (simple_declarator
+              (identifier)))))))
+  (definition
+    (typedef_dcl
+      (type_declarator
+        (template_type_spec
+          (sequence_type
+            (type_spec
+              (simple_type_spec
+                (scoped_name
+                  (identifier))))
+            (positive_int_const
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (scoped_name
+                                (identifier)))))))))))))
         (any_declarators
           (any_declarator
             (simple_declarator
