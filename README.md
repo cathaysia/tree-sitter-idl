@@ -59,3 +59,11 @@ module MyTemplate <typename T, struct S, long m> {
 custom valuetype A a; // value_box_def
 // ^ extend grammar
 ```
+
+#### allow omit param_attribute
+
+```idl
+interface A {
+    void f(uint8 b);
+};
+```

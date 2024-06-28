@@ -1724,8 +1724,16 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "param_attribute"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "param_attribute"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
