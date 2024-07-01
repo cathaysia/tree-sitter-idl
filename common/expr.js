@@ -28,7 +28,7 @@ exports.rules = {
   and_expr: $ =>
     prec.left(
       PREC.BITWISE_AND,
-      choice($.shift_expr, seq($.and_expr, '$', $.shift_expr)),
+      choice($.shift_expr, seq($.and_expr, '&', $.shift_expr)),
     ),
   shift_expr: $ =>
     prec.left(
