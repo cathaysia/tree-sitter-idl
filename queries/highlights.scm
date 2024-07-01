@@ -130,15 +130,22 @@
   (simple_declarator) @variable.member)
 
 (annotation_appl
-  "@" @attribute
+  "@" @attribute)
+
+(annotation_appl
   (scoped_name) @attribute)
+
+(annotation_appl
+  (annotation_built_name) @attribute.builtin)
 
 (op_dcl
   (identifier) @function.method)
 
 (type_declarator
-  (simple_type_spec) @type
-  (any_declarators) @type)
+  (simple_type_spec) @type)
+
+(type_declarator
+  (any_declarators) @variable.member)
 
 (param_dcl
   (simple_declarator) @variable.parameter)
@@ -207,8 +214,8 @@
   (bitfield_spec
     "bitfield" @keyword.modifier
     (positive_int_const) @number
-    (destination_type)* @type)
-  (identifier) @variable.member)
+    (destination_type)? @type)
+  (identifier)* @variable.member)
 
 (bit_value) @constant
 
@@ -330,6 +337,5 @@
 (factory_param_dcl
   (simple_declarator) @variable.parameter)
 
-(annotation_appl
-  "@" @attribute.builtin
-  (annotation_built_name) @attribute.builtin)
+(element_spec
+  (declarator) @variable.member)
