@@ -33,7 +33,15 @@ module.exports = grammar({
   ],
 
   rules: {
-    specification: $ => repeat(choice($.preproc_call, $.definition)),
+    specification: $ =>
+      repeat(
+        choice(
+          $.preproc_include,
+          $.preproc_call,
+          $.preproc_define,
+          $.definition,
+        ),
+      ),
     ...base_types.rules,
     ...expr.rules,
     ...literal.rules,
@@ -52,31 +60,28 @@ module.exports = grammar({
     ...event_dcl.rules,
     ...component_port.rules, // idl 7.4.11
     definition: $ =>
-      choice(
-        $.predefine,
-        seq(
-          choice(
-            $.module_dcl,
-            $.type_dcl,
-            $.const_dcl,
-            $.typedef_dcl,
-            $.except_dcl,
-            $.interface_dcl,
-            $.annotation_dcl, // 7.4.15
-            $.template_module_dcl, // idl 7.4.12
-            $.template_module_inst, // idl 7.4.12
-            $.value_dcl, // idl 7.4.5
-            $.type_id_dcl, // idl 7.4.6
-            $.type_prefix_dcl, // idl 7.4.6
-            $.import_dcl, // idl 7.4.6
-            $.component_dcl, // idl 7.4.8
-            $.home_dcl, // idl 7.4.9
-            $.event_dcl, // idl 7.4.10
-            $.porttype_dcl, // idl 7.4.11
-            $.connector_dcl, // idl 7.4.11
-          ),
-          ';',
+      seq(
+        choice(
+          $.module_dcl,
+          $.type_dcl,
+          $.const_dcl,
+          $.typedef_dcl,
+          $.except_dcl,
+          $.interface_dcl,
+          $.annotation_dcl, // 7.4.15
+          $.template_module_dcl, // idl 7.4.12
+          $.template_module_inst, // idl 7.4.12
+          $.value_dcl, // idl 7.4.5
+          $.type_id_dcl, // idl 7.4.6
+          $.type_prefix_dcl, // idl 7.4.6
+          $.import_dcl, // idl 7.4.6
+          $.component_dcl, // idl 7.4.8
+          $.home_dcl, // idl 7.4.9
+          $.event_dcl, // idl 7.4.10
+          $.porttype_dcl, // idl 7.4.11
+          $.connector_dcl, // idl 7.4.11
         ),
+        ';',
       ),
     type_dcl: $ => choice($.constr_type_dcl, $.native_dcl, $.typedef_dcl),
     constr_type_dcl: $ =>
@@ -112,7 +117,6 @@ module.exports = grammar({
         ';',
       ),
     default: $ => seq('default', $.const_expr),
-    predefine: $ => seq('#define', /[^\n]*/),
 
     const_dcl: $ => seq('const', $.const_type, $.identifier, '=', $.const_expr),
     const_type: $ =>

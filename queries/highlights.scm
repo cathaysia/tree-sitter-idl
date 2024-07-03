@@ -339,3 +339,11 @@
 
 (element_spec
   (declarator) @variable.member)
+
+(preproc_include
+  (keyword_include) @type
+  path: (_) @string)
+
+(system_lib_string
+  "<" @string
+  ">" @string)

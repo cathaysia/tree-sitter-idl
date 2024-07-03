@@ -8,7 +8,15 @@
         "members": [
           {
             "type": "SYMBOL",
+            "name": "preproc_include"
+          },
+          {
+            "type": "SYMBOL",
             "name": "preproc_call"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "preproc_define"
           },
           {
             "type": "SYMBOL",
@@ -1342,6 +1350,19 @@
         ]
       }
     },
+    "preproc_define": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#define"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^\\n]*"
+        }
+      ]
+    },
     "preproc_call": {
       "type": "SEQ",
       "members": [
@@ -1390,6 +1411,91 @@
         "content": {
           "type": "PATTERN",
           "value": "\\S([^/\\n]|\\/[^*]|\\\\\\r?\\n)*"
+        }
+      }
+    },
+    "preproc_include": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "PATTERN",
+                "value": "#[ \t]*include"
+              }
+            }
+          },
+          "named": true,
+          "value": "keyword_include"
+        },
+        {
+          "type": "FIELD",
+          "name": "path",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "string_literal"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "system_lib_string"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              }
+            ]
+          }
+        },
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "PATTERN",
+            "value": "\\r?\\n"
+          }
+        }
+      ]
+    },
+    "system_lib_string": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "system_lib_path"
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        }
+      ]
+    },
+    "system_lib_path": {
+      "type": "TOKEN",
+      "content": {
+        "type": "REPEAT",
+        "content": {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "[^>\\n]"
+            },
+            {
+              "type": "STRING",
+              "value": "\\>"
+            }
+          ]
         }
       }
     },
@@ -4927,97 +5033,88 @@
       ]
     },
     "definition": {
-      "type": "CHOICE",
+      "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "predefine"
-        },
-        {
-          "type": "SEQ",
+          "type": "CHOICE",
           "members": [
             {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "module_dcl"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "type_dcl"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "const_dcl"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "typedef_dcl"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "except_dcl"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "interface_dcl"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "annotation_dcl"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "template_module_dcl"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "template_module_inst"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "value_dcl"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "type_id_dcl"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "type_prefix_dcl"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "import_dcl"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "component_dcl"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "home_dcl"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "event_dcl"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "porttype_dcl"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "connector_dcl"
-                }
-              ]
+              "type": "SYMBOL",
+              "name": "module_dcl"
             },
             {
-              "type": "STRING",
-              "value": ";"
+              "type": "SYMBOL",
+              "name": "type_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "const_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "typedef_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "except_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "interface_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "annotation_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "template_module_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "template_module_inst"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "value_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "type_id_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "type_prefix_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "import_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "component_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "home_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "event_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "porttype_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "connector_dcl"
             }
           ]
+        },
+        {
+          "type": "STRING",
+          "value": ";"
         }
       ]
     },
@@ -5244,19 +5341,6 @@
         {
           "type": "SYMBOL",
           "name": "const_expr"
-        }
-      ]
-    },
-    "predefine": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "#define"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[^\\n]*"
         }
       ]
     },
