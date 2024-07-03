@@ -68,7 +68,6 @@
   "END_FILE"
   "CORBA"
   "DDS"
-  "*"
 ] @constant
 
 [
@@ -159,30 +158,32 @@
 
 (annotation_appl_builtin_body
   (_
-    "id"? @attribute.builtin
-    "autoid"? @attribute.builtin
-    "optional"? @attribute.builtin
-    "position"? @attribute.builtin
-    "value"? @attribute.builtin
-    "extensibility"? @attribute.builtin
-    "final"? @attribute.builtin
-    "appendable"? @attribute.builtin
-    "mutable"? @attribute.builtin
-    "key"? @attribute.builtin
-    "must_understand"? @attribute.builtin
-    "default_literal"? @attribute.builtin
-    "default"? @attribute.builtin
-    "range"? @attribute.builtin
-    "min"? @attribute.builtin
-    "max"? @attribute.builtin
-    "unit"? @attribute.builtin
-    "bit_bound"? @attribute.builtin
-    "external"? @attribute.builtin
-    "nested"? @attribute.builtin
-    "verbatim"? @attribute.builtin
-    "service"? @attribute.builtin
-    "oneway"? @attribute.builtin
-    "ami"? @attribute.builtin))
+    [
+      "id"
+      "autoid"
+      "optional"
+      "position"
+      "value"
+      "extensibility"
+      "final"
+      "appendable"
+      "mutable"
+      "key"
+      "must_understand"
+      "default_literal"
+      "default"
+      "range"
+      "min"
+      "max"
+      "unit"
+      "bit_bound"
+      "external"
+      "nested"
+      "verbatim"
+      "service"
+      "oneway"
+      "ami"
+    ] @attribute.builtin))
 
 (min_expr
   "min" @attribute.builtin)
