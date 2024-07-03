@@ -30,7 +30,7 @@ IDL 4.2:
 
 DDS-XTypes:
 
-- [x] 7.3.1.2.3 Alternative Annotation Syntax (by idl_annotation)
+- [x] 7.3.1.2.3 Alternative Annotation Syntax
 
 ### extends
 
