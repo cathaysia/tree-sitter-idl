@@ -19,15 +19,26 @@ struct HelloWorld {
 (specification
   (comment
     (annotation_appl
-      (scoped_name
-        (identifier)))
+      (annotation_appl_custom_body
+        (scoped_name
+          (identifier))))
     (annotation_appl
-      (scoped_name
-        (identifier))
-      (annotation_appl_params
-        (const_expr
-          (or_expr
+      (annotation_appl_custom_body
+        (scoped_name
+          (identifier))
+        (annotation_appl_params
+          (const_expr
             (or_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (scoped_name
+                                (identifier))))))))))
               (xor_expr
                 (and_expr
                   (shift_expr
@@ -36,16 +47,7 @@ struct HelloWorld {
                         (unary_expr
                           (primary_expr
                             (scoped_name
-                              (identifier))))))))))
-            (xor_expr
-              (and_expr
-                (shift_expr
-                  (add_expr
-                    (mult_expr
-                      (unary_expr
-                        (primary_expr
-                          (scoped_name
-                            (identifier))))))))))))))
+                              (identifier)))))))))))))))
   (definition
     (type_dcl
       (constr_type_dcl
@@ -63,25 +65,27 @@ struct HelloWorld {
                     (identifier)))))
             (comment
               (annotation_appl
-                (annotation_built_name))
+                (annotation_appl_builtin_body
+                  (annotation_appl_key)))
               (annotation_appl
-                (scoped_name
-                  (identifier))
-                (annotation_appl_params
-                  (annotation_appl_param
-                    (identifier)
-                    (const_expr
-                      (or_expr
-                        (xor_expr
-                          (and_expr
-                            (shift_expr
-                              (add_expr
-                                (mult_expr
-                                  (unary_expr
-                                    (primary_expr
-                                      (literal
-                                        (string_literal
-                                          (string_content))))))))))))))))
+                (annotation_appl_custom_body
+                  (scoped_name
+                    (identifier))
+                  (annotation_appl_params
+                    (annotation_appl_param
+                      (identifier)
+                      (const_expr
+                        (or_expr
+                          (xor_expr
+                            (and_expr
+                              (shift_expr
+                                (add_expr
+                                  (mult_expr
+                                    (unary_expr
+                                      (primary_expr
+                                        (literal
+                                          (string_literal
+                                            (string_content)))))))))))))))))
             (member
               (type_spec
                 (simple_type_spec
@@ -106,7 +110,8 @@ struct HelloWorld {
                                             (number_literal)))))))))))))))))
             (comment
               (annotation_appl
-                (annotation_built_name)))
+                (annotation_appl_builtin_body
+                  (annotation_appl_key))))
             (member
               (type_spec
                 (template_type_spec
@@ -143,7 +148,8 @@ struct HelloWorld {
                                             (number_literal)))))))))))))))))
             (comment
               (annotation_appl
-                (annotation_built_name)))
+                (annotation_appl_builtin_body
+                  (annotation_appl_key))))
             (member
               (type_spec
                 (template_type_spec
@@ -239,19 +245,20 @@ struct HelloWorld {
                     (identifier))))))))))
   (comment
     (annotation_appl
-      (scoped_name
-        (identifier))
-      (annotation_appl_params
-        (annotation_appl_param
-          (identifier)
-          (const_expr
-            (or_expr
-              (xor_expr
-                (and_expr
-                  (shift_expr
-                    (add_expr
-                      (mult_expr
-                        (unary_expr
-                          (primary_expr
-                            (literal
-                              (number_literal))))))))))))))))
+      (annotation_appl_custom_body
+        (scoped_name
+          (identifier))
+        (annotation_appl_params
+          (annotation_appl_param
+            (identifier)
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (literal
+                                (number_literal)))))))))))))))))

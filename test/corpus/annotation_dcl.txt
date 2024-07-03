@@ -53,8 +53,9 @@ bitmask DataRepresentationMask {
     (interface_dcl
       (interface_def
         (annotation_appl
-          (scoped_name
-            (identifier)))
+          (annotation_appl_custom_body
+            (scoped_name
+              (identifier))))
         (interface_header
           (interface_kind)
           (identifier)))))
@@ -64,12 +65,22 @@ bitmask DataRepresentationMask {
         (struct_dcl
           (struct_def
             (annotation_appl
-              (scoped_name
-                (identifier))
-              (annotation_appl_params
-                (const_expr
-                  (or_expr
+              (annotation_appl_custom_body
+                (scoped_name
+                  (identifier))
+                (annotation_appl_params
+                  (const_expr
                     (or_expr
+                      (or_expr
+                        (xor_expr
+                          (and_expr
+                            (shift_expr
+                              (add_expr
+                                (mult_expr
+                                  (unary_expr
+                                    (primary_expr
+                                      (scoped_name
+                                        (identifier))))))))))
                       (xor_expr
                         (and_expr
                           (shift_expr
@@ -78,24 +89,17 @@ bitmask DataRepresentationMask {
                                 (unary_expr
                                   (primary_expr
                                     (scoped_name
-                                      (identifier))))))))))
-                    (xor_expr
-                      (and_expr
-                        (shift_expr
-                          (add_expr
-                            (mult_expr
-                              (unary_expr
-                                (primary_expr
-                                  (scoped_name
-                                    (identifier)))))))))))))
+                                      (identifier))))))))))))))
             (identifier)
             (scoped_name
               (identifier))
             (member
               (annotation_appl
-                (annotation_built_name))
+                (annotation_appl_builtin_body
+                  (annotation_appl_key)))
               (annotation_appl
-                (annotation_built_name))
+                (annotation_appl_builtin_body
+                  (annotation_appl_optional)))
               (type_spec
                 (template_type_spec
                   (string_type)))
@@ -129,66 +133,37 @@ bitmask DataRepresentationMask {
       (constr_type_dcl
         (bitmask_dcl
           (annotation_appl
-            (annotation_built_name)
-            (annotation_appl_params
-              (const_expr
-                (or_expr
-                  (xor_expr
-                    (and_expr
-                      (shift_expr
-                        (add_expr
-                          (mult_expr
-                            (unary_expr
-                              (primary_expr
-                                (literal
-                                  (number_literal)))))))))))))
+            (annotation_appl_builtin_body
+              (annotation_appl_bit_bound
+                (number_literal))))
           (identifier)
           (annotation_appl
-            (annotation_built_name)
-            (annotation_appl_params
-              (const_expr
-                (or_expr
-                  (xor_expr
-                    (and_expr
-                      (shift_expr
-                        (add_expr
-                          (mult_expr
-                            (unary_expr
-                              (primary_expr
-                                (literal
-                                  (number_literal)))))))))))))
+            (annotation_appl_builtin_body
+              (annotation_appl_position
+                (number_literal))))
           (bit_value
             (identifier))
           (annotation_appl
-            (annotation_built_name)
-            (annotation_appl_params
-              (const_expr
-                (or_expr
-                  (xor_expr
-                    (and_expr
-                      (shift_expr
-                        (add_expr
-                          (mult_expr
-                            (unary_expr
-                              (primary_expr
-                                (literal
-                                  (number_literal)))))))))))))
+            (annotation_appl_builtin_body
+              (annotation_appl_position
+                (number_literal))))
           (bit_value
             (identifier))
           (annotation_appl
-            (scoped_name
-              (identifier))
-            (annotation_appl_params
-              (const_expr
-                (or_expr
-                  (xor_expr
-                    (and_expr
-                      (shift_expr
-                        (add_expr
-                          (mult_expr
-                            (unary_expr
-                              (primary_expr
-                                (literal
-                                  (number_literal)))))))))))))
+            (annotation_appl_custom_body
+              (scoped_name
+                (identifier))
+              (annotation_appl_params
+                (const_expr
+                  (or_expr
+                    (xor_expr
+                      (and_expr
+                        (shift_expr
+                          (add_expr
+                            (mult_expr
+                              (unary_expr
+                                (primary_expr
+                                  (literal
+                                    (number_literal))))))))))))))
           (bit_value
             (identifier)))))))

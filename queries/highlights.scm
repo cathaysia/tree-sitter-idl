@@ -50,6 +50,28 @@
 ] @keyword.modifier
 
 [
+  "SEQUENTIAL"
+  "HASH"
+  "FINAL"
+  "APPENDABLE"
+  "MUTABLE"
+  "c"
+  "c++"
+  "java"
+  "idl"
+  "*"
+  "BEGIN_FILE"
+  "BEFORE_DECLARATION"
+  "BEGIN_DECLARATION"
+  "END_DECLARATION"
+  "AFTER_DECLARATION"
+  "END_FILE"
+  "CORBA"
+  "DDS"
+  "*"
+] @constant
+
+[
   "switch"
   "case"
   "default"
@@ -132,11 +154,41 @@
 (annotation_appl
   "@" @attribute)
 
-(annotation_appl
+(annotation_appl_custom_body
   (scoped_name) @attribute)
 
-(annotation_appl
-  (annotation_built_name) @attribute.builtin)
+(annotation_appl_builtin_body
+  (_
+    "id"? @attribute.builtin
+    "autoid"? @attribute.builtin
+    "optional"? @attribute.builtin
+    "position"? @attribute.builtin
+    "value"? @attribute.builtin
+    "extensibility"? @attribute.builtin
+    "final"? @attribute.builtin
+    "appendable"? @attribute.builtin
+    "mutable"? @attribute.builtin
+    "key"? @attribute.builtin
+    "must_understand"? @attribute.builtin
+    "default_literal"? @attribute.builtin
+    "default"? @attribute.builtin
+    "range"? @attribute.builtin
+    "min"? @attribute.builtin
+    "max"? @attribute.builtin
+    "unit"? @attribute.builtin
+    "bit_bound"? @attribute.builtin
+    "external"? @attribute.builtin
+    "nested"? @attribute.builtin
+    "verbatim"? @attribute.builtin
+    "service"? @attribute.builtin
+    "oneway"? @attribute.builtin
+    "ami"? @attribute.builtin))
+
+(min_expr
+  "min" @attribute.builtin)
+
+(max_expr
+  "max" @attribute.builtin)
 
 (op_dcl
   (identifier) @function.method)

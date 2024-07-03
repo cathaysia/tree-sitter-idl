@@ -26,7 +26,7 @@ IDL 4.2:
 - [x] 7.4.14 Building Block Anonymous Types
 - [x] 7.4.15 Building Block Annotations
 - [x] 7.4.16 Relationships between the Building Blocks
-- [x] 8 Standardized Annotations(partial)
+- [x] 8 Standardized Annotations
 
 DDS-XTypes:
 

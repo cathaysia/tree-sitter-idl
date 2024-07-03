@@ -76,6 +76,226 @@
     "named": true,
     "fields": {},
     "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "annotation_appl_builtin_body",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_custom_body",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_ami",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "ami",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "boolean_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_appendable",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "appendable",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "annotation_appl_autoid",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "autoid",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "autoid_kind",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_bit_bound",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "bit_bound",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "number_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_builtin_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "annotation_appl_ami",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_appendable",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_autoid",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_bit_bound",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_default",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_default_literal",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_extensibility",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_external",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_final",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_id",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_key",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_max",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_min",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_must_understand",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_mutable",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_nested",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_oneway",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_optional",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_position",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_range",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_service",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_unit",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_value",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_verbatim",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_custom_body",
+    "named": true,
+    "fields": {},
+    "children": {
       "multiple": true,
       "required": true,
       "types": [
@@ -84,11 +304,341 @@
           "named": true
         },
         {
-          "type": "annotation_built_name",
-          "named": true
-        },
-        {
           "type": "scoped_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_default",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "default",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_default_literal",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "default_literal",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "annotation_appl_extensibility",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "extensibility",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "extensibility_kind",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_external",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "external",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "boolean_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_final",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "final",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "annotation_appl_id",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "id",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "number_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_key",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "key",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "boolean_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_max",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "max",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_min",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "min",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_must_understand",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "must_understand",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "boolean_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_mutable",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "mutable",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "annotation_appl_nested",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "nested",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "boolean_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_oneway",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "oneway",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "boolean_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_optional",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "optional",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "boolean_literal",
           "named": true
         }
       ]
@@ -133,6 +683,200 @@
     }
   },
   {
+    "type": "annotation_appl_position",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "position",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "number_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_range",
+    "named": true,
+    "fields": {
+      "max": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "max_expr",
+            "named": true
+          }
+        ]
+      },
+      "min": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "min_expr",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "range",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "annotation_appl_service",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "service",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "service_platform",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_unit",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "unit",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_value",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "value",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_verbatim",
+    "named": true,
+    "fields": {
+      "language": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "verbatim_language",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "verbatim",
+            "named": false
+          }
+        ]
+      },
+      "placement": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "placement_kind",
+            "named": true
+          }
+        ]
+      },
+      "text": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "annotation_body",
     "named": true,
     "fields": {},
@@ -158,11 +902,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "annotation_built_name",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "annotation_dcl",
@@ -367,6 +1106,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "autoid_kind",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "base_type_spec",
@@ -1389,6 +2133,11 @@
     }
   },
   {
+    "type": "extensibility_kind",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "factory_dcl",
     "named": true,
     "fields": {},
@@ -2038,6 +2787,21 @@
     }
   },
   {
+    "type": "max_expr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "member",
     "named": true,
     "fields": {
@@ -2072,6 +2836,21 @@
         },
         {
           "type": "default",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "min_expr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "literal",
           "named": true
         }
       ]
@@ -2280,6 +3059,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "placement_kind",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "port_body",
@@ -2660,6 +3444,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "service_platform",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "set_excep_expr",
@@ -3590,6 +4379,11 @@
     }
   },
   {
+    "type": "verbatim_language",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "xor_expr",
     "named": true,
     "fields": {},
@@ -3713,7 +4507,51 @@
     "named": false
   },
   {
+    "type": "AFTER_DECLARATION",
+    "named": false
+  },
+  {
+    "type": "APPENDABLE",
+    "named": false
+  },
+  {
+    "type": "BEFORE_DECLARATION",
+    "named": false
+  },
+  {
+    "type": "BEGIN_DECLARATION",
+    "named": false
+  },
+  {
+    "type": "BEGIN_FILE",
+    "named": false
+  },
+  {
+    "type": "CORBA",
+    "named": false
+  },
+  {
+    "type": "DDS",
+    "named": false
+  },
+  {
+    "type": "END_DECLARATION",
+    "named": false
+  },
+  {
+    "type": "END_FILE",
+    "named": false
+  },
+  {
     "type": "FALSE",
+    "named": false
+  },
+  {
+    "type": "FINAL",
+    "named": false
+  },
+  {
+    "type": "HASH",
     "named": false
   },
   {
@@ -3721,7 +4559,15 @@
     "named": false
   },
   {
+    "type": "MUTABLE",
+    "named": false
+  },
+  {
     "type": "Object",
+    "named": false
+  },
+  {
+    "type": "SEQUENTIAL",
     "named": false
   },
   {
@@ -3787,6 +4633,14 @@
   {
     "type": "boolean_type",
     "named": true
+  },
+  {
+    "type": "c",
+    "named": false
+  },
+  {
+    "type": "c++",
+    "named": false
   },
   {
     "type": "case",
@@ -3901,6 +4755,10 @@
     "named": true
   },
   {
+    "type": "idl",
+    "named": false
+  },
+  {
     "type": "import",
     "named": false
   },
@@ -3926,6 +4784,10 @@
   },
   {
     "type": "interface",
+    "named": false
+  },
+  {
+    "type": "java",
     "named": false
   },
   {
