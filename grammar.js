@@ -136,7 +136,6 @@ module.exports = grammar({
     identifier: _ => /\w[\w\d_]*/, // 7.2.3
     comment: $ =>
       choice(
-        seq('//', repeat1($.annotation_appl), /\r?\n/),
         seq('//', /(\\+(.|\r?\n)|[^\\\n])*/),
         seq('/*', /[^*]*\*+([^/*][^*]*\*+)*/, '/'),
       ),

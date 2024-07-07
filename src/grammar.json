@@ -2488,33 +2488,79 @@
       "value": "any"
     },
     "annotation_appl": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
-          "type": "TOKEN",
-          "content": {
-            "type": "PREC",
-            "value": 1,
-            "content": {
-              "type": "STRING",
-              "value": "@"
-            }
-          }
-        },
-        {
-          "type": "CHOICE",
+          "type": "SEQ",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "annotation_appl_custom_body"
+              "type": "STRING",
+              "value": "@"
             },
             {
-              "type": "SYMBOL",
-              "name": "annotation_appl_builtin_body"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "annotation_appl_custom_body"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "annotation_appl_builtin_body"
+                }
+              ]
             }
           ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "extend_annotation_appl"
         }
       ]
+    },
+    "extend_annotation_appl": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "TOKEN",
+            "content": {
+              "type": "PREC",
+              "value": 1,
+              "content": {
+                "type": "STRING",
+                "value": "//@"
+              }
+            }
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "annotation_appl_custom_body"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "annotation_appl_builtin_body"
+              }
+            ]
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "annotation_appl"
+            }
+          },
+          {
+            "type": "PATTERN",
+            "value": "\\r?\\n"
+          }
+        ]
+      }
     },
     "annotation_appl_custom_body": {
       "type": "PREC_LEFT",
@@ -6320,26 +6366,6 @@
     "comment": {
       "type": "CHOICE",
       "members": [
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "//"
-            },
-            {
-              "type": "REPEAT1",
-              "content": {
-                "type": "SYMBOL",
-                "name": "annotation_appl"
-              }
-            },
-            {
-              "type": "PATTERN",
-              "value": "\\r?\\n"
-            }
-          ]
-        },
         {
           "type": "SEQ",
           "members": [

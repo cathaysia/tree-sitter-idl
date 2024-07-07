@@ -25,9 +25,21 @@ exports.rules = {
     choice($.const_type, $.any_const_type, $.scoped_name),
   any_const_type: _ => 'any',
   annotation_appl: $ =>
-    seq(
-      token(prec(1, '@')),
-      choice($.annotation_appl_custom_body, $.annotation_appl_builtin_body),
+    choice(
+      seq(
+        '@',
+        choice($.annotation_appl_custom_body, $.annotation_appl_builtin_body),
+      ),
+      $.extend_annotation_appl,
+    ),
+  extend_annotation_appl: $ =>
+    prec.left(
+      seq(
+        token(prec(1, '//@')),
+        choice($.annotation_appl_custom_body, $.annotation_appl_builtin_body),
+        repeat($.annotation_appl),
+        /\r?\n/,
+      ),
     ),
   annotation_appl_custom_body: $ =>
     prec.left(

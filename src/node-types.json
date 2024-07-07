@@ -86,6 +86,10 @@
         {
           "type": "annotation_appl_custom_body",
           "named": true
+        },
+        {
+          "type": "extend_annotation_appl",
+          "named": true
         }
       ]
     }
@@ -1320,17 +1324,7 @@
   {
     "type": "comment",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "annotation_appl",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "component_body",
@@ -2127,6 +2121,29 @@
         },
         {
           "type": "value_dcl",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "extend_annotation_appl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotation_appl",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_builtin_body",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_custom_body",
           "named": true
         }
       ]
@@ -4456,6 +4473,10 @@
   },
   {
     "type": "//",
+    "named": false
+  },
+  {
+    "type": "//@",
     "named": false
   },
   {
