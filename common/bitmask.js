@@ -27,8 +27,8 @@ exports.rules = {
       'bitmask',
       $.identifier,
       '{',
-      commaSep(seq(repeat($.annotation_appl), $.bit_value)),
+      commaSep($.bit_value),
       '}',
     ),
-  bit_value: $ => $.identifier,
+  bit_value: $ => seq(repeat($.annotation_appl), $.identifier),
 }

@@ -137,33 +137,33 @@ bitmask DataRepresentationMask {
               (annotation_appl_bit_bound
                 (number_literal))))
           (identifier)
-          (annotation_appl
-            (annotation_appl_builtin_body
-              (annotation_appl_position
-                (number_literal))))
           (bit_value
+            (annotation_appl
+              (annotation_appl_builtin_body
+                (annotation_appl_position
+                  (number_literal))))
             (identifier))
-          (annotation_appl
-            (annotation_appl_builtin_body
-              (annotation_appl_position
-                (number_literal))))
           (bit_value
+            (annotation_appl
+              (annotation_appl_builtin_body
+                (annotation_appl_position
+                  (number_literal))))
             (identifier))
-          (annotation_appl
-            (annotation_appl_custom_body
-              (scoped_name
-                (identifier))
-              (annotation_appl_params
-                (const_expr
-                  (or_expr
-                    (xor_expr
-                      (and_expr
-                        (shift_expr
-                          (add_expr
-                            (mult_expr
-                              (unary_expr
-                                (primary_expr
-                                  (literal
-                                    (number_literal))))))))))))))
           (bit_value
+            (annotation_appl
+              (annotation_appl_custom_body
+                (scoped_name
+                  (identifier))
+                (annotation_appl_params
+                  (const_expr
+                    (or_expr
+                      (xor_expr
+                        (and_expr
+                          (shift_expr
+                            (add_expr
+                              (mult_expr
+                                (unary_expr
+                                  (primary_expr
+                                    (literal
+                                      (number_literal))))))))))))))
             (identifier)))))))

@@ -2298,20 +2298,8 @@
               "type": "SEQ",
               "members": [
                 {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "REPEAT",
-                      "content": {
-                        "type": "SYMBOL",
-                        "name": "annotation_appl"
-                      }
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "bit_value"
-                    }
-                  ]
+                  "type": "SYMBOL",
+                  "name": "bit_value"
                 },
                 {
                   "type": "REPEAT",
@@ -2323,20 +2311,8 @@
                         "value": ","
                       },
                       {
-                        "type": "SEQ",
-                        "members": [
-                          {
-                            "type": "REPEAT",
-                            "content": {
-                              "type": "SYMBOL",
-                              "name": "annotation_appl"
-                            }
-                          },
-                          {
-                            "type": "SYMBOL",
-                            "name": "bit_value"
-                          }
-                        ]
+                        "type": "SYMBOL",
+                        "name": "bit_value"
                       }
                     ]
                   }
@@ -2355,8 +2331,20 @@
       ]
     },
     "bit_value": {
-      "type": "SYMBOL",
-      "name": "identifier"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "annotation_appl"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
     },
     "annotation_dcl": {
       "type": "SEQ",
