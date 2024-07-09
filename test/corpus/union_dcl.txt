@@ -78,8 +78,7 @@ union A switch(long) {
                               (unary_expr
                                 (primary_expr
                                   (literal
-                                    (number_literal)))))))))))))
-            (case
+                                    (number_literal))))))))))))
               (case_label
                 (const_expr
                   (or_expr

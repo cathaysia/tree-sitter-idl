@@ -28,7 +28,7 @@ exports.rules = {
       repeat($.case),
       '}',
     ),
-  case: $ => seq($.case_label, optional(seq($.element_spec, ';'))),
+  case: $ => seq(repeat1($.case_label), seq($.element_spec, ';')),
   case_label: $ => seq(choice(seq('case', $.const_expr), 'default'), ':'),
   element_spec: $ =>
     seq(
