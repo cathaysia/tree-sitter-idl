@@ -4071,6 +4071,10 @@
       "required": true,
       "types": [
         {
+          "type": "annotation_appl",
+          "named": true
+        },
+        {
           "type": "case",
           "named": true
         },
