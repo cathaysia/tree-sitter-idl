@@ -32,9 +32,9 @@ DDS-XTypes:
 
 - [x] 7.3.1.2.3 Alternative Annotation Syntax
 
-### extends
+## extends
 
-#### allow merge case
+### allow merge case
 
 ```idl
 union A switch(long) {
@@ -45,7 +45,7 @@ union A switch(long) {
 };
 ```
 
-#### allow using simple_type_spec in template parameter
+### allow using simple_type_spec in template parameter
 
 ```idl
 module MyTemplate <typename T, struct S, long m> {
@@ -53,14 +53,14 @@ module MyTemplate <typename T, struct S, long m> {
 };
 ```
 
-#### allow `custom` prop appears in value_box_def
+### allow `custom` prop appears in value_box_def
 
 ```idl
 custom valuetype A a; // value_box_def
 // ^ extend grammar
 ```
 
-#### allow omit param_attribute
+### allow omit param_attribute
 
 ```idl
 interface A {
@@ -68,13 +68,13 @@ interface A {
 };
 ```
 
-#### allow rust style oct number
+### allow rust style oct number
 
 ```idl
 const u8 A = 0o3;
 ```
 
-#### allow binary number
+### allow binary number
 
 ```idl
 const u8 A = 0b010101;
