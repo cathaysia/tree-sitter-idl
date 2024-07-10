@@ -182,7 +182,7 @@
       "required": true,
       "types": [
         {
-          "type": "number_literal",
+          "type": "integer_literal",
           "named": true
         }
       ]
@@ -444,7 +444,7 @@
       "required": true,
       "types": [
         {
-          "type": "number_literal",
+          "type": "integer_literal",
           "named": true
         }
       ]
@@ -706,7 +706,7 @@
       "required": true,
       "types": [
         {
-          "type": "number_literal",
+          "type": "integer_literal",
           "named": true
         }
       ]
@@ -1698,6 +1698,11 @@
     }
   },
   {
+    "type": "dec_number",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "declarator",
     "named": true,
     "fields": {},
@@ -2255,6 +2260,25 @@
     "fields": {}
   },
   {
+    "type": "fixed_pt_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "dec_number",
+          "named": true
+        },
+        {
+          "type": "integer_sign",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "fixed_pt_type",
     "named": true,
     "fields": {},
@@ -2264,6 +2288,25 @@
       "types": [
         {
           "type": "positive_int_const",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "floating_pt_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "dec_number",
+          "named": true
+        },
+        {
+          "type": "integer_sign",
           "named": true
         }
       ]
@@ -2590,6 +2633,42 @@
     }
   },
   {
+    "type": "integer_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bin_number",
+          "named": true
+        },
+        {
+          "type": "dec_number",
+          "named": true
+        },
+        {
+          "type": "hex_number",
+          "named": true
+        },
+        {
+          "type": "integer_sign",
+          "named": true
+        },
+        {
+          "type": "oct_number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "integer_sign",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "integer_type",
     "named": true,
     "fields": {},
@@ -2774,11 +2853,27 @@
           "named": true
         },
         {
-          "type": "number_literal",
+          "type": "fixed_pt_literal",
+          "named": true
+        },
+        {
+          "type": "floating_pt_literal",
+          "named": true
+        },
+        {
+          "type": "integer_literal",
           "named": true
         },
         {
           "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "wide_character_literal",
+          "named": true
+        },
+        {
+          "type": "wide_string_literal",
           "named": true
         }
       ]
@@ -2928,6 +3023,11 @@
   },
   {
     "type": "object_type",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "oct_number",
     "named": true,
     "fields": {}
   },
@@ -4405,6 +4505,36 @@
     "fields": {}
   },
   {
+    "type": "wide_character_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "char_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "wide_string_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "xor_expr",
     "named": true,
     "fields": {},
@@ -4468,6 +4598,10 @@
     "named": false
   },
   {
+    "type": ".",
+    "named": false
+  },
+  {
     "type": "/",
     "named": false
   },
@@ -4481,6 +4615,10 @@
   },
   {
     "type": "//@",
+    "named": false
+  },
+  {
+    "type": "0",
     "named": false
   },
   {
@@ -4640,6 +4778,10 @@
     "named": false
   },
   {
+    "type": "bin_number",
+    "named": true
+  },
+  {
     "type": "bit_bound",
     "named": false
   },
@@ -4768,6 +4910,10 @@
     "named": false
   },
   {
+    "type": "hex_number",
+    "named": true
+  },
+  {
     "type": "home",
     "named": false
   },
@@ -4882,10 +5028,6 @@
   {
     "type": "nested",
     "named": false
-  },
-  {
-    "type": "number_literal",
-    "named": true
   },
   {
     "type": "octet_type",

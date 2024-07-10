@@ -1,11 +1,37 @@
 exports.rules = {
   literal: $ =>
     choice(
-      $.number_literal,
+      $.integer_literal,
+      $.floating_pt_literal,
+      $.fixed_pt_literal,
       $.char_literal,
+      $.wide_character_literal,
       $.string_literal,
+      $.wide_string_literal,
       $.boolean_literal,
     ),
+  // 7.2.6.1 Integer Literals
+  integer_literal: $ =>
+    seq(
+      optional($.integer_sign),
+      choice($.bin_number, $.oct_number, $.dec_number, $.hex_number),
+    ),
+  integer_sign: $ => choice('-', '+'),
+  bin_number: $ => /[0b01]+/i, // extend
+  oct_number: $ =>
+    choice(
+      /0[0-8]+/,
+      /0o[0-8]+/, // extend
+    ),
+  dec_number: $ => choice('0', /[1-9]\d*/),
+  hex_number: $ => /0x[0-9a-fA-F]+/i,
+  // 7.2.6.4 Floating-point Literals
+  floating_pt_literal: $ =>
+    seq(optional($.integer_sign), $.dec_number, '.', $.dec_number, /e/i),
+  // 7.2.6.5 Fixed-Point Literals
+  fixed_pt_literal: $ =>
+    seq(optional($.integer_sign), $.dec_number, '.', $.dec_number, /d/i),
+
   escape_sequence: _ =>
     token(
       prec(
@@ -25,7 +51,6 @@ exports.rules = {
 
   string_literal: $ =>
     seq(
-      optional('L'),
       '"',
       repeat(
         choice(
@@ -35,9 +60,9 @@ exports.rules = {
       ),
       '"',
     ),
+  wide_string_literal: $ => seq('L', $.string_literal),
   char_literal: $ =>
     seq(
-      optional('L'),
       "'",
       repeat1(
         choice(
@@ -47,34 +72,6 @@ exports.rules = {
       ),
       "'",
     ),
+  wide_character_literal: $ => seq('L', $.char_literal),
   boolean_literal: _ => choice('TRUE', 'FALSE'),
-  number_literal: _ => {
-    const separator = "'"
-    const hex = /[0-9a-fA-F]/
-    const decimal = /[0-9]/
-    const hexDigits = seq(repeat1(hex), repeat(seq(separator, repeat1(hex))))
-    const decimalDigits = seq(
-      repeat1(decimal),
-      repeat(seq(separator, repeat1(decimal))),
-    )
-    return token(
-      seq(
-        optional(/[-\+]/),
-        optional(choice(/0[xX]/, /0[bB]/)),
-        choice(
-          seq(
-            choice(
-              decimalDigits,
-              seq(/0[bB]/, decimalDigits),
-              seq(/0[xX]/, hexDigits),
-            ),
-            optional(seq('.', optional(hexDigits))),
-          ),
-          seq('.', decimalDigits),
-        ),
-        optional(seq(/[eEpP]/, optional(seq(optional(/[-\+]/), hexDigits)))),
-        /[uUlLwWfFbBdD]*/,
-      ),
-    )
-  },
 }

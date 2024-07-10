@@ -34,7 +34,8 @@ struct B;
                         (unary_expr
                           (primary_expr
                             (literal
-                              (number_literal)))))))))))))
+                              (integer_literal
+                                (bin_number))))))))))))))
       (definition
         (type_dcl
           (constr_type_dcl

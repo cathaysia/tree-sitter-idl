@@ -119,7 +119,8 @@ bitmask DataRepresentationMask {
                                       (unary_expr
                                         (primary_expr
                                           (literal
-                                            (number_literal)))))))))))))))))
+                                            (integer_literal
+                                              (dec_number))))))))))))))))))
             (member
               (type_spec
                 (template_type_spec
@@ -135,19 +136,22 @@ bitmask DataRepresentationMask {
           (annotation_appl
             (annotation_appl_builtin_body
               (annotation_appl_bit_bound
-                (number_literal))))
+                (integer_literal
+                  (dec_number)))))
           (identifier)
           (bit_value
             (annotation_appl
               (annotation_appl_builtin_body
                 (annotation_appl_position
-                  (number_literal))))
+                  (integer_literal
+                    (dec_number)))))
             (identifier))
           (bit_value
             (annotation_appl
               (annotation_appl_builtin_body
                 (annotation_appl_position
-                  (number_literal))))
+                  (integer_literal
+                    (bin_number)))))
             (identifier))
           (bit_value
             (annotation_appl
@@ -165,5 +169,6 @@ bitmask DataRepresentationMask {
                                 (unary_expr
                                   (primary_expr
                                     (literal
-                                      (number_literal))))))))))))))
+                                      (integer_literal
+                                        (dec_number)))))))))))))))
             (identifier)))))))

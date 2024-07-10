@@ -57,7 +57,8 @@ union A switch(long) {
                               (unary_expr
                                 (primary_expr
                                   (literal
-                                    (number_literal))))))))))))
+                                    (integer_literal
+                                      (bin_number)))))))))))))
               (element_spec
                 (type_spec
                   (simple_type_spec
@@ -78,7 +79,8 @@ union A switch(long) {
                               (unary_expr
                                 (primary_expr
                                   (literal
-                                    (number_literal))))))))))))
+                                    (integer_literal
+                                      (dec_number)))))))))))))
               (case_label
                 (const_expr
                   (or_expr
@@ -90,7 +92,8 @@ union A switch(long) {
                               (unary_expr
                                 (primary_expr
                                   (literal
-                                    (number_literal))))))))))))
+                                    (integer_literal
+                                      (dec_number)))))))))))))
               (element_spec
                 (type_spec
                   (simple_type_spec
@@ -121,4 +124,5 @@ union A switch(long) {
                                       (unary_expr
                                         (primary_expr
                                           (literal
-                                            (number_literal)))))))))))))))))))))))
+                                            (integer_literal
+                                              (bin_number))))))))))))))))))))))))

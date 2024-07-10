@@ -242,7 +242,8 @@ interface C: A, B {
                               (unary_expr
                                 (primary_expr
                                   (literal
-                                    (number_literal))))))))))))))
+                                    (integer_literal
+                                      (dec_number)))))))))))))))
           (any_declarators
             (any_declarator
               (simple_declarator
@@ -344,7 +345,8 @@ interface C: A, B {
                               (unary_expr
                                 (primary_expr
                                   (literal
-                                    (number_literal))))))))))))
+                                    (integer_literal
+                                      (dec_number)))))))))))))
               (element_spec
                 (type_spec
                   (simple_type_spec
@@ -367,7 +369,8 @@ interface C: A, B {
                               (unary_expr
                                 (primary_expr
                                   (literal
-                                    (number_literal))))))))))))
+                                    (integer_literal
+                                      (bin_number)))))))))))))
               (element_spec
                 (constr_type_dcl
                   (struct_dcl
@@ -689,7 +692,8 @@ interface C: A, B {
                     (unary_expr
                       (primary_expr
                         (literal
-                          (number_literal)))))))))))))
+                          (integer_literal
+                            (dec_number))))))))))))))
   (definition
     (interface_dcl
       (interface_def
@@ -720,7 +724,8 @@ interface C: A, B {
                                           (unary_expr
                                             (primary_expr
                                               (literal
-                                                (number_literal))))))))))))))))))))
+                                                (integer_literal
+                                                  (bin_number)))))))))))))))))))))
           (export
             (op_dcl
               (op_type_spec)
@@ -759,7 +764,8 @@ interface C: A, B {
                             (unary_expr
                               (primary_expr
                                 (literal
-                                  (number_literal)))))))))))))))))
+                                  (integer_literal
+                                    (dec_number))))))))))))))))))
   (definition
     (interface_dcl
       (interface_def
@@ -798,7 +804,8 @@ interface C: A, B {
                                       (unary_expr
                                         (primary_expr
                                           (literal
-                                            (number_literal))))))))))))))
+                                            (integer_literal
+                                              (dec_number)))))))))))))))
                   (any_declarators
                     (any_declarator
                       (simple_declarator
@@ -827,7 +834,8 @@ interface C: A, B {
                                       (unary_expr
                                         (primary_expr
                                           (literal
-                                            (number_literal))))))))))))))
+                                            (integer_literal
+                                              (dec_number)))))))))))))))
                   (any_declarators
                     (any_declarator
                       (simple_declarator

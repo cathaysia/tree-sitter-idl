@@ -106,7 +106,11 @@
 
 (boolean_literal) @boolean
 
-(number_literal) @number
+[
+  (integer_literal)
+  (floating_pt_literal)
+  (fixed_pt_literal)
+] @number
 
 (char_literal) @character
 

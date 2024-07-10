@@ -78,14 +78,14 @@ exports.rules = {
     ),
 
   // IDL 4.2 8.3 Standardized Groups of Annotations
-  annotation_appl_id: $ => create_anno('id', false, $.number_literal),
+  annotation_appl_id: $ => create_anno('id', false, $.integer_literal),
   annotation_appl_autoid: $ =>
     create_anno('autoid', true, optional($.autoid_kind)),
   autoid_kind: _ => choice('SEQUENTIAL', 'HASH'),
   annotation_appl_optional: $ =>
     create_anno('optional', true, optional($.boolean_literal)),
   annotation_appl_position: $ =>
-    create_anno('position', false, $.number_literal),
+    create_anno('position', false, $.integer_literal),
   annotation_appl_value: $ => create_anno('value', false, $.literal),
   annotation_appl_extensibility: $ =>
     create_anno('extensibility', false, $.extensibility_kind),
@@ -112,7 +112,7 @@ exports.rules = {
   annotation_appl_max: $ => create_anno('max', false, $.literal),
   annotation_appl_unit: $ => create_anno('unit', false, $.string_literal),
   annotation_appl_bit_bound: $ =>
-    create_anno('bit_bound', false, $.number_literal),
+    create_anno('bit_bound', false, $.integer_literal),
   annotation_appl_external: $ =>
     create_anno('external', true, $.boolean_literal),
   annotation_appl_nested: $ => create_anno('nested', true, $.boolean_literal),

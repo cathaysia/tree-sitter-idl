@@ -72,7 +72,8 @@ struct HelloWorld: Parent {
                                       (unary_expr
                                         (primary_expr
                                           (literal
-                                            (number_literal)))))))))))))))))
+                                            (integer_literal
+                                              (bin_number))))))))))))))))))
             (member
               (type_spec
                 (template_type_spec
@@ -93,7 +94,8 @@ struct HelloWorld: Parent {
                                       (unary_expr
                                         (primary_expr
                                           (literal
-                                            (number_literal)))))))))))))
+                                            (integer_literal
+                                              (bin_number))))))))))))))
                     (fixed_array_size
                       (positive_int_const
                         (const_expr
@@ -106,7 +108,8 @@ struct HelloWorld: Parent {
                                       (unary_expr
                                         (primary_expr
                                           (literal
-                                            (number_literal)))))))))))))))))
+                                            (integer_literal
+                                              (dec_number))))))))))))))))))
             (member
               (type_spec
                 (template_type_spec
@@ -134,7 +137,8 @@ struct HelloWorld: Parent {
                                     (unary_expr
                                       (primary_expr
                                         (literal
-                                          (number_literal)))))))))))))))
+                                          (integer_literal
+                                            (dec_number))))))))))))))))
               (declarators
                 (declarator
                   (simple_declarator
@@ -154,7 +158,8 @@ struct HelloWorld: Parent {
                                     (unary_expr
                                       (primary_expr
                                         (literal
-                                          (number_literal)))))))))))))))
+                                          (integer_literal
+                                            (dec_number))))))))))))))))
               (declarators
                 (declarator
                   (simple_declarator
@@ -174,7 +179,8 @@ struct HelloWorld: Parent {
                                     (unary_expr
                                       (primary_expr
                                         (literal
-                                          (number_literal))))))))))))
+                                          (integer_literal
+                                            (bin_number)))))))))))))
                     (positive_int_const
                       (const_expr
                         (or_expr
@@ -186,7 +192,8 @@ struct HelloWorld: Parent {
                                     (unary_expr
                                       (primary_expr
                                         (literal
-                                          (number_literal)))))))))))))))
+                                          (integer_literal
+                                            (dec_number))))))))))))))))
               (declarators
                 (declarator
                   (simple_declarator
@@ -228,7 +235,8 @@ struct HelloWorld: Parent {
                                       (unary_expr
                                         (primary_expr
                                           (literal
-                                            (number_literal)))))))))))))))))
+                                            (integer_literal
+                                              (dec_number))))))))))))))))))
             (member
               (type_spec
                 (template_type_spec

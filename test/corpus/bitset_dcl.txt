@@ -46,7 +46,8 @@ bitset A: B {
                               (unary_expr
                                 (primary_expr
                                   (literal
-                                    (number_literal)))))))))))))
+                                    (integer_literal
+                                      (bin_number))))))))))))))
             (identifier))
           (bitfield
             (bitfield_spec
@@ -61,7 +62,8 @@ bitset A: B {
                               (unary_expr
                                 (primary_expr
                                   (literal
-                                    (number_literal)))))))))))))
+                                    (integer_literal
+                                      (bin_number))))))))))))))
             (identifier)
             (identifier)
             (identifier)))))))

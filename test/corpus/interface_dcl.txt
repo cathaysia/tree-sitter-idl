@@ -333,7 +333,8 @@ interface A {
                             (unary_expr
                               (primary_expr
                                 (literal
-                                  (number_literal)))))))))))))
+                                  (integer_literal
+                                    (bin_number))))))))))))))
           (comment)
           (export
             (except_dcl
