@@ -67,3 +67,15 @@ interface A {
     void f(uint8 b);
 };
 ```
+
+#### allow rust style oct number
+
+```idl
+const u8 A = 0o3;
+```
+
+#### allow binary number
+
+```idl
+const u8 A = 0b010101;
+```
