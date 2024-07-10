@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-idl",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "OMG IDL grammar for tree-sitter",
   "repository": "github:cathaysia/tree-sitter-idl",
   "license": "Apache-2.0",
