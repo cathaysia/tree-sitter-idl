@@ -5991,10 +5991,6 @@
             },
             {
               "type": "SYMBOL",
-              "name": "typedef_dcl"
-            },
-            {
-              "type": "SYMBOL",
               "name": "except_dcl"
             },
             {

@@ -65,7 +65,6 @@ module.exports = grammar({
           $.module_dcl,
           $.type_dcl,
           $.const_dcl,
-          $.typedef_dcl,
           $.except_dcl,
           $.interface_dcl,
           $.annotation_dcl, // 7.4.15
