@@ -106,11 +106,12 @@
 
 (boolean_literal) @boolean
 
+(integer_literal) @number
+
 [
-  (integer_literal)
   (floating_pt_literal)
   (fixed_pt_literal)
-] @number
+] @number.float
 
 (char_literal) @character
 
