@@ -1,0 +1,27 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "include-v-in-tag": true,
+  "include-component-in-tag": false,
+  "packages": {
+    ".": {
+      "release-type": "rust",
+      "extra-files": [
+        {
+          "path": "pyproject.toml",
+          "type": "toml",
+          "jsonpath": "$.project.version"
+        },
+        {
+          "path": "package.json",
+          "type": "json",
+          "jsonpath": "$.version"
+        },
+        {
+          "path": "package-lock.json",
+          "type": "json",
+          "jsonpath": "$.version"
+        }
+      ]
+    }
+  }
+}

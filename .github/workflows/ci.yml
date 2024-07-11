@@ -5,6 +5,10 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   test:
     name: Test parsers
@@ -28,3 +32,11 @@ jobs:
           test-library: true
       - name: Verify grammar consistency
         run: git diff --exit-code -- */src/grammar.json
+  release_please:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          config-file: release-please-config.json
