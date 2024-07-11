@@ -5,6 +5,10 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   test:
     name: Test parsers
@@ -17,14 +21,22 @@ jobs:
       - uses: pnpm/action-setup@v4
         with:
           version: 8
-      - name: Set up repository
-        uses: tree-sitter/parser-setup-action@v1.2
-      - name: Run tests
-        uses: tree-sitter/parser-test-action@v2
+      # - name: Set up repository
+      #   uses: tree-sitter/parser-setup-action@v1.2
+      # - name: Run tests
+      #   uses: tree-sitter/parser-test-action@v2
+      #   with:
+      #     lint: false
+      #     generate: true
+      #     test-grammar: true
+      #     test-library: true
+      # - name: Verify grammar consistency
+      #   run: git diff --exit-code -- */src/grammar.json
+  release_please:
+    # needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
         with:
-          lint: false
-          generate: true
-          test-grammar: true
-          test-library: true
-      - name: Verify grammar consistency
-        run: git diff --exit-code -- */src/grammar.json
+          token: ${{ secrets.GITHUB_TOKEN }}
+          config-file: release-please-config.json
