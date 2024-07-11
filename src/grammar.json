@@ -923,8 +923,7 @@
     },
     "bin_number": {
       "type": "PATTERN",
-      "value": "[0b01]+",
-      "flags": "i"
+      "value": "0[bB][01]+"
     },
     "oct_number": {
       "type": "CHOICE",

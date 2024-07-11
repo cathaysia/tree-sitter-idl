@@ -334,7 +334,7 @@ interface A {
                               (primary_expr
                                 (literal
                                   (integer_literal
-                                    (bin_number))))))))))))))
+                                    (dec_number))))))))))))))
           (comment)
           (export
             (except_dcl

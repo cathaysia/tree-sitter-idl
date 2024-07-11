@@ -35,7 +35,7 @@ struct B;
                           (primary_expr
                             (literal
                               (integer_literal
-                                (bin_number))))))))))))))
+                                (dec_number))))))))))))))
       (definition
         (type_dcl
           (constr_type_dcl

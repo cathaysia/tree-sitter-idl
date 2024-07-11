@@ -110,7 +110,7 @@ struct HelloWorld {
                                         (primary_expr
                                           (literal
                                             (integer_literal
-                                              (bin_number))))))))))))))))))
+                                              (dec_number))))))))))))))))))
             (member
               (annotation_appl
                 (extend_annotation_appl
@@ -136,7 +136,7 @@ struct HelloWorld {
                                         (primary_expr
                                           (literal
                                             (integer_literal
-                                              (bin_number))))))))))))))
+                                              (dec_number))))))))))))))
                     (fixed_array_size
                       (positive_int_const
                         (const_expr
@@ -225,7 +225,7 @@ struct HelloWorld {
                                       (primary_expr
                                         (literal
                                           (integer_literal
-                                            (bin_number)))))))))))))
+                                            (dec_number)))))))))))))
                     (positive_int_const
                       (const_expr
                         (or_expr

@@ -47,7 +47,7 @@ bitset A: B {
                                 (primary_expr
                                   (literal
                                     (integer_literal
-                                      (bin_number))))))))))))))
+                                      (dec_number))))))))))))))
             (identifier))
           (bitfield
             (bitfield_spec
@@ -63,7 +63,7 @@ bitset A: B {
                                 (primary_expr
                                   (literal
                                     (integer_literal
-                                      (bin_number))))))))))))))
+                                      (dec_number))))))))))))))
             (identifier)
             (identifier)
             (identifier)))))))

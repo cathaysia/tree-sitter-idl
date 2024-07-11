@@ -57,7 +57,7 @@ struct A{};
               (annotation_appl_builtin_body
                 (annotation_appl_id
                   (integer_literal
-                    (bin_number)))))
+                    (dec_number)))))
             (annotation_appl
               (annotation_appl_builtin_body
                 (annotation_appl_autoid)))
@@ -124,7 +124,7 @@ struct A{};
                 (annotation_appl_default
                   (literal
                     (integer_literal
-                      (bin_number))))))
+                      (dec_number))))))
             (annotation_appl
               (annotation_appl_builtin_body
                 (annotation_appl_default
@@ -137,7 +137,7 @@ struct A{};
                   (min_expr
                     (literal
                       (integer_literal
-                        (bin_number))))
+                        (dec_number))))
                   (max_expr
                     (literal
                       (integer_literal
@@ -153,7 +153,7 @@ struct A{};
                 (annotation_appl_min
                   (literal
                     (integer_literal
-                      (bin_number))))))
+                      (dec_number))))))
             (annotation_appl
               (annotation_appl_builtin_body
                 (annotation_appl_max
@@ -165,7 +165,7 @@ struct A{};
                 (annotation_appl_max
                   (literal
                     (integer_literal
-                      (bin_number))))))
+                      (dec_number))))))
             (annotation_appl
               (annotation_appl_builtin_body
                 (annotation_appl_unit
@@ -175,7 +175,7 @@ struct A{};
               (annotation_appl_builtin_body
                 (annotation_appl_bit_bound
                   (integer_literal
-                    (bin_number)))))
+                    (dec_number)))))
             (annotation_appl
               (annotation_appl_builtin_body
                 (annotation_appl_external)))

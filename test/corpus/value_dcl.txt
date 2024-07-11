@@ -303,7 +303,7 @@ valuetype A: B supports C {};
                                       (primary_expr
                                         (literal
                                           (integer_literal
-                                            (bin_number)))))))))))))))))))
+                                            (dec_number)))))))))))))))))))
         (value_element
           (init_dcl
             (identifier)

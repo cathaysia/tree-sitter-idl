@@ -151,7 +151,7 @@ bitmask DataRepresentationMask {
               (annotation_appl_builtin_body
                 (annotation_appl_position
                   (integer_literal
-                    (bin_number)))))
+                    (dec_number)))))
             (identifier))
           (bit_value
             (annotation_appl

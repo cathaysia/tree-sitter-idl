@@ -58,7 +58,7 @@ union A switch(long) {
                                 (primary_expr
                                   (literal
                                     (integer_literal
-                                      (bin_number)))))))))))))
+                                      (dec_number)))))))))))))
               (element_spec
                 (type_spec
                   (simple_type_spec
@@ -125,4 +125,4 @@ union A switch(long) {
                                         (primary_expr
                                           (literal
                                             (integer_literal
-                                              (bin_number))))))))))))))))))))))))
+                                              (dec_number))))))))))))))))))))))))

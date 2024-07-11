@@ -17,7 +17,7 @@ exports.rules = {
       choice($.bin_number, $.oct_number, $.dec_number, $.hex_number),
     ),
   integer_sign: $ => choice('-', '+'),
-  bin_number: $ => /[0b01]+/i, // extend
+  bin_number: $ => /0[bB][01]+/, // extend
   oct_number: $ =>
     choice(
       /0[0-8]+/,

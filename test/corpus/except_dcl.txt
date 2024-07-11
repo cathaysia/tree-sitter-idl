@@ -49,7 +49,7 @@ exception HelloWorld {
                                   (primary_expr
                                     (literal
                                       (integer_literal
-                                        (bin_number))))))))))))))))))
+                                        (dec_number))))))))))))))))))
       (member
         (type_spec
           (template_type_spec
@@ -71,7 +71,7 @@ exception HelloWorld {
                                   (primary_expr
                                     (literal
                                       (integer_literal
-                                        (bin_number))))))))))))))
+                                        (dec_number))))))))))))))
               (fixed_array_size
                 (positive_int_const
                   (const_expr
@@ -156,7 +156,7 @@ exception HelloWorld {
                                 (primary_expr
                                   (literal
                                     (integer_literal
-                                      (bin_number)))))))))))))
+                                      (dec_number)))))))))))))
               (positive_int_const
                 (const_expr
                   (or_expr

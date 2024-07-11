@@ -370,7 +370,7 @@ interface C: A, B {
                                 (primary_expr
                                   (literal
                                     (integer_literal
-                                      (bin_number)))))))))))))
+                                      (dec_number)))))))))))))
               (element_spec
                 (constr_type_dcl
                   (struct_dcl
@@ -725,7 +725,7 @@ interface C: A, B {
                                             (primary_expr
                                               (literal
                                                 (integer_literal
-                                                  (bin_number)))))))))))))))))))))
+                                                  (dec_number)))))))))))))))))))))
           (export
             (op_dcl
               (op_type_spec)
