@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://github.com/cathaysia/tree-sitter-idl/compare/v2.2.1...v2.3.0) (2024-07-16)
+
+
+### Features
+
+* **idl:** allow more type with anno ([4e00069](https://github.com/cathaysia/tree-sitter-idl/commit/4e00069f1b192d44ffb645839c48b127d55f85c3))
+
 ## [2.2.1](https://github.com/cathaysia/tree-sitter-idl/compare/v2.2.0...v2.2.1) (2024-07-16)
 
 
