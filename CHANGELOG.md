@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://github.com/cathaysia/tree-sitter-idl/compare/v2.1.0...v2.2.0) (2024-07-16)
+
+
+### Features
+
+* **struct:** allow anno_ext appears behind member ([2c6abed](https://github.com/cathaysia/tree-sitter-idl/commit/2c6abedc335989f070a5b00fc8837530d0aa30bd))
+
 ## [2.1.0](https://github.com/cathaysia/tree-sitter-idl/compare/v2.0.1...v2.1.0) (2024-07-11)
 
 
