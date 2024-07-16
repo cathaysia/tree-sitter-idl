@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.1](https://github.com/cathaysia/tree-sitter-idl/compare/v2.2.0...v2.2.1) (2024-07-16)
+
+
+### Bug Fixes
+
+* **anno:** fix union member anno ([4b01afb](https://github.com/cathaysia/tree-sitter-idl/commit/4b01afb68f508fe81e0fb4050b533e53b8aa7463))
+
 ## [2.2.0](https://github.com/cathaysia/tree-sitter-idl/compare/v2.1.0...v2.2.0) (2024-07-16)
 
 
