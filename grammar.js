@@ -110,12 +110,15 @@ module.exports = grammar({
         '}',
       ),
     member: $ =>
-      seq(
-        repeat($.annotation_appl),
-        field('type', $.type_spec),
-        field('identifier', $.declarators),
-        optional($.default),
-        ';',
+      prec.left(
+        seq(
+          repeat($.annotation_appl),
+          field('type', $.type_spec),
+          field('identifier', $.declarators),
+          optional($.default),
+          ';',
+          optional($.extend_annotation_appl),
+        ),
       ),
     default: $ => seq('default', $.const_expr),
 

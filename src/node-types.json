@@ -2949,6 +2949,10 @@
         {
           "type": "default",
           "named": true
+        },
+        {
+          "type": "extend_annotation_appl",
+          "named": true
         }
       ]
     }
