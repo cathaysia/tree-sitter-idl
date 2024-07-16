@@ -1862,6 +1862,10 @@
       "required": true,
       "types": [
         {
+          "type": "annotation_appl",
+          "named": true
+        },
+        {
           "type": "constr_type_dcl",
           "named": true
         },

@@ -8,10 +8,10 @@ union A switch(long) {};
 
 union A switch(long) {
     case 1:
-        u8 a;
+        @external u8 a;
     case 2:
     case 3:
-        u16 b;
+        @key u16 b;
     default:
         u32 c[10];
 };
@@ -60,6 +60,9 @@ union A switch(long) {
                                     (integer_literal
                                       (dec_number)))))))))))))
               (element_spec
+                (annotation_appl
+                  (annotation_appl_builtin_body
+                    (annotation_appl_external)))
                 (type_spec
                   (simple_type_spec
                     (scoped_name
@@ -95,6 +98,9 @@ union A switch(long) {
                                     (integer_literal
                                       (dec_number)))))))))))))
               (element_spec
+                (annotation_appl
+                  (annotation_appl_builtin_body
+                    (annotation_appl_key)))
                 (type_spec
                   (simple_type_spec
                     (scoped_name

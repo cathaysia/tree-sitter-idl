@@ -4518,8 +4518,20 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "type_spec"
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "annotation_appl"
+                  }
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "type_spec"
+                }
+              ]
             },
             {
               "type": "SYMBOL",

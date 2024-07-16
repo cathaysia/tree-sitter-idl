@@ -33,7 +33,7 @@ exports.rules = {
   element_spec: $ =>
     seq(
       choice(
-        $.type_spec,
+        seq(repeat($.annotation_appl), $.type_spec),
         $.constr_type_dcl, // additional
       ),
       $.declarator,
