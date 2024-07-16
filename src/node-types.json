@@ -1633,13 +1633,9 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "annotation_appl",
-          "named": true
-        },
         {
           "type": "bitmask_dcl",
           "named": true
@@ -4006,9 +4002,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "annotation_appl",
+          "named": true
+        },
         {
           "type": "constr_type_dcl",
           "named": true

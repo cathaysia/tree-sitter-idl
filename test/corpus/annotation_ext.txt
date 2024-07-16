@@ -21,29 +21,19 @@ struct HelloWorld {
   (comment)
   (definition
     (type_dcl
-      (constr_type_dcl
-        (annotation_appl
-          (extend_annotation_appl
+      (annotation_appl
+        (extend_annotation_appl
+          (annotation_appl_custom_body
+            (scoped_name
+              (identifier)))
+          (annotation_appl
             (annotation_appl_custom_body
               (scoped_name
-                (identifier)))
-            (annotation_appl
-              (annotation_appl_custom_body
-                (scoped_name
-                  (identifier))
-                (annotation_appl_params
-                  (const_expr
+                (identifier))
+              (annotation_appl_params
+                (const_expr
+                  (or_expr
                     (or_expr
-                      (or_expr
-                        (xor_expr
-                          (and_expr
-                            (shift_expr
-                              (add_expr
-                                (mult_expr
-                                  (unary_expr
-                                    (primary_expr
-                                      (scoped_name
-                                        (identifier))))))))))
                       (xor_expr
                         (and_expr
                           (shift_expr
@@ -52,7 +42,17 @@ struct HelloWorld {
                                 (unary_expr
                                   (primary_expr
                                     (scoped_name
-                                      (identifier))))))))))))))))
+                                      (identifier))))))))))
+                    (xor_expr
+                      (and_expr
+                        (shift_expr
+                          (add_expr
+                            (mult_expr
+                              (unary_expr
+                                (primary_expr
+                                  (scoped_name
+                                    (identifier))))))))))))))))
+      (constr_type_dcl
         (struct_dcl
           (struct_def
             (identifier)

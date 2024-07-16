@@ -82,17 +82,18 @@ module.exports = grammar({
         ),
         ';',
       ),
-    type_dcl: $ => choice($.constr_type_dcl, $.native_dcl, $.typedef_dcl),
-    constr_type_dcl: $ =>
+    type_dcl: $ =>
       seq(
         repeat($.annotation_appl),
-        choice(
-          $.struct_dcl,
-          $.union_dcl,
-          $.enum_dcl,
-          $.bitset_dcl, // idl 7.4.13
-          $.bitmask_dcl, // idl 7.4.13
-        ),
+        choice($.constr_type_dcl, $.native_dcl, $.typedef_dcl),
+      ),
+    constr_type_dcl: $ =>
+      choice(
+        $.struct_dcl,
+        $.union_dcl,
+        $.enum_dcl,
+        $.bitset_dcl, // idl 7.4.13
+        $.bitmask_dcl, // idl 7.4.13
       ),
     native_dcl: $ => seq('native', $.simple_declarator),
     module_dcl: $ =>

@@ -5889,23 +5889,6 @@
       ]
     },
     "type_dcl": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "constr_type_dcl"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "native_dcl"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "typedef_dcl"
-        }
-      ]
-    },
-    "constr_type_dcl": {
       "type": "SEQ",
       "members": [
         {
@@ -5920,25 +5903,42 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "struct_dcl"
+              "name": "constr_type_dcl"
             },
             {
               "type": "SYMBOL",
-              "name": "union_dcl"
+              "name": "native_dcl"
             },
             {
               "type": "SYMBOL",
-              "name": "enum_dcl"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "bitset_dcl"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "bitmask_dcl"
+              "name": "typedef_dcl"
             }
           ]
+        }
+      ]
+    },
+    "constr_type_dcl": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "struct_dcl"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "union_dcl"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "enum_dcl"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bitset_dcl"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bitmask_dcl"
         }
       ]
     },
