@@ -1360,15 +1360,27 @@
       ]
     },
     "interface_dcl": {
-      "type": "CHOICE",
+      "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "interface_def"
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "annotation_appl"
+          }
         },
         {
-          "type": "SYMBOL",
-          "name": "interface_forward_dcl"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "interface_def"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "interface_forward_dcl"
+            }
+          ]
         }
       ]
     },
@@ -1418,13 +1430,6 @@
     "interface_def": {
       "type": "SEQ",
       "members": [
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "annotation_appl"
-          }
-        },
         {
           "type": "SYMBOL",
           "name": "interface_header"
@@ -2104,13 +2109,6 @@
     "bitmask_dcl": {
       "type": "SEQ",
       "members": [
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "annotation_appl"
-          }
-        },
         {
           "type": "STRING",
           "value": "bitmask"
@@ -4417,13 +4415,6 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "annotation_appl"
-          }
-        },
-        {
           "type": "STRING",
           "value": "union"
         },
@@ -5903,27 +5894,39 @@
       ]
     },
     "constr_type_dcl": {
-      "type": "CHOICE",
+      "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "struct_dcl"
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "annotation_appl"
+          }
         },
         {
-          "type": "SYMBOL",
-          "name": "union_dcl"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "enum_dcl"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "bitset_dcl"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "bitmask_dcl"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "struct_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "union_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "enum_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "bitset_dcl"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "bitmask_dcl"
+            }
+          ]
         }
       ]
     },
@@ -5997,13 +6000,6 @@
     "struct_def": {
       "type": "SEQ",
       "members": [
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "annotation_appl"
-          }
-        },
         {
           "type": "STRING",
           "value": "struct"

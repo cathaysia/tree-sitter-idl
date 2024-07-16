@@ -2,7 +2,11 @@ const { commaSep1 } = require('./common')
 
 exports.rules = {
   except_dcl: $ => seq('exception', $.identifier, '{', repeat($.member), '}'),
-  interface_dcl: $ => choice($.interface_def, $.interface_forward_dcl),
+  interface_dcl: $ =>
+    seq(
+      repeat($.annotation_appl),
+      choice($.interface_def, $.interface_forward_dcl),
+    ),
   interface_kind: _ =>
     seq(
       optional(
@@ -15,13 +19,7 @@ exports.rules = {
     ),
   interface_forward_dcl: $ => seq($.interface_kind, $.identifier),
   interface_def: $ =>
-    seq(
-      repeat($.annotation_appl),
-      $.interface_header,
-      '{',
-      optional($.interface_body),
-      '}',
-    ),
+    seq($.interface_header, '{', optional($.interface_body), '}'),
   interface_header: $ =>
     seq($.interface_kind, $.identifier, optional($.interface_inheritance_spec)),
   interface_inheritance_spec: $ => seq(':', commaSep1($.interface_name)),

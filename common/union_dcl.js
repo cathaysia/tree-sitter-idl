@@ -18,7 +18,6 @@ exports.rules = {
   union_forward_dcl: $ => seq('union', $.identifier),
   union_def: $ =>
     seq(
-      repeat($.annotation_appl),
       'union',
       $.identifier,
       'switch',

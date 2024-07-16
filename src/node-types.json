@@ -1225,10 +1225,6 @@
       "required": true,
       "types": [
         {
-          "type": "annotation_appl",
-          "named": true
-        },
-        {
           "type": "bit_value",
           "named": true
         },
@@ -1637,9 +1633,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "annotation_appl",
+          "named": true
+        },
         {
           "type": "bitmask_dcl",
           "named": true
@@ -2707,9 +2707,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "annotation_appl",
+          "named": true
+        },
         {
           "type": "interface_def",
           "named": true
@@ -2729,10 +2733,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "annotation_appl",
-          "named": true
-        },
         {
           "type": "interface_body",
           "named": true
@@ -3796,10 +3796,6 @@
       "required": true,
       "types": [
         {
-          "type": "annotation_appl",
-          "named": true
-        },
-        {
           "type": "identifier",
           "named": true
         },
@@ -4170,10 +4166,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "annotation_appl",
-          "named": true
-        },
         {
           "type": "case",
           "named": true

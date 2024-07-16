@@ -22,39 +22,39 @@ struct HelloWorld {
   (definition
     (type_dcl
       (constr_type_dcl
+        (annotation_appl
+          (extend_annotation_appl
+            (annotation_appl_custom_body
+              (scoped_name
+                (identifier)))
+            (annotation_appl
+              (annotation_appl_custom_body
+                (scoped_name
+                  (identifier))
+                (annotation_appl_params
+                  (const_expr
+                    (or_expr
+                      (or_expr
+                        (xor_expr
+                          (and_expr
+                            (shift_expr
+                              (add_expr
+                                (mult_expr
+                                  (unary_expr
+                                    (primary_expr
+                                      (scoped_name
+                                        (identifier))))))))))
+                      (xor_expr
+                        (and_expr
+                          (shift_expr
+                            (add_expr
+                              (mult_expr
+                                (unary_expr
+                                  (primary_expr
+                                    (scoped_name
+                                      (identifier))))))))))))))))
         (struct_dcl
           (struct_def
-            (annotation_appl
-              (extend_annotation_appl
-                (annotation_appl_custom_body
-                  (scoped_name
-                    (identifier)))
-                (annotation_appl
-                  (annotation_appl_custom_body
-                    (scoped_name
-                      (identifier))
-                    (annotation_appl_params
-                      (const_expr
-                        (or_expr
-                          (or_expr
-                            (xor_expr
-                              (and_expr
-                                (shift_expr
-                                  (add_expr
-                                    (mult_expr
-                                      (unary_expr
-                                        (primary_expr
-                                          (scoped_name
-                                            (identifier))))))))))
-                          (xor_expr
-                            (and_expr
-                              (shift_expr
-                                (add_expr
-                                  (mult_expr
-                                    (unary_expr
-                                      (primary_expr
-                                        (scoped_name
-                                          (identifier))))))))))))))))
             (identifier)
             (member
               (type_spec
