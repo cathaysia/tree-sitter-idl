@@ -72,6 +72,17 @@ exports.rules = {
       ),
       "'",
     ),
-  wide_character_literal: $ => seq('L', $.char_literal),
+  wide_character_literal: $ =>
+    seq(
+      'L',
+      "'",
+      repeat1(
+        choice(
+          $.escape_sequence,
+          alias(token.immediate(/[^\n']/), $.character),
+        ),
+      ),
+      "'",
+    ),
   boolean_literal: _ => choice('TRUE', 'FALSE'),
 }

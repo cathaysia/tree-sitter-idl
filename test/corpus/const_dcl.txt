@@ -268,8 +268,7 @@ const M::Size MYSIZE = M::medium;
                       (primary_expr
                         (literal
                           (wide_character_literal
-                            (char_literal
-                              (character)))))))))))))))
+                            (character))))))))))))))
   (definition
     (const_dcl
       (const_type

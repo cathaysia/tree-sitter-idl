@@ -1192,8 +1192,36 @@
           "value": "L"
         },
         {
-          "type": "SYMBOL",
-          "name": "char_literal"
+          "type": "STRING",
+          "value": "'"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "escape_sequence"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "IMMEDIATE_TOKEN",
+                  "content": {
+                    "type": "PATTERN",
+                    "value": "[^\\n']"
+                  }
+                },
+                "named": true,
+                "value": "character"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "'"
         }
       ]
     },
