@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.0](https://github.com/cathaysia/tree-sitter-idl/compare/v2.4.0...v2.5.0) (2024-07-19)
+
+
+### Features
+
+* **literal:** inline char inside wchar ([449ec6b](https://github.com/cathaysia/tree-sitter-idl/commit/449ec6bda3ce8dda7c9c5dd30474f458b734db23))
+
 ## [2.4.0](https://github.com/cathaysia/tree-sitter-idl/compare/v2.3.0...v2.4.0) (2024-07-19)
 
 
