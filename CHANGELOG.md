@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.4.0](https://github.com/cathaysia/tree-sitter-idl/compare/v2.3.0...v2.4.0) (2024-07-19)
+
+
+### Features
+
+* split wchar and wstring ([0fb8d02](https://github.com/cathaysia/tree-sitter-idl/commit/0fb8d02bd31bc5fcc29f463ed0db920bcedba382))
+* **union:** allow octet appears in switch_type_spec ([0896d6b](https://github.com/cathaysia/tree-sitter-idl/commit/0896d6bc705f5e9a18f3b393cb4fc49fbead706f))
+
 ## [2.3.0](https://github.com/cathaysia/tree-sitter-idl/compare/v2.2.1...v2.3.0) (2024-07-16)
 
 
