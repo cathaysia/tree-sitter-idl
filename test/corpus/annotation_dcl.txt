@@ -124,7 +124,7 @@ bitmask DataRepresentationMask {
             (member
               (type_spec
                 (template_type_spec
-                  (string_type)))
+                  (wide_string_type)))
               (declarators
                 (declarator
                   (simple_declarator

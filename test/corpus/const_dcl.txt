@@ -255,7 +255,7 @@ const M::Size MYSIZE = M::medium;
   (definition
     (const_dcl
       (const_type
-        (char_type))
+        (wide_char_type))
       (identifier)
       (const_expr
         (or_expr

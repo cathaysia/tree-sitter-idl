@@ -146,7 +146,7 @@ struct HelloWorld: Parent {
             (member
               (type_spec
                 (template_type_spec
-                  (string_type
+                  (wide_string_type
                     (positive_int_const
                       (const_expr
                         (or_expr
@@ -240,7 +240,7 @@ struct HelloWorld: Parent {
             (member
               (type_spec
                 (template_type_spec
-                  (string_type)))
+                  (wide_string_type)))
               (declarators
                 (declarator
                   (simple_declarator

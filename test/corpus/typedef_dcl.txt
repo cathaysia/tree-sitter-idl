@@ -50,7 +50,7 @@ typedef wstring u16string;
       (typedef_dcl
         (type_declarator
           (template_type_spec
-            (string_type))
+            (wide_string_type))
           (any_declarators
             (any_declarator
               (simple_declarator

@@ -42,6 +42,7 @@ exports.rules = {
     choice(
       $.integer_type,
       $.char_type,
+      $.wide_char_type,
       $.boolean_type,
       $.scoped_name,
       $.octet_type,

@@ -52,7 +52,8 @@ exports.rules = {
     ),
 
   floating_pt_type: _ => choice('float', 'double', 'long double'),
-  char_type: _ => choice('char', 'wchar'),
+  char_type: _ => 'char',
+  wide_char_type: _ => 'wchar',
   scoped_name: $ =>
     choice(
       $.identifier,
@@ -60,10 +61,9 @@ exports.rules = {
       seq($.scoped_name, '::', $.identifier),
     ),
   string_type: $ =>
-    seq(
-      choice('string', 'wstring'),
-      optional(seq('<', $.positive_int_const, '>')),
-    ),
+    seq('string', optional(seq('<', $.positive_int_const, '>'))),
+  wide_string_type: $ =>
+    seq('wstring', optional(seq('<', $.positive_int_const, '>'))),
   type_spec: $ =>
     choice(
       $.simple_type_spec,
@@ -75,6 +75,7 @@ exports.rules = {
       $.integer_type,
       $.floating_pt_type,
       $.char_type,
+      $.wide_char_type,
       $.boolean_type,
       $.octet_type,
       $.any_type, // IDL 7.4.2
@@ -88,6 +89,7 @@ exports.rules = {
     choice(
       $.sequence_type,
       $.string_type,
+      $.wide_string_type,
       $.fixed_pt_type,
       $.map_type, // idl 7.4.13
     ),

@@ -196,17 +196,12 @@
       ]
     },
     "char_type": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "char"
-        },
-        {
-          "type": "STRING",
-          "value": "wchar"
-        }
-      ]
+      "type": "STRING",
+      "value": "char"
+    },
+    "wide_char_type": {
+      "type": "STRING",
+      "value": "wchar"
     },
     "scoped_name": {
       "type": "CHOICE",
@@ -251,17 +246,42 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "STRING",
+          "value": "string"
+        },
+        {
           "type": "CHOICE",
           "members": [
             {
-              "type": "STRING",
-              "value": "string"
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "<"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "positive_int_const"
+                },
+                {
+                  "type": "STRING",
+                  "value": ">"
+                }
+              ]
             },
             {
-              "type": "STRING",
-              "value": "wstring"
+              "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "wide_string_type": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "wstring"
         },
         {
           "type": "CHOICE",
@@ -333,6 +353,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "wide_char_type"
+        },
+        {
+          "type": "SYMBOL",
           "name": "boolean_type"
         },
         {
@@ -396,6 +420,10 @@
         {
           "type": "SYMBOL",
           "name": "string_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "wide_string_type"
         },
         {
           "type": "SYMBOL",
@@ -4558,6 +4586,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "wide_char_type"
+        },
+        {
+          "type": "SYMBOL",
           "name": "boolean_type"
         },
         {
@@ -6185,6 +6217,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "wide_char_type"
+        },
+        {
+          "type": "SYMBOL",
           "name": "boolean_type"
         },
         {
@@ -6194,6 +6230,10 @@
         {
           "type": "SYMBOL",
           "name": "string_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "wide_string_type"
         },
         {
           "type": "SYMBOL",

@@ -122,7 +122,7 @@ exception HelloWorld {
       (member
         (type_spec
           (template_type_spec
-            (string_type
+            (wide_string_type
               (positive_int_const
                 (const_expr
                   (or_expr
