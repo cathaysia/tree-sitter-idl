@@ -60,7 +60,19 @@ exports.rules = {
       ),
       '"',
     ),
-  wide_string_literal: $ => seq('L', $.string_literal),
+  wide_string_literal: $ =>
+    seq(
+      'L',
+
+      '"',
+      repeat(
+        choice(
+          alias(token.immediate(prec(1, /[^\\"\n]+/)), $.string_content),
+          $.escape_sequence,
+        ),
+      ),
+      '"',
+    ),
   char_literal: $ =>
     seq(
       "'",
