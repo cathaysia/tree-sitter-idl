@@ -4563,6 +4563,10 @@
         {
           "type": "SYMBOL",
           "name": "scoped_name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "octet_type"
         }
       ]
     },

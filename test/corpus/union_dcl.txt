@@ -16,6 +16,8 @@ union A switch(long) {
         u32 c[10];
 };
 
+union A switch(octet) {};
+
 ---
 
 (specification
@@ -131,4 +133,12 @@ union A switch(long) {
                                         (primary_expr
                                           (literal
                                             (integer_literal
-                                              (dec_number))))))))))))))))))))))))
+                                              (dec_number)))))))))))))))))))))))
+  (definition
+    (type_dcl
+      (constr_type_dcl
+        (union_dcl
+          (union_def
+            (identifier)
+            (switch_type_spec
+              (octet_type))))))))

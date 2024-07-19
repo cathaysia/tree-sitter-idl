@@ -3861,6 +3861,10 @@
           "named": true
         },
         {
+          "type": "octet_type",
+          "named": true
+        },
+        {
           "type": "scoped_name",
           "named": true
         }

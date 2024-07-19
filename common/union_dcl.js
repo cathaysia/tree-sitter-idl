@@ -39,5 +39,11 @@ exports.rules = {
       $.declarator,
     ),
   switch_type_spec: $ =>
-    choice($.integer_type, $.char_type, $.boolean_type, $.scoped_name),
+    choice(
+      $.integer_type,
+      $.char_type,
+      $.boolean_type,
+      $.scoped_name,
+      $.octet_type,
+    ),
 }

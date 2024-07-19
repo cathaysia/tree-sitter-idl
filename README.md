@@ -79,3 +79,10 @@ const u8 A = 0o3;
 ```idl
 const u8 A = 0b010101;
 ```
+
+### allow octet in typedef_spec
+
+```idl
+union A switch(octet) {};
+//              ^ allow
+```
