@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.0](https://github.com/cathaysia/tree-sitter-idl/compare/v2.5.0...v2.6.0) (2024-07-19)
+
+
+### Features
+
+* **literal:** inner string inside wstring ([bfdf61d](https://github.com/cathaysia/tree-sitter-idl/commit/bfdf61ddc9ffac3aca8982a19ab27ceb945d0b81))
+
 ## [2.5.0](https://github.com/cathaysia/tree-sitter-idl/compare/v2.4.0...v2.5.0) (2024-07-19)
 
 
