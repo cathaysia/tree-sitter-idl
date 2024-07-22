@@ -2126,11 +2126,6 @@
     }
   },
   {
-    "type": "enum_anno",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "enum_dcl",
     "named": true,
     "fields": {},
@@ -2138,10 +2133,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "enum_anno",
-          "named": true
-        },
         {
           "type": "enumerator",
           "named": true
@@ -4946,10 +4937,6 @@
   },
   {
     "type": "@default_literal",
-    "named": false
-  },
-  {
-    "type": "@ignore_literal_names",
     "named": false
   },
   {

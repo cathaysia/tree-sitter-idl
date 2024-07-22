@@ -176,10 +176,12 @@ struct T1 {
           (annotation_appl_range
             (anno_name)
             (min_expr
+              (range_kind)
               (literal
                 (integer_literal
                   (dec_number))))
             (max_expr
+              (range_kind)
               (literal
                 (integer_literal
                   (dec_number)))))))
@@ -335,9 +337,12 @@ struct T1 {
             (identifier))))))
   (definition
     (type_dcl
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_ignore_literal_names
+            (anno_name))))
       (constr_type_dcl
         (enum_dcl
-          (enum_anno)
           (identifier)
           (enumerator
             (identifier))

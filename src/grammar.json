@@ -4981,18 +4981,6 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "enum_anno"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
           "type": "STRING",
           "value": "enum"
         },
@@ -5065,15 +5053,6 @@
         {
           "type": "STRING",
           "value": "@default_literal"
-        }
-      ]
-    },
-    "enum_anno": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "@ignore_literal_names"
         }
       ]
     },
