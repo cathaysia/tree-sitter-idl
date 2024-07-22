@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.1](https://github.com/cathaysia/tree-sitter-idl/compare/v2.6.0...v2.6.1) (2024-07-22)
+
+
+### Bug Fixes
+
+* **annotation:** fix custom body parse ([fc34fb1](https://github.com/cathaysia/tree-sitter-idl/commit/fc34fb10dbf026a7d51d93a657f94d25c56bc96f))
+
 ## [2.6.0](https://github.com/cathaysia/tree-sitter-idl/compare/v2.5.0...v2.6.0) (2024-07-19)
 
 
