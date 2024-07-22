@@ -69,7 +69,8 @@ struct HelloWorld {
               (annotation_appl
                 (extend_annotation_appl
                   (annotation_appl_builtin_body
-                    (annotation_appl_key))
+                    (annotation_appl_key
+                      (anno_name)))
                   (annotation_appl
                     (annotation_appl_custom_body
                       (scoped_name
@@ -115,7 +116,8 @@ struct HelloWorld {
               (annotation_appl
                 (extend_annotation_appl
                   (annotation_appl_builtin_body
-                    (annotation_appl_key))))
+                    (annotation_appl_key
+                      (anno_name)))))
               (type_spec
                 (template_type_spec
                   (string_type)))
@@ -155,7 +157,8 @@ struct HelloWorld {
               (annotation_appl
                 (extend_annotation_appl
                   (annotation_appl_builtin_body
-                    (annotation_appl_key))))
+                    (annotation_appl_key
+                      (anno_name)))))
               (type_spec
                 (template_type_spec
                   (sequence_type
