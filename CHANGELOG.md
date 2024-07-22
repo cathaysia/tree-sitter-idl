@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.7.0](https://github.com/cathaysia/tree-sitter-idl/compare/v2.6.1...v2.7.0) (2024-07-22)
+
+
+### Features
+
+* **union:** remove enum_anno ([5f03d47](https://github.com/cathaysia/tree-sitter-idl/commit/5f03d47a23597661552727a6ca67ae67f7c5fee1))
+
+
+### Bug Fixes
+
+* **query:** fix queries ([99799ae](https://github.com/cathaysia/tree-sitter-idl/commit/99799ae590eba9551f7526dccf2d0cc64f4cda7f))
+
 ## [2.6.1](https://github.com/cathaysia/tree-sitter-idl/compare/v2.6.0...v2.6.1) (2024-07-22)
 
 
