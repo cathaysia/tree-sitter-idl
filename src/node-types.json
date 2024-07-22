@@ -103,8 +103,8 @@
         "required": true,
         "types": [
           {
-            "type": "ami",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
@@ -129,8 +129,8 @@
         "required": true,
         "types": [
           {
-            "type": "appendable",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
@@ -145,8 +145,8 @@
         "required": true,
         "types": [
           {
-            "type": "autoid",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
@@ -171,8 +171,8 @@
         "required": true,
         "types": [
           {
-            "type": "bit_bound",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
@@ -213,11 +213,19 @@
           "named": true
         },
         {
+          "type": "annotation_appl_data_representation",
+          "named": true
+        },
+        {
           "type": "annotation_appl_default",
           "named": true
         },
         {
           "type": "annotation_appl_default_literal",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_default_nested",
           "named": true
         },
         {
@@ -233,7 +241,15 @@
           "named": true
         },
         {
+          "type": "annotation_appl_hashid",
+          "named": true
+        },
+        {
           "type": "annotation_appl_id",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_ignore_literal_names",
           "named": true
         },
         {
@@ -261,6 +277,10 @@
           "named": true
         },
         {
+          "type": "annotation_appl_non_serialized",
+          "named": true
+        },
+        {
           "type": "annotation_appl_oneway",
           "named": true
         },
@@ -281,6 +301,14 @@
           "named": true
         },
         {
+          "type": "annotation_appl_topic",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_try_construct",
+          "named": true
+        },
+        {
           "type": "annotation_appl_unit",
           "named": true
         },
@@ -290,6 +318,14 @@
         },
         {
           "type": "annotation_appl_verbatim",
+          "named": true
+        },
+        {
+          "type": "data_representation_mask",
+          "named": true
+        },
+        {
+          "type": "try_construct_fail_action",
           "named": true
         }
       ]
@@ -315,6 +351,32 @@
     }
   },
   {
+    "type": "annotation_appl_data_representation",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "anno_name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "data_representation_mask",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "annotation_appl_default",
     "named": true,
     "fields": {
@@ -323,8 +385,8 @@
         "required": true,
         "types": [
           {
-            "type": "default",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
@@ -349,11 +411,37 @@
         "required": true,
         "types": [
           {
-            "type": "default_literal",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
+    }
+  },
+  {
+    "type": "annotation_appl_default_nested",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "anno_name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "boolean_literal",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -365,8 +453,8 @@
         "required": true,
         "types": [
           {
-            "type": "extensibility",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
@@ -391,8 +479,8 @@
         "required": true,
         "types": [
           {
-            "type": "external",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
@@ -417,11 +505,37 @@
         "required": true,
         "types": [
           {
-            "type": "final",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
+    }
+  },
+  {
+    "type": "annotation_appl_hashid",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "anno_name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -433,8 +547,8 @@
         "required": true,
         "types": [
           {
-            "type": "id",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
@@ -451,6 +565,32 @@
     }
   },
   {
+    "type": "annotation_appl_ignore_literal_names",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "anno_name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "boolean_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "annotation_appl_key",
     "named": true,
     "fields": {
@@ -459,8 +599,8 @@
         "required": true,
         "types": [
           {
-            "type": "key",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
@@ -485,8 +625,8 @@
         "required": true,
         "types": [
           {
-            "type": "max",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
@@ -511,8 +651,8 @@
         "required": true,
         "types": [
           {
-            "type": "min",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
@@ -537,8 +677,8 @@
         "required": true,
         "types": [
           {
-            "type": "must_understand",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
@@ -563,8 +703,8 @@
         "required": true,
         "types": [
           {
-            "type": "mutable",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
@@ -579,8 +719,34 @@
         "required": true,
         "types": [
           {
-            "type": "nested",
-            "named": false
+            "type": "anno_name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "boolean_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_non_serialized",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
@@ -605,8 +771,8 @@
         "required": true,
         "types": [
           {
-            "type": "oneway",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
@@ -631,8 +797,8 @@
         "required": true,
         "types": [
           {
-            "type": "optional",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
@@ -695,8 +861,8 @@
         "required": true,
         "types": [
           {
-            "type": "position",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
@@ -741,8 +907,8 @@
         "required": true,
         "types": [
           {
-            "type": "range",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
@@ -757,8 +923,8 @@
         "required": true,
         "types": [
           {
-            "type": "service",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
@@ -775,6 +941,58 @@
     }
   },
   {
+    "type": "annotation_appl_topic",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      },
+      "platform": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "topic_platform",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "annotation_appl_try_construct",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "anno_name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "try_construct_fail_action",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "annotation_appl_unit",
     "named": true,
     "fields": {
@@ -783,8 +1001,8 @@
         "required": true,
         "types": [
           {
-            "type": "unit",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
@@ -809,8 +1027,8 @@
         "required": true,
         "types": [
           {
-            "type": "value",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       }
@@ -849,8 +1067,8 @@
         "required": true,
         "types": [
           {
-            "type": "verbatim",
-            "named": false
+            "type": "anno_name",
+            "named": true
           }
         ]
       },
@@ -1699,6 +1917,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "data_representation_mask",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "dec_number",
@@ -2910,11 +3133,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "literal",
+          "named": true
+        },
+        {
+          "type": "range_kind",
           "named": true
         }
       ]
@@ -2969,11 +3196,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "literal",
+          "named": true
+        },
+        {
+          "type": "range_kind",
           "named": true
         }
       ]
@@ -3998,6 +4229,11 @@
     }
   },
   {
+    "type": "topic_platform",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "tpl_definition",
     "named": true,
     "fields": {},
@@ -4015,6 +4251,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "try_construct_fail_action",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "type_dcl",
@@ -4712,51 +4953,7 @@
     "named": false
   },
   {
-    "type": "AFTER_DECLARATION",
-    "named": false
-  },
-  {
-    "type": "APPENDABLE",
-    "named": false
-  },
-  {
-    "type": "BEFORE_DECLARATION",
-    "named": false
-  },
-  {
-    "type": "BEGIN_DECLARATION",
-    "named": false
-  },
-  {
-    "type": "BEGIN_FILE",
-    "named": false
-  },
-  {
-    "type": "CORBA",
-    "named": false
-  },
-  {
-    "type": "DDS",
-    "named": false
-  },
-  {
-    "type": "END_DECLARATION",
-    "named": false
-  },
-  {
-    "type": "END_FILE",
-    "named": false
-  },
-  {
     "type": "FALSE",
-    "named": false
-  },
-  {
-    "type": "FINAL",
-    "named": false
-  },
-  {
-    "type": "HASH",
     "named": false
   },
   {
@@ -4764,15 +4961,7 @@
     "named": false
   },
   {
-    "type": "MUTABLE",
-    "named": false
-  },
-  {
     "type": "Object",
-    "named": false
-  },
-  {
-    "type": "SEQUENTIAL",
     "named": false
   },
   {
@@ -4800,15 +4989,11 @@
     "named": false
   },
   {
-    "type": "ami",
-    "named": false
+    "type": "anno_name",
+    "named": true
   },
   {
     "type": "any",
-    "named": false
-  },
-  {
-    "type": "appendable",
     "named": false
   },
   {
@@ -4816,16 +5001,8 @@
     "named": false
   },
   {
-    "type": "autoid",
-    "named": false
-  },
-  {
     "type": "bin_number",
     "named": true
-  },
-  {
-    "type": "bit_bound",
-    "named": false
   },
   {
     "type": "bitfield",
@@ -4842,14 +5019,6 @@
   {
     "type": "boolean_type",
     "named": true
-  },
-  {
-    "type": "c",
-    "named": false
-  },
-  {
-    "type": "c++",
-    "named": false
   },
   {
     "type": "case",
@@ -4892,10 +5061,6 @@
     "named": false
   },
   {
-    "type": "default_literal",
-    "named": false
-  },
-  {
     "type": "double",
     "named": false
   },
@@ -4920,19 +5085,7 @@
     "named": false
   },
   {
-    "type": "extensibility",
-    "named": false
-  },
-  {
-    "type": "external",
-    "named": false
-  },
-  {
     "type": "factory",
-    "named": false
-  },
-  {
-    "type": "final",
     "named": false
   },
   {
@@ -4960,16 +5113,8 @@
     "named": false
   },
   {
-    "type": "id",
-    "named": false
-  },
-  {
     "type": "identifier",
     "named": true
-  },
-  {
-    "type": "idl",
-    "named": false
   },
   {
     "type": "import",
@@ -4997,14 +5142,6 @@
   },
   {
     "type": "interface",
-    "named": false
-  },
-  {
-    "type": "java",
-    "named": false
-  },
-  {
-    "type": "key",
     "named": false
   },
   {
@@ -5036,14 +5173,6 @@
     "named": false
   },
   {
-    "type": "max",
-    "named": false
-  },
-  {
-    "type": "min",
-    "named": false
-  },
-  {
     "type": "mirrorport",
     "named": false
   },
@@ -5056,19 +5185,7 @@
     "named": false
   },
   {
-    "type": "must_understand",
-    "named": false
-  },
-  {
-    "type": "mutable",
-    "named": false
-  },
-  {
     "type": "native",
-    "named": false
-  },
-  {
-    "type": "nested",
     "named": false
   },
   {
@@ -5077,10 +5194,6 @@
   },
   {
     "type": "oneway",
-    "named": false
-  },
-  {
-    "type": "optional",
     "named": false
   },
   {
@@ -5093,10 +5206,6 @@
   },
   {
     "type": "porttype",
-    "named": false
-  },
-  {
-    "type": "position",
     "named": false
   },
   {
@@ -5132,8 +5241,8 @@
     "named": false
   },
   {
-    "type": "range",
-    "named": false
+    "type": "range_kind",
+    "named": true
   },
   {
     "type": "readonly",
@@ -5141,10 +5250,6 @@
   },
   {
     "type": "sequence",
-    "named": false
-  },
-  {
-    "type": "service",
     "named": false
   },
   {
@@ -5220,10 +5325,6 @@
     "named": false
   },
   {
-    "type": "unit",
-    "named": false
-  },
-  {
     "type": "unsigned long",
     "named": false
   },
@@ -5244,19 +5345,11 @@
     "named": false
   },
   {
-    "type": "value",
-    "named": false
-  },
-  {
     "type": "value_base_type",
     "named": true
   },
   {
     "type": "valuetype",
-    "named": false
-  },
-  {
-    "type": "verbatim",
     "named": false
   },
   {

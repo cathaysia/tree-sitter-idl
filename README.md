@@ -31,6 +31,7 @@ IDL 4.2:
 DDS-XTypes:
 
 - [x] 7.3.1.2.3 Alternative Annotation Syntax
+- [x] 7.3.1.2.1 Built-in Annotations
 
 ## extends
 

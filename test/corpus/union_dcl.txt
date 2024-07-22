@@ -64,7 +64,8 @@ union A switch(octet) {};
               (element_spec
                 (annotation_appl
                   (annotation_appl_builtin_body
-                    (annotation_appl_external)))
+                    (annotation_appl_external
+                      (anno_name))))
                 (type_spec
                   (simple_type_spec
                     (scoped_name
@@ -102,7 +103,8 @@ union A switch(octet) {};
               (element_spec
                 (annotation_appl
                   (annotation_appl_builtin_body
-                    (annotation_appl_key)))
+                    (annotation_appl_key
+                      (anno_name))))
                 (type_spec
                   (simple_type_spec
                     (scoped_name

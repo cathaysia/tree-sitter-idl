@@ -62,31 +62,11 @@ bitmask DataRepresentationMask {
   (definition
     (type_dcl
       (annotation_appl
-        (annotation_appl_custom_body
-          (scoped_name
-            (identifier))
-          (annotation_appl_params
-            (const_expr
-              (or_expr
-                (or_expr
-                  (xor_expr
-                    (and_expr
-                      (shift_expr
-                        (add_expr
-                          (mult_expr
-                            (unary_expr
-                              (primary_expr
-                                (scoped_name
-                                  (identifier))))))))))
-                (xor_expr
-                  (and_expr
-                    (shift_expr
-                      (add_expr
-                        (mult_expr
-                          (unary_expr
-                            (primary_expr
-                              (scoped_name
-                                (identifier))))))))))))))
+        (annotation_appl_builtin_body
+          (annotation_appl_data_representation
+            (anno_name)
+            (data_representation_mask)
+            (data_representation_mask))))
       (constr_type_dcl
         (struct_dcl
           (struct_def
@@ -96,10 +76,12 @@ bitmask DataRepresentationMask {
             (member
               (annotation_appl
                 (annotation_appl_builtin_body
-                  (annotation_appl_key)))
+                  (annotation_appl_key
+                    (anno_name))))
               (annotation_appl
                 (annotation_appl_builtin_body
-                  (annotation_appl_optional)))
+                  (annotation_appl_optional
+                    (anno_name))))
               (type_spec
                 (template_type_spec
                   (string_type)))
@@ -134,6 +116,7 @@ bitmask DataRepresentationMask {
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_bit_bound
+            (anno_name)
             (integer_literal
               (dec_number)))))
       (constr_type_dcl
@@ -143,6 +126,7 @@ bitmask DataRepresentationMask {
             (annotation_appl
               (annotation_appl_builtin_body
                 (annotation_appl_position
+                  (anno_name)
                   (integer_literal
                     (dec_number)))))
             (identifier))
@@ -150,6 +134,7 @@ bitmask DataRepresentationMask {
             (annotation_appl
               (annotation_appl_builtin_body
                 (annotation_appl_position
+                  (anno_name)
                   (integer_literal
                     (dec_number)))))
             (identifier))

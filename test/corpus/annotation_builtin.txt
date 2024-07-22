@@ -49,9 +49,26 @@ struct A{};
 @Custom
 struct A {
 };
-struct A {
+
+enum MyEnum {
+    ENUM1,
+    ENUM2,
+    @default_literal ENUM3,
+    ENUM4
 };
 
+@ignore_literal_names
+enum MyEnum2 {
+    ENUM_A,
+    ENUM2,
+    ENUM3,
+    ENUM4
+};
+
+struct T1 {
+    @try_construct long important_member;
+    @try_construct(DISCARD) string<4> m1;
+};
 ----
 
 (specification
@@ -60,84 +77,104 @@ struct A {
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_id
+            (anno_name)
             (integer_literal
               (dec_number)))))
       (annotation_appl
         (annotation_appl_builtin_body
-          (annotation_appl_autoid)))
+          (annotation_appl_autoid
+            (anno_name))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_autoid
+            (anno_name)
             (autoid_kind))))
       (annotation_appl
         (annotation_appl_builtin_body
-          (annotation_appl_optional)))
+          (annotation_appl_optional
+            (anno_name))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_optional
+            (anno_name)
             (boolean_literal))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_position
+            (anno_name)
             (integer_literal
               (dec_number)))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_value
+            (anno_name)
             (literal
               (string_literal
                 (string_content))))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_value
+            (anno_name)
             (literal
               (integer_literal
                 (dec_number))))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_extensibility
+            (anno_name)
             (extensibility_kind))))
       (annotation_appl
         (annotation_appl_builtin_body
-          (annotation_appl_final)))
+          (annotation_appl_final
+            (anno_name))))
       (annotation_appl
         (annotation_appl_builtin_body
-          (annotation_appl_appendable)))
+          (annotation_appl_appendable
+            (anno_name))))
       (annotation_appl
         (annotation_appl_builtin_body
-          (annotation_appl_mutable)))
-      (annotation_appl
-        (annotation_appl_builtin_body
-          (annotation_appl_key)))
+          (annotation_appl_mutable
+            (anno_name))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_key
+            (anno_name))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_key
+            (anno_name)
             (boolean_literal))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_must_understand
+            (anno_name)
             (boolean_literal))))
       (annotation_appl
         (annotation_appl_builtin_body
-          (annotation_appl_must_understand)))
+          (annotation_appl_must_understand
+            (anno_name))))
       (annotation_appl
         (annotation_appl_builtin_body
-          (annotation_appl_default_literal)))
+          (annotation_appl_default_literal
+            (anno_name))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_default
+            (anno_name)
             (literal
               (integer_literal
                 (dec_number))))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_default
+            (anno_name)
             (literal
               (string_literal
                 (string_content))))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_range
+            (anno_name)
             (min_expr
               (literal
                 (integer_literal
@@ -149,99 +186,120 @@ struct A {
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_min
+            (anno_name)
             (literal
               (string_literal
                 (string_content))))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_min
+            (anno_name)
             (literal
               (integer_literal
                 (dec_number))))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_max
+            (anno_name)
             (literal
               (string_literal
                 (string_content))))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_max
+            (anno_name)
             (literal
               (integer_literal
                 (dec_number))))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_unit
+            (anno_name)
             (string_literal
               (string_content)))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_bit_bound
+            (anno_name)
             (integer_literal
               (dec_number)))))
       (annotation_appl
         (annotation_appl_builtin_body
-          (annotation_appl_external)))
+          (annotation_appl_external
+            (anno_name))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_external
+            (anno_name)
             (boolean_literal))))
-      (annotation_appl
-        (annotation_appl_builtin_body
-          (annotation_appl_nested)))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_nested
+            (anno_name))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_nested
+            (anno_name)
             (boolean_literal))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_verbatim
+            (anno_name)
             (string_literal
               (string_content)))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_verbatim
+            (anno_name)
             (verbatim_language)
             (string_literal
               (string_content)))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_verbatim
+            (anno_name)
             (placement_kind)
             (string_literal
               (string_content)))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_verbatim
+            (anno_name)
             (verbatim_language)
             (placement_kind)
             (string_literal
               (string_content)))))
       (annotation_appl
         (annotation_appl_builtin_body
-          (annotation_appl_service)))
+          (annotation_appl_service
+            (anno_name))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_service
+            (anno_name)
             (service_platform))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_service
+            (anno_name)
             (service_platform))))
-      (annotation_appl
-        (annotation_appl_builtin_body
-          (annotation_appl_oneway)))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_oneway
-            (boolean_literal))))
+            (anno_name))))
       (annotation_appl
         (annotation_appl_builtin_body
-          (annotation_appl_ami)))
+          (annotation_appl_oneway
+            (anno_name)
+            (boolean_literal))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_ami
+            (anno_name))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_ami
+            (anno_name)
             (boolean_literal))))
       (constr_type_dcl
         (struct_dcl
@@ -264,6 +322,75 @@ struct A {
   (definition
     (type_dcl
       (constr_type_dcl
+        (enum_dcl
+          (identifier)
+          (enumerator
+            (identifier))
+          (enumerator
+            (identifier))
+          (enumerator
+            (enum_modifier)
+            (identifier))
+          (enumerator
+            (identifier))))))
+  (definition
+    (type_dcl
+      (constr_type_dcl
+        (enum_dcl
+          (enum_anno)
+          (identifier)
+          (enumerator
+            (identifier))
+          (enumerator
+            (identifier))
+          (enumerator
+            (identifier))
+          (enumerator
+            (identifier))))))
+  (definition
+    (type_dcl
+      (constr_type_dcl
         (struct_dcl
           (struct_def
-            (identifier)))))))
+            (identifier)
+            (member
+              (annotation_appl
+                (annotation_appl_builtin_body
+                  (annotation_appl_try_construct
+                    (anno_name))))
+              (type_spec
+                (simple_type_spec
+                  (base_type_spec
+                    (integer_type
+                      (signed_int
+                        (signed_long_int))))))
+              (declarators
+                (declarator
+                  (simple_declarator
+                    (identifier)))))
+            (member
+              (annotation_appl
+                (annotation_appl_builtin_body
+                  (annotation_appl_try_construct
+                    (anno_name)
+                    (try_construct_fail_action))))
+              (type_spec
+                (template_type_spec
+                  (string_type
+                    (positive_int_const
+                      (const_expr
+                        (or_expr
+                          (xor_expr
+                            (and_expr
+                              (shift_expr
+                                (add_expr
+                                  (mult_expr
+                                    (unary_expr
+                                      (primary_expr
+                                        (literal
+                                          (integer_literal
+                                            (dec_number))))))))))))))))
+              (declarators
+                (declarator
+                  (simple_declarator
+                    (identifier)))))))))))
