@@ -1,5 +1,22 @@
 # Changelog
 
+## [3.0.0](https://github.com/cathaysia/tree-sitter-idl/compare/v2.6.1...v3.0.0) (2024-07-22)
+
+
+### ⚠ BREAKING CHANGES
+
+* **annotation:** queries has been updated.
+
+### Features
+
+* **annotation:** make builtin anno case insensive, impl XTYPES 7.3.1.2.1 Built-in Annotations ([57165a0](https://github.com/cathaysia/tree-sitter-idl/commit/57165a0705fc82fca2fc00535f65699472a9c746))
+* **union:** remove enum_anno ([57165a0](https://github.com/cathaysia/tree-sitter-idl/commit/57165a0705fc82fca2fc00535f65699472a9c746))
+
+
+### Bug Fixes
+
+* **query:** fix queries ([57165a0](https://github.com/cathaysia/tree-sitter-idl/commit/57165a0705fc82fca2fc00535f65699472a9c746))
+
 ## [2.6.1](https://github.com/cathaysia/tree-sitter-idl/compare/v2.6.0...v2.6.1) (2024-07-22)
 
 
