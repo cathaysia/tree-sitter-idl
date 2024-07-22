@@ -77,6 +77,8 @@
   (map_type)
   (object_type)
   (value_base_type)
+  (wide_string_type)
+  (wide_char_type)
 ] @type.builtin
 
 (escape_sequence) @string.escape
@@ -94,7 +96,11 @@
 
 (char_literal) @character
 
+(wide_character_literal) @character
+
 (string_literal) @string
+
+(wide_string_literal) @string
 
 [
   "("
@@ -357,3 +363,17 @@
 (extend_annotation_appl
   "//@" @attribute.builtin
   (annotation_appl_builtin_body))
+
+[
+  (autoid_kind)
+  (extensibility_kind)
+  (verbatim_language)
+  (placement_kind)
+  (service_platform)
+  (try_construct_fail_action)
+  (data_representation_mask)
+] @constant
+
+(anno_name) @attribute.builtin
+
+(range_kind) @attribute.builtin
