@@ -331,7 +331,10 @@ struct T1 {
           (enumerator
             (identifier))
           (enumerator
-            (enum_modifier)
+            (annotation_appl
+              (annotation_appl_builtin_body
+                (annotation_appl_default_literal
+                  (anno_name))))
             (identifier))
           (enumerator
             (identifier))))))

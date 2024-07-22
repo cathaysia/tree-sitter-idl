@@ -2145,11 +2145,6 @@
     }
   },
   {
-    "type": "enum_modifier",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "enumerator",
     "named": true,
     "fields": {},
@@ -2158,7 +2153,7 @@
       "required": true,
       "types": [
         {
-          "type": "enum_modifier",
+          "type": "annotation_appl",
           "named": true
         },
         {
@@ -4933,10 +4928,6 @@
   },
   {
     "type": "@annotation",
-    "named": false
-  },
-  {
-    "type": "@default_literal",
     "named": false
   },
   {

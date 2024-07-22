@@ -5038,21 +5038,12 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "enum_modifier"
+            "name": "annotation_appl"
           }
         },
         {
           "type": "SYMBOL",
           "name": "identifier"
-        }
-      ]
-    },
-    "enum_modifier": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "@default_literal"
         }
       ]
     },
