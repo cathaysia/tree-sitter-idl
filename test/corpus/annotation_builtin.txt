@@ -45,6 +45,13 @@ annotation_builtin
 @ami(FALSE)
 struct A{};
 
+@Custom()
+@Custom
+struct A {
+};
+struct A {
+};
+
 ----
 
 (specification
@@ -236,6 +243,26 @@ struct A{};
         (annotation_appl_builtin_body
           (annotation_appl_ami
             (boolean_literal))))
+      (constr_type_dcl
+        (struct_dcl
+          (struct_def
+            (identifier))))))
+  (definition
+    (type_dcl
+      (annotation_appl
+        (annotation_appl_custom_body
+          (scoped_name
+            (identifier))))
+      (annotation_appl
+        (annotation_appl_custom_body
+          (scoped_name
+            (identifier))))
+      (constr_type_dcl
+        (struct_dcl
+          (struct_def
+            (identifier))))))
+  (definition
+    (type_dcl
       (constr_type_dcl
         (struct_dcl
           (struct_def

@@ -2489,8 +2489,16 @@
                     "value": "("
                   },
                   {
-                    "type": "SYMBOL",
-                    "name": "annotation_appl_params"
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "annotation_appl_params"
+                      },
+                      {
+                        "type": "BLANK"
+                      }
+                    ]
                   },
                   {
                     "type": "STRING",

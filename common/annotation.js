@@ -43,7 +43,10 @@ exports.rules = {
     ),
   annotation_appl_custom_body: $ =>
     prec.left(
-      seq($.scoped_name, optional(seq('(', $.annotation_appl_params, ')'))),
+      seq(
+        $.scoped_name,
+        optional(seq('(', optional($.annotation_appl_params), ')')),
+      ),
     ),
   annotation_appl_params: $ =>
     choice($.const_expr, commaSep1($.annotation_appl_param)),
