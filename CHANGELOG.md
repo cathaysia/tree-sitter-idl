@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.2](https://github.com/cathaysia/tree-sitter-idl/compare/v3.1.1...v3.1.2) (2024-07-26)
+
+
+### Bug Fixes
+
+* **annotation:** using positive_int_const for no_serialize ([61f48c8](https://github.com/cathaysia/tree-sitter-idl/commit/61f48c82af341baaca78929e150e1cc0f68d24c6))
+
 ## [3.1.1](https://github.com/cathaysia/tree-sitter-idl/compare/v3.1.0...v3.1.1) (2024-07-26)
 
 
