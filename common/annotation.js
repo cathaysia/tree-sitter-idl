@@ -110,8 +110,7 @@ exports.rules = {
   annotation_appl_must_understand: $ =>
     create_anno($, /must_understand/i, true, $.positive_int_const),
   annotation_appl_default_literal: $ => create_anno($, /default_literal/i),
-  annotation_appl_default: $ =>
-    create_anno($, /default/i, false, $.positive_int_const),
+  annotation_appl_default: $ => create_anno($, /default/i, false, $.const_expr),
   annotation_appl_range: $ =>
     create_anno(
       $,

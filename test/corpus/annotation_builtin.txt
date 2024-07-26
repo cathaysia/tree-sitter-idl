@@ -232,36 +232,34 @@ struct T1 {
         (annotation_appl_builtin_body
           (annotation_appl_default
             (anno_name)
-            (positive_int_const
-              (const_expr
-                (or_expr
-                  (xor_expr
-                    (and_expr
-                      (shift_expr
-                        (add_expr
-                          (mult_expr
-                            (unary_expr
-                              (primary_expr
-                                (literal
-                                  (integer_literal
-                                    (dec_number))))))))))))))))
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (literal
+                                (integer_literal
+                                  (dec_number)))))))))))))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_default
             (anno_name)
-            (positive_int_const
-              (const_expr
-                (or_expr
-                  (xor_expr
-                    (and_expr
-                      (shift_expr
-                        (add_expr
-                          (mult_expr
-                            (unary_expr
-                              (primary_expr
-                                (literal
-                                  (string_literal
-                                    (string_content))))))))))))))))
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (literal
+                                (string_literal
+                                  (string_content)))))))))))))))
       (annotation_appl
         (annotation_appl_builtin_body
           (annotation_appl_range

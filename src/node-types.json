@@ -396,7 +396,7 @@
       "required": true,
       "types": [
         {
-          "type": "positive_int_const",
+          "type": "const_expr",
           "named": true
         }
       ]
