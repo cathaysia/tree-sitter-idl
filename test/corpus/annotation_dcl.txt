@@ -117,8 +117,19 @@ bitmask DataRepresentationMask {
         (annotation_appl_builtin_body
           (annotation_appl_bit_bound
             (anno_name)
-            (integer_literal
-              (dec_number)))))
+            (positive_int_const
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (primary_expr
+                                (literal
+                                  (integer_literal
+                                    (dec_number))))))))))))))))
       (constr_type_dcl
         (bitmask_dcl
           (identifier)
@@ -127,16 +138,38 @@ bitmask DataRepresentationMask {
               (annotation_appl_builtin_body
                 (annotation_appl_position
                   (anno_name)
-                  (integer_literal
-                    (dec_number)))))
+                  (positive_int_const
+                    (const_expr
+                      (or_expr
+                        (xor_expr
+                          (and_expr
+                            (shift_expr
+                              (add_expr
+                                (mult_expr
+                                  (unary_expr
+                                    (primary_expr
+                                      (literal
+                                        (integer_literal
+                                          (dec_number))))))))))))))))
             (identifier))
           (bit_value
             (annotation_appl
               (annotation_appl_builtin_body
                 (annotation_appl_position
                   (anno_name)
-                  (integer_literal
-                    (dec_number)))))
+                  (positive_int_const
+                    (const_expr
+                      (or_expr
+                        (xor_expr
+                          (and_expr
+                            (shift_expr
+                              (add_expr
+                                (mult_expr
+                                  (unary_expr
+                                    (primary_expr
+                                      (literal
+                                        (integer_literal
+                                          (dec_number))))))))))))))))
             (identifier))
           (bit_value
             (annotation_appl

@@ -114,7 +114,7 @@
       "required": false,
       "types": [
         {
-          "type": "boolean_literal",
+          "type": "const_expr",
           "named": true
         }
       ]
@@ -182,7 +182,7 @@
       "required": true,
       "types": [
         {
-          "type": "integer_literal",
+          "type": "positive_int_const",
           "named": true
         }
       ]
@@ -396,7 +396,7 @@
       "required": true,
       "types": [
         {
-          "type": "literal",
+          "type": "positive_int_const",
           "named": true
         }
       ]
@@ -438,7 +438,7 @@
       "required": false,
       "types": [
         {
-          "type": "boolean_literal",
+          "type": "const_expr",
           "named": true
         }
       ]
@@ -490,7 +490,7 @@
       "required": false,
       "types": [
         {
-          "type": "boolean_literal",
+          "type": "positive_int_const",
           "named": true
         }
       ]
@@ -532,7 +532,7 @@
       "required": false,
       "types": [
         {
-          "type": "string_literal",
+          "type": "const_expr",
           "named": true
         }
       ]
@@ -584,7 +584,7 @@
       "required": false,
       "types": [
         {
-          "type": "boolean_literal",
+          "type": "const_expr",
           "named": true
         }
       ]
@@ -610,7 +610,7 @@
       "required": false,
       "types": [
         {
-          "type": "boolean_literal",
+          "type": "positive_int_const",
           "named": true
         }
       ]
@@ -636,7 +636,7 @@
       "required": true,
       "types": [
         {
-          "type": "literal",
+          "type": "positive_int_const",
           "named": true
         }
       ]
@@ -662,7 +662,7 @@
       "required": true,
       "types": [
         {
-          "type": "literal",
+          "type": "positive_int_const",
           "named": true
         }
       ]
@@ -688,7 +688,7 @@
       "required": false,
       "types": [
         {
-          "type": "boolean_literal",
+          "type": "positive_int_const",
           "named": true
         }
       ]
@@ -730,7 +730,7 @@
       "required": false,
       "types": [
         {
-          "type": "boolean_literal",
+          "type": "positive_int_const",
           "named": true
         }
       ]
@@ -756,7 +756,7 @@
       "required": false,
       "types": [
         {
-          "type": "boolean_literal",
+          "type": "const_expr",
           "named": true
         }
       ]
@@ -782,7 +782,7 @@
       "required": false,
       "types": [
         {
-          "type": "boolean_literal",
+          "type": "const_expr",
           "named": true
         }
       ]
@@ -808,7 +808,7 @@
       "required": false,
       "types": [
         {
-          "type": "boolean_literal",
+          "type": "positive_int_const",
           "named": true
         }
       ]
@@ -872,7 +872,7 @@
       "required": true,
       "types": [
         {
-          "type": "integer_literal",
+          "type": "positive_int_const",
           "named": true
         }
       ]
@@ -949,7 +949,7 @@
         "required": true,
         "types": [
           {
-            "type": "string_literal",
+            "type": "const_expr",
             "named": true
           }
         ]
@@ -1012,7 +1012,7 @@
       "required": true,
       "types": [
         {
-          "type": "string_literal",
+          "type": "const_expr",
           "named": true
         }
       ]
@@ -1038,7 +1038,7 @@
       "required": true,
       "types": [
         {
-          "type": "literal",
+          "type": "const_expr",
           "named": true
         }
       ]
@@ -1091,7 +1091,7 @@
         "required": true,
         "types": [
           {
-            "type": "string_literal",
+            "type": "const_expr",
             "named": true
           }
         ]
@@ -3123,7 +3123,7 @@
       "required": true,
       "types": [
         {
-          "type": "literal",
+          "type": "positive_int_const",
           "named": true
         },
         {
@@ -3186,7 +3186,7 @@
       "required": true,
       "types": [
         {
-          "type": "literal",
+          "type": "positive_int_const",
           "named": true
         },
         {

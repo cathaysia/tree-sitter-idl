@@ -96,21 +96,22 @@ exports.rules = {
     create_anno($, /autoid/i, true, optional($.autoid_kind)),
   autoid_kind: _ => choice(/SEQUENTIAL/i, /HASH/i),
   annotation_appl_optional: $ =>
-    create_anno($, /optional/i, true, optional($.boolean_literal)),
+    create_anno($, /optional/i, true, optional($.positive_int_const)),
   annotation_appl_position: $ =>
-    create_anno($, /position/i, false, $.integer_literal),
-  annotation_appl_value: $ => create_anno($, /value/i, false, $.literal),
+    create_anno($, /position/i, false, $.positive_int_const),
+  annotation_appl_value: $ => create_anno($, /value/i, false, $.const_expr),
   annotation_appl_extensibility: $ =>
     create_anno($, /extensibility/i, false, $.extensibility_kind),
   extensibility_kind: _ => choice(/FINAL/i, /APPENDABLE/i, /MUTABLE/i),
   annotation_appl_final: $ => create_anno($, /final/i),
   annotation_appl_appendable: $ => create_anno($, /appendable/i),
   annotation_appl_mutable: $ => create_anno($, /mutable/i),
-  annotation_appl_key: $ => create_anno($, /key/i, true, $.boolean_literal),
+  annotation_appl_key: $ => create_anno($, /key/i, true, $.positive_int_const),
   annotation_appl_must_understand: $ =>
-    create_anno($, /must_understand/i, true, $.boolean_literal),
+    create_anno($, /must_understand/i, true, $.positive_int_const),
   annotation_appl_default_literal: $ => create_anno($, /default_literal/i),
-  annotation_appl_default: $ => create_anno($, /default/i, false, $.literal),
+  annotation_appl_default: $ =>
+    create_anno($, /default/i, false, $.positive_int_const),
   annotation_appl_range: $ =>
     create_anno(
       $,
@@ -120,17 +121,17 @@ exports.rules = {
       ',',
       field('max', $.max_expr),
     ),
-  min_expr: $ => seq(alias(/min/i, $.range_kind), '=', $.literal),
-  max_expr: $ => seq(alias(/max/i, $.range_kind), '=', $.literal),
-  annotation_appl_min: $ => create_anno($, /min/i, false, $.literal),
-  annotation_appl_max: $ => create_anno($, /max/i, false, $.literal),
-  annotation_appl_unit: $ => create_anno($, /unit/i, false, $.string_literal),
+  min_expr: $ => seq(alias(/min/i, $.range_kind), '=', $.positive_int_const),
+  max_expr: $ => seq(alias(/max/i, $.range_kind), '=', $.positive_int_const),
+  annotation_appl_min: $ => create_anno($, /min/i, false, $.positive_int_const),
+  annotation_appl_max: $ => create_anno($, /max/i, false, $.positive_int_const),
+  annotation_appl_unit: $ => create_anno($, /unit/i, false, $.const_expr),
   annotation_appl_bit_bound: $ =>
-    create_anno($, /bit_bound/i, false, $.integer_literal),
+    create_anno($, /bit_bound/i, false, $.positive_int_const),
   annotation_appl_external: $ =>
-    create_anno($, /external/i, true, $.boolean_literal),
+    create_anno($, /external/i, true, $.positive_int_const),
   annotation_appl_nested: $ =>
-    create_anno($, /nested/i, true, $.boolean_literal),
+    create_anno($, /nested/i, true, $.positive_int_const),
   annotation_appl_verbatim: $ =>
     create_anno(
       $,
@@ -138,7 +139,7 @@ exports.rules = {
       false,
       field('language', optional(seq($.verbatim_language, ','))),
       field('placement', optional(seq($.placement_kind, ','))),
-      field('text', $.string_literal),
+      field('text', $.const_expr),
     ),
   verbatim_language: $ => choice(/c/i, /c+i+/, /java/i, /idl/i, '*'),
   placement_kind: $ =>
@@ -153,20 +154,19 @@ exports.rules = {
   annotation_appl_service: $ =>
     create_anno($, /service/i, true, $.service_platform),
   service_platform: $ => choice(/CORBA/i, /DDS/i, '*'),
-  annotation_appl_oneway: $ =>
-    create_anno($, /oneway/i, true, $.boolean_literal),
-  annotation_appl_ami: $ => create_anno($, /ami/i, true, $.boolean_literal),
+  annotation_appl_oneway: $ => create_anno($, /oneway/i, true, $.const_expr),
+  annotation_appl_ami: $ => create_anno($, /ami/i, true, $.const_expr),
 
-  annotation_appl_hashid: $ => create_anno($, 'hashid', true, $.string_literal), // 7.3.1.2.1.1 Member IDs
+  annotation_appl_hashid: $ => create_anno($, 'hashid', true, $.const_expr), // 7.3.1.2.1.1 Member IDs
   annotation_appl_default_nested: $ =>
-    create_anno($, /default_nested/i, true, $.boolean_literal), // 7.3.1.2.1.7 Nested Types
+    create_anno($, /default_nested/i, true, $.const_expr), // 7.3.1.2.1.7 Nested Types
   annotation_appl_ignore_literal_names: $ =>
-    create_anno($, /ignore_literal_names/i, true, $.boolean_literal), // 7.3.1.2.1.11 Ignore Literal Names for Enumeration
+    create_anno($, /ignore_literal_names/i, true, $.const_expr), // 7.3.1.2.1.11 Ignore Literal Names for Enumeration
   annotation_appl_try_construct: $ =>
     create_anno($, /try_construct/i, true, $.try_construct_fail_action), // 7.3.1.2.1.12 TryConstruct Elements and Members
   try_construct_fail_action: _ => choice(/DISCARD/i, /USE_DEFAULT/i, /TRIM/i),
   annotation_appl_non_serialized: $ =>
-    create_anno($, /non_serialized/i, true, $.boolean_literal), // 7.3.1.2.1.14 Non-serialized Members
+    create_anno($, /non_serialized/i, true, $.const_expr), // 7.3.1.2.1.14 Non-serialized Members
   annotation_appl_data_representation: $ =>
     create_anno(
       $,
@@ -187,8 +187,17 @@ exports.rules = {
       field('name', /topic/i),
       optional(
         seq(
-          optional(field('name', $.string_literal)),
-          optional(field('platform', $.topic_platform)),
+          '(',
+          choice(
+            field('name', $.const_expr),
+            field('platform', $.topic_platform),
+            seq(
+              field('name', $.const_expr),
+              ',',
+              field('platform', $.topic_platform),
+            ),
+          ),
+          ')',
         ),
       ),
     ),

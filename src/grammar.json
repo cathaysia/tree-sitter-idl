@@ -2832,7 +2832,7 @@
                   "members": [
                     {
                       "type": "SYMBOL",
-                      "name": "boolean_literal"
+                      "name": "positive_int_const"
                     },
                     {
                       "type": "BLANK"
@@ -2875,7 +2875,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "integer_literal"
+          "name": "positive_int_const"
         },
         {
           "type": "STRING",
@@ -2906,7 +2906,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "literal"
+          "name": "const_expr"
         },
         {
           "type": "STRING",
@@ -3051,7 +3051,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "boolean_literal"
+                  "name": "positive_int_const"
                 },
                 {
                   "type": "STRING",
@@ -3095,7 +3095,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "boolean_literal"
+                  "name": "positive_int_const"
                 },
                 {
                   "type": "STRING",
@@ -3152,7 +3152,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "literal"
+          "name": "positive_int_const"
         },
         {
           "type": "STRING",
@@ -3226,7 +3226,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "literal"
+          "name": "positive_int_const"
         }
       ]
     },
@@ -3249,7 +3249,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "literal"
+          "name": "positive_int_const"
         }
       ]
     },
@@ -3276,7 +3276,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "literal"
+          "name": "positive_int_const"
         },
         {
           "type": "STRING",
@@ -3307,7 +3307,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "literal"
+          "name": "positive_int_const"
         },
         {
           "type": "STRING",
@@ -3338,7 +3338,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "string_literal"
+          "name": "const_expr"
         },
         {
           "type": "STRING",
@@ -3369,7 +3369,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "integer_literal"
+          "name": "positive_int_const"
         },
         {
           "type": "STRING",
@@ -3406,7 +3406,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "boolean_literal"
+                  "name": "positive_int_const"
                 },
                 {
                   "type": "STRING",
@@ -3450,7 +3450,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "boolean_literal"
+                  "name": "positive_int_const"
                 },
                 {
                   "type": "STRING",
@@ -3541,7 +3541,7 @@
           "name": "text",
           "content": {
             "type": "SYMBOL",
-            "name": "string_literal"
+            "name": "const_expr"
           }
         },
         {
@@ -3705,7 +3705,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "boolean_literal"
+                  "name": "const_expr"
                 },
                 {
                   "type": "STRING",
@@ -3749,7 +3749,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "boolean_literal"
+                  "name": "const_expr"
                 },
                 {
                   "type": "STRING",
@@ -3792,7 +3792,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "string_literal"
+                  "name": "const_expr"
                 },
                 {
                   "type": "STRING",
@@ -3836,7 +3836,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "boolean_literal"
+                  "name": "const_expr"
                 },
                 {
                   "type": "STRING",
@@ -3880,7 +3880,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "boolean_literal"
+                  "name": "const_expr"
                 },
                 {
                   "type": "STRING",
@@ -3988,7 +3988,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "boolean_literal"
+                  "name": "const_expr"
                 },
                 {
                   "type": "STRING",
@@ -4098,6 +4098,10 @@
               "type": "SEQ",
               "members": [
                 {
+                  "type": "STRING",
+                  "value": "("
+                },
+                {
                   "type": "CHOICE",
                   "members": [
                     {
@@ -4105,17 +4109,9 @@
                       "name": "name",
                       "content": {
                         "type": "SYMBOL",
-                        "name": "string_literal"
+                        "name": "const_expr"
                       }
                     },
-                    {
-                      "type": "BLANK"
-                    }
-                  ]
-                },
-                {
-                  "type": "CHOICE",
-                  "members": [
                     {
                       "type": "FIELD",
                       "name": "platform",
@@ -4125,9 +4121,35 @@
                       }
                     },
                     {
-                      "type": "BLANK"
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "FIELD",
+                          "name": "name",
+                          "content": {
+                            "type": "SYMBOL",
+                            "name": "const_expr"
+                          }
+                        },
+                        {
+                          "type": "STRING",
+                          "value": ","
+                        },
+                        {
+                          "type": "FIELD",
+                          "name": "platform",
+                          "content": {
+                            "type": "SYMBOL",
+                            "name": "topic_platform"
+                          }
+                        }
+                      ]
                     }
                   ]
+                },
+                {
+                  "type": "STRING",
+                  "value": ")"
                 }
               ]
             },
