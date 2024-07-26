@@ -165,7 +165,7 @@ exports.rules = {
     create_anno($, /try_construct/i, true, $.try_construct_fail_action), // 7.3.1.2.1.12 TryConstruct Elements and Members
   try_construct_fail_action: _ => choice(/DISCARD/i, /USE_DEFAULT/i, /TRIM/i),
   annotation_appl_non_serialized: $ =>
-    create_anno($, /non_serialized/i, true, $.const_expr), // 7.3.1.2.1.14 Non-serialized Members
+    create_anno($, /non_serialized/i, true, $.positive_int_const), // 7.3.1.2.1.14 Non-serialized Members
   annotation_appl_data_representation: $ =>
     create_anno(
       $,

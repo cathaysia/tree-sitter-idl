@@ -3988,7 +3988,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "const_expr"
+                  "name": "positive_int_const"
                 },
                 {
                   "type": "STRING",

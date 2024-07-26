@@ -756,7 +756,7 @@
       "required": false,
       "types": [
         {
-          "type": "const_expr",
+          "type": "positive_int_const",
           "named": true
         }
       ]
