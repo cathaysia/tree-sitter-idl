@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.1](https://github.com/cathaysia/tree-sitter-idl/compare/v3.1.0...v3.1.1) (2024-07-26)
+
+
+### Bug Fixes
+
+* **anno:** using const_expor for default ([b4a3f27](https://github.com/cathaysia/tree-sitter-idl/commit/b4a3f27359e226c6a38b1d6e6e86251cd5c3c3fd))
+
 ## [3.1.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.0.0...v3.1.0) (2024-07-26)
 
 
