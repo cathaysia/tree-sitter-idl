@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.0.0...v3.1.0) (2024-07-26)
+
+
+### Features
+
+* **annotation:** fix topic parse, using positive_const_int/cosnt_expr but not literal ([81cdda6](https://github.com/cathaysia/tree-sitter-idl/commit/81cdda6a83a43c81de39d912a2c0ea5f7635f897))
+
 ## [3.0.0](https://github.com/cathaysia/tree-sitter-idl/compare/v2.6.1...v3.0.0) (2024-07-22)
 
 
