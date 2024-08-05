@@ -87,3 +87,12 @@ const u8 A = 0b010101;
 union A switch(octet) {};
 //              ^ allow
 ```
+
+### allow comma at last of enumator
+
+```idl
+enum A {
+    A,
+//   ^ allow
+};
+```
