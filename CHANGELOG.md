@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.1.2...v3.2.0) (2024-08-05)
+
+
+### Features
+
+* **idl:** allow comma at last of enumator ([2686f50](https://github.com/cathaysia/tree-sitter-idl/commit/2686f50604399cadd679dd649f908d2a67240ebe))
+
 ## [3.1.2](https://github.com/cathaysia/tree-sitter-idl/compare/v3.1.1...v3.1.2) (2024-07-26)
 
 
