@@ -27,7 +27,7 @@ jobs:
         uses: tree-sitter/parser-test-action@v2
         with:
           lint: false
-          generate: true
+          generate: false
           test-grammar: true
           test-library: true
       - name: Verify grammar consistency
