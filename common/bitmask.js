@@ -22,6 +22,13 @@ exports.rules = {
   destination_type: $ => choice($.boolean_type, $.octet_type, $.integer_type),
 
   bitmask_dcl: $ =>
-    seq('bitmask', $.identifier, '{', commaSep($.bit_value), '}'),
+    seq(
+      'bitmask',
+      $.identifier,
+      '{',
+      commaSep($.bit_value),
+      optional(','),
+      '}',
+    ),
   bit_value: $ => seq(repeat($.annotation_appl), $.identifier),
 }

@@ -95,4 +95,9 @@ enum A {
     A,
 //   ^ allow
 };
+
+bitmask A {
+    @position(0) a,
+//                ^ allow
+};
 ```
