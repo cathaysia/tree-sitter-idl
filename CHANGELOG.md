@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.3.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.2.0...v3.3.0) (2024-08-06)
+
+
+### Features
+
+* **bitmask:** allow comma after bitvalue ([da3daae](https://github.com/cathaysia/tree-sitter-idl/commit/da3daae7b94ea156de62897500e9acd226580822))
+
 ## [3.2.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.1.2...v3.2.0) (2024-08-05)
 
 
