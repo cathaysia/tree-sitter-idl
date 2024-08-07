@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.5.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.4.0...v3.5.0) (2024-08-07)
+
+
+### Features
+
+* **annotation:** add interface_kind and attribute ([8cef209](https://github.com/cathaysia/tree-sitter-idl/commit/8cef2094b67248fa9f4c8b7bc1be031e231d9e6b))
+
 ## [3.4.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.3.0...v3.4.0) (2024-08-07)
 
 
