@@ -190,3 +190,27 @@ bitmask DataRepresentationMask {
                                       (integer_literal
                                         (dec_number)))))))))))))))
             (identifier)))))))
+
+================
+interface_kind
+================
+
+@annotation
+local interface DDSRequestTopic {
+  attribute string name;
+};
+
+----
+
+(specification
+  (definition
+    (annotation_dcl
+      (interface_kind)
+      (identifier)
+      (annotation_body
+        (annotation_member
+          (annotation_member_type
+            (const_type
+              (string_type)))
+          (simple_declarator
+            (identifier)))))))

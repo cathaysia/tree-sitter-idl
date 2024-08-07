@@ -4,6 +4,7 @@ exports.rules = {
   annotation_dcl: $ =>
     seq(
       token(prec(2, '@annotation')),
+      optional($.interface_kind), // DDS_RPC 1.0
       $.identifier,
       '{',
       repeat($.annotation_body),
@@ -16,6 +17,7 @@ exports.rules = {
     ),
   annotation_member: $ =>
     seq(
+      optional('attribute'), // DDS_RPC 1.0
       $.annotation_member_type,
       $.simple_declarator,
       optional(seq('default', $.const_expr)),
