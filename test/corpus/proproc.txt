@@ -1,0 +1,55 @@
+=========
+include
+=========
+
+#include "aaaa"
+
+----
+
+(specification
+  (definition
+    (preproc_include
+      (keyword_include)
+      (string_literal
+        (string_content)))))
+
+======
+any
+======
+
+#ifdef BASIC
+
+module A {};
+
+-----
+
+(specification
+  (definition
+    (preproc_call
+      (preproc_directive)
+      (preproc_arg)))
+  (definition
+    (module_dcl
+      (identifier))))
+
+========
+empty
+========
+
+#program once
+
+module A {}; #endif
+
+------
+
+(specification
+  (definition
+    (preproc_call
+      (preproc_directive)
+      (preproc_arg)))
+  (definition
+    (module_dcl
+      (identifier)))
+  (definition
+    (preproc_call
+      (preproc_directive))))

@@ -8,18 +8,6 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "preproc_include"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "preproc_call"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "preproc_define"
-          },
-          {
-            "type": "SYMBOL",
             "name": "definition"
           }
         ]
@@ -6523,84 +6511,101 @@
       ]
     },
     "definition": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
-          "type": "CHOICE",
+          "type": "SEQ",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "module_dcl"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "module_dcl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "type_dcl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "const_dcl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "except_dcl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "interface_dcl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "annotation_dcl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "template_module_dcl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "template_module_inst"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "value_dcl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "type_id_dcl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "type_prefix_dcl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "import_dcl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "component_dcl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "home_dcl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "event_dcl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "porttype_dcl"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "connector_dcl"
+                }
+              ]
             },
             {
-              "type": "SYMBOL",
-              "name": "type_dcl"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "const_dcl"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "except_dcl"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "interface_dcl"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "annotation_dcl"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "template_module_dcl"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "template_module_inst"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "value_dcl"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "type_id_dcl"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "type_prefix_dcl"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "import_dcl"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "component_dcl"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "home_dcl"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "event_dcl"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "porttype_dcl"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "connector_dcl"
+              "type": "STRING",
+              "value": ";"
             }
           ]
         },
         {
-          "type": "STRING",
-          "value": ";"
+          "type": "SYMBOL",
+          "name": "preproc_include"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "preproc_call"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "preproc_define"
         }
       ]
     },

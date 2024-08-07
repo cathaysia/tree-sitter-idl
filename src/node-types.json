@@ -2030,6 +2030,18 @@
           "named": true
         },
         {
+          "type": "preproc_call",
+          "named": true
+        },
+        {
+          "type": "preproc_define",
+          "named": true
+        },
+        {
+          "type": "preproc_include",
+          "named": true
+        },
+        {
           "type": "template_module_dcl",
           "named": true
         },
@@ -3915,18 +3927,6 @@
       "types": [
         {
           "type": "definition",
-          "named": true
-        },
-        {
-          "type": "preproc_call",
-          "named": true
-        },
-        {
-          "type": "preproc_define",
-          "named": true
-        },
-        {
-          "type": "preproc_include",
           "named": true
         }
       ]
