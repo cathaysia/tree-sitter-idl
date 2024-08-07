@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.4.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.3.0...v3.4.0) (2024-08-07)
+
+
+### Features
+
+* **directive:** move directive to define ([2ba450b](https://github.com/cathaysia/tree-sitter-idl/commit/2ba450b667079b63d2e858ac2ca039edec3d97d6))
+
 ## [3.3.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.2.0...v3.3.0) (2024-08-06)
 
 
