@@ -368,3 +368,70 @@ interface A {
                         (identifier))))
                   (simple_declarator
                     (identifier)))))))))))
+
+=========
+rpc
+=========
+
+@DDSService
+interface A {
+    @key
+    attribute u8 a;
+    @key
+    void fun();
+};
+
+@key
+typedef u8 a;
+
+----
+
+(specification
+  (definition
+    (interface_dcl
+      (annotation_appl
+        (annotation_appl_custom_body
+          (scoped_name
+            (identifier))))
+      (interface_def
+        (interface_header
+          (interface_kind)
+          (identifier))
+        (interface_body
+          (export
+            (attr_dcl
+              (annotation_appl
+                (annotation_appl_builtin_body
+                  (annotation_appl_key
+                    (anno_name))))
+              (attr_spec
+                (type_spec
+                  (simple_type_spec
+                    (scoped_name
+                      (identifier))))
+                (attr_declarator
+                  (simple_declarator
+                    (identifier))))))
+          (export
+            (op_dcl
+              (annotation_appl
+                (annotation_appl_builtin_body
+                  (annotation_appl_key
+                    (anno_name))))
+              (op_type_spec)
+              (identifier)))))))
+  (definition
+    (type_dcl
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_key
+            (anno_name))))
+      (typedef_dcl
+        (type_declarator
+          (simple_type_spec
+            (scoped_name
+              (identifier)))
+          (any_declarators
+            (any_declarator
+              (simple_declarator
+                (identifier)))))))))

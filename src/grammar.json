@@ -1655,6 +1655,13 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "annotation_appl"
+          }
+        },
+        {
           "type": "SYMBOL",
           "name": "op_type_spec"
         },
@@ -1819,15 +1826,27 @@
       ]
     },
     "attr_dcl": {
-      "type": "CHOICE",
+      "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "readonly_attr_spec"
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "annotation_appl"
+          }
         },
         {
-          "type": "SYMBOL",
-          "name": "attr_spec"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "readonly_attr_spec"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "attr_spec"
+            }
+          ]
         }
       ]
     },

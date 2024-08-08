@@ -43,6 +43,7 @@ exports.rules = {
     ),
   op_dcl: $ =>
     seq(
+      repeat($.annotation_appl), // RPC v1.0
       $.op_type_spec,
       $.identifier,
       '(',
@@ -56,7 +57,11 @@ exports.rules = {
     seq(optional($.param_attribute), $.type_spec, $.simple_declarator),
   param_attribute: $ => choice('in', 'out', 'inout'),
   raises_expr: $ => seq('raises', '(', commaSep1($.scoped_name), ')'),
-  attr_dcl: $ => choice($.readonly_attr_spec, $.attr_spec),
+  attr_dcl: $ =>
+    seq(
+      repeat($.annotation_appl), // RPC v1.0
+      choice($.readonly_attr_spec, $.attr_spec),
+    ),
   readonly_attr_spec: $ =>
     seq('readonly', 'attribute', $.type_spec, $.readonly_attr_declarator),
   readonly_attr_declarator: $ =>
