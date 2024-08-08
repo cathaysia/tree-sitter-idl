@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.6.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.5.0...v3.6.0) (2024-08-08)
+
+
+### Features
+
+* **interface:** allow attr and op contains annotation ([93974a5](https://github.com/cathaysia/tree-sitter-idl/commit/93974a59eea20344d4a9f7ca22e47fcadab3cf3a))
+
 ## [3.5.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.4.0...v3.5.0) (2024-08-07)
 
 
