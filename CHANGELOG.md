@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.7.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.6.0...v3.7.0) (2024-08-08)
+
+
+### Features
+
+* **annotation:** add [@choice](https://github.com/choice) and [@empty](https://github.com/empty) ([2aecd9b](https://github.com/cathaysia/tree-sitter-idl/commit/2aecd9be1652d6e84468f361ae82fa4db0c00fbf))
+
 ## [3.6.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.5.0...v3.6.0) (2024-08-08)
 
 
