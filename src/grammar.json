@@ -4046,7 +4046,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "positive_int_const"
+                  "name": "boolean_literal"
                 },
                 {
                   "type": "STRING",

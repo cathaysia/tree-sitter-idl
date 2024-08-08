@@ -836,7 +836,7 @@
       "required": false,
       "types": [
         {
-          "type": "positive_int_const",
+          "type": "boolean_literal",
           "named": true
         }
       ]
