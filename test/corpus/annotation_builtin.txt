@@ -758,3 +758,43 @@ struct T1 {
                 (declarator
                   (simple_declarator
                     (identifier)))))))))))
+
+=========
+rpc
+=========
+
+@empty
+@Empty
+@EMPTY
+@Choice
+@choice
+@CHOICE
+interface A {};
+
+----
+
+(specification
+  (definition
+    (interface_dcl
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_empty)))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_empty)))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_empty)))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_choice)))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_choice)))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_choice)))
+      (interface_def
+        (interface_header
+          (interface_kind)
+          (identifier))))))

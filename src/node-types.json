@@ -213,6 +213,10 @@
           "named": true
         },
         {
+          "type": "annotation_appl_choice",
+          "named": true
+        },
+        {
           "type": "annotation_appl_data_representation",
           "named": true
         },
@@ -226,6 +230,10 @@
         },
         {
           "type": "annotation_appl_default_nested",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_empty",
           "named": true
         },
         {
@@ -4980,6 +4988,14 @@
   },
   {
     "type": "anno_name",
+    "named": true
+  },
+  {
+    "type": "annotation_appl_choice",
+    "named": true
+  },
+  {
+    "type": "annotation_appl_empty",
     "named": true
   },
   {

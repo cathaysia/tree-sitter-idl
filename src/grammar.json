@@ -2737,6 +2737,14 @@
         {
           "type": "SYMBOL",
           "name": "annotation_appl_topic"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "annotation_appl_choice"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "annotation_appl_empty"
         }
       ]
     },
@@ -4211,6 +4219,16 @@
           "value": "*"
         }
       ]
+    },
+    "annotation_appl_choice": {
+      "type": "PATTERN",
+      "value": "Choice",
+      "flags": "i"
+    },
+    "annotation_appl_empty": {
+      "type": "PATTERN",
+      "value": "Empty",
+      "flags": "i"
     },
     "template_module_dcl": {
       "type": "PREC_LEFT",

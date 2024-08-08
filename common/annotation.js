@@ -90,6 +90,8 @@ exports.rules = {
       $.annotation_appl_data_representation,
       $.data_representation_mask,
       $.annotation_appl_topic,
+      $.annotation_appl_choice,
+      $.annotation_appl_empty,
     ),
 
   // IDL 4.2 8.3 Standardized Groups of Annotations
@@ -203,6 +205,8 @@ exports.rules = {
       ),
     ),
   topic_platform: $ => choice(/DDS/i, '*'),
+  annotation_appl_choice: _ => /Choice/i, // RPC v1.0
+  annotation_appl_empty: _ => /Empty/i, // RPC v1.0
 }
 
 function create_anno($, name, is_optional, ...args) {

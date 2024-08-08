@@ -7,7 +7,7 @@ OMG IDL 4.2(with XTypes extension) grammar for [tree-sitter](https://github.com/
 
 ## current state
 
-IDL 4.2:
+IDL v4.2:
 
 - [x] 7.3 Preprocessing(partial)
 - [x] 7.4.1 Building Block Core Data Types
@@ -28,10 +28,15 @@ IDL 4.2:
 - [x] 7.4.16 Relationships between the Building Blocks
 - [x] 8 Standardized Annotations
 
-DDS-XTypes:
+DDS-XTypes v1.3:
 
 - [x] 7.3.1.2.3 Alternative Annotation Syntax
 - [x] 7.3.1.2.1 Built-in Annotations
+
+DDS-RPC v1.0:
+
+- [x] 7.3.1 Service Definition in IDL
+- [x] 7.5.1.2.1 Annotations for the Enhanced Service Mapping
 
 ## extends
 
