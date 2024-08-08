@@ -221,6 +221,18 @@
           "named": true
         },
         {
+          "type": "annotation_appl_dds_reply_topic",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_dds_request_topic",
+          "named": true
+        },
+        {
+          "type": "annotation_appl_dds_service",
+          "named": true
+        },
+        {
           "type": "annotation_appl_default",
           "named": true
         },
@@ -379,6 +391,66 @@
       "types": [
         {
           "type": "data_representation_mask",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_dds_reply_topic",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "anno_name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arg_key",
+          "named": true
+        },
+        {
+          "type": "const_expr",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "annotation_appl_dds_request_topic",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "anno_name",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "arg_key",
+          "named": true
+        },
+        {
+          "type": "const_expr",
           "named": true
         }
       ]
@@ -4995,12 +5067,20 @@
     "named": true
   },
   {
+    "type": "annotation_appl_dds_service",
+    "named": true
+  },
+  {
     "type": "annotation_appl_empty",
     "named": true
   },
   {
     "type": "any",
     "named": false
+  },
+  {
+    "type": "arg_key",
+    "named": true
   },
   {
     "type": "attribute",

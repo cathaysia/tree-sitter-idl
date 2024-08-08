@@ -92,6 +92,9 @@ exports.rules = {
       $.annotation_appl_topic,
       $.annotation_appl_choice,
       $.annotation_appl_empty,
+      $.annotation_appl_dds_service,
+      $.annotation_appl_dds_reply_topic,
+      $.annotation_appl_dds_request_topic,
     ),
 
   // IDL 4.2 8.3 Standardized Groups of Annotations
@@ -207,6 +210,23 @@ exports.rules = {
   topic_platform: $ => choice(/DDS/i, '*'),
   annotation_appl_choice: _ => /Choice/i, // RPC v1.0
   annotation_appl_empty: _ => /Empty/i, // RPC v1.0
+  annotation_appl_dds_service: _ => /DDSService/i, // RPC v1.0
+  annotation_appl_dds_request_topic: $ =>
+    create_anno(
+      $,
+      /DDSRequestTopic/i,
+      false,
+      optional(seq(alias(/name/i, $.arg_key), '=')),
+      $.const_expr,
+    ),
+  annotation_appl_dds_reply_topic: $ =>
+    create_anno(
+      $,
+      /DDSReplyTopic/i,
+      false,
+      optional(seq(alias(/name/i, $.arg_key), '=')),
+      $.const_expr,
+    ),
 }
 
 function create_anno($, name, is_optional, ...args) {

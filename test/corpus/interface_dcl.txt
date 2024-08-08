@@ -390,9 +390,8 @@ typedef u8 a;
   (definition
     (interface_dcl
       (annotation_appl
-        (annotation_appl_custom_body
-          (scoped_name
-            (identifier))))
+        (annotation_appl_builtin_body
+          (annotation_appl_dds_service)))
       (interface_def
         (interface_header
           (interface_kind)

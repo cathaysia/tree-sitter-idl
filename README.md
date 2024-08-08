@@ -37,6 +37,7 @@ DDS-RPC v1.0:
 
 - [x] 7.3.1 Service Definition in IDL
 - [x] 7.5.1.2.1 Annotations for the Enhanced Service Mapping
+- [x] 7.4.2.2 Specifying Topic Names using Annotations
 
 ## extends
 
@@ -104,5 +105,15 @@ enum A {
 bitmask A {
     @position(0) a,
 //                ^ allow
+};
+```
+
+### allow ignore 'name='
+
+```idl
+@DDSRequestTopic("RobotRequestTopic")
+//               ^ allow ignore `name=`
+interface RobotControl {
+    void command(Command com);
 };
 ```

@@ -2745,6 +2745,18 @@
         {
           "type": "SYMBOL",
           "name": "annotation_appl_empty"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "annotation_appl_dds_service"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "annotation_appl_dds_reply_topic"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "annotation_appl_dds_request_topic"
         }
       ]
     },
@@ -4229,6 +4241,127 @@
       "type": "PATTERN",
       "value": "Empty",
       "flags": "i"
+    },
+    "annotation_appl_dds_service": {
+      "type": "PATTERN",
+      "value": "DDSService",
+      "flags": "i"
+    },
+    "annotation_appl_dds_request_topic": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": "DDSRequestTopic",
+              "flags": "i"
+            },
+            "named": true,
+            "value": "anno_name"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "PATTERN",
+                    "value": "name",
+                    "flags": "i"
+                  },
+                  "named": true,
+                  "value": "arg_key"
+                },
+                {
+                  "type": "STRING",
+                  "value": "="
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "const_expr"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "annotation_appl_dds_reply_topic": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "PATTERN",
+              "value": "DDSReplyTopic",
+              "flags": "i"
+            },
+            "named": true,
+            "value": "anno_name"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "ALIAS",
+                  "content": {
+                    "type": "PATTERN",
+                    "value": "name",
+                    "flags": "i"
+                  },
+                  "named": true,
+                  "value": "arg_key"
+                },
+                {
+                  "type": "STRING",
+                  "value": "="
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "const_expr"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
     },
     "template_module_dcl": {
       "type": "PREC_LEFT",
