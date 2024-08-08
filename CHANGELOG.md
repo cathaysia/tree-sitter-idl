@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.8.1](https://github.com/cathaysia/tree-sitter-idl/compare/v3.8.0...v3.8.1) (2024-08-08)
+
+
+### Bug Fixes
+
+* **annotation:** limit non_serialize param to bool_literal ([18162f4](https://github.com/cathaysia/tree-sitter-idl/commit/18162f40d6f0f16010c1cd1f7bd7e5d35b940dd8))
+
 ## [3.8.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.7.0...v3.8.0) (2024-08-08)
 
 
