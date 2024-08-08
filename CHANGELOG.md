@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.8.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.7.0...v3.8.0) (2024-08-08)
+
+
+### Features
+
+* **anno:** add ddsservice, ddsrequesttopic ddsreplytopic ([e2fa5d2](https://github.com/cathaysia/tree-sitter-idl/commit/e2fa5d23a3f1854d5608454ac8773feb181aa0e7))
+
 ## [3.7.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.6.0...v3.7.0) (2024-08-08)
 
 
