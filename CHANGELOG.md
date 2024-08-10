@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.8.2](https://github.com/cathaysia/tree-sitter-idl/compare/v3.8.1...v3.8.2) (2024-08-10)
+
+
+### Bug Fixes
+
+* **identifier:** fix identifier ([4693afa](https://github.com/cathaysia/tree-sitter-idl/commit/4693afac4cb73f2128e55e13f98185cac29e8f39))
+
 ## [3.8.1](https://github.com/cathaysia/tree-sitter-idl/compare/v3.8.0...v3.8.1) (2024-08-08)
 
 
