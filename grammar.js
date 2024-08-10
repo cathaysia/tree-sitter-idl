@@ -137,7 +137,7 @@ module.exports = grammar({
       ),
     // table 21
 
-    identifier: _ => /\w[\w\d_]*/, // 7.2.3
+    identifier: _ => /[a-zA-Z][\w_]*/, // 7.2.3
     comment: $ =>
       choice(
         seq('//', /(\\+(.|\r?\n)|[^\\\n])*/),

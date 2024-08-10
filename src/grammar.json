@@ -7121,7 +7121,7 @@
     },
     "identifier": {
       "type": "PATTERN",
-      "value": "\\w[\\w\\d_]*"
+      "value": "[a-zA-Z][\\w_]*"
     },
     "comment": {
       "type": "CHOICE",
