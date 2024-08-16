@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.9.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.8.2...v3.9.0) (2024-08-16)
+
+
+### Features
+
+* **module:** allow anno before module ([0d81c3c](https://github.com/cathaysia/tree-sitter-idl/commit/0d81c3cfd510448a716c0fedde0c55429b06643b))
+
 ## [3.8.2](https://github.com/cathaysia/tree-sitter-idl/compare/v3.8.1...v3.8.2) (2024-08-10)
 
 
