@@ -7149,7 +7149,7 @@
     },
     "identifier": {
       "type": "PATTERN",
-      "value": "[a-zA-Z][\\w_]*"
+      "value": "[a-zA-Z_][\\w_]*"
     },
     "comment": {
       "type": "CHOICE",

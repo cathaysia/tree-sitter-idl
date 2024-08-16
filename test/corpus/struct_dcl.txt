@@ -21,6 +21,10 @@ struct HelloWorld: Parent {
     wstring b;
 };
 
+struct _Custom {
+    Inner var_inner;
+};
+
 ---
 
 (specification
@@ -241,6 +245,21 @@ struct HelloWorld: Parent {
               (type_spec
                 (template_type_spec
                   (wide_string_type)))
+              (declarators
+                (declarator
+                  (simple_declarator
+                    (identifier))))))))))
+  (definition
+    (type_dcl
+      (constr_type_dcl
+        (struct_dcl
+          (struct_def
+            (identifier)
+            (member
+              (type_spec
+                (simple_type_spec
+                  (scoped_name
+                    (identifier))))
               (declarators
                 (declarator
                   (simple_declarator
