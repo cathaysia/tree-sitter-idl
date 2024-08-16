@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.9.2](https://github.com/cathaysia/tree-sitter-idl/compare/v3.9.1...v3.9.2) (2024-08-16)
+
+
+### Bug Fixes
+
+* **float:** fix floating parse ([b079314](https://github.com/cathaysia/tree-sitter-idl/commit/b0793149744cda63f313a5698c6d14708d82e43e))
+
 ## [3.9.1](https://github.com/cathaysia/tree-sitter-idl/compare/v3.9.0...v3.9.1) (2024-08-16)
 
 
