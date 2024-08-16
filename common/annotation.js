@@ -178,6 +178,7 @@ exports.rules = {
       $,
       field('name', /data_representation/i),
       false,
+      optional(seq('allowed_kinds', '=')),
       $.data_representation_mask,
       repeat(seq('|', $.data_representation_mask)),
     ), // 7.3.1.2.1.15 Constrained Data Representations

@@ -94,7 +94,14 @@ module.exports = grammar({
       ),
     native_dcl: $ => seq('native', $.simple_declarator),
     module_dcl: $ =>
-      seq('module', $.identifier, '{', repeat($.definition), '}'),
+      seq(
+        repeat($.annotation_appl),
+        'module',
+        $.identifier,
+        '{',
+        repeat($.definition),
+        '}',
+      ),
 
     struct_dcl: $ => choice($.struct_forward_dcl, $.struct_def),
     struct_forward_dcl: $ => seq('struct', $.identifier),

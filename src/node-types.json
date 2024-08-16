@@ -3305,6 +3305,10 @@
       "required": true,
       "types": [
         {
+          "type": "annotation_appl",
+          "named": true
+        },
+        {
           "type": "definition",
           "named": true
         },
@@ -5056,6 +5060,10 @@
   },
   {
     "type": "alias",
+    "named": false
+  },
+  {
+    "type": "allowed_kinds",
     "named": false
   },
   {
