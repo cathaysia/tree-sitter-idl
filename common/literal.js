@@ -27,7 +27,13 @@ exports.rules = {
   hex_number: $ => /0x[0-9a-fA-F]+/i,
   // 7.2.6.4 Floating-point Literals
   floating_pt_literal: $ =>
-    seq(optional($.integer_sign), $.dec_number, '.', $.dec_number, /e/i),
+    seq(
+      optional($.integer_sign),
+      $.dec_number,
+      '.',
+      $.dec_number,
+      optional(/e/i),
+    ),
   // 7.2.6.5 Fixed-Point Literals
   fixed_pt_literal: $ =>
     seq(optional($.integer_sign), $.dec_number, '.', $.dec_number, /d/i),

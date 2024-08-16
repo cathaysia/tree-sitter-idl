@@ -26,6 +26,11 @@ const A::B::C::D::E::F a = 0;
 
 const M::Size MYSIZE = M::medium;
 
+const float const_float = 13.1;
+const double const_double = 84.1e;
+const long double const_longdouble = 46.1;
+
+
 ---
 
 (specification
@@ -377,4 +382,58 @@ const M::Size MYSIZE = M::medium;
                         (scoped_name
                           (scoped_name
                             (identifier))
-                          (identifier))))))))))))))
+                          (identifier)))))))))))))
+  (definition
+    (const_dcl
+      (const_type
+        (floating_pt_type))
+      (identifier)
+      (const_expr
+        (or_expr
+          (xor_expr
+            (and_expr
+              (shift_expr
+                (add_expr
+                  (mult_expr
+                    (unary_expr
+                      (primary_expr
+                        (literal
+                          (floating_pt_literal
+                            (dec_number)
+                            (dec_number))))))))))))))
+  (definition
+    (const_dcl
+      (const_type
+        (floating_pt_type))
+      (identifier)
+      (const_expr
+        (or_expr
+          (xor_expr
+            (and_expr
+              (shift_expr
+                (add_expr
+                  (mult_expr
+                    (unary_expr
+                      (primary_expr
+                        (literal
+                          (floating_pt_literal
+                            (dec_number)
+                            (dec_number))))))))))))))
+  (definition
+    (const_dcl
+      (const_type
+        (floating_pt_type))
+      (identifier)
+      (const_expr
+        (or_expr
+          (xor_expr
+            (and_expr
+              (shift_expr
+                (add_expr
+                  (mult_expr
+                    (unary_expr
+                      (primary_expr
+                        (literal
+                          (floating_pt_literal
+                            (dec_number)
+                            (dec_number)))))))))))))))

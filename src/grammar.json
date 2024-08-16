@@ -995,9 +995,17 @@
           "name": "dec_number"
         },
         {
-          "type": "PATTERN",
-          "value": "e",
-          "flags": "i"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "e",
+              "flags": "i"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
