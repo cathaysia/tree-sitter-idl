@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.10.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.9.2...v3.10.0) (2024-11-04)
+
+
+### Features
+
+* **annotation:** allow ignore '=' in custom annotation ([475c3e0](https://github.com/cathaysia/tree-sitter-idl/commit/475c3e0d26126744660ad23d8c92e82ba709c328))
+
 ## [3.9.2](https://github.com/cathaysia/tree-sitter-idl/compare/v3.9.1...v3.9.2) (2024-08-16)
 
 
