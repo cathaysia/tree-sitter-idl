@@ -64,7 +64,7 @@ dependencies = [
 
 [[package]]
 name = "tree-sitter-idl"
-version = "3.9.2"
+version = "3.10.0"
 dependencies = [
  "cc",
  "tree-sitter",
