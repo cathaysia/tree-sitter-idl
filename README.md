@@ -117,3 +117,11 @@ interface RobotControl {
     void command(Command com);
 };
 ```
+
+### allow ignore '=xx' in annotation
+
+```idl
+@derive(Debug, Clone)
+//           ^allow ignore "="
+struct Hello {};
+```

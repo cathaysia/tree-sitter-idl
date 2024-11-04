@@ -2602,12 +2602,25 @@
           "name": "identifier"
         },
         {
-          "type": "STRING",
-          "value": "="
-        },
-        {
-          "type": "SYMBOL",
-          "name": "const_expr"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "="
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "const_expr"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -7275,6 +7288,16 @@
       {
         "type": "SYMBOL",
         "name": "value_inheritance"
+      }
+    ],
+    [
+      {
+        "type": "SYMBOL",
+        "name": "scoped_name"
+      },
+      {
+        "type": "SYMBOL",
+        "name": "annotation_appl_param"
       }
     ]
   ],

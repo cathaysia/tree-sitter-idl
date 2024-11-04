@@ -30,6 +30,7 @@ module.exports = grammar({
     [$.definition, $.type_dcl],
     [$.value_inheritance_spec, $.value_supports],
     [$.value_inheritance_spec, $.value_inheritance],
+    [$.scoped_name, $.annotation_appl_param],
   ],
 
   rules: {
