@@ -1,5 +1,5 @@
 exports.rules = {
-  preproc_define: $ => seq('#define', /[^\n]*/),
+  preproc_define: $ => seq('#define', alias(/[^\n]*/, $.args)),
   preproc_call: $ =>
     seq(
       field('directive', $.preproc_directive),

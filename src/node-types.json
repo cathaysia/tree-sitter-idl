@@ -3695,7 +3695,17 @@
   {
     "type": "preproc_define",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "args",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "preproc_include",
@@ -5088,6 +5098,10 @@
   },
   {
     "type": "arg_key",
+    "named": true
+  },
+  {
+    "type": "args",
     "named": true
   },
   {
