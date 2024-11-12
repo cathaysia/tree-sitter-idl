@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.11.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.10.0...v3.11.0) (2024-11-12)
+
+
+### Features
+
+* **preproc:** alias define args ([f879554](https://github.com/cathaysia/tree-sitter-idl/commit/f8795544500dfdd4f5df0755a474e370af325497))
+
 ## [3.10.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.9.2...v3.10.0) (2024-11-04)
 
 
