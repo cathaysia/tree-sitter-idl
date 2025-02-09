@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.12.1](https://github.com/cathaysia/tree-sitter-idl/compare/v3.12.0...v3.12.1) (2025-02-09)
+
+
+### Bug Fixes
+
+* **py:** fix classifer ([167d2ee](https://github.com/cathaysia/tree-sitter-idl/commit/167d2eed68adf834d3447a710364e4a005f2299e))
+
 ## [3.12.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.11.0...v3.12.0) (2025-02-09)
 
 
