@@ -25,5 +25,5 @@ Homepage = "https://github.com/cathaysia/tree-sitter-idl"
 core = ["tree-sitter~=0.21"]
 
 [tool.cibuildwheel]
-build = "cp38-*"
+build = "cp39-*"
 build-frontend = "build"
