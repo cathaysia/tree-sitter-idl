@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "install": "node-gyp-build",
-    "prebuildify": "prebuildify --napi --strip",
+    "prebuildify": "prebuildify --napi",
     "build": "tree-sitter generate",
     "test": "pnpm build && tree-sitter test",
     "pbuild": "pnpm build && pnpm precommit",
