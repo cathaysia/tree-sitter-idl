@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.12.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.11.0...v3.12.0) (2025-02-09)
+
+
+### Features
+
+* **py:** change license ([fda6e55](https://github.com/cathaysia/tree-sitter-idl/commit/fda6e55c8086595c5d5f21d83aef2a0fb2770a97))
+
 ## [3.11.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.10.0...v3.11.0) (2024-11-12)
 
 
