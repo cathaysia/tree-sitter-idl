@@ -1,0 +1,888 @@
+======================
+annotation_builtin
+======================
+
+@id(10)
+@autoid
+@autoid(HASH)
+@optional
+@optional(FALSE)
+@position(6)
+@value("aaa")
+@value(6)
+@extensibility(FINAL)
+@final
+@appendable
+@mutable
+@key
+@key(FALSE)
+@must_understand(FALSE)
+@must_understand
+@default_literal
+@default(10)
+@default("aaaa")
+@range(min=10, max=20)
+@min("aaa")
+@min(10)
+@max("aaa")
+@max(10)
+@unit("aaaa")
+@bit_bound(10)
+@external
+@external(FALSE)
+@external(CONST_FALSE)
+@nested
+@nested(FALSE)
+@verbatim("aaaa")
+@verbatim(java, "aaaa")
+@verbatim(BEGIN_FILE, "aaa")
+@verbatim(java, BEGIN_FILE, "aaa")
+@service
+@service(DDS)
+@service(*)
+@oneway
+@oneway(FALSE)
+@ami
+@ami(FALSE)
+struct A{};
+
+@Custom()
+@Custom
+struct A {
+};
+
+enum MyEnum {
+    ENUM1,
+    ENUM2,
+    @default_literal ENUM3,
+    ENUM4
+};
+
+@ignore_literal_names
+enum MyEnum2 {
+    ENUM_A,
+    ENUM2,
+    ENUM3,
+    ENUM4
+};
+
+@topic("some name")
+@topic(NAME)
+@topic(::A::B)
+@topic
+@topic(*)
+@topic(dDs)
+@topic(::NAME, dDs)
+@topic(::A::B, dds)
+struct T1 {
+    @try_construct long important_member;
+    @try_construct(DISCARD) string<4> m1;
+};
+----
+
+(specification
+  (definition
+    (type_dcl
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_id
+            (anno_name)
+            (integer_literal
+              (dec_number)))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_autoid
+            (anno_name))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_autoid
+            (anno_name)
+            (autoid_kind))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_optional
+            (anno_name))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_optional
+            (anno_name)
+            (positive_int_const
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (primary_expr
+                                (literal
+                                  (boolean_literal)))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_position
+            (anno_name)
+            (positive_int_const
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (primary_expr
+                                (literal
+                                  (integer_literal
+                                    (dec_number))))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_value
+            (anno_name)
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (literal
+                                (string_literal
+                                  (string_content)))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_value
+            (anno_name)
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (literal
+                                (integer_literal
+                                  (dec_number)))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_extensibility
+            (anno_name)
+            (extensibility_kind))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_final
+            (anno_name))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_appendable
+            (anno_name))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_mutable
+            (anno_name))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_key
+            (anno_name))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_key
+            (anno_name)
+            (positive_int_const
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (primary_expr
+                                (literal
+                                  (boolean_literal)))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_must_understand
+            (anno_name)
+            (positive_int_const
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (primary_expr
+                                (literal
+                                  (boolean_literal)))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_must_understand
+            (anno_name))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_default_literal
+            (anno_name))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_default
+            (anno_name)
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (literal
+                                (integer_literal
+                                  (dec_number)))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_default
+            (anno_name)
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (literal
+                                (string_literal
+                                  (string_content)))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_range
+            (anno_name)
+            (min_expr
+              (range_kind)
+              (positive_int_const
+                (const_expr
+                  (or_expr
+                    (xor_expr
+                      (and_expr
+                        (shift_expr
+                          (add_expr
+                            (mult_expr
+                              (unary_expr
+                                (primary_expr
+                                  (literal
+                                    (integer_literal
+                                      (dec_number))))))))))))))
+            (max_expr
+              (range_kind)
+              (positive_int_const
+                (const_expr
+                  (or_expr
+                    (xor_expr
+                      (and_expr
+                        (shift_expr
+                          (add_expr
+                            (mult_expr
+                              (unary_expr
+                                (primary_expr
+                                  (literal
+                                    (integer_literal
+                                      (dec_number)))))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_min
+            (anno_name)
+            (positive_int_const
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (primary_expr
+                                (literal
+                                  (string_literal
+                                    (string_content))))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_min
+            (anno_name)
+            (positive_int_const
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (primary_expr
+                                (literal
+                                  (integer_literal
+                                    (dec_number))))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_max
+            (anno_name)
+            (positive_int_const
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (primary_expr
+                                (literal
+                                  (string_literal
+                                    (string_content))))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_max
+            (anno_name)
+            (positive_int_const
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (primary_expr
+                                (literal
+                                  (integer_literal
+                                    (dec_number))))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_unit
+            (anno_name)
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (literal
+                                (string_literal
+                                  (string_content)))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_bit_bound
+            (anno_name)
+            (positive_int_const
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (primary_expr
+                                (literal
+                                  (integer_literal
+                                    (dec_number))))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_external
+            (anno_name))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_external
+            (anno_name)
+            (positive_int_const
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (primary_expr
+                                (literal
+                                  (boolean_literal)))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_external
+            (anno_name)
+            (positive_int_const
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (primary_expr
+                                (scoped_name
+                                  (identifier)))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_nested
+            (anno_name))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_nested
+            (anno_name)
+            (positive_int_const
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (primary_expr
+                                (literal
+                                  (boolean_literal)))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_verbatim
+            (anno_name)
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (literal
+                                (string_literal
+                                  (string_content)))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_verbatim
+            (anno_name)
+            (verbatim_language)
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (literal
+                                (string_literal
+                                  (string_content)))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_verbatim
+            (anno_name)
+            (placement_kind)
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (literal
+                                (string_literal
+                                  (string_content)))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_verbatim
+            (anno_name)
+            (verbatim_language)
+            (placement_kind)
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (literal
+                                (string_literal
+                                  (string_content)))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_service
+            (anno_name))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_service
+            (anno_name)
+            (service_platform))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_service
+            (anno_name)
+            (service_platform))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_oneway
+            (anno_name))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_oneway
+            (anno_name)
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (literal
+                                (boolean_literal))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_ami
+            (anno_name))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_ami
+            (anno_name)
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (literal
+                                (boolean_literal))))))))))))))
+      (constr_type_dcl
+        (struct_dcl
+          (struct_def
+            (identifier))))))
+  (definition
+    (type_dcl
+      (annotation_appl
+        (annotation_appl_custom_body
+          (scoped_name
+            (identifier))))
+      (annotation_appl
+        (annotation_appl_custom_body
+          (scoped_name
+            (identifier))))
+      (constr_type_dcl
+        (struct_dcl
+          (struct_def
+            (identifier))))))
+  (definition
+    (type_dcl
+      (constr_type_dcl
+        (enum_dcl
+          (identifier)
+          (enumerator
+            (identifier))
+          (enumerator
+            (identifier))
+          (enumerator
+            (annotation_appl
+              (annotation_appl_builtin_body
+                (annotation_appl_default_literal
+                  (anno_name))))
+            (identifier))
+          (enumerator
+            (identifier))))))
+  (definition
+    (type_dcl
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_ignore_literal_names
+            (anno_name))))
+      (constr_type_dcl
+        (enum_dcl
+          (identifier)
+          (enumerator
+            (identifier))
+          (enumerator
+            (identifier))
+          (enumerator
+            (identifier))
+          (enumerator
+            (identifier))))))
+  (definition
+    (type_dcl
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_topic
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (literal
+                                (string_literal
+                                  (string_content)))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_topic
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (scoped_name
+                                (identifier))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_topic
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (scoped_name
+                                (scoped_name
+                                  (identifier))
+                                (identifier))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_topic)))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_topic
+            (topic_platform))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_topic
+            (topic_platform))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_topic
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (scoped_name
+                                (identifier)))))))))))
+            (topic_platform))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_topic
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (scoped_name
+                                (scoped_name
+                                  (identifier))
+                                (identifier)))))))))))
+            (topic_platform))))
+      (constr_type_dcl
+        (struct_dcl
+          (struct_def
+            (identifier)
+            (member
+              (annotation_appl
+                (annotation_appl_builtin_body
+                  (annotation_appl_try_construct
+                    (anno_name))))
+              (type_spec
+                (simple_type_spec
+                  (base_type_spec
+                    (integer_type
+                      (signed_int
+                        (signed_long_int))))))
+              (declarators
+                (declarator
+                  (simple_declarator
+                    (identifier)))))
+            (member
+              (annotation_appl
+                (annotation_appl_builtin_body
+                  (annotation_appl_try_construct
+                    (anno_name)
+                    (try_construct_fail_action))))
+              (type_spec
+                (template_type_spec
+                  (string_type
+                    (positive_int_const
+                      (const_expr
+                        (or_expr
+                          (xor_expr
+                            (and_expr
+                              (shift_expr
+                                (add_expr
+                                  (mult_expr
+                                    (unary_expr
+                                      (primary_expr
+                                        (literal
+                                          (integer_literal
+                                            (dec_number))))))))))))))))
+              (declarators
+                (declarator
+                  (simple_declarator
+                    (identifier)))))))))))
+
+=========
+rpc
+=========
+
+@empty
+@Empty
+@EMPTY
+@Choice
+@choice
+@CHOICE
+interface A {};
+
+----
+
+(specification
+  (definition
+    (interface_dcl
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_empty)))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_empty)))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_empty)))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_choice)))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_choice)))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_choice)))
+      (interface_def
+        (interface_header
+          (interface_kind)
+          (identifier))))))
+
+=========
+topic
+=========
+
+@DDSService
+@DDSRequestTopic(name="RobotRequestTopic")
+@DDSReplyTopic(name="RobotReplyTopic")
+@DDSRequestTopic("RobotRequestTopic")
+interface RobotControl {
+    void command(Command com);
+};
+
+---
+
+(specification
+  (definition
+    (interface_dcl
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_dds_service)))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_dds_request_topic
+            (anno_name)
+            (arg_key)
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (literal
+                                (string_literal
+                                  (string_content)))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_dds_reply_topic
+            (anno_name)
+            (arg_key)
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (literal
+                                (string_literal
+                                  (string_content)))))))))))))))
+      (annotation_appl
+        (annotation_appl_builtin_body
+          (annotation_appl_dds_request_topic
+            (anno_name)
+            (const_expr
+              (or_expr
+                (xor_expr
+                  (and_expr
+                    (shift_expr
+                      (add_expr
+                        (mult_expr
+                          (unary_expr
+                            (primary_expr
+                              (literal
+                                (string_literal
+                                  (string_content)))))))))))))))
+      (interface_def
+        (interface_header
+          (interface_kind)
+          (identifier))
+        (interface_body
+          (export
+            (op_dcl
+              (op_type_spec)
+              (identifier)
+              (parameter_dcls
+                (param_dcl
+                  (type_spec
+                    (simple_type_spec
+                      (scoped_name
+                        (identifier))))
+                  (simple_declarator
+                    (identifier)))))))))))

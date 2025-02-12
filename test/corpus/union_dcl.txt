@@ -1,0 +1,146 @@
+========================================
+union_dcl
+========================================
+
+union A;
+
+union A switch(long) {};
+
+union A switch(long) {
+    case 1:
+        @external u8 a;
+    case 2:
+    case 3:
+        @key u16 b;
+    default:
+        u32 c[10];
+};
+
+union A switch(octet) {};
+
+---
+
+(specification
+  (definition
+    (type_dcl
+      (constr_type_dcl
+        (union_dcl
+          (union_forward_dcl
+            (identifier))))))
+  (definition
+    (type_dcl
+      (constr_type_dcl
+        (union_dcl
+          (union_def
+            (identifier)
+            (switch_type_spec
+              (integer_type
+                (signed_int
+                  (signed_long_int)))))))))
+  (definition
+    (type_dcl
+      (constr_type_dcl
+        (union_dcl
+          (union_def
+            (identifier)
+            (switch_type_spec
+              (integer_type
+                (signed_int
+                  (signed_long_int))))
+            (case
+              (case_label
+                (const_expr
+                  (or_expr
+                    (xor_expr
+                      (and_expr
+                        (shift_expr
+                          (add_expr
+                            (mult_expr
+                              (unary_expr
+                                (primary_expr
+                                  (literal
+                                    (integer_literal
+                                      (dec_number)))))))))))))
+              (element_spec
+                (annotation_appl
+                  (annotation_appl_builtin_body
+                    (annotation_appl_external
+                      (anno_name))))
+                (type_spec
+                  (simple_type_spec
+                    (scoped_name
+                      (identifier))))
+                (declarator
+                  (simple_declarator
+                    (identifier)))))
+            (case
+              (case_label
+                (const_expr
+                  (or_expr
+                    (xor_expr
+                      (and_expr
+                        (shift_expr
+                          (add_expr
+                            (mult_expr
+                              (unary_expr
+                                (primary_expr
+                                  (literal
+                                    (integer_literal
+                                      (dec_number)))))))))))))
+              (case_label
+                (const_expr
+                  (or_expr
+                    (xor_expr
+                      (and_expr
+                        (shift_expr
+                          (add_expr
+                            (mult_expr
+                              (unary_expr
+                                (primary_expr
+                                  (literal
+                                    (integer_literal
+                                      (dec_number)))))))))))))
+              (element_spec
+                (annotation_appl
+                  (annotation_appl_builtin_body
+                    (annotation_appl_key
+                      (anno_name))))
+                (type_spec
+                  (simple_type_spec
+                    (scoped_name
+                      (identifier))))
+                (declarator
+                  (simple_declarator
+                    (identifier)))))
+            (case
+              (case_label)
+              (element_spec
+                (type_spec
+                  (simple_type_spec
+                    (scoped_name
+                      (identifier))))
+                (declarator
+                  (array_declarator
+                    (identifier)
+                    (fixed_array_size
+                      (positive_int_const
+                        (const_expr
+                          (or_expr
+                            (xor_expr
+                              (and_expr
+                                (shift_expr
+                                  (add_expr
+                                    (mult_expr
+                                      (unary_expr
+                                        (primary_expr
+                                          (literal
+                                            (integer_literal
+                                              (dec_number)))))))))))))))))))))))
+  (definition
+    (type_dcl
+      (constr_type_dcl
+        (union_dcl
+          (union_def
+            (identifier)
+            (switch_type_spec
+              (octet_type))))))))

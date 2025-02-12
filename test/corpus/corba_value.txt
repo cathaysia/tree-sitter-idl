@@ -1,0 +1,147 @@
+========================================
+corba_value
+========================================
+
+custom valuetype HelloWorld {};
+abstract valuetype HelloWorld {};
+abstract valuetype HelloWorld : A {};
+
+local interface A {
+    attribute Object attr1;
+    attribute ValueBase attr1;
+};
+
+custom valuetype A: B {
+};
+
+custom valuetype A supports B {};
+
+custom valuetype A: B supports C {};
+
+valuetype HelloWorld; // forward declare
+valuetype A a; // value_box_def
+valuetype A sequence<string>; // value_box_def
+custom valuetype A a; // value_box_def
+// ^ extend grammar
+
+---
+
+(specification
+  (definition
+    (value_dcl
+      (value_def
+        (value_header
+          (value_kind)
+          (identifier)))))
+  (definition
+    (value_dcl
+      (value_abs_def
+        (identifier))))
+  (definition
+    (value_dcl
+      (value_abs_def
+        (identifier)
+        (value_inheritance_spec
+          (value_name
+            (scoped_name
+              (identifier)))))))
+  (definition
+    (interface_dcl
+      (interface_def
+        (interface_header
+          (interface_kind)
+          (identifier))
+        (interface_body
+          (export
+            (attr_dcl
+              (attr_spec
+                (type_spec
+                  (simple_type_spec
+                    (base_type_spec
+                      (object_type))))
+                (attr_declarator
+                  (simple_declarator
+                    (identifier))))))
+          (export
+            (attr_dcl
+              (attr_spec
+                (type_spec
+                  (simple_type_spec
+                    (base_type_spec
+                      (value_base_type))))
+                (attr_declarator
+                  (simple_declarator
+                    (identifier))))))))))
+  (definition
+    (value_dcl
+      (value_def
+        (value_header
+          (value_kind)
+          (identifier)
+          (value_inheritance_spec
+            (value_name
+              (scoped_name
+                (identifier))))))))
+  (definition
+    (value_dcl
+      (value_def
+        (value_header
+          (value_kind)
+          (identifier)
+          (value_inheritance_spec
+            (value_supports
+              (interface_name
+                (scoped_name
+                  (identifier)))))))))
+  (definition
+    (value_dcl
+      (value_def
+        (value_header
+          (value_kind)
+          (identifier)
+          (value_inheritance_spec
+            (value_name
+              (scoped_name
+                (identifier)))
+            (interface_name
+              (scoped_name
+                (identifier))))))))
+  (definition
+    (value_dcl
+      (value_forward_dcl
+        (value_kind)
+        (identifier))))
+  (comment)
+  (definition
+    (value_dcl
+      (value_box_def
+        (value_kind)
+        (identifier)
+        (type_spec
+          (simple_type_spec
+            (scoped_name
+              (identifier)))))))
+  (comment)
+  (definition
+    (value_dcl
+      (value_box_def
+        (value_kind)
+        (identifier)
+        (type_spec
+          (template_type_spec
+            (sequence_type
+              (type_spec
+                (template_type_spec
+                  (string_type)))))))))
+  (comment)
+  (definition
+    (value_dcl
+      (value_box_def
+        (value_kind)
+        (identifier)
+        (type_spec
+          (simple_type_spec
+            (scoped_name
+              (identifier)))))))
+  (comment)
+  (comment))

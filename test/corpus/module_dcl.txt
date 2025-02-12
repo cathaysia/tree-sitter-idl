@@ -1,0 +1,44 @@
+========================================
+module_dcl
+========================================
+
+module A {};
+
+module B {
+const u8 a = 10;
+struct B;
+};
+
+---
+
+(specification
+  (definition
+    (module_dcl
+      (identifier)))
+  (definition
+    (module_dcl
+      (identifier)
+      (definition
+        (const_dcl
+          (const_type
+            (scoped_name
+              (identifier)))
+          (identifier)
+          (const_expr
+            (or_expr
+              (xor_expr
+                (and_expr
+                  (shift_expr
+                    (add_expr
+                      (mult_expr
+                        (unary_expr
+                          (primary_expr
+                            (literal
+                              (integer_literal
+                                (dec_number))))))))))))))
+      (definition
+        (type_dcl
+          (constr_type_dcl
+            (struct_dcl
+              (struct_forward_dcl
+                (identifier)))))))))

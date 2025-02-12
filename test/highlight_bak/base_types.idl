@@ -1,0 +1,13 @@
+const wstring a = L"aaaa";
+//      ^ type.builtin
+//                   ^ string
+const wchar a = L"aaa";
+//      ^ type.builtin
+//                 ^ string
+const char c = 'A';
+//      ^ type.builtin
+//              ^ character
+
+const wchar c = L'A';
+//      ^ type.builtin
+//               ^ character

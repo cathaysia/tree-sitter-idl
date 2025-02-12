@@ -1,0 +1,97 @@
+========================================
+template_module_dcl
+========================================
+
+module MyTemplModule <typename T, struct S> {
+};
+
+module MyTemplModule <typename T, struct S, ::A a, A::B::C::D a> {
+};
+
+module MyTemplModule <typename T, struct S, long m> {
+    alias MyTemplModule<T2, S2, m> MyTemplModule;
+    interface Bar : A::Foo {};
+};
+
+
+---
+
+(specification
+  (definition
+    (template_module_dcl
+      (identifier)
+      (formal_parameters
+        (formal_parameter
+          (formal_parameter_type)
+          (identifier))
+        (formal_parameter
+          (formal_parameter_type)
+          (identifier)))))
+  (definition
+    (template_module_dcl
+      (identifier)
+      (formal_parameters
+        (formal_parameter
+          (formal_parameter_type)
+          (identifier))
+        (formal_parameter
+          (formal_parameter_type)
+          (identifier))
+        (formal_parameter
+          (formal_parameter_type
+            (simple_type_spec
+              (scoped_name
+                (identifier))))
+          (identifier))
+        (formal_parameter
+          (formal_parameter_type
+            (simple_type_spec
+              (scoped_name
+                (scoped_name
+                  (scoped_name
+                    (scoped_name
+                      (identifier))
+                    (identifier))
+                  (identifier))
+                (identifier))))
+          (identifier)))))
+  (definition
+    (template_module_dcl
+      (identifier)
+      (formal_parameters
+        (formal_parameter
+          (formal_parameter_type)
+          (identifier))
+        (formal_parameter
+          (formal_parameter_type)
+          (identifier))
+        (formal_parameter
+          (formal_parameter_type
+            (simple_type_spec
+              (base_type_spec
+                (integer_type
+                  (signed_int
+                    (signed_long_int))))))
+          (identifier)))
+      (tpl_definition
+        (template_module_ref
+          (scoped_name
+            (identifier))
+          (formal_parameter_names
+            (identifier)
+            (identifier)
+            (identifier))
+          (identifier)))
+      (tpl_definition
+        (definition
+          (interface_dcl
+            (interface_def
+              (interface_header
+                (interface_kind)
+                (identifier)
+                (interface_inheritance_spec
+                  (interface_name
+                    (scoped_name
+                      (scoped_name
+                        (identifier))
+                      (identifier))))))))))))
