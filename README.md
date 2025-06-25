@@ -1,5 +1,9 @@
 # tree-sitter-idl
 
+![Crates.io Version](<https://img.shields.io/crates/v/tree-sitter-idl?label=tree-sitter-idl(crates.io)>)
+![PyPI - Version](<https://img.shields.io/pypi/v/tree-sitter-idl?label=tree-sitter-idl(pypi)&color=blue>)
+![NPM - Version](<https://img.shields.io/npm/v/tree-sitter-idl?label=tree-sitter-idl(npm)&color=blue>)
+
 OMG IDL 4.2(with XTypes extension) grammar for [tree-sitter](https://github.com/tree-sitter/tree-sitter).
 
 - https://www.omg.org/spec/IDL/4.2/PDF
