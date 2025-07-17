@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.13.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.12.1...v3.13.0) (2025-07-17)
+
+
+### Features
+
+* **deps:** allow tree-sitter &gt;= 0.22.6 ([dbcfc1f](https://github.com/cathaysia/tree-sitter-idl/commit/dbcfc1f080e7a139792857f05d05e59327a95819))
+
 ## [3.12.1](https://github.com/cathaysia/tree-sitter-idl/compare/v3.12.0...v3.12.1) (2025-02-09)
 
 
