@@ -20,6 +20,11 @@
           "path": "package-lock.json",
           "type": "json",
           "jsonpath": "$.version"
+        },
+        {
+          "path": "tree-sitter.json",
+          "type": "json",
+          "jsonpath": "$.metadata.version"
         }
       ]
     }
