@@ -10,10 +10,6 @@ permissions:
 
 jobs:
   update-release-please:
-    if: >
-      (contains(github.event.pull_request.title, 'chore(master): release') ||
-       github.event.pull_request.user.login == 'github-actions[bot]') &&
-      github.event.pull_request.head.ref != github.event.pull_request.base.ref
     runs-on: ubuntu-latest
 
     steps:
