@@ -5,12 +5,14 @@
       "camelcase": "idl",
       "scope": "source.j2",
       "path": ".",
-      "file-types": ["idl"],
+      "file-types": [
+        "idl"
+      ],
       "highlights": "queries/highlights.scm"
     }
   ],
   "metadata": {
-    "version": "3.13.0",
+    "version": "3.14.0",
     "license": "Apache-2.0",
     "description": "idl grammar for tree-sitter",
     "authors": [
