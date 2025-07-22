@@ -1,4 +1,4 @@
-const { commaSep, commaSep1 } = require('./common')
+const { commaSep, commaSep1 } = require('./common');
 
 exports.rules = {
   type_id_dcl: $ => seq('typeid', $.scoped_name, $.string_literal),
@@ -19,4 +19,4 @@ exports.rules = {
   in_param_dcl: $ => seq('in', $.type_spec, $.simple_declarator),
   op_with_context: $ => seq(choice($.op_dcl, $.op_oneway_dcl), $.context_expr),
   context_expr: $ => seq('context', '(', commaSep($.string_literal), ')'),
-}
+};

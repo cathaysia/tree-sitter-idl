@@ -1,4 +1,4 @@
-const { commaSep, commaSep1 } = require('./common')
+const { commaSep, commaSep1 } = require('./common');
 
 exports.rules = {
   home_dcl: $ => seq($.home_header, '{', optional($.home_body), '}'),
@@ -36,4 +36,4 @@ exports.rules = {
     ),
   factory_param_dcls: $ => commaSep1($.factory_param_dcl),
   factory_param_dcl: $ => seq('in', $.type_spec, $.simple_declarator),
-}
+};

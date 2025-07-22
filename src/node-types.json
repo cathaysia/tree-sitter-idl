@@ -1629,6 +1629,7 @@
   {
     "type": "comment",
     "named": true,
+    "extra": true,
     "fields": {}
   },
   {
@@ -4026,6 +4027,7 @@
   {
     "type": "specification",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,

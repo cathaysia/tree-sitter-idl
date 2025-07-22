@@ -1,27 +1,26 @@
-const { commaSep, commaSep1 } = require('./common/common')
-const base_types = require('./common/base_types')
-const expr = require('./common/expr')
-const literal = require('./common/literal')
-const directive = require('./common/directive')
-const interface_ = require('./common/interface')
-const bitmask = require('./common/bitmask')
-const annotation = require('./common/annotation')
-const template = require('./common/template')
-const value_type = require('./common/value_type')
-const typedef_dcl = require('./common/typedef_dcl')
-const union_dcl = require('./common/union_dcl')
-const corba_interface = require('./common/corba_interface')
-const corba_value = require('./common/corba_value')
-const component_basic = require('./common/component_basic') // idl 7.4.8
-const component_homes = require('./common/component_homes') // idl 7.4.9
-const event_dcl = require('./common/event_dcl') // idl 7.4.10
-const component_port = require('./common/component_port') // idl 7.4.11
+const base_types = require('./common/base_types');
+const expr = require('./common/expr');
+const literal = require('./common/literal');
+const directive = require('./common/directive');
+const interface_ = require('./common/interface');
+const bitmask = require('./common/bitmask');
+const annotation = require('./common/annotation');
+const template = require('./common/template');
+const value_type = require('./common/value_type');
+const typedef_dcl = require('./common/typedef_dcl');
+const union_dcl = require('./common/union_dcl');
+const corba_interface = require('./common/corba_interface');
+const corba_value = require('./common/corba_value');
+const component_basic = require('./common/component_basic'); // idl 7.4.8
+const component_homes = require('./common/component_homes'); // idl 7.4.9
+const event_dcl = require('./common/event_dcl'); // idl 7.4.10
+const component_port = require('./common/component_port'); // idl 7.4.11
 
 module.exports = grammar({
   name: 'idl',
 
   extras: $ => [/\s|\\\r?\n/, $.comment],
-  inline: $ => [],
+  inline: _ => [],
   precedences: $ => [
     [$.annotation_appl, $.scoped_name],
     [$.simple_type_spec, $.unary_expr],
@@ -146,10 +145,10 @@ module.exports = grammar({
     // table 21
 
     identifier: _ => /[a-zA-Z_][\w_]*/, // 7.2.3
-    comment: $ =>
+    comment: _ =>
       choice(
         seq('//', /(\\+(.|\r?\n)|[^\\\n])*/),
         seq('/*', /[^*]*\*+([^/*][^*]*\*+)*/, '/'),
       ),
   },
-})
+});

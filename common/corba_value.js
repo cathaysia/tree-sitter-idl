@@ -1,4 +1,4 @@
-const { commaSep, commaSep1 } = require('./common')
+const { commaSep, commaSep1 } = require('./common');
 
 exports.rules = {
   value_box_def: $ =>
@@ -18,4 +18,4 @@ exports.rules = {
       '}',
     ),
   value_base_type: _ => 'ValueBase',
-}
+};

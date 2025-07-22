@@ -1,0 +1,30 @@
+name: unittest
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  test:
+    name: Test parsers
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
+      - name: Set up repository
+        uses: tree-sitter/parser-setup-action@v1.2
+
+      - name: Run tests
+        uses: tree-sitter/parser-test-action@v2
+
+      - name: Verify grammar consistency
+        run: git diff --exit-code -- */src/grammar.json

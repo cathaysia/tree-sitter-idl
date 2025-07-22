@@ -1,4 +1,4 @@
-const { commaSep, commaSep1 } = require('./common')
+const { commaSep, commaSep1 } = require('./common');
 
 exports.rules = {
   supported_interface_spec: $ => seq('supports', commaSep1($.scoped_name)),
@@ -35,4 +35,4 @@ exports.rules = {
       $.identifier,
       optional($.value_inheritance_spec),
     ),
-}
+};

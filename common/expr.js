@@ -10,7 +10,7 @@ const PREC = {
   ADD: 10,
   MULTIPLY: 11,
   UNARY: 14,
-}
+};
 
 exports.rules = {
   positive_int_const: $ => $.const_expr,
@@ -64,4 +64,4 @@ exports.rules = {
     choice($.scoped_name, $.literal, seq('(', $.const_expr, ')')),
 
   unary_operator: _ => prec.left(PREC.UNARY, choice('-', '+', '~')),
-}
+};

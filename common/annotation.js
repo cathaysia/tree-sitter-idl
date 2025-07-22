@@ -1,4 +1,4 @@
-const { commaSep, commaSep1 } = require('./common')
+const { commaSep, commaSep1 } = require('./common');
 
 exports.rules = {
   annotation_dcl: $ =>
@@ -229,19 +229,19 @@ exports.rules = {
       optional(seq(alias(/name/i, $.arg_key), '=')),
       $.const_expr,
     ),
-}
+};
 
 function create_anno($, name, is_optional, ...args) {
-  if (args.length == 0) {
-    return seq(field('name', alias(name, $.anno_name)))
+  if (args.length === 0) {
+    return seq(field('name', alias(name, $.anno_name)));
   }
 
   if (is_optional) {
     return seq(
       field('name', alias(name, $.anno_name)),
       optional(seq('(', ...args, ')')),
-    )
+    );
   }
 
-  return seq(field('name', alias(name, $.anno_name)), '(', ...args, ')')
+  return seq(field('name', alias(name, $.anno_name)), '(', ...args, ')');
 }
