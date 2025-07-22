@@ -1,4 +1,4 @@
-const { commaSep1 } = require('./common')
+const { commaSep1 } = require('./common');
 
 exports.rules = {
   except_dcl: $ => seq('exception', $.identifier, '{', repeat($.member), '}'),
@@ -80,4 +80,4 @@ exports.rules = {
   get_excep_expr: $ => seq('getraises', $.exception_list),
   set_excep_expr: $ => seq('setraises', $.exception_list),
   exception_list: $ => seq('(', commaSep1($.scoped_name), ')'),
-}
+};

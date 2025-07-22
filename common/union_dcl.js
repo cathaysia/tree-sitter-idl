@@ -1,4 +1,4 @@
-const { commaSep } = require('./common')
+const { commaSep } = require('./common');
 
 exports.rules = {
   enum_dcl: $ =>
@@ -38,4 +38,4 @@ exports.rules = {
       $.scoped_name,
       $.octet_type,
     ),
-}
+};

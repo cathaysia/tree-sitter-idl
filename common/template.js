@@ -1,4 +1,4 @@
-const { commaSep, commaSep1 } = require('./common')
+const { commaSep1 } = require('./common');
 
 exports.rules = {
   template_module_dcl: $ =>
@@ -47,4 +47,4 @@ exports.rules = {
       $.identifier,
     ),
   formal_parameter_names: $ => commaSep1($.identifier),
-}
+};

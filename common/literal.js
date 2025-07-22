@@ -16,15 +16,15 @@ exports.rules = {
       optional($.integer_sign),
       choice($.bin_number, $.oct_number, $.dec_number, $.hex_number),
     ),
-  integer_sign: $ => choice('-', '+'),
-  bin_number: $ => /0[bB][01]+/, // extend
-  oct_number: $ =>
+  integer_sign: _ => choice('-', '+'),
+  bin_number: _ => /0[bB][01]+/, // extend
+  oct_number: _ =>
     choice(
       /0[0-8]+/,
       /0o[0-8]+/, // extend
     ),
-  dec_number: $ => choice('0', /[1-9]\d*/),
-  hex_number: $ => /0x[0-9a-fA-F]+/i,
+  dec_number: _ => choice('0', /[1-9]\d*/),
+  hex_number: _ => /0x[0-9a-fA-F]+/i,
   // 7.2.6.4 Floating-point Literals
   floating_pt_literal: $ =>
     seq(
@@ -103,4 +103,4 @@ exports.rules = {
       "'",
     ),
   boolean_literal: _ => choice('TRUE', 'FALSE'),
-}
+};

@@ -1,4 +1,4 @@
-const { commaSep, commaSep1 } = require('./common')
+const { commaSep } = require('./common');
 
 exports.rules = {
   bitset_dcl: $ =>
@@ -31,4 +31,4 @@ exports.rules = {
       '}',
     ),
   bit_value: $ => seq(repeat($.annotation_appl), $.identifier),
-}
+};

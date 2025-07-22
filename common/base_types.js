@@ -23,7 +23,7 @@ exports.rules = {
     ),
   unsigned_tiny_int: _ => 'uint8', // idl 7.4.13
   boolean_type: _ => 'boolean',
-  fixed_pt_const_type: $ => 'fixed',
+  fixed_pt_const_type: _ => 'fixed',
   octet_type: _ => 'octet',
   integer_type: $ => choice($.signed_int, $.unsigned_int),
   signed_int: $ =>
@@ -112,4 +112,4 @@ exports.rules = {
       optional(seq(',', $.positive_int_const)),
       '>',
     ),
-}
+};

@@ -1,5 +1,3 @@
-const { commaSep, commaSep1 } = require('./common')
-
 exports.rules = {
   porttype_dcl: $ => choice($.porttype_def, $.porttype_forward_dcl),
   porttype_forward_dcl: $ => seq('porttype', $.identifier),
@@ -15,4 +13,4 @@ exports.rules = {
     seq('connector', $.identifier, optional($.connector_inherit_spec)),
   connector_inherit_spec: $ => seq(':', $.scoped_name),
   connector_export: $ => choice($.port_ref, seq($.attr_dcl, ';')),
-}
+};

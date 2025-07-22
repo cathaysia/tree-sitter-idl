@@ -13,14 +13,12 @@
     "tree-sitter",
     "c++"
   ],
+  "packageManager": "pnpm@10.13.1",
   "scripts": {
     "install": "node-gyp-build",
     "prebuildify": "prebuildify --napi",
-    "build": "tree-sitter generate",
-    "test": "pnpm build && tree-sitter test",
-    "pbuild": "pnpm build && pnpm precommit",
-    "precommit": "pre-commit run -a 2>&1 >> /dev/null || true",
-    "compile": "gcc -shared -fPIC src/parser.c -o build/idl.so"
+    "generate": "tree-sitter generate",
+    "test": "pnpm generate && tree-sitter test"
   },
   "files": [
     "grammar.js",
@@ -32,7 +30,7 @@
   ],
   "devDependencies": {
     "prebuildify": "^6.0.0",
-    "tree-sitter-cli": "^0.22.2"
+    "tree-sitter-cli": "^0.25.8"
   },
   "dependencies": {
     "node-addon-api": "^8.0.0",

@@ -1,5 +1,5 @@
 # https://github.com/microsoft/vscode-isort/blob/main/.github/workflows/dep-bot-auto-merge.yml
-name: Dependabot auto-merge
+name: dependabot-auto-merger
 on: pull_request
 
 permissions:
@@ -16,6 +16,7 @@ jobs:
         uses: dependabot/fetch-metadata@v2
         with:
           github-token: '${{ secrets.GITHUB_TOKEN }}'
+
       - name: Enable auto-merge for Dependabot PRs
         if: contains(steps.metadata.outputs.update-type, 'version-update')
         run: gh pr merge --auto --squash "$PR_URL"

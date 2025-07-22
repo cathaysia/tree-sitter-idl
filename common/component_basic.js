@@ -1,4 +1,4 @@
-const { commaSep, commaSep1 } = require('./common')
+const { commaSep, commaSep1 } = require('./common');
 
 exports.rules = {
   component_dcl: $ => choice($.component_def, $.component_forward_dcl),
@@ -40,4 +40,4 @@ exports.rules = {
       $.interface_type,
       $.identifier,
     ),
-}
+};

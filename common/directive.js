@@ -19,7 +19,7 @@ exports.rules = {
     ),
   system_lib_string: $ => seq('<', $.system_lib_path, '>'),
   system_lib_path: _ => token(repeat(choice(/[^>\n]/, '\\>'))),
-}
+};
 
 /**
  * Creates a preprocessor regex rule
@@ -29,5 +29,5 @@ exports.rules = {
  * @return {TokenRule}
  */
 function preprocessor(command) {
-  return token(prec(1, new RegExp('#[ \t]*' + command)))
+  return token(prec(1, new RegExp('#[ \t]*' + command)));
 }
