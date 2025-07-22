@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.14.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.13.0...v3.14.0) (2025-07-22)
+
+
+### Features
+
+* batch update ([eaa3cdc](https://github.com/cathaysia/tree-sitter-idl/commit/eaa3cdc12e8e510d862d6e0cafb2732b61e518f9))
+
+
+### Bug Fixes
+
+* **pn:** fix pnpm workspace ([82f2314](https://github.com/cathaysia/tree-sitter-idl/commit/82f23141d8729b097c78b1f6eec9fc708119cf74))
+
 ## [3.13.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.12.1...v3.13.0) (2025-07-17)
 
 
