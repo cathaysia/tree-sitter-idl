@@ -1,8 +1,9 @@
-name: update parser version
+name: release-please-generate
 
 on:
   pull_request:
     types: [opened, synchronize]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -27,8 +28,6 @@ jobs:
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 10
 
       - name: Install dependencies
         run: pnpm install
