@@ -1,3 +1,2 @@
-ignoredBuiltDependencies:
-  - tree-sitter
-  - tree-sitter-cli
+packages:
+  - '.'
