@@ -24,7 +24,7 @@ jobs:
         uses: tree-sitter/parser-setup-action@v1.2
 
       - name: Run tests
-        uses: tree-sitter/parser-test-action@v2
+        uses: tree-sitter/parser-test-action@v3
 
       - name: Verify grammar consistency
         run: git diff --exit-code -- */src/grammar.json
