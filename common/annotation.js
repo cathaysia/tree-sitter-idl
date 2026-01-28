@@ -53,7 +53,7 @@ exports.rules = {
   annotation_appl_params: $ =>
     choice($.const_expr, commaSep1($.annotation_appl_param)),
   annotation_appl_param: $ =>
-    seq($.identifier, optional(seq('=', $.const_expr))),
+    seq(optional($.identifier, $.scoped_name), optional(seq('=', $.const_expr))),
 
   annotation_appl_builtin_body: $ =>
     choice(
