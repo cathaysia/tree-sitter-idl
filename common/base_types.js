@@ -1,3 +1,5 @@
+const { commaSep1 } = require('./common');
+
 exports.rules = {
   signed_short_int: _ =>
     choice(
@@ -92,7 +94,9 @@ exports.rules = {
       $.wide_string_type,
       $.fixed_pt_type,
       $.map_type, // idl 7.4.13
+      $.template_type,
     ),
+  template_type: $ => seq($.identifier, '<', commaSep1($.type_spec), '>'),
   sequence_type: $ =>
     seq(
       'sequence',

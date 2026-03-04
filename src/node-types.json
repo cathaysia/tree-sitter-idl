@@ -4292,6 +4292,25 @@
     }
   },
   {
+    "type": "template_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "type_spec",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "template_type_spec",
     "named": true,
     "fields": {},
@@ -4313,6 +4332,10 @@
         },
         {
           "type": "string_type",
+          "named": true
+        },
+        {
+          "type": "template_type",
           "named": true
         },
         {

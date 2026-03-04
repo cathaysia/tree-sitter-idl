@@ -95,3 +95,131 @@ module MyTemplModule <typename T, struct S, long m> {
                       (scoped_name
                         (identifier))
                       (identifier))))))))))))
+
+=======
+struct
+=======
+
+struct A {
+    sequence<string> a;
+    map<string, usize> b;
+    option<string> c;
+    option2<string, uint16> c;
+    option3<string, uint16, sequence<string>> c;
+    option3<string, uint16, option<string>> c;
+};
+
+---
+
+(specification
+  (definition
+    (type_dcl
+      (constr_type_dcl
+        (struct_dcl
+          (struct_def
+            (identifier)
+            (member
+              (type_spec
+                (template_type_spec
+                  (sequence_type
+                    (type_spec
+                      (template_type_spec
+                        (string_type))))))
+              (declarators
+                (declarator
+                  (simple_declarator
+                    (identifier)))))
+            (member
+              (type_spec
+                (template_type_spec
+                  (map_type
+                    (type_spec
+                      (template_type_spec
+                        (string_type)))
+                    (type_spec
+                      (simple_type_spec
+                        (scoped_name
+                          (identifier)))))))
+              (declarators
+                (declarator
+                  (simple_declarator
+                    (identifier)))))
+            (member
+              (type_spec
+                (template_type_spec
+                  (template_type
+                    (identifier)
+                    (type_spec
+                      (template_type_spec
+                        (string_type))))))
+              (declarators
+                (declarator
+                  (simple_declarator
+                    (identifier)))))
+            (member
+              (type_spec
+                (template_type_spec
+                  (template_type
+                    (identifier)
+                    (type_spec
+                      (template_type_spec
+                        (string_type)))
+                    (type_spec
+                      (simple_type_spec
+                        (base_type_spec
+                          (integer_type
+                            (unsigned_int
+                              (unsigned_short_int)))))))))
+              (declarators
+                (declarator
+                  (simple_declarator
+                    (identifier)))))
+            (member
+              (type_spec
+                (template_type_spec
+                  (template_type
+                    (identifier)
+                    (type_spec
+                      (template_type_spec
+                        (string_type)))
+                    (type_spec
+                      (simple_type_spec
+                        (base_type_spec
+                          (integer_type
+                            (unsigned_int
+                              (unsigned_short_int))))))
+                    (type_spec
+                      (template_type_spec
+                        (sequence_type
+                          (type_spec
+                            (template_type_spec
+                              (string_type)))))))))
+              (declarators
+                (declarator
+                  (simple_declarator
+                    (identifier)))))
+            (member
+              (type_spec
+                (template_type_spec
+                  (template_type
+                    (identifier)
+                    (type_spec
+                      (template_type_spec
+                        (string_type)))
+                    (type_spec
+                      (simple_type_spec
+                        (base_type_spec
+                          (integer_type
+                            (unsigned_int
+                              (unsigned_short_int))))))
+                    (type_spec
+                      (template_type_spec
+                        (template_type
+                          (identifier)
+                          (type_spec
+                            (template_type_spec
+                              (string_type)))))))))
+              (declarators
+                (declarator
+                  (simple_declarator
+                    (identifier)))))))))))
