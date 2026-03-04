@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.15.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.14.0...v3.15.0) (2026-03-04)
+
+
+### Features
+
+* support template type ([0a0e258](https://github.com/cathaysia/tree-sitter-idl/commit/0a0e2587feccd568cb1b75e7cfaf71319a262775))
+
 ## [3.14.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.13.0...v3.14.0) (2025-07-22)
 
 
