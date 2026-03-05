@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.16.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.15.0...v3.16.0) (2026-03-05)
+
+
+### Features
+
+* allow annotation to param_dcl ([afc2892](https://github.com/cathaysia/tree-sitter-idl/commit/afc2892ef5268f9c7128d82011f2ce7091ab4db5))
+
 ## [3.15.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.14.0...v3.15.0) (2026-03-04)
 
 
