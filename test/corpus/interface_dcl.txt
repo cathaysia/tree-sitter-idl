@@ -12,7 +12,7 @@ interface A: B, C, D {
     void func1();
     void func1() raises(A);
     void func1() raises(A,B,C);
-    void func1(in u8 attr, out u16 attr);
+    void func1(@get in u8 attr, out u16 attr);
     void func1(in u8 attr, out u16 attr) raises(A);
     void func1(in u8 attr, out u16 attr) raises(A,B,C);
     readonly attribute u8 attr1, attr2, attr3;
@@ -118,6 +118,10 @@ interface A {
               (identifier)
               (parameter_dcls
                 (param_dcl
+                  (annotation_appl
+                    (annotation_appl_custom_body
+                      (scoped_name
+                        (identifier))))
                   (param_attribute)
                   (type_spec
                     (simple_type_spec

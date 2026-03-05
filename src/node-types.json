@@ -3485,6 +3485,10 @@
       "required": true,
       "types": [
         {
+          "type": "annotation_appl",
+          "named": true
+        },
+        {
           "type": "param_attribute",
           "named": true
         },

@@ -54,7 +54,12 @@ exports.rules = {
   op_type_spec: $ => choice($.type_spec, 'void'),
   parameter_dcls: $ => commaSep1($.param_dcl),
   param_dcl: $ =>
-    seq(optional($.param_attribute), $.type_spec, $.simple_declarator),
+    seq(
+      repeat($.annotation_appl),
+      optional($.param_attribute),
+      $.type_spec,
+      $.simple_declarator,
+    ),
   param_attribute: $ => choice('in', 'out', 'inout'),
   raises_expr: $ => seq('raises', '(', commaSep1($.scoped_name), ')'),
   attr_dcl: $ =>

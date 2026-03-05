@@ -1805,6 +1805,13 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "annotation_appl"
+          }
+        },
+        {
           "type": "CHOICE",
           "members": [
             {
