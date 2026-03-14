@@ -43,10 +43,22 @@ exports.rules = {
         /\r?\n/,
       ),
     ),
+  _annotation_hyphenated_name: _ =>
+    token(prec(1, /[a-zA-Z_][\w_]*-[\w-]*/)),
+  annotation_hyphenated_scoped_name: $ =>
+    choice(
+      alias($._annotation_hyphenated_name, $.identifier),
+      seq('::', alias($._annotation_hyphenated_name, $.identifier)),
+      seq(
+        $.scoped_name,
+        '::',
+        alias($._annotation_hyphenated_name, $.identifier),
+      ),
+    ),
   annotation_appl_custom_body: $ =>
     prec.left(
       seq(
-        $.scoped_name,
+        choice($.scoped_name, alias($.annotation_hyphenated_scoped_name, $.scoped_name)),
         optional(seq('(', optional($.annotation_appl_params), ')')),
       ),
     ),
