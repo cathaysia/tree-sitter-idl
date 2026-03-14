@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.17.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.16.0...v3.17.0) (2026-03-14)
+
+
+### Features
+
+* support hyphenated custom annotations ([66484f9](https://github.com/cathaysia/tree-sitter-idl/commit/66484f9f42a7fed83411c95b701e5bba325525f6))
+
 ## [3.16.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.15.0...v3.16.0) (2026-03-05)
 
 
