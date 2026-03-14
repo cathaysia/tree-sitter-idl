@@ -213,3 +213,46 @@ local interface DDSRequestTopic {
               (string_type)))
           (simple_declarator
             (identifier)))))))
+
+================
+hyphenated_annotation_appl
+================
+
+@foo-bar
+@pkg::foo-bar(value=1)
+struct S {};
+
+----
+
+(specification
+  (definition
+    (type_dcl
+      (annotation_appl
+        (annotation_appl_custom_body
+          (scoped_name
+            (identifier))))
+      (annotation_appl
+        (annotation_appl_custom_body
+          (scoped_name
+            (scoped_name
+              (identifier))
+            (identifier))
+          (annotation_appl_params
+            (annotation_appl_param
+              (identifier)
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (primary_expr
+                                (literal
+                                  (integer_literal
+                                    (dec_number))))))))))))))))
+      (constr_type_dcl
+        (struct_dcl
+          (struct_def
+            (identifier)))))))
