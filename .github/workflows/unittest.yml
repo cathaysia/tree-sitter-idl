@@ -16,15 +16,22 @@ jobs:
     name: Test parsers
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - uses: pnpm/action-setup@v4
+
+      - name: setup node
+        uses: actions/setup-node@v4
         with:
-          version: 10
+          node-version: lts/*
+          cache: pnpm
 
-      - name: Set up repository
-        uses: tree-sitter/parser-setup-action@v1.2
-
-      - name: Run tests
-        uses: tree-sitter/parser-test-action@v3
+      - name: Install depends
+        run: |
+          pnpm install
+          pnpm generate
+          pnpm test
 
       - name: Verify grammar consistency
         run: git diff --exit-code -- */src/grammar.json
