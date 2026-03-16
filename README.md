@@ -130,16 +130,6 @@ interface RobotControl {
 struct Hello {};
 ```
 
-### allow `-` in custom annotation name
-
-```idl
-@foo-bar
-@pkg::foo-bar(value=1)
-struct Hello {};
-```
-
-This extension only applies to custom annotation applications. Regular `scoped_name` semantics stay unchanged outside annotation parsing.
-
 ### support template type
 
 ```idl
