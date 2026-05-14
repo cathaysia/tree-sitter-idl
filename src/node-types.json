@@ -924,10 +924,6 @@
         {
           "type": "annotation_appl_param",
           "named": true
-        },
-        {
-          "type": "const_expr",
-          "named": true
         }
       ]
     }

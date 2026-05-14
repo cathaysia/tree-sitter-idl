@@ -130,6 +130,14 @@ interface RobotControl {
 struct Hello {};
 ```
 
+### allow comma-separated positional args in custom annotation
+
+```idl
+@Annotation("aaa", "bbb")
+//                ^ allow extend syntax
+struct Hello {};
+```
+
 ### support template type
 
 ```idl

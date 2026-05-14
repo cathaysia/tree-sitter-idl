@@ -47,6 +47,7 @@ annotation_builtin
 struct A{};
 
 @Custom()
+@Custom("aaa", "bbb")
 @Custom
 struct A {
 };
@@ -581,6 +582,37 @@ struct T1 {
         (annotation_appl_custom_body
           (scoped_name
             (identifier))))
+      (annotation_appl
+        (annotation_appl_custom_body
+          (scoped_name
+            (identifier))
+          (annotation_appl_params
+            (annotation_appl_param
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (primary_expr
+                                (literal
+                                  (string_literal
+                                    (string_content)))))))))))))
+            (annotation_appl_param
+              (const_expr
+                (or_expr
+                  (xor_expr
+                    (and_expr
+                      (shift_expr
+                        (add_expr
+                          (mult_expr
+                            (unary_expr
+                              (primary_expr
+                                (literal
+                                  (string_literal
+                                    (string_content))))))))))))))))
       (annotation_appl
         (annotation_appl_custom_body
           (scoped_name
