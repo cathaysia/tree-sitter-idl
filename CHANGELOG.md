@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.18.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.17.0...v3.18.0) (2026-05-14)
+
+
+### Features
+
+* **annotation:** support comma-separated custom annotation arguments ([9d49326](https://github.com/cathaysia/tree-sitter-idl/commit/9d4932663b579f5905c25b495b795b8f87db0a8f))
+* make comma optional ([5bac89b](https://github.com/cathaysia/tree-sitter-idl/commit/5bac89bc374e9571227a67883a5e0e16afba1f22))
+
 ## [3.17.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.16.0...v3.17.0) (2026-03-14)
 
 
