@@ -147,3 +147,15 @@ struct Hello {
     option3<string, uint16, sequence<string>> c;
 };
 ```
+
+### optional comma
+
+```idl
+struct Hello {
+    option<string> c;
+    option2<string, uint16> c;
+    option3<string, uint16, sequence<string>> c;
+} // ;
+//   ^ optional
+
+```

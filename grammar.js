@@ -73,7 +73,7 @@ module.exports = grammar({
             $.porttype_dcl, // idl 7.4.11
             $.connector_dcl, // idl 7.4.11
           ),
-          ';',
+          optional(';'),
         ),
         $.preproc_include,
         $.preproc_call,
