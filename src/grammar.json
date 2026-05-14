@@ -2620,6 +2620,31 @@
       }
     },
     "annotation_appl_params": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "annotation_appl_param"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "annotation_appl_param"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "annotation_appl_param": {
       "type": "CHOICE",
       "members": [
         {
@@ -2631,53 +2656,28 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "annotation_appl_param"
+              "name": "identifier"
             },
             {
-              "type": "REPEAT",
-              "content": {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": ","
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "annotation_appl_param"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      ]
-    },
-    "annotation_appl_param": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "identifier"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SEQ",
+              "type": "CHOICE",
               "members": [
                 {
-                  "type": "STRING",
-                  "value": "="
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "="
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "const_expr"
+                    }
+                  ]
                 },
                 {
-                  "type": "SYMBOL",
-                  "name": "const_expr"
+                  "type": "BLANK"
                 }
               ]
-            },
-            {
-              "type": "BLANK"
             }
           ]
         }
