@@ -1,6 +1,2 @@
 packages:
   - .
-
-onlyBuiltDependencies:
-  - tree-sitter
-  - tree-sitter-cli
