@@ -1,7 +1,15 @@
 const { commaSep1 } = require('./common');
 
 exports.rules = {
-  except_dcl: $ => seq('exception', $.identifier, '{', repeat($.member), '}'),
+  except_dcl: $ =>
+    seq(
+      repeat($.annotation_appl),
+      'exception',
+      $.identifier,
+      '{',
+      repeat($.member),
+      '}',
+    ),
   interface_dcl: $ =>
     seq(
       repeat($.annotation_appl),

@@ -2368,6 +2368,10 @@
       "required": true,
       "types": [
         {
+          "type": "annotation_appl",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
