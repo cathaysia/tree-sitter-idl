@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.19.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.18.0...v3.19.0) (2026-10-10)
+
+
+### Features
+
+* **grammar:** allow annotations on exception declarations ([7ab2e36](https://github.com/cathaysia/tree-sitter-idl/commit/7ab2e36294a655284e47dbfa6466ba34d8a20afe))
+
 ## [3.18.0](https://github.com/cathaysia/tree-sitter-idl/compare/v3.17.0...v3.18.0) (2026-05-14)
 
 
